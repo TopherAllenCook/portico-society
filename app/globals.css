@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette: The Terracotta Authority */
+  --color-terracotta:      oklch(47% 0.135 33);
+  --color-terracotta-deep: oklch(37% 0.11 30);
+  --color-terracotta-pale: oklch(92% 0.030 40);
+  --color-parchment:       oklch(97% 0.006 62);
+  --color-inkwell:         oklch(16% 0.006 35);
+  --color-stone:           oklch(90% 0.005 55);
+  --color-stone-mid:       oklch(74% 0.006 50);
+
+  /* Typography: Antiquarian Provocateur pair */
+  --font-display: var(--font-bodoni-moda), 'Book Antiqua', Georgia, serif;
+  --font-body:    var(--font-jost), system-ui, -apple-system, sans-serif;
+
+  /* Fluid type scale */
+  --text-display:  clamp(3rem, 8vw, 6.5rem);
+  --text-headline: clamp(2rem, 4vw, 3.25rem);
+  --text-title:    clamp(1.125rem, 2vw, 1.5rem);
+  --text-body:     1.0625rem;
+  --text-label:    0.75rem;
+
+  /* Easing */
+  --ease-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Scroll-reveal primitives */
+[data-reveal] {
+  will-change: opacity, transform;
+}
+
+[data-reveal="pending"] {
+  opacity: 0;
+  transform: translateY(1.25rem);
+}
+
+[data-reveal="done"] {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.85s var(--ease-expo),
+    transform 0.85s var(--ease-expo);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal="pending"] {
+    opacity: 1;
+    transform: none;
+  }
+  [data-reveal="done"] {
+    transition: none;
+  }
+}
+
+/* Marquee keyframe */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Scroll indicator pulse */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.25; }
+  50%       { opacity: 0.6; }
+}
+
+/* Testimonial cross-fade */
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(0.5rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Default border color across all elements */
+@layer base {
+  *, *::before, *::after {
+    border-color: var(--color-stone);
+  }
+}
+
+/* Base */
+html {
+  font-family: var(--font-body);
+  color: var(--color-inkwell);
+  background-color: var(--color-parchment);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-terracotta);
+  color: var(--color-parchment);
+}
