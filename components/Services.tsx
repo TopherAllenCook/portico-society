@@ -49,7 +49,7 @@ export default function Services() {
               {/* Number */}
               <span
                 className="font-display block font-normal leading-none text-terracotta"
-                style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)' }}
+                style={{ fontSize: 'clamp(4rem, 7vw, 6.5rem)' }}
                 aria-hidden="true"
               >
                 {service.number}

@@ -18,15 +18,32 @@ export default function Manifesto() {
 
         <RevealOnScroll delay={120}>
           <blockquote>
-            <p
-              className="font-display font-normal leading-[0.95] text-parchment"
-              style={{ fontSize: 'clamp(2.5rem, 7vw, 5.5rem)' }}
-            >
-              Precision
-              <br />
-              is the new
-              <br />
-              luxury.
+            <p className="font-display font-normal leading-[0.88] text-parchment">
+              <span
+                className="block"
+                style={{ fontSize: 'clamp(3.75rem, 14vw, 13rem)' }}
+              >
+                Precision
+              </span>
+              <span
+                className="block font-light"
+                style={{
+                  fontSize: 'clamp(1rem, 2.2vw, 1.875rem)',
+                  color: 'oklch(97% 0.006 62 / 0.45)',
+                  marginLeft: '0.2em',
+                  marginTop: '0.6rem',
+                  marginBottom: '0.4rem',
+                  letterSpacing: '0.08em',
+                }}
+              >
+                is the new
+              </span>
+              <span
+                className="block"
+                style={{ fontSize: 'clamp(3.75rem, 14vw, 13rem)' }}
+              >
+                luxury.
+              </span>
             </p>
           </blockquote>
         </RevealOnScroll>

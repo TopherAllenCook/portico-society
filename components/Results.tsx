@@ -68,7 +68,7 @@ export default function Results() {
 
               <span
                 className="font-display font-normal leading-none text-terracotta"
-                style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)' }}
+                style={{ fontSize: 'clamp(4.5rem, 9vw, 8.5rem)' }}
               >
                 {result.metric}
               </span>
