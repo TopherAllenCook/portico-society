@@ -2,6 +2,7 @@ import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
 import SectorMarquee from '@/components/SectorMarquee'
+import PhotoStrip from '@/components/PhotoStrip'
 import Manifesto from '@/components/Manifesto'
 import Process from '@/components/Process'
 import Results from '@/components/Results'
@@ -20,6 +21,7 @@ export default function HomePage() {
         <Hero />
         <Services />
         <SectorMarquee />
+        <PhotoStrip />
         <Manifesto />
         <Process />
         <Results />
