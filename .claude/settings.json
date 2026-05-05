@@ -16,7 +16,21 @@
       "Bash(curl -s http://localhost:3000/)",
       "Bash(curl -s http://localhost:3000/_next/static/chunks/\\\\[root-of-the-server\\\\]__dda321f1._.css)",
       "Bash(curl -s \"http://localhost:3000/\" -o /tmp/page.html)",
-      "Bash(git init *)"
+      "Bash(git init *)",
+      "Bash(node -e \"const v=require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\); const versions=JSON.parse\\(v\\); console.log\\(versions.filter\\(v=>v.startsWith\\('15.'\\)\\).slice\\(-10\\).join\\('\\\\n'\\)\\)\")",
+      "Bash(npm audit *)",
+      "Bash(node -e \"const d=require\\('fs'\\).readFileSync\\(0,'utf8'\\); const j=JSON.parse\\(d\\); console.log\\(j.markdown||j.content||'no markdown'\\)\")",
+      "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/valencia-home.json','utf8'\\)\\); console.log\\(j.screenshot ? j.screenshot.substring\\(0,200\\) : 'no screenshot'\\); console.log\\('---keys---'\\); console.log\\(Object.keys\\(j\\)\\);\")",
+      "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/valencia-home.json','utf8'\\)\\); console.log\\(j.screenshot\\);\")",
+      "WebFetch(domain:storage.googleapis.com)",
+      "Skill(impeccable)",
+      "Skill(impeccable:*)",
+      "Bash(node .claude/skills/impeccable/scripts/load-context.mjs)",
+      "Bash(node \"C:\\\\Users\\\\ChrisCook\\\\.claude\\\\skills\\\\impeccable\\\\scripts\\\\load-context.mjs\" --context-dir \"c:\\\\Users\\\\ChrisCook\\\\.gemini\\\\antigravity\\\\brain\\\\a712f59b-8275-4298-a54a-beca9d564379\\\\Portico Society\")",
+      "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/flexio-home.json','utf8'\\)\\); console.log\\('SCREENSHOT:'\\); console.log\\(j.screenshot\\); console.log\\('\\\\n\\\\nIMAGES IN LINKS:'\\); \\(j.links||[]\\).filter\\(l=>l.match\\(/\\\\.\\(jpg|jpeg|png|webp|svg|gif|avif\\)/i\\)\\).forEach\\(l=>console.log\\(l\\)\\); console.log\\('\\\\n\\\\nMARKDOWN IMAGES:'\\); \\(j.markdown||''\\).split\\('\\\\n'\\).filter\\(l=>l.includes\\('!['\\) || l.includes\\('framerusercontent'\\) || l.includes\\('framer.com'\\)\\).forEach\\(l=>console.log\\(l\\)\\);\")",
+      "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/flexio-home.json','utf8'\\)\\); console.log\\(j.markdown\\);\")",
+      "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/viral-sma-home.json','utf8'\\)\\); console.log\\('SCREENSHOT:', j.screenshot\\); console.log\\('\\\\n\\\\nMARKDOWN:\\\\n'\\); console.log\\(\\(j.markdown||''\\).substring\\(0, 4000\\)\\);\")",
+      "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/viral-sma-home.json','utf8'\\)\\); console.log\\(\\(j.markdown||''\\).substring\\(4000\\)\\);\")"
     ],
     "additionalDirectories": [
       "c:\\tmp\\impeccable\\.claude\\skills\\impeccable"
