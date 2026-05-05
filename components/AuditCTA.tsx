@@ -54,8 +54,27 @@ export default function AuditCTA() {
               visibility, competitive gaps, AI indexing status, and paid performance — and
               delivers a specific report with prioritized findings.
             </p>
+            {/* Sample finding — makes the audit tangible */}
+            <blockquote
+              className="mt-8 border p-6"
+              style={{ borderColor: 'oklch(97% 0.006 62 / 0.15)' }}
+            >
+              <p
+                className="font-display italic font-normal leading-relaxed"
+                style={{ fontSize: '0.9375rem', color: 'oklch(97% 0.006 62 / 0.65)' }}
+              >
+                &ldquo;Your brand does not appear in any AI-generated travel recommendations for luxury resorts in your region. Three competitors do. This gap is recoverable within 60 days.&rdquo;
+              </p>
+              <cite
+                className="font-body mt-4 block not-italic text-xs tracking-[0.12em] uppercase"
+                style={{ color: 'oklch(97% 0.006 62 / 0.28)' }}
+              >
+                Sample finding — Resort property, Q1 2025
+              </cite>
+            </blockquote>
+
             <p
-              className="font-body mt-4 text-sm font-light"
+              className="font-body mt-6 text-sm font-light"
               style={{ color: 'oklch(97% 0.006 62 / 0.4)' }}
             >
               The audit is the first conversation. It is also proof of the methodology.

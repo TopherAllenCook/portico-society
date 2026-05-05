@@ -79,7 +79,7 @@ export default function Hero() {
           >
             The Market
             <br />
-            <span style={{ color: 'oklch(92% 0.03 40)' }}>Has Changed.</span>
+            <em style={{ color: 'oklch(92% 0.03 40)', fontStyle: 'italic' }}>Has Changed.</em>
           </h1>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
