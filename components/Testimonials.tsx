@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useState, useCallback } from 'react'
 
 const testimonials = [
@@ -43,10 +44,19 @@ export default function Testimonials() {
 
   return (
     <section
-      className="bg-parchment px-6 py-24 lg:px-16 lg:py-32"
+      className="relative overflow-hidden bg-parchment px-6 py-24 lg:px-16 lg:py-32"
       aria-label="Client testimonials"
     >
-      <div className="mx-auto max-w-4xl text-center">
+      <Image
+        src="https://images.unsplash.com/photo-1497366412874-3415097a27e6?w=1600&q=80&auto=format&fit=crop"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover"
+        style={{ filter: 'brightness(0.85) saturate(0.2)', opacity: 0.07 }}
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto max-w-4xl text-center">
         <p
           className="font-body mb-12 text-xs font-medium tracking-[0.2em] uppercase text-stone-mid"
         >

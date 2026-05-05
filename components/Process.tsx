@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import RevealOnScroll from './RevealOnScroll'
 
 const steps = [
@@ -27,64 +28,86 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="bg-parchment px-6 py-24 lg:px-16 lg:py-32"
+      className="relative overflow-hidden bg-parchment"
       aria-labelledby="process-heading"
     >
-      <div className="mx-auto max-w-7xl">
-        <RevealOnScroll>
-          <header className="mb-20 lg:mb-24">
-            <p className="font-body mb-4 text-xs font-medium tracking-[0.2em] uppercase text-stone-mid">
-              How It Works
-            </p>
-            <h2
-              id="process-heading"
-              className="font-display font-normal text-inkwell"
-              style={{ fontSize: 'var(--text-headline)' }}
-            >
-              A methodology built for
-              <br />
-              brands that cannot afford
-              <br />
-              to get this wrong.
-            </h2>
-          </header>
-        </RevealOnScroll>
+      <div className="lg:grid lg:grid-cols-[3fr_2fr]">
 
-        <div className="flex flex-col">
-          {steps.map((step, i) => (
-            <RevealOnScroll key={step.number} delay={i * 80}>
-              <article
-                className="grid grid-cols-1 gap-6 border-t py-12 lg:grid-cols-[1fr_2fr] lg:gap-16 lg:py-14"
-                style={{ borderColor: 'oklch(88% 0.005 55)' }}
+        {/* Left: content */}
+        <div className="px-6 py-24 lg:px-16 lg:py-32">
+          <RevealOnScroll>
+            <header className="mb-20 lg:mb-24">
+              <p className="font-body mb-4 text-xs font-medium tracking-[0.2em] uppercase text-stone-mid">
+                How It Works
+              </p>
+              <h2
+                id="process-heading"
+                className="font-display font-normal text-inkwell"
+                style={{ fontSize: 'var(--text-headline)' }}
               >
-                {/* Left: number + title */}
-                <div className="flex items-start gap-6 lg:flex-col lg:gap-4">
-                  <span
-                    className="font-display font-normal leading-none text-terracotta"
-                    style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)' }}
-                    aria-hidden="true"
-                  >
-                    {step.number}
-                  </span>
-                  <h3
-                    className="font-display pt-1 font-normal text-inkwell lg:pt-0"
-                    style={{ fontSize: 'var(--text-title)' }}
-                  >
-                    {step.title}
-                  </h3>
-                </div>
+                A methodology built for
+                <br />
+                brands that cannot afford
+                <br />
+                to get this wrong.
+              </h2>
+            </header>
+          </RevealOnScroll>
 
-                {/* Right: body */}
-                <p
-                  className="font-body text-base font-light leading-relaxed"
-                  style={{ color: 'oklch(16% 0.006 35 / 0.7)', maxWidth: '58ch' }}
+          <div className="flex flex-col">
+            {steps.map((step, i) => (
+              <RevealOnScroll key={step.number} delay={i * 80}>
+                <article
+                  className="grid grid-cols-1 gap-6 border-t py-12 lg:grid-cols-[1fr_2fr] lg:gap-16 lg:py-14"
+                  style={{ borderColor: 'oklch(88% 0.005 55)' }}
                 >
-                  {step.body}
-                </p>
-              </article>
-            </RevealOnScroll>
-          ))}
+                  <div className="flex items-start gap-6 lg:flex-col lg:gap-4">
+                    <span
+                      className="font-display font-normal leading-none text-terracotta"
+                      style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)' }}
+                      aria-hidden="true"
+                    >
+                      {step.number}
+                    </span>
+                    <h3
+                      className="font-display pt-1 font-normal text-inkwell lg:pt-0"
+                      style={{ fontSize: 'var(--text-title)' }}
+                    >
+                      {step.title}
+                    </h3>
+                  </div>
+
+                  <p
+                    className="font-body text-base font-light leading-relaxed"
+                    style={{ color: 'oklch(16% 0.006 35 / 0.7)', maxWidth: '58ch' }}
+                  >
+                    {step.body}
+                  </p>
+                </article>
+              </RevealOnScroll>
+            ))}
+          </div>
         </div>
+
+        {/* Right: editorial photo (desktop only) */}
+        <div className="relative hidden lg:block" aria-hidden="true">
+          <Image
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=85&auto=format&fit=crop"
+            alt=""
+            fill
+            sizes="(max-width: 1023px) 0px, 33vw"
+            className="object-cover"
+            style={{ filter: 'brightness(0.35) saturate(0.5)' }}
+          />
+          {/* Blend left edge into parchment */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(to right, oklch(97% 0.006 62) 0%, transparent 35%)',
+            }}
+          />
+        </div>
+
       </div>
     </section>
   )

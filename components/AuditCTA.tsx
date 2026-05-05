@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState } from 'react'
 
 export default function AuditCTA() {
@@ -24,10 +25,19 @@ export default function AuditCTA() {
   return (
     <section
       id="audit"
-      className="bg-terracotta px-6 py-24 lg:px-16 lg:py-32"
+      className="relative overflow-hidden bg-terracotta px-6 py-24 lg:px-16 lg:py-32"
       aria-labelledby="audit-heading"
     >
-      <div className="mx-auto max-w-7xl">
+      <Image
+        src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&q=85&auto=format&fit=crop"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover"
+        style={{ filter: 'brightness(0.25) saturate(0.35)', opacity: 0.45 }}
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto max-w-7xl">
         <div className="lg:grid lg:grid-cols-2 lg:gap-20">
           {/* Left: copy */}
           <div>

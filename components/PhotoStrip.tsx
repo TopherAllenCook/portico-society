@@ -45,7 +45,7 @@ export default function PhotoStrip() {
             fill
             sizes="(max-width: 1024px) 80vw, 20vw"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-            style={{ filter: 'brightness(0.42) saturate(0.6)' }}
+            style={{ filter: 'brightness(0.42) saturate(0.6)', willChange: 'transform' }}
           />
           {/* Bottom gradient for label legibility */}
           <div

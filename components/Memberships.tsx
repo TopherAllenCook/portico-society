@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from './RevealOnScroll'
 
@@ -50,57 +51,83 @@ export default function Memberships() {
           {tiers.map((tier, i) => (
             <RevealOnScroll key={tier.label} delay={i * 120}>
               <article
-                className="flex flex-col gap-6 p-10 lg:p-12"
+                className={
+                  tier.accent
+                    ? 'flex flex-col overflow-hidden'
+                    : 'flex flex-col gap-6 p-10 lg:p-12'
+                }
                 style={{
                   backgroundColor: tier.accent
                     ? 'oklch(47% 0.135 33)'
                     : 'oklch(90% 0.005 55)',
                 }}
               >
-                <p
-                  className="font-body text-xs font-medium tracking-[0.18em] uppercase"
-                  style={{
-                    color: tier.accent
-                      ? 'oklch(92% 0.03 40 / 0.55)'
-                      : 'oklch(16% 0.006 35 / 0.45)',
-                  }}
-                >
-                  {tier.label}
-                </p>
+                {tier.accent && (
+                  <div className="relative h-48 flex-shrink-0 lg:h-56" aria-hidden="true">
+                    <Image
+                      src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=85&auto=format&fit=crop"
+                      alt=""
+                      fill
+                      sizes="(max-width: 1023px) 100vw, 50vw"
+                      className="object-cover"
+                      style={{ filter: 'brightness(0.38) saturate(0.55)' }}
+                    />
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          'linear-gradient(to bottom, transparent 30%, oklch(47% 0.135 33) 100%)',
+                      }}
+                    />
+                  </div>
+                )}
 
-                <h3
-                  className="font-display font-normal leading-tight"
-                  style={{
-                    fontSize: 'var(--text-title)',
-                    color: tier.accent ? 'oklch(97% 0.006 62)' : 'oklch(16% 0.006 35)',
-                  }}
-                >
-                  {tier.tagline}
-                </h3>
+                <div className="flex flex-col gap-6 p-10 lg:p-12">
+                  <p
+                    className="font-body text-xs font-medium tracking-[0.18em] uppercase"
+                    style={{
+                      color: tier.accent
+                        ? 'oklch(92% 0.03 40 / 0.55)'
+                        : 'oklch(16% 0.006 35 / 0.45)',
+                    }}
+                  >
+                    {tier.label}
+                  </p>
 
-                <p
-                  className="font-body text-base font-light leading-relaxed"
-                  style={{
-                    color: tier.accent
-                      ? 'oklch(97% 0.006 62 / 0.62)'
-                      : 'oklch(16% 0.006 35 / 0.62)',
-                    maxWidth: '46ch',
-                  }}
-                >
-                  {tier.description}
-                </p>
+                  <h3
+                    className="font-display font-normal leading-tight"
+                    style={{
+                      fontSize: 'var(--text-title)',
+                      color: tier.accent ? 'oklch(97% 0.006 62)' : 'oklch(16% 0.006 35)',
+                    }}
+                  >
+                    {tier.tagline}
+                  </h3>
 
-                <Link
-                  href={tier.href}
-                  className={[
-                    'font-body mt-4 inline-block self-start border px-6 py-3 text-xs font-semibold tracking-[0.1em] uppercase transition-all duration-200',
-                    tier.accent
-                      ? 'border-parchment text-parchment hover:bg-parchment hover:text-terracotta'
-                      : 'border-terracotta text-terracotta hover:bg-terracotta hover:text-parchment',
-                  ].join(' ')}
-                >
-                  {tier.cta}
-                </Link>
+                  <p
+                    className="font-body text-base font-light leading-relaxed"
+                    style={{
+                      color: tier.accent
+                        ? 'oklch(97% 0.006 62 / 0.62)'
+                        : 'oklch(16% 0.006 35 / 0.62)',
+                      maxWidth: '46ch',
+                    }}
+                  >
+                    {tier.description}
+                  </p>
+
+                  <Link
+                    href={tier.href}
+                    className={[
+                      'font-body mt-4 inline-block self-start border px-6 py-3 text-xs font-semibold tracking-[0.1em] uppercase transition-all duration-200',
+                      tier.accent
+                        ? 'border-parchment text-parchment hover:bg-parchment hover:text-terracotta'
+                        : 'border-terracotta text-terracotta hover:bg-terracotta hover:text-parchment',
+                    ].join(' ')}
+                  >
+                    {tier.cta}
+                  </Link>
+                </div>
               </article>
             </RevealOnScroll>
           ))}

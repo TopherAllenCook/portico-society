@@ -70,7 +70,7 @@ export default function Manifesto() {
             src="https://images.unsplash.com/photo-1551882547-ff40c63fe2fa?w=900&q=90&auto=format&fit=crop"
             alt=""
             fill
-            sizes="33vw"
+            sizes="(max-width: 1023px) 0px, 33vw"
             className="object-cover"
             style={{ filter: 'brightness(0.45) saturate(0.6)' }}
           />
