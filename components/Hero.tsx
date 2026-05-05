@@ -17,7 +17,7 @@ export default function Hero() {
           style={{ filter: 'brightness(0.36) saturate(0.65)' }}
           aria-hidden="true"
         />
-        {/* Deep bottom gradient anchors the headline into the photo */}
+        {/* Deep bottom gradient anchors the headline */}
         <div
           className="absolute inset-0"
           style={{
@@ -26,7 +26,7 @@ export default function Hero() {
           }}
           aria-hidden="true"
         />
-        {/* Right edge dissolves into terracotta on desktop */}
+        {/* Right edge dissolves into terracotta */}
         <div
           className="absolute inset-0 hidden lg:block"
           style={{
@@ -51,9 +51,30 @@ export default function Hero() {
             mixBlendMode: 'overlay',
           }}
         />
+
+        {/* Editorial still life — lower half of panel, Valencia-style corner image */}
+        <div className="absolute inset-x-0 bottom-0 h-[46%] overflow-hidden">
+          <Image
+            src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&q=85&auto=format&fit=crop"
+            alt=""
+            fill
+            sizes="(max-width: 1023px) 0px, 38vw"
+            className="object-cover object-center"
+            style={{ filter: 'brightness(0.48) saturate(0.6)' }}
+          />
+          {/* Fade from terracotta at top edge */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to bottom, oklch(47% 0.135 33) 0%, transparent 48%)',
+            }}
+          />
+        </div>
+
         {/* Vertical category tag */}
         <p
-          className="absolute bottom-24 right-7 origin-bottom-right -rotate-90 font-body text-[9px] font-medium tracking-[0.4em] uppercase"
+          className="absolute right-7 top-1/2 -translate-y-1/2 origin-center rotate-90 font-body text-[9px] font-medium tracking-[0.4em] uppercase"
           style={{
             color: 'oklch(92% 0.03 40 / 0.28)',
             whiteSpace: 'nowrap',
@@ -66,17 +87,33 @@ export default function Hero() {
       {/* Content layer — anchored to the bottom */}
       <div className="absolute inset-0 flex flex-col justify-end px-6 pb-16 lg:px-16 lg:pb-24">
 
-        {/* Headline */}
-        <h1
-          className="font-display font-normal leading-[0.88] text-parchment"
-          style={{ fontSize: 'clamp(3.5rem, 13vw, 12rem)' }}
-        >
-          The Market
-          <br />
-          <em style={{ color: 'oklch(92% 0.03 40)', fontStyle: 'italic' }}>Has Changed.</em>
+        {/* Headline — Valencia-style size contrast between lines */}
+        <h1>
+          {/* Qualifier line: quiet, creates rhythm before the crash */}
+          <span
+            className="block font-display font-normal"
+            style={{
+              fontSize: 'clamp(1rem, 3vw, 2.5rem)',
+              color: 'oklch(97% 0.006 62 / 0.5)',
+              letterSpacing: '0.06em',
+              marginBottom: '0.2em',
+            }}
+          >
+            The Market
+          </span>
+          {/* Dominant line: enormous, italic, terracotta accent */}
+          <span
+            className="block font-display italic leading-[0.82]"
+            style={{
+              fontSize: 'clamp(3.5rem, 13vw, 12rem)',
+              color: 'oklch(92% 0.03 40)',
+            }}
+          >
+            Has Changed.
+          </span>
         </h1>
 
-        {/* Specific hook — gives the skeptic a reason to stay */}
+        {/* Hook — gives the skeptic a specific reason to stay */}
         <p
           className="font-body mt-8 max-w-[44ch] text-sm font-light leading-relaxed lg:text-base"
           style={{ color: 'oklch(97% 0.006 62 / 0.62)' }}
