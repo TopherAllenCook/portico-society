@@ -46,7 +46,8 @@
       "Bash(python3 \"C:\\\\Users\\\\ChrisCook\\\\.claude\\\\plugins\\\\cache\\\\ui-ux-pro-max-skill\\\\ui-ux-pro-max\\\\2.0.1\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"editorial luxury entrance animation stagger reveal\" --domain ux -n 8)",
       "Bash(python3 \"C:\\\\Users\\\\ChrisCook\\\\.claude\\\\plugins\\\\cache\\\\ui-ux-pro-max-skill\\\\ui-ux-pro-max\\\\2.0.1\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"healthcare luxury editorial restrained\" --domain landing -n 6)",
       "Bash(node \"c:/Users/ChrisCook/.claude/skills/impeccable/scripts/load-context.mjs\")",
-      "Bash(node \"c:/tmp/impeccable/.claude/skills/impeccable/scripts/load-context.mjs\")"
+      "Bash(node \"c:/tmp/impeccable/.claude/skills/impeccable/scripts/load-context.mjs\")",
+      "WebSearch"
     ],
     "additionalDirectories": [
       "c:\\tmp\\impeccable\\.claude\\skills\\impeccable",
