@@ -31,6 +31,8 @@ export default function CostOfInvisibility() {
     >
       <div className="mx-auto max-w-5xl">
 
+        <h2 className="sr-only">The cost of AI invisibility</h2>
+
         {/* Eyebrow */}
         <RevealOnScroll>
           <p

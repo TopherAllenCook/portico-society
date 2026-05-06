@@ -35,7 +35,8 @@ export default function SelectedWork() {
       <div className="mx-auto max-w-5xl">
 
         <RevealOnScroll>
-          <div className="flex items-baseline gap-8 mb-16">
+          <h2 className="sr-only">Selected Work</h2>
+          <div className="flex items-baseline gap-8 mb-16" aria-hidden="true">
             <p
               className="font-mono text-xs font-medium tracking-[0.18em] uppercase"
               style={{ color: 'oklch(97% 0.008 75 / 0.45)' }}
@@ -45,7 +46,6 @@ export default function SelectedWork() {
             <div
               className="flex-1"
               style={{ height: '1px', backgroundColor: 'oklch(97% 0.008 75 / 0.12)' }}
-              aria-hidden="true"
             />
           </div>
         </RevealOnScroll>
@@ -53,18 +53,19 @@ export default function SelectedWork() {
         <div className="grid grid-cols-1 gap-px lg:grid-cols-2" style={{ backgroundColor: 'oklch(97% 0.008 75 / 0.08)' }}>
           {cases.map(({ category, location, statValue, statPrefix, statSuffix, statLabel, detail }, i) => (
             <RevealOnScroll key={category} delay={i * 120}>
-              <div
+              <article
                 className="p-10 lg:p-14 flex flex-col"
-                style={{ backgroundColor: 'oklch(18% 0.008 30)' }}
+                style={{ backgroundColor: 'var(--color-card-dark)' }}
+                aria-label={`${category}, ${location}`}
               >
                 {/* Category + location */}
                 <div className="flex items-center gap-3 mb-10">
-                  <p
+                  <h3
                     className="font-mono text-xs font-medium tracking-[0.12em] uppercase"
                     style={{ color: 'var(--color-cinnabar)' }}
                   >
                     {category}
-                  </p>
+                  </h3>
                   <span
                     className="h-1 w-1 rounded-full"
                     style={{ backgroundColor: 'oklch(97% 0.008 75 / 0.2)' }}
@@ -78,19 +79,24 @@ export default function SelectedWork() {
                   </p>
                 </div>
 
-                {/* Big result number */}
+                {/* Big result number — screen readers get the sr-only summary instead */}
                 <p
                   className="font-display font-normal leading-none mb-2"
                   style={{ fontSize: 'clamp(4rem, 8vw, 6.5rem)', color: 'var(--color-cinnabar)', letterSpacing: '-0.03em' }}
+                  aria-hidden="true"
                 >
                   <AnimatedStat value={statValue} prefix={statPrefix} suffix={statSuffix} duration={1200} />
                 </p>
                 <p
                   className="font-mono text-xs uppercase tracking-[0.14em] mb-8"
                   style={{ color: 'oklch(97% 0.008 75 / 0.45)' }}
+                  aria-hidden="true"
                 >
                   {statLabel}
                 </p>
+                <span className="sr-only">
+                  {statPrefix}{statValue}{statSuffix} {statLabel}
+                </span>
 
                 {/* Detail */}
                 <p
@@ -99,7 +105,7 @@ export default function SelectedWork() {
                 >
                   {detail}
                 </p>
-              </div>
+              </article>
             </RevealOnScroll>
           ))}
         </div>

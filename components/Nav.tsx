@@ -33,26 +33,16 @@ export default function Nav() {
         aria-label="Primary navigation"
       >
         {/* Stacked wordmark */}
-        <Link href="/" aria-label="Verve Longevity Marketing — home" className="flex flex-col leading-none">
+        <Link href="/" aria-label="Verve Longevity Marketing, home" className="flex flex-col leading-none">
           <span
             className="font-display font-normal transition-colors duration-300"
-            style={{
-              fontSize: '1.125rem',
-              letterSpacing: '0.2em',
-              color: textColor,
-              lineHeight: 1,
-            }}
+            style={{ fontSize: '1.125rem', letterSpacing: '0.2em', color: textColor, lineHeight: 1 }}
           >
             VERVE
           </span>
           <span
             className="font-mono font-medium transition-colors duration-300"
-            style={{
-              fontSize: '0.475rem',
-              letterSpacing: '0.26em',
-              color: subColor,
-              marginTop: '0.25rem',
-            }}
+            style={{ fontSize: '0.475rem', letterSpacing: '0.26em', color: subColor, marginTop: '0.25rem' }}
           >
             LONGEVITY MARKETING
           </span>
@@ -69,7 +59,7 @@ export default function Nav() {
             <li key={href}>
               <Link
                 href={href}
-                className="font-body text-xs font-medium uppercase transition-opacity duration-200 hover:opacity-50"
+                className="font-body text-xs font-medium uppercase transition-opacity duration-200 hover:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                 style={{ letterSpacing: '0.1em', color: textColor }}
               >
                 {label}
@@ -82,12 +72,8 @@ export default function Nav() {
         <div className="hidden lg:block">
           <Link
             href="#begin"
-            className="font-body inline-flex items-center gap-2 border px-6 py-3 text-xs font-medium uppercase transition-all duration-200"
-            style={{
-              letterSpacing: '0.1em',
-              borderColor: ctaBorder,
-              color: textColor,
-            }}
+            className="font-body inline-flex items-center gap-2 border px-6 py-3 text-xs font-medium uppercase transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            style={{ letterSpacing: '0.1em', borderColor: ctaBorder, color: textColor }}
             onMouseEnter={e => {
               e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'
               e.currentTarget.style.borderColor = 'var(--color-cinnabar)'
@@ -99,16 +85,16 @@ export default function Nav() {
               e.currentTarget.style.color = textColor
             }}
           >
-            Book a Growth Audit
+            Request Your Free Audit
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2 7h10M7.5 3l4.5 4-4.5 4" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </Link>
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile toggle — 44×44px touch target */}
         <button
-          className="flex h-10 w-10 cursor-pointer items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 lg:hidden"
+          className="flex h-11 w-11 cursor-pointer items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 lg:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen(o => !o)}
@@ -130,14 +116,11 @@ export default function Nav() {
         </button>
       </nav>
 
-      {/* Mobile drawer — always ivory */}
+      {/* Mobile drawer */}
       {open && (
         <div
           className="border-t px-6 pb-8 pt-6 lg:hidden"
-          style={{
-            backgroundColor: 'var(--color-ivory)',
-            borderColor: 'oklch(14% 0.006 30 / 0.1)',
-          }}
+          style={{ backgroundColor: 'var(--color-ivory)', borderColor: 'oklch(14% 0.006 30 / 0.1)' }}
         >
           <ul className="flex flex-col" role="list">
             {[
@@ -146,10 +129,7 @@ export default function Nav() {
               { label: 'How We Work', href: '#how-we-work' },
               { label: 'Selected Work', href: '#selected-work' },
             ].map(({ label, href }) => (
-              <li
-                key={href}
-                style={{ borderBottom: '1px solid oklch(14% 0.006 30 / 0.08)' }}
-              >
+              <li key={href} style={{ borderBottom: '1px solid oklch(14% 0.006 30 / 0.08)' }}>
                 <Link
                   href={href}
                   className="font-body block py-4 text-sm font-medium uppercase"
@@ -164,14 +144,10 @@ export default function Nav() {
           <Link
             href="#begin"
             className="font-body mt-6 inline-block w-full py-4 text-center text-xs font-medium uppercase transition-colors duration-200"
-            style={{
-              letterSpacing: '0.12em',
-              backgroundColor: 'var(--color-cinnabar)',
-              color: 'var(--color-ivory)',
-            }}
+            style={{ letterSpacing: '0.12em', backgroundColor: 'var(--color-cinnabar)', color: 'var(--color-ivory)' }}
             onClick={() => setOpen(false)}
           >
-            Book a Growth Audit
+            Request Your Free Audit
           </Link>
         </div>
       )}

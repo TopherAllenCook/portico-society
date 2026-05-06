@@ -57,30 +57,23 @@ export default function Categories() {
           </div>
           <p
             className="font-display italic font-normal mb-16"
-            style={{
-              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
-              color: 'oklch(14% 0.006 30 / 0.5)',
-            }}
+            style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)', color: 'oklch(14% 0.006 30 / 0.5)' }}
           >
             Three categories. No exceptions.
           </p>
         </RevealOnScroll>
 
-        <div className="space-y-0">
+        <div>
           {categories.map(({ index, name, description, signals, photo, photoAlt }, i) => (
             <RevealOnScroll key={index} delay={i * 100}>
               <div
                 className="grid grid-cols-1 gap-8 py-12 lg:grid-cols-[5rem_1fr_220px] lg:gap-12"
                 style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
               >
-                {/* Index — display scale */}
+                {/* Index — decorative, not read by AT */}
                 <p
                   className="font-display font-normal leading-none"
-                  style={{
-                    fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-                    color: 'var(--color-cinnabar)',
-                    letterSpacing: '-0.03em',
-                  }}
+                  style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: 'var(--color-cinnabar)', letterSpacing: '-0.03em' }}
                   aria-hidden="true"
                 >
                   {index}
@@ -130,6 +123,13 @@ export default function Categories() {
               </div>
             </RevealOnScroll>
           ))}
+
+          <RevealOnScroll delay={categories.length * 100}>
+            <div
+              style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
+              aria-hidden="true"
+            />
+          </RevealOnScroll>
         </div>
 
       </div>

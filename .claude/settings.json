@@ -44,7 +44,9 @@
       "Bash(node \"C:\\\\Users\\\\ChrisCook\\\\.claude\\\\skills\\\\impeccable\\\\scripts\\\\load-context.mjs\" \"c:\\\\Users\\\\ChrisCook\\\\.gemini\\\\antigravity\\\\brain\\\\a712f59b-8275-4298-a54a-beca9d564379\\\\Portico Society\")",
       "Bash(python3 \"C:\\\\Users\\\\ChrisCook\\\\.claude\\\\plugins\\\\cache\\\\ui-ux-pro-max-skill\\\\ui-ux-pro-max\\\\2.0.1\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"healthcare marketing longevity clinic AI editorial minimal luxury\" --design-system -p \"Verve Clinic Marketing\" -f markdown)",
       "Bash(python3 \"C:\\\\Users\\\\ChrisCook\\\\.claude\\\\plugins\\\\cache\\\\ui-ux-pro-max-skill\\\\ui-ux-pro-max\\\\2.0.1\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"editorial luxury entrance animation stagger reveal\" --domain ux -n 8)",
-      "Bash(python3 \"C:\\\\Users\\\\ChrisCook\\\\.claude\\\\plugins\\\\cache\\\\ui-ux-pro-max-skill\\\\ui-ux-pro-max\\\\2.0.1\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"healthcare luxury editorial restrained\" --domain landing -n 6)"
+      "Bash(python3 \"C:\\\\Users\\\\ChrisCook\\\\.claude\\\\plugins\\\\cache\\\\ui-ux-pro-max-skill\\\\ui-ux-pro-max\\\\2.0.1\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"healthcare luxury editorial restrained\" --domain landing -n 6)",
+      "Bash(node \"c:/Users/ChrisCook/.claude/skills/impeccable/scripts/load-context.mjs\")",
+      "Bash(node \"c:/tmp/impeccable/.claude/skills/impeccable/scripts/load-context.mjs\")"
     ],
     "additionalDirectories": [
       "c:\\tmp\\impeccable\\.claude\\skills\\impeccable",

@@ -11,10 +11,7 @@ export default function Footer() {
   return (
     <footer
       className="px-6 py-16 lg:px-16"
-      style={{
-        backgroundColor: 'var(--color-ivory)',
-        borderTop: '1px solid oklch(14% 0.006 30 / 0.1)',
-      }}
+      style={{ backgroundColor: 'var(--color-ivory)', borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
     >
       <div className="mx-auto max-w-5xl">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_auto]">
@@ -24,7 +21,7 @@ export default function Footer() {
             <Link
               href="/"
               className="flex flex-col leading-none"
-              aria-label="Verve Longevity Marketing — home"
+              aria-label="Verve Longevity Marketing, home"
             >
               <span
                 className="font-display font-normal"
@@ -49,7 +46,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div>
+          <nav aria-label="Footer navigation">
             <p
               className="font-mono mb-4 text-xs font-medium tracking-[0.15em] uppercase"
               style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
@@ -61,7 +58,7 @@ export default function Footer() {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="font-body text-sm font-light transition-opacity duration-200 hover:opacity-50"
+                    className="font-body text-sm font-light transition-opacity duration-200 hover:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                     style={{ color: 'oklch(14% 0.006 30 / 0.65)' }}
                   >
                     {label}
@@ -69,7 +66,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
         </div>
 
         {/* Bottom bar */}
@@ -91,7 +88,7 @@ export default function Footer() {
               <Link
                 key={href}
                 href={href}
-                className="font-body text-xs font-light transition-opacity duration-200 hover:opacity-60"
+                className="font-body text-xs font-light transition-opacity duration-200 hover:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                 style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
               >
                 {label}

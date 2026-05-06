@@ -28,7 +28,6 @@ export default function WhatWeEngineer() {
     >
       <div className="mx-auto max-w-5xl">
 
-        {/* Section header */}
         <RevealOnScroll>
           <div className="flex items-baseline gap-8 mb-16">
             <p
@@ -45,50 +44,42 @@ export default function WhatWeEngineer() {
           </div>
         </RevealOnScroll>
 
-        {/* Outcomes */}
-        <div className="space-y-0">
+        <div>
           {outcomes.map(({ number, title, body }, i) => (
             <RevealOnScroll key={number} delay={i * 100}>
               <div
                 className="grid grid-cols-1 gap-8 py-12 lg:grid-cols-[8rem_1fr_1fr] lg:gap-12"
                 style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
               >
-                {/* Large display number */}
                 <p
                   className="font-display font-normal leading-none"
-                  style={{
-                    fontSize: 'clamp(3.5rem, 7vw, 6rem)',
-                    color: 'var(--color-cinnabar)',
-                    letterSpacing: '-0.03em',
-                  }}
+                  style={{ fontSize: 'clamp(3.5rem, 7vw, 6rem)', color: 'var(--color-cinnabar)', letterSpacing: '-0.03em' }}
                   aria-hidden="true"
                 >
                   {number}
                 </p>
-
                 <h2
                   className="font-display font-normal leading-snug"
-                  style={{
-                    fontSize: 'clamp(1.375rem, 2.5vw, 2rem)',
-                    color: 'var(--color-ink)',
-                  }}
+                  style={{ fontSize: 'clamp(1.375rem, 2.5vw, 2rem)', color: 'var(--color-ink)' }}
                 >
                   {title}
                 </h2>
-
                 <p
                   className="font-body font-light leading-relaxed"
-                  style={{
-                    fontSize: '1rem',
-                    color: 'oklch(14% 0.006 30 / 0.6)',
-                    maxWidth: '48ch',
-                  }}
+                  style={{ fontSize: '1rem', color: 'oklch(14% 0.006 30 / 0.6)', maxWidth: '48ch' }}
                 >
                   {body}
                 </p>
               </div>
             </RevealOnScroll>
           ))}
+
+          <RevealOnScroll delay={outcomes.length * 100}>
+            <div
+              style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
+              aria-hidden="true"
+            />
+          </RevealOnScroll>
         </div>
 
       </div>

@@ -10,6 +10,7 @@
   --color-stone:         oklch(91% 0.006 60);
   --color-stone-mid:     oklch(72% 0.006 55);
   --color-hero-dark:     oklch(8% 0.008 25);
+  --color-card-dark:     oklch(18% 0.008 30);
 
   /* Typography: Fraunces + Inter + JetBrains Mono */
   --font-display: var(--font-fraunces), Georgia, serif;

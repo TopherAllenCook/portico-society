@@ -180,7 +180,7 @@ export default function Hero() {
               e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'
             }}
           >
-            Get My Free Audit
+            Request Your Free Audit
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path
                 d="M2 7h10M7.5 3l4.5 4-4.5 4"

@@ -170,7 +170,7 @@ export default function EngagementPaths() {
               onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'oklch(34% 0.08 54)' }}
               onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)' }}
             >
-              Start with the audit
+              Request Your Free Audit
             </Link>
             <p
               className="font-body text-xs font-light"

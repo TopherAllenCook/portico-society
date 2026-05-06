@@ -19,10 +19,10 @@ export default function HomePage() {
         <CostOfInvisibility />
         <PhotoBand />
         <WhatWeEngineer />
-        <EngagementPaths />
         <Categories />
         <HowWeWork />
         <SelectedWork />
+        <EngagementPaths />
         <BeginCTA />
       </main>
       <Footer />
