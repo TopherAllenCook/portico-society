@@ -180,7 +180,7 @@ export default function BeginCTA() {
 
                   <button
                     type="submit"
-                    className="font-body mt-2 w-full px-8 py-4 text-xs font-medium tracking-[0.14em] uppercase transition-colors duration-200"
+                    className="font-body mt-2 w-full cursor-pointer px-8 py-4 text-xs font-medium tracking-[0.14em] uppercase transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
                     style={{ backgroundColor: 'var(--color-ivory)', color: 'var(--color-cinnabar)' }}
                     onMouseEnter={e => {
                       e.currentTarget.style.backgroundColor = 'oklch(97% 0.008 75 / 0.88)'

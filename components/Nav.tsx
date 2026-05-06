@@ -108,7 +108,7 @@ export default function Nav() {
 
         {/* Mobile toggle */}
         <button
-          className="flex h-10 w-10 items-center justify-center lg:hidden"
+          className="flex h-10 w-10 cursor-pointer items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 lg:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen(o => !o)}
