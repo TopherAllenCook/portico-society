@@ -36,7 +36,7 @@ export default function EngagementPaths() {
     <section
       id="engagement"
       className="relative px-6 py-24 lg:px-16 lg:py-40"
-      style={{ backgroundColor: 'var(--color-stone)' }}
+      style={{ backgroundColor: 'var(--color-ink)' }}
       aria-label="Engagement paths"
     >
       <div className="mx-auto max-w-5xl">
@@ -45,29 +45,32 @@ export default function EngagementPaths() {
           <div className="flex items-baseline gap-8 mb-16">
             <p
               className="font-mono text-xs font-medium tracking-[0.18em] uppercase"
-              style={{ color: 'oklch(14% 0.006 30 / 0.7)' }}
+              style={{ color: 'oklch(97% 0.008 75 / 0.45)' }}
             >
               How to Begin
             </p>
             <div
               className="flex-1"
-              style={{ height: '1px', backgroundColor: 'oklch(14% 0.006 30 / 0.15)' }}
+              style={{ height: '1px', backgroundColor: 'oklch(97% 0.008 75 / 0.12)' }}
               aria-hidden="true"
             />
           </div>
         </RevealOnScroll>
 
-        <div className="grid grid-cols-1 gap-px lg:grid-cols-2" style={{ backgroundColor: 'oklch(14% 0.006 30 / 0.12)' }}>
+        <div
+          className="grid grid-cols-1 gap-px lg:grid-cols-2"
+          style={{ backgroundColor: 'oklch(97% 0.008 75 / 0.08)' }}
+        >
           {paths.map(({ name, duration, description, includes }, i) => (
             <RevealOnScroll key={name} delay={i * 120}>
               <div
                 className="flex flex-col p-10 lg:p-14"
-                style={{ backgroundColor: 'var(--color-stone)' }}
+                style={{ backgroundColor: 'oklch(18% 0.008 30)' }}
               >
                 <div className="flex items-start justify-between gap-4 mb-6">
                   <h2
                     className="font-display font-normal leading-snug"
-                    style={{ fontSize: 'clamp(1.25rem, 2vw, 1.625rem)', color: 'var(--color-ink)' }}
+                    style={{ fontSize: 'clamp(1.25rem, 2vw, 1.625rem)', color: 'var(--color-ivory)' }}
                   >
                     {name}
                   </h2>
@@ -81,7 +84,7 @@ export default function EngagementPaths() {
 
                 <p
                   className="font-body font-light leading-relaxed mb-8"
-                  style={{ fontSize: '0.9375rem', color: 'oklch(14% 0.006 30 / 0.65)' }}
+                  style={{ fontSize: '0.9375rem', color: 'oklch(97% 0.008 75 / 0.6)' }}
                 >
                   {description}
                 </p>
@@ -91,7 +94,7 @@ export default function EngagementPaths() {
                     <li
                       key={j}
                       className="flex items-start gap-3 font-body font-light"
-                      style={{ fontSize: '0.875rem', color: 'oklch(14% 0.006 30 / 0.55)' }}
+                      style={{ fontSize: '0.875rem', color: 'oklch(97% 0.008 75 / 0.5)' }}
                     >
                       <span
                         className="mt-[0.4rem] h-1 w-1 rounded-full flex-shrink-0"
@@ -111,16 +114,16 @@ export default function EngagementPaths() {
           <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link
               href="#begin"
-              className="font-body inline-block bg-ink px-8 py-4 text-xs font-medium tracking-[0.12em] uppercase transition-colors duration-200"
-              style={{ backgroundColor: 'var(--color-ink)', color: 'var(--color-ivory)' }}
-              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)' }}
-              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'var(--color-ink)' }}
+              className="font-body inline-block px-8 py-4 text-xs font-medium tracking-[0.12em] uppercase transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
+              style={{ backgroundColor: 'var(--color-cinnabar)', color: 'var(--color-ivory)' }}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'oklch(34% 0.08 54)' }}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)' }}
             >
               Start with the audit
             </Link>
             <p
               className="font-body text-xs font-light"
-              style={{ color: 'oklch(14% 0.006 30 / 0.45)' }}
+              style={{ color: 'oklch(97% 0.008 75 / 0.4)' }}
             >
               No call required. We deliver the audit first.
             </p>

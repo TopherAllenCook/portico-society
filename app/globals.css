@@ -65,6 +65,19 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Marquee ticker */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track {
+    animation: marquee 40s linear infinite;
+    will-change: transform;
+  }
+}
+
 /* Default border color */
 @layer base {
   *, *::before, *::after {

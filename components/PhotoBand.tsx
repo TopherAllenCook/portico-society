@@ -1,40 +1,41 @@
-import Image from 'next/image'
-
-const panels = [
-  {
-    src: 'https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=900&q=88&auto=format&fit=crop',
-    alt: 'Physician reviewing patient data in a modern clinic',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&q=88&auto=format&fit=crop',
-    alt: 'Premium clinic consultation space with warm natural light',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=900&q=88&auto=format&fit=crop',
-    alt: 'Patient consultation in a concierge medicine practice',
-  },
+const items = [
+  'ChatGPT',
+  'Perplexity',
+  'Google AI Overviews',
+  'Siri',
+  'Gemini',
+  'AI is the new front desk',
+  'Who does AI recommend?',
+  'Be the answer',
+  'Your patients are already asking',
+  'The first name wins',
 ]
 
 export default function PhotoBand() {
+  const doubled = [...items, ...items]
+
   return (
-    <section aria-label="Practice imagery" className="overflow-hidden">
-      <div
-        className="grid grid-cols-1 sm:grid-cols-3"
-        style={{ height: 'clamp(200px, 28vw, 420px)' }}
-      >
-        {panels.map(({ src, alt }, i) => (
-          <div key={i} className="relative overflow-hidden">
-            <Image
-              src={src}
-              alt={alt}
-              fill
-              sizes="(max-width: 640px) 100vw, 33vw"
-              className="object-cover"
-              style={{ filter: 'brightness(0.88) saturate(0.85)' }}
+    <div
+      className="overflow-hidden py-4"
+      style={{ backgroundColor: 'var(--color-cinnabar)' }}
+      aria-hidden="true"
+    >
+      <div className="marquee-track flex items-center gap-0 whitespace-nowrap">
+        {doubled.map((item, i) => (
+          <span
+            key={i}
+            className="flex items-center font-mono text-xs font-medium uppercase tracking-[0.18em]"
+            style={{ color: 'var(--color-ivory)' }}
+          >
+            {item}
+            <span
+              className="mx-6 inline-block h-1 w-1 rounded-full flex-shrink-0"
+              style={{ backgroundColor: 'oklch(97% 0.008 75 / 0.4)' }}
+              aria-hidden="true"
             />
-          </div>
+          </span>
         ))}
       </div>
-    </section>
+    </div>
   )
 }

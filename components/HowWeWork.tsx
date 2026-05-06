@@ -49,12 +49,12 @@ export default function HowWeWork() {
           {phases.map(({ step, body }, i) => (
             <RevealOnScroll key={step} delay={i * 100}>
               <div
-                className="grid grid-cols-1 gap-6 py-10 lg:grid-cols-[14rem_1fr] lg:gap-16"
+                className="grid grid-cols-1 gap-6 py-12 lg:grid-cols-[14rem_1fr] lg:gap-16"
                 style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.12)' }}
               >
                 <h3
-                  className="font-display font-normal leading-snug"
-                  style={{ fontSize: 'clamp(1.125rem, 1.75vw, 1.375rem)', color: 'var(--color-ink)' }}
+                  className="font-display font-normal leading-tight"
+                  style={{ fontSize: 'clamp(1.5rem, 2.75vw, 2.25rem)', color: 'var(--color-ink)' }}
                 >
                   {step}
                 </h3>

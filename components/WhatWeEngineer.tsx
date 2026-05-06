@@ -4,12 +4,12 @@ const outcomes = [
   {
     number: '01',
     title: 'AI Search Authority',
-    body: 'Your practice becomes one of the three that AI recommends when a high net worth patient asks for the best longevity clinic, concierge practice, or aesthetic specialist in your area. This requires a specific methodology. It is not SEO as typically practiced.',
+    body: 'When a patient asks ChatGPT or Perplexity for the best longevity clinic in your city, three practices get named. One of them should be yours. We build the signals, content authority, and AI-readable structure that gets you into that conversation. It is not SEO as typically practiced.',
   },
   {
     number: '02',
-    title: 'Patient Inquiry Architecture',
-    body: 'The patient who finds you through AI arrives with intent. How that inquiry is captured, responded to, and qualified determines whether it converts. We design the full inquiry path: from first contact to booked consultation.',
+    title: 'AI Receptionist Readiness',
+    body: 'The patient who finds you through AI arrives expecting an answer, not a callback form. An AI-optimized inquiry path captures the appointment before a competitor does. We design the complete conversion architecture: from the first AI-generated click to a booked consultation.',
   },
   {
     number: '03',
@@ -50,24 +50,32 @@ export default function WhatWeEngineer() {
           {outcomes.map(({ number, title, body }, i) => (
             <RevealOnScroll key={number} delay={i * 100}>
               <div
-                className="grid grid-cols-1 gap-6 py-12 lg:grid-cols-[6rem_1fr_1fr] lg:gap-16"
+                className="grid grid-cols-1 gap-8 py-12 lg:grid-cols-[8rem_1fr_1fr] lg:gap-12"
                 style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
               >
+                {/* Large display number */}
                 <p
-                  className="font-mono text-xs font-medium tracking-[0.1em]"
-                  style={{ color: 'var(--color-cinnabar)' }}
+                  className="font-display font-normal leading-none"
+                  style={{
+                    fontSize: 'clamp(3.5rem, 7vw, 6rem)',
+                    color: 'var(--color-cinnabar)',
+                    letterSpacing: '-0.03em',
+                  }}
+                  aria-hidden="true"
                 >
                   {number}
                 </p>
+
                 <h2
                   className="font-display font-normal leading-snug"
                   style={{
-                    fontSize: 'clamp(1.25rem, 2.5vw, 2rem)',
+                    fontSize: 'clamp(1.375rem, 2.5vw, 2rem)',
                     color: 'var(--color-ink)',
                   }}
                 >
                   {title}
                 </h2>
+
                 <p
                   className="font-body font-light leading-relaxed"
                   style={{

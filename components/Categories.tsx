@@ -73,10 +73,15 @@ export default function Categories() {
                 className="grid grid-cols-1 gap-8 py-12 lg:grid-cols-[5rem_1fr_220px] lg:gap-12"
                 style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
               >
-                {/* Index */}
+                {/* Index — display scale */}
                 <p
-                  className="font-mono text-xs font-medium tracking-[0.1em]"
-                  style={{ color: 'var(--color-cinnabar)' }}
+                  className="font-display font-normal leading-none"
+                  style={{
+                    fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                    color: 'var(--color-cinnabar)',
+                    letterSpacing: '-0.03em',
+                  }}
+                  aria-hidden="true"
                 >
                   {index}
                 </p>
@@ -111,7 +116,7 @@ export default function Categories() {
                 {/* Editorial photo — desktop only */}
                 <div
                   className="relative hidden overflow-hidden lg:block"
-                  style={{ height: '180px' }}
+                  style={{ height: '240px' }}
                 >
                   <Image
                     src={photo}
