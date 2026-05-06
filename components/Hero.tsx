@@ -35,9 +35,9 @@ export default function Hero() {
   }
 
   const photoSrc =
-    'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80'
+    'https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=1200&q=80'
   const photoAlt =
-    'Healthcare practitioner at a consultation table, warm afternoon light'
+    'Physician in private consultation, longevity medicine practice'
 
   return (
     <section
@@ -45,26 +45,11 @@ export default function Hero() {
       style={{ backgroundColor: 'var(--color-ivory)' }}
       aria-label="Hero"
     >
-      {/* Rotated eyebrow — desktop spine, left edge */}
-      <p
-        className="absolute left-3 top-1/2 hidden lg:block font-mono text-xs font-medium uppercase"
-        style={{
-          writingMode: 'vertical-rl',
-          transform: 'translateY(-50%) rotate(180deg)',
-          letterSpacing: '0.2em',
-          color: 'var(--color-cinnabar)',
-          ...fade(0, 500),
-        }}
-        aria-hidden="true"
-      >
-        For the practice patients find when they ask AI.
-      </p>
-
-      {/* Desktop photo — bleeds from right edge, sits behind text layer */}
+      {/* Desktop photo — wider than before, starts further left, longer dissolve into ivory */}
       <div
         className="absolute right-0 top-0 bottom-0 hidden lg:block"
         style={{
-          width: 'clamp(340px, 48vw, 680px)',
+          width: 'clamp(480px, 58vw, 840px)',
           zIndex: 0,
           ...fade(180, 1100),
         }}
@@ -75,25 +60,27 @@ export default function Hero() {
             alt={photoAlt}
             fill
             priority
-            sizes="(max-width: 1024px) 0px, 48vw"
+            sizes="(max-width: 1024px) 0px, 58vw"
             className="object-cover object-center"
-            style={{ filter: 'brightness(0.9) saturate(0.9)' }}
+            style={{ filter: 'brightness(0.88) saturate(0.85)' }}
           />
-          {/* Left edge fade — dissolves photo into ivory so headline stays readable */}
+          {/* Extended fade — dissolves further into the frame to eliminate center void */}
           <div
             className="absolute inset-0 pointer-events-none"
             aria-hidden="true"
             style={{
               background:
-                'linear-gradient(to right, var(--color-ivory) 0%, oklch(97% 0.008 75 / 0.5) 20%, transparent 40%)',
+                'linear-gradient(to right, var(--color-ivory) 0%, oklch(97% 0.008 75 / 0.4) 38%, transparent 62%)',
             }}
           />
         </div>
       </div>
 
-      {/* Main content */}
-      <div className="relative flex flex-1 flex-col justify-center" style={{ zIndex: 1 }}>
-
+      {/* Main content — pb shifts the flex:center anchor upward in the viewport */}
+      <div
+        className="relative flex flex-1 flex-col justify-center pb-28 lg:pb-40"
+        style={{ zIndex: 1 }}
+      >
         {/* Eyebrow — mobile only */}
         <p
           className="font-mono mb-6 text-xs font-medium uppercase tracking-[0.15em] lg:hidden"
@@ -102,7 +89,7 @@ export default function Hero() {
           For the practice patients find when they ask AI.
         </p>
 
-        {/* Mobile photo strip — between eyebrow and headline */}
+        {/* Mobile photo strip */}
         <div
           className="relative mb-10 -mx-6 h-56 overflow-hidden lg:hidden"
           style={fade(60, 700)}
@@ -114,11 +101,11 @@ export default function Hero() {
             priority
             sizes="(max-width: 1024px) 100vw, 0px"
             className="object-cover object-center"
-            style={{ filter: 'brightness(0.9) saturate(0.9)' }}
+            style={{ filter: 'brightness(0.88) saturate(0.85)' }}
           />
         </div>
 
-        {/* Headline — mixed scale: setup lines build to a massive punchline */}
+        {/* Headline — setup lines build to a cinnabar punchline */}
         <h1 className="font-display font-normal" style={{ letterSpacing: '-0.025em' }}>
           <span
             className="block"
@@ -168,12 +155,12 @@ export default function Hero() {
           </span>
         </h1>
 
-        {/* Single editorial statement */}
+        {/* Editorial statement */}
         <p
           className="font-display italic font-normal mt-10 lg:mt-12"
           style={{
             fontSize: 'clamp(1rem, 1.4vw, 1.2rem)',
-            color: 'oklch(14% 0.006 30 / 0.45)',
+            color: 'oklch(14% 0.006 30 / 0.68)',
             maxWidth: '42ch',
             lineHeight: '1.5',
             ...rise(580),
@@ -228,7 +215,7 @@ export default function Hero() {
           viewBox="0 0 20 12"
           fill="none"
           aria-hidden="true"
-          style={{ color: 'oklch(14% 0.006 30 / 0.25)' }}
+          style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
         >
           <path
             d="M1 1l9 9 9-9"
