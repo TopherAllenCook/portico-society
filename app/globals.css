@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette: The Terracotta Authority */
-  --color-terracotta:      oklch(47% 0.135 33);
-  --color-terracotta-deep: oklch(37% 0.11 30);
-  --color-terracotta-pale: oklch(92% 0.030 40);
-  --color-parchment:       oklch(97% 0.006 62);
-  --color-inkwell:         oklch(16% 0.006 35);
-  --color-stone:           oklch(90% 0.005 55);
-  --color-stone-mid:       oklch(74% 0.006 50);
+  /* Brand palette: Verve */
+  --color-ivory:         oklch(97% 0.008 75);
+  --color-ink:           oklch(14% 0.006 30);
+  --color-cinnabar:      oklch(52% 0.18 28);
+  --color-cinnabar-pale: oklch(92% 0.025 35);
+  --color-stone:         oklch(91% 0.006 60);
+  --color-stone-mid:     oklch(72% 0.006 55);
 
-  /* Typography: Antiquarian Provocateur pair */
-  --font-display: var(--font-bodoni-moda), 'Book Antiqua', Georgia, serif;
-  --font-body:    var(--font-jost), system-ui, -apple-system, sans-serif;
+  /* Typography: Fraunces + Inter + JetBrains Mono */
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-body:    var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-mono:    var(--font-jetbrains-mono), 'Courier New', monospace;
 
   /* Fluid type scale */
   --text-display:  clamp(3rem, 8vw, 6.5rem);
@@ -54,16 +54,10 @@
   }
 }
 
-/* Marquee keyframe */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* Scroll indicator pulse */
-@keyframes pulse-soft {
-  0%, 100% { opacity: 0.25; }
-  50%       { opacity: 0.6; }
+/* Pulsing status dot for eyebrow */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.35; transform: scale(0.85); }
+  50%       { opacity: 1;    transform: scale(1); }
 }
 
 /* Testimonial cross-fade */
@@ -72,7 +66,7 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Default border color across all elements */
+/* Default border color */
 @layer base {
   *, *::before, *::after {
     border-color: var(--color-stone);
@@ -82,8 +76,8 @@
 /* Base */
 html {
   font-family: var(--font-body);
-  color: var(--color-inkwell);
-  background-color: var(--color-parchment);
+  color: var(--color-ink);
+  background-color: var(--color-ivory);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
@@ -94,6 +88,6 @@ body {
 }
 
 ::selection {
-  background-color: var(--color-terracotta);
-  color: var(--color-parchment);
+  background-color: var(--color-cinnabar);
+  color: var(--color-ivory);
 }

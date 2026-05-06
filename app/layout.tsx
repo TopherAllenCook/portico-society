@@ -1,36 +1,45 @@
 import type { Metadata } from 'next'
-import { Bodoni_Moda, Jost } from 'next/font/google'
+import { Fraunces, Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
-const bodoniModa = Bodoni_Moda({
+const fraunces = Fraunces({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-bodoni-moda',
+  axes: ['opsz'],
+  variable: '--font-fraunces',
   display: 'swap',
 })
 
-const jost = Jost({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-jost',
+  weight: ['300', '400', '500'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-jetbrains-mono',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Portico Society — Precision Marketing for Luxury Service Brands',
+  title: 'Verve Clinic Marketing — AI Visibility for Longevity and Concierge Practices',
   description:
-    'AI-enhanced SEO, PPC, and marketing strategy exclusively for luxury hospitality, concierge medicine, longevity, beauty, and events brands.',
+    'Verve engineers AI search authority, patient inquiry systems, and recurring revenue growth for longevity, concierge medicine, and aesthetic practices.',
   openGraph: {
-    title: 'Portico Society',
-    description: 'Precision marketing for luxury service brands that refuse to disappear.',
+    title: 'Verve Clinic Marketing',
+    description: 'Be the answer high net worth patients are already asking AI for.',
     type: 'website',
   },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${bodoniModa.variable} ${jost.variable}`}>
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+    >
       <body>{children}</body>
     </html>
   )

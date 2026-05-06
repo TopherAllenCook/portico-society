@@ -30,10 +30,22 @@
       "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/flexio-home.json','utf8'\\)\\); console.log\\('SCREENSHOT:'\\); console.log\\(j.screenshot\\); console.log\\('\\\\n\\\\nIMAGES IN LINKS:'\\); \\(j.links||[]\\).filter\\(l=>l.match\\(/\\\\.\\(jpg|jpeg|png|webp|svg|gif|avif\\)/i\\)\\).forEach\\(l=>console.log\\(l\\)\\); console.log\\('\\\\n\\\\nMARKDOWN IMAGES:'\\); \\(j.markdown||''\\).split\\('\\\\n'\\).filter\\(l=>l.includes\\('!['\\) || l.includes\\('framerusercontent'\\) || l.includes\\('framer.com'\\)\\).forEach\\(l=>console.log\\(l\\)\\);\")",
       "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/flexio-home.json','utf8'\\)\\); console.log\\(j.markdown\\);\")",
       "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/viral-sma-home.json','utf8'\\)\\); console.log\\('SCREENSHOT:', j.screenshot\\); console.log\\('\\\\n\\\\nMARKDOWN:\\\\n'\\); console.log\\(\\(j.markdown||''\\).substring\\(0, 4000\\)\\);\")",
-      "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/viral-sma-home.json','utf8'\\)\\); console.log\\(\\(j.markdown||''\\).substring\\(4000\\)\\);\")"
+      "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/viral-sma-home.json','utf8'\\)\\); console.log\\(\\(j.markdown||''\\).substring\\(4000\\)\\);\")",
+      "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/valencia-home.json','utf8'\\)\\); const md=j.markdown||j.content||''; console.log\\(md.substring\\(0,3000\\)\\)\")",
+      "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/valencia-fresh.json','utf8'\\)\\); console.log\\('keys:', Object.keys\\(j\\)\\); const sc=j.screenshot||''; console.log\\('screenshot len:', sc.length\\); const md=j.markdown||j.content||''; console.log\\('markdown preview:'\\); console.log\\(md.substring\\(0,2000\\)\\)\")",
+      "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/valencia-fresh.json','utf8'\\)\\); console.log\\('screenshot:', j.screenshot\\)\")",
+      "Bash(wait)",
+      "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/brandhouse-hero.json','utf8'\\)\\); console.log\\('BH screenshot:', j.screenshot ? j.screenshot.substring\\(0,120\\) : 'none'\\); console.log\\('BH markdown:'\\); console.log\\(\\(j.markdown||''\\).substring\\(0,1500\\)\\)\")",
+      "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/vivre-hero.json','utf8'\\)\\); console.log\\('VV screenshot:', j.screenshot ? j.screenshot.substring\\(0,120\\) : 'none'\\); console.log\\('VV markdown:'\\); console.log\\(\\(j.markdown||''\\).substring\\(0,1500\\)\\)\")",
+      "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/brandhouse-hero.json','utf8'\\)\\); console.log\\(j.screenshot\\)\")",
+      "Bash(node -e \"const j=JSON.parse\\(require\\('fs'\\).readFileSync\\('.firecrawl/vivre-hero.json','utf8'\\)\\); console.log\\(j.screenshot\\)\")",
+      "Bash(curl -s \"https://storage.googleapis.com/firecrawl-scrape-media/screenshot-789631c0-83de-44d4-acdf-e19d2f2e0c0d.png?GoogleAccessId=scrape-bucket-accessor%40firecrawl.iam.gserviceaccount.com&Expires=1778591692&Signature=KSviDHNxXX%2FQDguqdM80ojpNwlXWxBabTeEin3inaLNUidqshQcIF1hKhSL0oisUTZyOq%2BZiiP0xWg33EQ93VSE6aYabqP1BR3S%2BD7hlUIy%2BtOv3sqZosEFlszyiqCgEaBvLbFmhT3Nd1vRAcCLwRQuCWdrC%2BrAVzbyMtrw1uhOyHx36WoFANVO4w5jV1wVWh3labFwZCjpxuNxpeJHqVTNJ7RjEn6xWyUfKGUa7gaopFcEkUbDrfGgF0Ws8J%2BqJJEmJjA0wEgTJuS1zztTE8yTxpKfJvJIi8QUAZ5xV74QenviqXu6Olk0nNNPy5RYYbrKsTUC9Gri3Df1mYdmE7Q%3D%3D\" -o \"c:/tmp/brandhouse.png\")",
+      "Bash(curl -s \"https://storage.googleapis.com/firecrawl-scrape-media/screenshot-c36924bc-3b29-4591-b993-da2401e5b6e9.png?GoogleAccessId=scrape-bucket-accessor%40firecrawl.iam.gserviceaccount.com&Expires=1778458979&Signature=s7DNu2ujmTuyadsejq%2FbNZqEW5dZGJlvocqw6SMfLCcpiBXH6F9bI514YYl8vh7rLkH9SvPoqWhZQjBqfiR0QkzcE6wMXHIu2Q4D7kl9QtofjrIZRxApCE3isjvVjKSLH4eiS67EiFyGx0HnxtZ6oo%2BCo5XGAKzSL68jbficzy4pAke3KEuDXlePAeLanr4Ga76LfxARg3v8Sg26jO%2F13tKTttrRbw0zXmlhbXF1vF6QY3i8vKDllJp5Dl9wNvVzDbpHF%2BC4%2BaoSMCbZ02mtRx4wcEkQAFDgviOkGqQa50FBp%2FwDVkFNFKuPEuI0uG7%2F4%2BZCWPCkgPKEORvsCjg7GQ%3D%3D\" -o \"c:/tmp/vivre.png\")",
+      "Bash(node \"C:\\\\Users\\\\ChrisCook\\\\.claude\\\\skills\\\\impeccable\\\\scripts\\\\load-context.mjs\" \"c:\\\\Users\\\\ChrisCook\\\\.gemini\\\\antigravity\\\\brain\\\\a712f59b-8275-4298-a54a-beca9d564379\\\\Portico Society\")"
     ],
     "additionalDirectories": [
-      "c:\\tmp\\impeccable\\.claude\\skills\\impeccable"
+      "c:\\tmp\\impeccable\\.claude\\skills\\impeccable",
+      "c:\\c\\Users\\ChrisCook\\.gemini\\antigravity\\brain\\a712f59b-8275-4298-a54a-beca9d564379\\Portico Society\\components"
     ]
   }
 }

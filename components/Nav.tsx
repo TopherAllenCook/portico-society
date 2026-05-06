@@ -1,83 +1,70 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
-
-const links = [
-  { href: '#services', label: 'Services' },
-  { href: '#process', label: 'Process' },
-  { href: '#results', label: 'Results' },
-  { href: '#contact', label: 'Contact' },
-]
+import { useState } from 'react'
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [menuOpen])
+  const [open, setOpen] = useState(false)
 
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50 transition-colors duration-500"
-      style={{
-        backgroundColor: scrolled ? 'oklch(97% 0.006 62 / 0.96)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(8px)' : 'none',
-        borderBottom: scrolled ? '1px solid oklch(88% 0.005 55)' : 'none',
-      }}
+      className="fixed top-0 inset-x-0 z-50"
+      style={{ borderBottom: '1px solid oklch(14% 0.006 30 / 0.08)' }}
     >
+      <div
+        className="absolute inset-0"
+        style={{ backgroundColor: 'oklch(97% 0.008 75 / 0.92)', backdropFilter: 'blur(12px)' }}
+        aria-hidden="true"
+      />
       <nav
-        className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10"
+        className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-16"
         aria-label="Primary navigation"
       >
         {/* Wordmark */}
         <Link
           href="/"
-          className="font-display text-sm font-medium tracking-[0.18em] uppercase"
-          style={{ color: scrolled ? 'oklch(16% 0.006 35)' : 'oklch(97% 0.006 62)' }}
-          aria-label="Portico Society — Home"
+          className="font-display font-normal tracking-tight"
+          style={{ fontSize: '1.125rem', color: 'var(--color-ink)' }}
+          aria-label="Verve Clinic Marketing — home"
         >
-          Portico Society
+          Verve
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden items-center gap-8 lg:flex">
-          {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="font-body text-xs font-medium tracking-[0.12em] uppercase transition-opacity duration-200 hover:opacity-60"
-              style={{ color: scrolled ? 'oklch(16% 0.006 35)' : 'oklch(97% 0.006 62)' }}
-            >
-              {label}
-            </Link>
+        <ul className="hidden items-center gap-10 lg:flex" role="list">
+          {[
+            { label: 'What We Do', href: '#what-we-engineer' },
+            { label: 'How We Work', href: '#how-we-work' },
+            { label: 'Specialties', href: '#categories' },
+          ].map(({ label, href }) => (
+            <li key={href}>
+              <Link
+                href={href}
+                className="font-body text-xs font-medium tracking-[0.1em] uppercase transition-opacity duration-200 hover:opacity-50"
+                style={{ color: 'var(--color-ink)' }}
+              >
+                {label}
+              </Link>
+            </li>
           ))}
+        </ul>
+
+        {/* CTA */}
+        <div className="hidden lg:block">
           <Link
-            href="#audit"
-            className="font-body ml-4 border px-5 py-2 text-xs font-medium tracking-[0.1em] uppercase transition-all duration-200"
+            href="#begin"
+            className="font-body inline-block border px-6 py-3 text-xs font-medium tracking-[0.1em] uppercase transition-colors duration-200"
             style={{
-              borderColor: scrolled ? 'oklch(47% 0.135 33)' : 'oklch(97% 0.006 62)',
-              color: scrolled ? 'oklch(47% 0.135 33)' : 'oklch(97% 0.006 62)',
+              borderColor: 'oklch(14% 0.006 30 / 0.25)',
+              color: 'var(--color-ink)',
             }}
             onMouseEnter={e => {
-              const el = e.currentTarget
-              el.style.backgroundColor = 'oklch(47% 0.135 33)'
-              el.style.color = 'oklch(97% 0.006 62)'
-              el.style.borderColor = 'oklch(47% 0.135 33)'
+              e.currentTarget.style.backgroundColor = 'var(--color-ink)'
+              e.currentTarget.style.color = 'var(--color-ivory)'
             }}
             onMouseLeave={e => {
-              const el = e.currentTarget
-              el.style.backgroundColor = 'transparent'
-              el.style.color = scrolled ? 'oklch(47% 0.135 33)' : 'oklch(97% 0.006 62)'
-              el.style.borderColor = scrolled ? 'oklch(47% 0.135 33)' : 'oklch(97% 0.006 62)'
+              e.currentTarget.style.backgroundColor = 'transparent'
+              e.currentTarget.style.color = 'var(--color-ink)'
             }}
           >
             Request Audit
@@ -86,57 +73,61 @@ export default function Nav() {
 
         {/* Mobile toggle */}
         <button
-          className="flex h-10 w-10 flex-col items-center justify-center gap-[5px] lg:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-expanded={menuOpen}
-          aria-label="Toggle menu"
+          className="lg:hidden"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          onClick={() => setOpen(o => !o)}
         >
-          {[0, 1, 2].map(i => (
-            <span
-              key={i}
-              className="block h-px w-5 transition-all duration-300"
-              style={{
-                backgroundColor: scrolled || menuOpen ? 'oklch(16% 0.006 35)' : 'oklch(97% 0.006 62)',
-                transform:
-                  menuOpen && i === 0 ? 'translateY(6px) rotate(45deg)'
-                  : menuOpen && i === 2 ? 'translateY(-6px) rotate(-45deg)'
-                  : menuOpen && i === 1 ? 'scaleX(0)' : 'none',
-              }}
-            />
-          ))}
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            {open ? (
+              <>
+                <line x1="4" y1="4" x2="18" y2="18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="18" y1="4" x2="4" y2="18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </>
+            ) : (
+              <>
+                <line x1="3" y1="7" x2="19" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="3" y1="15" x2="19" y2="15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </>
+            )}
+          </svg>
         </button>
       </nav>
 
       {/* Mobile menu */}
-      <div
-        className="overflow-hidden transition-all duration-500 lg:hidden"
-        style={{
-          maxHeight: menuOpen ? '400px' : '0',
-          backgroundColor: 'oklch(97% 0.006 62)',
-        }}
-        aria-hidden={!menuOpen}
-      >
-        <div className="flex flex-col gap-1 px-6 pb-8 pt-4">
-          {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => setMenuOpen(false)}
-              className="font-body border-b py-4 text-sm font-medium tracking-[0.12em] uppercase text-inkwell"
-              style={{ borderColor: 'oklch(88% 0.005 55)' }}
-            >
-              {label}
-            </Link>
-          ))}
+      {open && (
+        <div
+          className="relative border-t px-6 pb-8 pt-6 lg:hidden"
+          style={{ backgroundColor: 'var(--color-ivory)', borderColor: 'oklch(14% 0.006 30 / 0.08)' }}
+        >
+          <ul className="flex flex-col gap-5" role="list">
+            {[
+              { label: 'What We Do', href: '#what-we-engineer' },
+              { label: 'How We Work', href: '#how-we-work' },
+              { label: 'Specialties', href: '#categories' },
+            ].map(({ label, href }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className="font-body text-sm font-medium tracking-[0.08em] uppercase"
+                  style={{ color: 'var(--color-ink)' }}
+                  onClick={() => setOpen(false)}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
           <Link
-            href="#audit"
-            onClick={() => setMenuOpen(false)}
-            className="mt-4 bg-terracotta py-4 text-center font-body text-xs font-medium tracking-[0.1em] uppercase text-parchment"
+            href="#begin"
+            className="font-body mt-8 inline-block w-full border py-4 text-center text-xs font-medium tracking-[0.1em] uppercase"
+            style={{ borderColor: 'oklch(14% 0.006 30 / 0.25)', color: 'var(--color-ink)' }}
+            onClick={() => setOpen(false)}
           >
-            Request Free Audit
+            Request Audit
           </Link>
         </div>
-      </div>
+      )}
     </header>
   )
 }

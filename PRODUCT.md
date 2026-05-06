@@ -1,38 +1,74 @@
-# Product
+# PRODUCT.md — Verve Clinic Marketing
 
 ## Register
-
 brand
 
-## Users
-
-Decision-makers at luxury service providers: hospitality groups, concierge medicine practices, longevity clinics, beauty brands, and high-end event and wedding companies. They arrive as discerning buyers accustomed to being courted by premium vendors. They are evaluating whether Portico Society has the sophistication and strategic vision to handle their brand without diluting it. They do not need to be sold luxury; they need to feel understood.
-
-Secondary: existing clients accessing the client portal to track campaign performance, review reporting, and communicate with their team.
-
 ## Product Purpose
+Verve is a clinic marketing agency for longevity, concierge medicine, and aesthetic practices. We engineer AI search authority, patient inquiry systems, and recurring revenue growth so that high net worth patients find the right practice at the moment of intent.
 
-Portico Society is a B2B marketing agency delivering AI implementations, SEO, and PPC campaigns exclusively for luxury service providers. It exists to grow premium brands through precision marketing that understands the restraint, nuance, and authority those brands require. Success means a prospective client arrives, immediately feels seen, and converts to an engagement. Clients stay because results compound and the relationship feels like a partnership, not a vendor account.
+The agency doesn't compete on volume. It competes on precision: three specialties, a defined practice profile, and a clear promise. Every engagement is specific to one practice. No templates, no retainer treadmills, no vanity metrics.
 
-## Brand Personality
+## Users
+Practice owners and medical directors at established longevity, concierge medicine, and aesthetic medicine practices. Revenue $1M+, 3+ years operating, already doing some marketing but not getting the right patients from it.
 
-Visionary. Authoritative. Provocative. Portico Society pushes the category forward and makes clients feel they would fall behind without it. The tone is confident, editorial, and specific. It does not explain itself to the wrong audience. It speaks directly to the people who already know what they're looking at.
+They are sophisticated buyers. They have been pitched by generalist agencies and left disappointed. They know the difference between activity and outcome. They do not want to be impressed by slides; they want to see methodology and specificity.
 
-Emotional goal: the luxury client should feel they have finally found the one agency that actually understands their world.
+Secondary: clinic administrators and practice managers who research vendors before bringing them to the physician owner.
 
-## Anti-references
+## Brand Voice
+- Restraint over abundance. One precise sentence beats three vague ones.
+- Confidence without hyperbole. No "revolutionary," "best-in-class," "unparalleled."
+- Few words, heavy implication. Let the reader fill in the prestige.
+- AI is the engine, not the headline. Don't lead with AI features; lead with patient outcomes and practice growth.
+- Outcomes in business terms: inquiry volume, inquiry quality, patient acquisition cost, lifetime value, revenue per patient.
+- No em dashes. No exclamation points. No emojis.
+- No "we believe" language. State facts or ask questions.
+- Address the practice owner directly ("your practice," "your patients") not the general market.
 
-- **Loud luxury**: no flashy gold accents, no ostentatious wealth signals, no maximalist ornamentation. That aesthetic signals insecurity, not taste.
-- **Typical agency portfolios**: no "We are a creative studio" hero copy in 80px type, no neon-on-dark, no case study grids, no floating icons, no gradient-heavy SaaS aesthetics.
+## Tone Reference
+Trade journal. Clinical precision. The Financial Times, not TechCrunch. The kind of copy a practice owner reads twice.
+
+## Anti-References
+- SaaS landing pages with gradient blobs and three-column feature grids
+- Loud medical marketing with stock photo doctors and "YOUR HEALTH IS OUR PRIORITY"
+- Generic digital agencies that claim to serve "healthcare + retail + e-commerce"
+- Flashy AI aesthetics: dark mode, neon accents, animated particles, glowing gradients
+- Before/after photo grids
+- Testimonial carousels with star ratings
+- "Book a free call" as the primary CTA (Verve leads with an audit, not a call)
 
 ## Design Principles
+- Trade journal aesthetic: thin rules, generous whitespace, editorial typography
+- Ivory background as the default surface — warm, not cold clinical white
+- Dark ink section (CostOfInvisibility) used as contrast, not decoration
+- Cinnabar accent used sparingly for data points and primary CTAs only
+- Fraunces for display: authoritative, slightly literary, confident
+- Inter for body: clean and legible at clinical reading length
+- JetBrains Mono for eyebrow tags and utility labels
+- No full-bleed hero photos on initial build — words carry the weight
+- No card grids. No identical repeated elements.
+- Section rhythm alternates ivory / ink or stone for contrast without noise
 
-1. **Speak to the client, not the category.** Luxury clients do not need to be told what luxury is. Address them as peers who already recognize it.
-2. **Restraint as confidence.** What is left out signals taste. Never over-explain. Whitespace and silence earn trust.
-3. **The tool matches the craft.** A marketing agency for premium brands must itself demonstrate premium marketing at every touchpoint. The agency website is a live case study.
-4. **Provoke before you persuade.** Lead with a sharp point of view that challenges the status quo of how luxury brands market themselves. Earn attention before earning business.
-5. **Authority through specificity.** Generic claims are invisible to discerning clients. Precise, concrete expertise cuts through.
+## Engagement Model
+Two paths:
+1. **Standard Engagement**: structured 6-month engagement covering AI visibility, inquiry architecture, and growth foundation
+2. **Custom Engagement**: built around the specific practice situation; priced accordingly
 
-## Accessibility & Inclusion
+Primary CTA: Free AI Visibility Audit — no sales call required, audit delivered first, serves as proof of methodology
 
-WCAG 2.1 AA. Strong contrast ratios, full keyboard navigation, and screen-reader support throughout. Reduced-motion alternatives for any animation-heavy components.
+## Categories Served
+1. Longevity Medicine — hormone optimization, cellular health, metabolic reset, biological age
+2. Concierge Medicine — direct primary care, membership medicine, executive health
+3. Aesthetic Medicine — body sculpting, skin rejuvenation, non-surgical facial, injectables
+
+## Strategic Principles
+- AI is reshaping how high net worth patients find and choose practices. Most practices are invisible to AI search.
+- The audit is not a lead magnet. It is a demonstration of methodology. If the audit is good, the practice wants more of it.
+- Verve does not work with practices below $1M revenue or in competitive consumer med-spa categories.
+- Phase 2: AI patient inquiry concierge (planned, not promoted yet)
+
+## Competitive Context
+Three competitors typically appear in AI recommendations for any given specialty + city combination. If a practice is not one of them, they are losing patients they will never know about.
+
+## Accessibility
+WCAG 2.1 AA. Strong contrast ratios, full keyboard navigation, screen-reader support. Reduced-motion alternatives for all animated components.
