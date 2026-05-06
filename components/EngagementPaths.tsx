@@ -66,7 +66,7 @@ export default function EngagementPaths() {
         <RevealOnScroll>
           {/* Tab row */}
           <div
-            className="flex gap-0 mb-14"
+            className="flex gap-0 mb-14 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             style={{ borderBottom: '1px solid oklch(97% 0.008 75 / 0.1)' }}
             role="tablist"
             aria-label="Engagement types"
@@ -78,7 +78,7 @@ export default function EngagementPaths() {
                 aria-selected={active === i}
                 aria-controls={`panel-${p.id}`}
                 onClick={() => setActive(i)}
-                className="relative cursor-pointer pb-5 pr-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
+                className="relative flex-shrink-0 cursor-pointer pb-5 pr-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
               >
                 <span
                   className="font-mono text-xs font-medium tracking-[0.14em] uppercase transition-colors duration-200"

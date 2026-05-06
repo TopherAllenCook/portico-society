@@ -41,7 +41,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative flex min-h-svh flex-col overflow-hidden px-8 pt-32 pb-0 lg:px-16 lg:pt-0"
+      className="relative flex min-h-svh flex-col overflow-hidden px-6 pt-32 pb-0 lg:px-16 lg:pt-0"
       style={{ backgroundColor: 'var(--color-ivory)' }}
       aria-label="Hero"
     >
@@ -104,7 +104,7 @@ export default function Hero() {
 
         {/* Mobile photo strip — between eyebrow and headline */}
         <div
-          className="relative mb-10 -mx-8 h-56 overflow-hidden lg:hidden"
+          className="relative mb-10 -mx-6 h-56 overflow-hidden lg:hidden"
           style={fade(60, 700)}
         >
           <Image
