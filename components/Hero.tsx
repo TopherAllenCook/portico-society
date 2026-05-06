@@ -34,10 +34,9 @@ export default function Hero() {
     }
   }
 
-  const photoSrc =
-    'https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=1200&q=80'
+  const photoSrc = '/hero-physician.png'
   const photoAlt =
-    'Physician in private consultation, longevity medicine practice'
+    'Longevity medicine physician reviewing biomarker data in a private consultation suite'
 
   return (
     <section
@@ -61,8 +60,8 @@ export default function Hero() {
             fill
             priority
             sizes="(max-width: 1024px) 0px, 58vw"
-            className="object-cover object-center"
-            style={{ filter: 'brightness(0.88) saturate(0.85)' }}
+            className="object-cover"
+            style={{ objectPosition: '60% center', filter: 'brightness(0.92) saturate(0.88)' }}
           />
           {/* Extended fade — dissolves further into the frame to eliminate center void */}
           <div
@@ -100,8 +99,8 @@ export default function Hero() {
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 0px"
-            className="object-cover object-center"
-            style={{ filter: 'brightness(0.88) saturate(0.85)' }}
+            className="object-cover"
+            style={{ objectPosition: '55% center', filter: 'brightness(0.92) saturate(0.88)' }}
           />
         </div>
 
