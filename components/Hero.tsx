@@ -139,8 +139,31 @@ export default function Hero() {
           </span>
         </h1>
 
+        {/* Benefit bullets */}
+        <div className="mt-10 flex flex-col gap-3" style={rise(480)}>
+          {[
+            { lead: 'Know where you stand.', detail: 'Free AI audit delivered in 48 hours.' },
+            { lead: 'Patients who already chose.', detail: 'Appear when they ask AI who to see.' },
+            { lead: 'Authority that compounds.', detail: 'Organic visibility — not ad spend that stops.' },
+          ].map(({ lead, detail }) => (
+            <p
+              key={lead}
+              className="font-body text-sm font-light"
+              style={{ color: 'oklch(14% 0.006 30 / 0.6)' }}
+            >
+              <strong
+                className="font-medium"
+                style={{ color: 'var(--color-ink)' }}
+              >
+                {lead}
+              </strong>{' '}
+              {detail}
+            </p>
+          ))}
+        </div>
+
         {/* CTA cluster */}
-        <div className="mt-14 lg:mt-16" style={rise(660)}>
+        <div className="mt-12 lg:mt-14" style={rise(660)}>
           <Link
             href="#begin"
             className="font-mono inline-flex items-center gap-3 px-8 py-4 text-xs font-medium uppercase transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
