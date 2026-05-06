@@ -1,17 +1,32 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Nav() {
+  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 72)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Colors adapt: dark/transparent over hero, ivory when scrolled
+  const textColor = scrolled ? 'var(--color-ink)' : 'oklch(97% 0.008 75)'
+  const subColor = scrolled ? 'oklch(14% 0.006 30 / 0.45)' : 'oklch(97% 0.008 75 / 0.5)'
+  const ctaBorder = scrolled ? 'oklch(14% 0.006 30 / 0.28)' : 'oklch(97% 0.008 75 / 0.35)'
 
   return (
     <header
-      className="fixed top-0 inset-x-0 z-50"
+      className="fixed top-0 inset-x-0 z-50 transition-all duration-300"
       style={{
-        backgroundColor: 'var(--color-ivory)',
-        borderBottom: '1px solid oklch(14% 0.006 30 / 0.1)',
+        backgroundColor: scrolled ? 'var(--color-ivory)' : 'transparent',
+        borderBottom: scrolled
+          ? '1px solid oklch(14% 0.006 30 / 0.1)'
+          : '1px solid transparent',
       }}
     >
       <nav
@@ -21,22 +36,22 @@ export default function Nav() {
         {/* Stacked wordmark */}
         <Link href="/" aria-label="Verve Longevity Marketing — home" className="flex flex-col leading-none">
           <span
-            className="font-display font-normal"
+            className="font-display font-normal transition-colors duration-300"
             style={{
               fontSize: '1.125rem',
               letterSpacing: '0.2em',
-              color: 'var(--color-ink)',
+              color: textColor,
               lineHeight: 1,
             }}
           >
             VERVE
           </span>
           <span
-            className="font-mono font-medium"
+            className="font-mono font-medium transition-colors duration-300"
             style={{
               fontSize: '0.475rem',
               letterSpacing: '0.26em',
-              color: 'oklch(14% 0.006 30 / 0.45)',
+              color: subColor,
               marginTop: '0.25rem',
             }}
           >
@@ -44,7 +59,7 @@ export default function Nav() {
           </span>
         </Link>
 
-        {/* Desktop center links */}
+        {/* Desktop links */}
         <ul className="hidden items-center gap-10 lg:flex" role="list">
           {[
             { label: 'Services', href: '#what-we-engineer' },
@@ -55,8 +70,8 @@ export default function Nav() {
             <li key={href}>
               <Link
                 href={href}
-                className="font-body text-xs font-medium tracking-[0.1em] uppercase transition-opacity duration-200 hover:opacity-50"
-                style={{ color: 'var(--color-ink)' }}
+                className="font-body text-xs font-medium uppercase transition-opacity duration-200 hover:opacity-50"
+                style={{ letterSpacing: '0.1em', color: textColor }}
               >
                 {label}
               </Link>
@@ -68,20 +83,24 @@ export default function Nav() {
         <div className="hidden lg:block">
           <Link
             href="#begin"
-            className="font-body inline-flex items-center gap-2 border px-6 py-3 text-xs font-medium tracking-[0.1em] uppercase transition-all duration-200"
-            style={{ borderColor: 'oklch(14% 0.006 30 / 0.3)', color: 'var(--color-ink)' }}
+            className="font-body inline-flex items-center gap-2 border px-6 py-3 text-xs font-medium uppercase transition-all duration-200"
+            style={{
+              letterSpacing: '0.1em',
+              borderColor: ctaBorder,
+              color: textColor,
+            }}
             onMouseEnter={e => {
               e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'
               e.currentTarget.style.borderColor = 'var(--color-cinnabar)'
-              e.currentTarget.style.color = 'var(--color-ivory)'
+              e.currentTarget.style.color = 'oklch(97% 0.008 75)'
             }}
             onMouseLeave={e => {
               e.currentTarget.style.backgroundColor = 'transparent'
-              e.currentTarget.style.borderColor = 'oklch(14% 0.006 30 / 0.3)'
-              e.currentTarget.style.color = 'var(--color-ink)'
+              e.currentTarget.style.borderColor = ctaBorder
+              e.currentTarget.style.color = textColor
             }}
           >
-            Elevate Your Clinic
+            Book a Growth Audit
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2 7h10M7.5 3l4.5 4-4.5 4" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -94,6 +113,7 @@ export default function Nav() {
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen(o => !o)}
+          style={{ color: textColor }}
         >
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
             {open ? (
@@ -111,7 +131,7 @@ export default function Nav() {
         </button>
       </nav>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — always ivory */}
       {open && (
         <div
           className="border-t px-6 pb-8 pt-6 lg:hidden"
@@ -120,7 +140,7 @@ export default function Nav() {
             borderColor: 'oklch(14% 0.006 30 / 0.1)',
           }}
         >
-          <ul className="flex flex-col gap-0" role="list">
+          <ul className="flex flex-col" role="list">
             {[
               { label: 'Services', href: '#what-we-engineer' },
               { label: 'Who We Help', href: '#categories' },
@@ -133,8 +153,8 @@ export default function Nav() {
               >
                 <Link
                   href={href}
-                  className="font-body block py-4 text-sm font-medium tracking-[0.08em] uppercase"
-                  style={{ color: 'var(--color-ink)' }}
+                  className="font-body block py-4 text-sm font-medium uppercase"
+                  style={{ letterSpacing: '0.08em', color: 'var(--color-ink)' }}
                   onClick={() => setOpen(false)}
                 >
                   {label}
@@ -144,11 +164,15 @@ export default function Nav() {
           </ul>
           <Link
             href="#begin"
-            className="font-body mt-6 inline-block w-full py-4 text-center text-xs font-medium tracking-[0.12em] uppercase transition-colors duration-200"
-            style={{ backgroundColor: 'var(--color-cinnabar)', color: 'var(--color-ivory)' }}
+            className="font-body mt-6 inline-block w-full py-4 text-center text-xs font-medium uppercase transition-colors duration-200"
+            style={{
+              letterSpacing: '0.12em',
+              backgroundColor: 'var(--color-cinnabar)',
+              color: 'var(--color-ivory)',
+            }}
             onClick={() => setOpen(false)}
           >
-            Elevate Your Clinic
+            Book a Growth Audit
           </Link>
         </div>
       )}

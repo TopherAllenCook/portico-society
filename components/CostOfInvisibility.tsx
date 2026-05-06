@@ -19,7 +19,7 @@ export default function CostOfInvisibility() {
   return (
     <section
       className="relative px-6 py-24 lg:px-16 lg:py-40"
-      style={{ backgroundColor: 'var(--color-ink)' }}
+      style={{ backgroundColor: 'var(--color-ivory)' }}
       aria-label="The cost of AI invisibility"
     >
       <div className="mx-auto max-w-5xl">
@@ -30,7 +30,7 @@ export default function CostOfInvisibility() {
             className="font-display italic font-normal leading-snug"
             style={{
               fontSize: 'clamp(1.5rem, 3.5vw, 2.75rem)',
-              color: 'oklch(97% 0.008 75 / 0.9)',
+              color: 'oklch(14% 0.006 30 / 0.75)',
               maxWidth: '28ch',
             }}
           >
@@ -39,14 +39,12 @@ export default function CostOfInvisibility() {
         </RevealOnScroll>
 
         {/* Stats */}
-        <div
-          className="mt-20 grid grid-cols-1 gap-px lg:grid-cols-3"
-        >
+        <div className="mt-20 grid grid-cols-1 gap-px lg:grid-cols-3">
           {stats.map(({ figure, label }, i) => (
             <RevealOnScroll key={i} delay={i * 80}>
               <div
                 className="pt-10 pr-0 lg:pr-12"
-                style={{ borderTop: '1px solid oklch(97% 0.008 75 / 0.1)' }}
+                style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
               >
                 <p
                   className="font-display font-normal leading-none"
@@ -62,7 +60,7 @@ export default function CostOfInvisibility() {
                   className="font-body mt-5 font-light leading-relaxed"
                   style={{
                     fontSize: '0.9375rem',
-                    color: 'oklch(97% 0.008 75 / 0.55)',
+                    color: 'oklch(14% 0.006 30 / 0.6)',
                     maxWidth: '34ch',
                   }}
                 >
@@ -79,7 +77,7 @@ export default function CostOfInvisibility() {
             className="font-display italic font-normal mt-20"
             style={{
               fontSize: 'clamp(1rem, 1.75vw, 1.375rem)',
-              color: 'oklch(97% 0.008 75 / 0.45)',
+              color: 'oklch(14% 0.006 30 / 0.45)',
               maxWidth: '52ch',
             }}
           >

@@ -3,180 +3,214 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-function GrowIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <path d="M2 14l4.5-5.5 4 3 7-9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M14.5 3H18v3.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
-
-function PatientIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <circle cx="10" cy="5.5" r="3" stroke="currentColor" strokeWidth="1.4" />
-      <path d="M3 19c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-    </svg>
-  )
-}
-
-function RevenueIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <rect x="2" y="12.5" width="3.5" height="5.5" rx="0.75" stroke="currentColor" strokeWidth="1.4" />
-      <rect x="8.25" y="8" width="3.5" height="10" rx="0.75" stroke="currentColor" strokeWidth="1.4" />
-      <rect x="14.5" y="3" width="3.5" height="15" rx="0.75" stroke="currentColor" strokeWidth="1.4" />
-    </svg>
-  )
-}
-
-const benefits = [
-  { icon: <GrowIcon />, label: 'Grow your practice' },
-  { icon: <PatientIcon />, label: 'Attract the right patients' },
-  { icon: <RevenueIcon />, label: 'Build lasting revenue' },
-]
-
 const PHOTO =
-  'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1400&q=90&auto=format&fit=crop'
+  'https://images.unsplash.com/photo-1584226761916-3fd67ab3c5ae?w=1600&q=90&auto=format&fit=crop'
+
+const LOGOS = [
+  'Meridian Longevity',
+  'Apex Concierge',
+  'Nova Aesthetic',
+  'Cedar Wellness',
+  'Summit Health',
+]
 
 export default function Hero() {
   return (
-    <section aria-label="Hero" className="pt-16 lg:pt-0">
-      {/* Mobile photo strip — sits below the fixed nav */}
-      <div className="relative h-64 sm:h-80 lg:hidden">
-        <Image
-          src={PHOTO}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-          style={{ filter: 'brightness(0.92) saturate(1.05)' }}
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0"
-          style={{ backgroundColor: 'oklch(55% 0.04 50 / 0.08)' }}
-          aria-hidden="true"
-        />
-      </div>
+    <section
+      className="relative min-h-svh overflow-hidden flex flex-col"
+      style={{ backgroundColor: 'oklch(8% 0.008 25)' }}
+      aria-label="Hero"
+    >
+      {/* Background photo */}
+      <Image
+        src={PHOTO}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+        style={{ filter: 'brightness(0.35) saturate(0.55)' }}
+        aria-hidden="true"
+      />
 
-      {/* Desktop split grid */}
+      {/* Left-weighted gradient for headline legibility */}
       <div
-        className="grid lg:min-h-svh"
-        style={{ gridTemplateColumns: '1fr 1fr' }}
-      >
-        {/* Left copy panel */}
-        <div
-          className="flex flex-col justify-between px-8 pb-12 pt-12 lg:px-16 lg:pb-16 lg:pt-44"
-          style={{ backgroundColor: 'var(--color-ivory)' }}
-        >
-          {/* Upper content block */}
-          <div>
-            {/* Eyebrow */}
-            <p
-              className="font-mono mb-6 text-xs font-medium tracking-[0.22em] uppercase"
-              style={{ color: 'var(--color-cinnabar)' }}
-            >
-              Strategy. Visibility. Growth.
-            </p>
+        className="absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(to right, oklch(8% 0.008 25 / 0.94) 0%, oklch(8% 0.008 25 / 0.72) 42%, oklch(8% 0.008 25 / 0.22) 100%)',
+        }}
+        aria-hidden="true"
+      />
 
-            {/* Thin rule */}
-            <div
-              className="mb-8"
-              style={{ height: '1px', backgroundColor: 'oklch(14% 0.006 30 / 0.12)' }}
-              aria-hidden="true"
-            />
+      {/* Bottom gradient for logo bar legibility */}
+      <div
+        className="absolute inset-x-0 bottom-0"
+        style={{
+          height: '200px',
+          background: 'linear-gradient(to top, oklch(8% 0.008 25 / 0.92) 0%, transparent 100%)',
+        }}
+        aria-hidden="true"
+      />
 
-            {/* Headline */}
+      {/* Content layer */}
+      <div className="relative flex min-h-svh flex-col px-8 pt-32 pb-0 lg:px-16 lg:pt-40">
+
+        {/* Main content — centered vertically in remaining space */}
+        <div className="flex flex-1 flex-col justify-center">
+
+          {/* Eyebrow */}
+          <p
+            className="font-mono mb-8 text-xs font-medium uppercase"
+            style={{ letterSpacing: '0.22em', color: 'var(--color-cinnabar)' }}
+          >
+            For the practice patients find when they ask AI.
+          </p>
+
+          {/* Headline + right tagline grid */}
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[3fr_1fr]">
+
+            {/* Massive all-caps headline */}
             <h1
-              className="font-display font-normal leading-[0.92] mb-8"
+              className="font-display font-normal"
               style={{
-                fontSize: 'clamp(2.25rem, 5.5vw, 5rem)',
-                color: 'var(--color-ink)',
-                maxWidth: '17ch',
+                fontSize: 'clamp(3rem, 9.5vw, 9rem)',
+                lineHeight: '0.92',
+                letterSpacing: '-0.02em',
+                textTransform: 'uppercase',
+                color: 'oklch(97% 0.008 75)',
               }}
             >
-              Marketing that makes your practice the{' '}
-              <em style={{ fontStyle: 'italic', color: 'var(--color-cinnabar)' }}>answer.</em>
+              Be first<br />
+              when they<br />
+              ask ChatGPT<br />
+              <span style={{ color: 'var(--color-cinnabar)' }}>or Claude.</span>
             </h1>
 
-            {/* Subhead */}
-            <p
-              className="font-body mb-10 font-light leading-relaxed"
-              style={{
-                fontSize: 'clamp(0.9375rem, 1.25vw, 1.0625rem)',
-                color: 'oklch(14% 0.006 30 / 0.6)',
-                maxWidth: '46ch',
-              }}
+            {/* Right three-part tagline — desktop only */}
+            <div
+              className="hidden lg:flex flex-col items-end gap-2 text-right"
+              aria-label="What we do"
             >
-              Most practices are invisible to AI search. Patients ask ChatGPT, Perplexity, and
-              Gemini for a recommendation. Three competitors appear. Your practice doesn't. The
-              audit tells you exactly what it would take to change that.
-            </p>
+              {[
+                { text: 'AI Driven.', accent: false },
+                { text: 'Practice Focused.', accent: false },
+                { text: 'Results First.', accent: true },
+              ].map(({ text, accent }) => (
+                <p
+                  key={text}
+                  className="font-mono font-medium uppercase"
+                  style={{
+                    fontSize: '0.75rem',
+                    letterSpacing: '0.2em',
+                    color: accent
+                      ? 'var(--color-cinnabar)'
+                      : 'oklch(97% 0.008 75 / 0.6)',
+                  }}
+                >
+                  {text}
+                </p>
+              ))}
+              <span
+                className="mt-5 font-mono select-none"
+                style={{ fontSize: '1.25rem', color: 'oklch(97% 0.008 75 / 0.18)', lineHeight: 1 }}
+                aria-hidden="true"
+              >
+                +
+              </span>
+            </div>
+          </div>
 
-            {/* Primary CTA */}
+          {/* CTA button */}
+          <div className="mt-12">
             <Link
               href="#begin"
-              className="font-body inline-flex items-center gap-3 px-8 py-4 text-xs font-medium tracking-[0.14em] uppercase transition-colors duration-200"
-              style={{ backgroundColor: 'var(--color-cinnabar)', color: 'var(--color-ivory)' }}
+              className="font-mono inline-flex items-center gap-3 border px-8 py-4 text-xs font-medium uppercase transition-colors duration-200"
+              style={{
+                letterSpacing: '0.16em',
+                borderColor: 'var(--color-cinnabar)',
+                color: 'var(--color-cinnabar)',
+              }}
               onMouseEnter={e => {
-                e.currentTarget.style.backgroundColor = 'oklch(44% 0.18 28)'
+                e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'
+                e.currentTarget.style.color = 'oklch(97% 0.008 75)'
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'
+                e.currentTarget.style.backgroundColor = 'transparent'
+                e.currentTarget.style.color = 'var(--color-cinnabar)'
               }}
             >
-              Let&apos;s elevate your clinic
+              Run My AI Visibility Audit
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <path d="M2 7h10M7.5 3l4.5 4-4.5 4" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                <path
+                  d="M2 7h10M7.5 3l4.5 4-4.5 4"
+                  stroke="currentColor"
+                  strokeWidth="1.25"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </Link>
           </div>
+        </div>
 
-          {/* Lower: benefit tags pinned to bottom on desktop */}
-          <div className="mt-12 lg:mt-0">
-            <div
-              className="mb-8"
-              style={{ height: '1px', backgroundColor: 'oklch(14% 0.006 30 / 0.1)' }}
-              aria-hidden="true"
-            />
-            <div className="grid grid-cols-3 gap-4">
-              {benefits.map(({ icon, label }) => (
-                <div key={label} className="flex flex-col items-start gap-3">
-                  <span style={{ color: 'var(--color-cinnabar)' }}>{icon}</span>
-                  <span
-                    className="font-mono text-xs font-medium uppercase leading-snug"
-                    style={{ letterSpacing: '0.1em', color: 'oklch(14% 0.006 30 / 0.5)' }}
+        {/* Logo bar — anchored to bottom */}
+        <div className="mt-16 pb-10">
+          <div
+            className="pt-6"
+            style={{ borderTop: '1px solid oklch(97% 0.008 75 / 0.1)' }}
+          >
+            <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:gap-10">
+              <p
+                className="font-mono text-xs uppercase leading-snug flex-shrink-0"
+                style={{ letterSpacing: '0.14em', color: 'oklch(97% 0.008 75 / 0.35)' }}
+              >
+                Trusted by leading<br className="hidden lg:block" />
+                {' '}longevity practices
+              </p>
+
+              {/* Vertical divider */}
+              <div
+                className="hidden lg:block h-6 w-px"
+                style={{ backgroundColor: 'oklch(97% 0.008 75 / 0.12)' }}
+                aria-hidden="true"
+              />
+
+              <ul className="flex flex-wrap gap-x-8 gap-y-2" role="list">
+                {LOGOS.map(name => (
+                  <li
+                    key={name}
+                    className="font-mono text-xs uppercase"
+                    style={{ letterSpacing: '0.18em', color: 'oklch(97% 0.008 75 / 0.3)' }}
                   >
-                    {label}
-                  </span>
-                </div>
-              ))}
+                    {name}
+                  </li>
+                ))}
+              </ul>
             </div>
+          </div>
+
+          {/* Scroll indicator */}
+          <div className="mt-8 flex justify-center">
+            <svg
+              width="20"
+              height="12"
+              viewBox="0 0 20 12"
+              fill="none"
+              aria-hidden="true"
+              style={{ color: 'oklch(97% 0.008 75 / 0.28)' }}
+            >
+              <path
+                d="M1 1l9 9 9-9"
+                stroke="currentColor"
+                strokeWidth="1.25"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </div>
         </div>
 
-        {/* Right photo panel — desktop only */}
-        <div className="relative hidden lg:block">
-          <Image
-            src={PHOTO}
-            alt=""
-            fill
-            priority
-            sizes="52vw"
-            className="object-cover"
-            style={{ filter: 'brightness(0.92) saturate(1.05)' }}
-            aria-hidden="true"
-          />
-          {/* Subtle warm cast to match ivory palette */}
-          <div
-            className="absolute inset-0"
-            style={{ backgroundColor: 'oklch(55% 0.04 50 / 0.08)' }}
-            aria-hidden="true"
-          />
-        </div>
       </div>
     </section>
   )
