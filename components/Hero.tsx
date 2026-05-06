@@ -64,7 +64,7 @@ export default function Hero() {
       <div
         className="absolute right-0 top-0 bottom-0 hidden lg:block"
         style={{
-          width: 'clamp(280px, 40vw, 580px)',
+          width: 'clamp(340px, 48vw, 680px)',
           zIndex: 0,
           ...fade(180, 1100),
         }}
@@ -75,9 +75,9 @@ export default function Hero() {
             alt={photoAlt}
             fill
             priority
-            sizes="(max-width: 1024px) 0px, 40vw"
+            sizes="(max-width: 1024px) 0px, 48vw"
             className="object-cover object-center"
-            style={{ filter: 'brightness(0.88) saturate(0.82)' }}
+            style={{ filter: 'brightness(0.9) saturate(0.9)' }}
           />
           {/* Left edge fade — dissolves photo into ivory so headline stays readable */}
           <div
@@ -85,7 +85,7 @@ export default function Hero() {
             aria-hidden="true"
             style={{
               background:
-                'linear-gradient(to right, var(--color-ivory) 0%, oklch(97% 0.008 75 / 0.55) 28%, transparent 54%)',
+                'linear-gradient(to right, var(--color-ivory) 0%, oklch(97% 0.008 75 / 0.5) 20%, transparent 40%)',
             }}
           />
         </div>
@@ -104,7 +104,7 @@ export default function Hero() {
 
         {/* Mobile photo strip — between eyebrow and headline */}
         <div
-          className="relative mb-10 -mx-8 h-44 overflow-hidden lg:hidden"
+          className="relative mb-10 -mx-8 h-56 overflow-hidden lg:hidden"
           style={fade(60, 700)}
         >
           <Image
@@ -114,56 +114,76 @@ export default function Hero() {
             priority
             sizes="(max-width: 1024px) 100vw, 0px"
             className="object-cover object-center"
-            style={{ filter: 'brightness(0.88) saturate(0.82)' }}
+            style={{ filter: 'brightness(0.9) saturate(0.9)' }}
           />
         </div>
 
-        {/* Headline — type-led stagger, one line at a time */}
-        <h1
-          className="font-display font-normal"
-          style={{
-            fontSize: 'clamp(3.5rem, 14vw, 9.5rem)',
-            lineHeight: '0.97',
-            letterSpacing: '-0.025em',
-            color: 'var(--color-ink)',
-          }}
-        >
-          <span className="block" style={rise(80)}>Your patients</span>
-          <span className="block" style={rise(210)}>ask ChatGPT</span>
-          <span className="block" style={rise(340)}>who to see.</span>
+        {/* Headline — mixed scale: setup lines build to a massive punchline */}
+        <h1 className="font-display font-normal" style={{ letterSpacing: '-0.025em' }}>
           <span
             className="block"
-            style={{ color: 'var(--color-cinnabar)', ...rise(500) }}
+            style={{
+              fontSize: 'clamp(2.25rem, 7.5vw, 5.5rem)',
+              lineHeight: '1.0',
+              color: 'var(--color-ink)',
+              ...rise(80),
+            }}
+          >
+            Your patients
+          </span>
+          <span
+            className="block"
+            style={{
+              fontSize: 'clamp(2.25rem, 7.5vw, 5.5rem)',
+              lineHeight: '1.0',
+              color: 'var(--color-ink)',
+              ...rise(190),
+            }}
+          >
+            ask ChatGPT
+          </span>
+          <span
+            className="block"
+            style={{
+              fontSize: 'clamp(2.25rem, 7.5vw, 5.5rem)',
+              lineHeight: '1.05',
+              color: 'oklch(14% 0.006 30 / 0.5)',
+              ...rise(300),
+            }}
+          >
+            who to see.
+          </span>
+          <span
+            className="block"
+            style={{
+              fontSize: 'clamp(4.5rem, 16vw, 11rem)',
+              lineHeight: '0.9',
+              letterSpacing: '-0.03em',
+              color: 'var(--color-cinnabar)',
+              marginTop: '0.1em',
+              ...rise(450),
+            }}
           >
             Be the answer.
           </span>
         </h1>
 
-        {/* Benefit bullets */}
-        <div className="mt-10 flex flex-col gap-3" style={rise(480)}>
-          {[
-            { lead: 'Know where you stand.', detail: 'Free AI audit delivered in 48 hours.' },
-            { lead: 'Patients who already chose.', detail: 'Appear when they ask AI who to see.' },
-            { lead: 'Authority that compounds.', detail: 'Organic visibility — not ad spend that stops.' },
-          ].map(({ lead, detail }) => (
-            <p
-              key={lead}
-              className="font-body text-sm font-light"
-              style={{ color: 'oklch(14% 0.006 30 / 0.6)' }}
-            >
-              <strong
-                className="font-medium"
-                style={{ color: 'var(--color-ink)' }}
-              >
-                {lead}
-              </strong>{' '}
-              {detail}
-            </p>
-          ))}
-        </div>
+        {/* Single editorial statement */}
+        <p
+          className="font-display italic font-normal mt-10 lg:mt-12"
+          style={{
+            fontSize: 'clamp(1rem, 1.4vw, 1.2rem)',
+            color: 'oklch(14% 0.006 30 / 0.45)',
+            maxWidth: '42ch',
+            lineHeight: '1.5',
+            ...rise(580),
+          }}
+        >
+          The first name AI speaks wins the patient. Right now, that name is your competitor&rsquo;s.
+        </p>
 
         {/* CTA cluster */}
-        <div className="mt-12 lg:mt-14" style={rise(660)}>
+        <div className="mt-12 lg:mt-14" style={rise(680)}>
           <Link
             href="#begin"
             className="font-mono inline-flex items-center gap-3 px-8 py-4 text-xs font-medium uppercase transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
@@ -201,7 +221,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="flex justify-center pb-12" style={fade(800, 500)}>
+      <div className="flex justify-center pb-12" style={fade(900, 500)}>
         <svg
           width="20"
           height="12"
