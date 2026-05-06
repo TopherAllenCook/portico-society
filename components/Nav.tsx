@@ -14,10 +14,9 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Colors adapt: dark/transparent over hero, ivory when scrolled
-  const textColor = scrolled ? 'var(--color-ink)' : 'oklch(97% 0.008 75)'
-  const subColor = scrolled ? 'oklch(14% 0.006 30 / 0.45)' : 'oklch(97% 0.008 75 / 0.5)'
-  const ctaBorder = scrolled ? 'oklch(14% 0.006 30 / 0.28)' : 'oklch(97% 0.008 75 / 0.35)'
+  const textColor = 'var(--color-ink)'
+  const subColor = scrolled ? 'oklch(14% 0.006 30 / 0.45)' : 'oklch(14% 0.006 30 / 0.5)'
+  const ctaBorder = scrolled ? 'oklch(14% 0.006 30 / 0.28)' : 'oklch(14% 0.006 30 / 0.18)'
 
   return (
     <header

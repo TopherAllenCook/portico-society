@@ -34,7 +34,7 @@ export default function Footer() {
               </span>
               <span
                 className="font-mono font-medium"
-                style={{ fontSize: '0.475rem', letterSpacing: '0.26em', color: 'oklch(14% 0.006 30 / 0.4)', marginTop: '0.25rem' }}
+                style={{ fontSize: '0.475rem', letterSpacing: '0.26em', color: 'oklch(14% 0.006 30 / 0.7)', marginTop: '0.25rem' }}
               >
                 LONGEVITY MARKETING
               </span>

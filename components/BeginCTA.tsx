@@ -27,7 +27,7 @@ export default function BeginCTA() {
     <section
       id="begin"
       className="relative px-6 py-24 lg:px-16 lg:py-40"
-      style={{ backgroundColor: 'var(--color-cinnabar)' }}
+      style={{ backgroundColor: 'var(--color-cta-surface)' }}
       aria-labelledby="begin-heading"
     >
       <div className="mx-auto max-w-5xl">
@@ -137,16 +137,10 @@ export default function BeginCTA() {
                       onChange={e => setEmail(e.target.value)}
                       placeholder="you@yourpractice.com"
                       required
-                      className="font-body w-full bg-transparent px-5 py-4 text-sm outline-none transition-colors duration-200"
+                      className="font-body w-full bg-transparent px-5 py-4 text-sm outline-none transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
                       style={{
                         border: '1px solid oklch(97% 0.008 75 / 0.25)',
                         color: 'var(--color-ivory)',
-                      }}
-                      onFocus={e => {
-                        e.currentTarget.style.borderColor = 'oklch(97% 0.008 75 / 0.6)'
-                      }}
-                      onBlur={e => {
-                        e.currentTarget.style.borderColor = 'oklch(97% 0.008 75 / 0.25)'
                       }}
                       aria-describedby={error ? 'begin-error' : undefined}
                     />
@@ -176,16 +170,10 @@ export default function BeginCTA() {
                       value={website}
                       onChange={e => setWebsite(e.target.value)}
                       placeholder="https://yourpractice.com"
-                      className="font-body w-full bg-transparent px-5 py-4 text-sm outline-none transition-colors duration-200"
+                      className="font-body w-full bg-transparent px-5 py-4 text-sm outline-none transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
                       style={{
                         border: '1px solid oklch(97% 0.008 75 / 0.25)',
                         color: 'var(--color-ivory)',
-                      }}
-                      onFocus={e => {
-                        e.currentTarget.style.borderColor = 'oklch(97% 0.008 75 / 0.6)'
-                      }}
-                      onBlur={e => {
-                        e.currentTarget.style.borderColor = 'oklch(97% 0.008 75 / 0.25)'
                       }}
                     />
                   </div>

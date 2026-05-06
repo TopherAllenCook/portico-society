@@ -33,7 +33,7 @@ export default function WhatWeEngineer() {
           <div className="flex items-baseline gap-8 mb-16">
             <p
               className="font-mono text-xs font-medium tracking-[0.18em] uppercase"
-              style={{ color: 'oklch(14% 0.006 30 / 0.4)' }}
+              style={{ color: 'oklch(14% 0.006 30 / 0.7)' }}
             >
               What We Engineer
             </p>
