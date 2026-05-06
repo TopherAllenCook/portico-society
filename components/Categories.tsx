@@ -54,56 +54,59 @@ export default function Categories() {
         </RevealOnScroll>
 
         <div>
-          {categories.map(({ name, description, signals, photo, photoAlt }, i) => (
-            <RevealOnScroll key={name} delay={i * 100}>
-              <div
-                className="grid grid-cols-1 gap-8 py-12 lg:grid-cols-[1fr_200px] lg:gap-12"
-                style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
-              >
-                {/* Name + description + signals */}
-                <div>
-                  <h2
-                    className="font-display font-normal leading-snug mb-5"
-                    style={{ fontSize: 'clamp(1.875rem, 3.5vw, 2.75rem)', color: 'var(--color-ink)' }}
-                  >
-                    {name}
-                  </h2>
-                  <p
-                    className="font-body font-light leading-relaxed mb-6"
-                    style={{ fontSize: '0.9375rem', color: 'oklch(14% 0.006 30 / 0.6)' }}
-                  >
-                    {description}
-                  </p>
-                  <ul className="flex flex-wrap gap-x-5 gap-y-1">
-                    {signals.map(signal => (
-                      <li
-                        key={signal}
-                        className="font-mono text-xs uppercase tracking-[0.1em]"
-                        style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
-                      >
-                        {signal}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Editorial photo — desktop only */}
+          {categories.map(({ name, description, signals, photo, photoAlt }, i) => {
+            const photoLeft = i % 2 === 1
+            return (
+              <RevealOnScroll key={name} delay={i * 100}>
                 <div
-                  className="relative hidden overflow-hidden lg:block"
-                  style={{ height: '200px' }}
+                  className={`flex flex-col gap-8 py-12 lg:items-start lg:gap-12 ${photoLeft ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
+                  style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
                 >
-                  <Image
-                    src={photo}
-                    alt={photoAlt}
-                    fill
-                    sizes="200px"
-                    className="object-cover"
-                    style={{ filter: 'brightness(0.9) saturate(0.8)' }}
-                  />
+                  {/* Content — always the wide block */}
+                  <div className="flex-1 min-w-0">
+                    <h2
+                      className="font-display font-normal leading-snug mb-5"
+                      style={{ fontSize: 'clamp(1.875rem, 3.5vw, 2.75rem)', color: 'var(--color-ink)' }}
+                    >
+                      {name}
+                    </h2>
+                    <p
+                      className="font-body font-light leading-relaxed mb-6"
+                      style={{ fontSize: '0.9375rem', color: 'oklch(14% 0.006 30 / 0.6)' }}
+                    >
+                      {description}
+                    </p>
+                    <ul className="flex flex-wrap gap-x-5 gap-y-1">
+                      {signals.map(signal => (
+                        <li
+                          key={signal}
+                          className="font-mono text-xs uppercase tracking-[0.1em]"
+                          style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
+                        >
+                          {signal}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Editorial photo — fixed 200px, desktop only, alternates left/right */}
+                  <div
+                    className="relative hidden overflow-hidden lg:block flex-shrink-0"
+                    style={{ height: '200px', width: '200px' }}
+                  >
+                    <Image
+                      src={photo}
+                      alt={photoAlt}
+                      fill
+                      sizes="200px"
+                      className="object-cover"
+                      style={{ filter: 'brightness(0.9) saturate(0.8)' }}
+                    />
+                  </div>
                 </div>
-              </div>
-            </RevealOnScroll>
-          ))}
+              </RevealOnScroll>
+            )
+          })}
 
           <RevealOnScroll delay={categories.length * 100}>
             <div

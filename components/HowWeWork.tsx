@@ -104,11 +104,13 @@ function PhaseRow({
   body,
   index,
   reduced,
+  isLast = false,
 }: {
   step: string
   body: string
   index: number
   reduced: boolean
+  isLast?: boolean
 }) {
   const { ref, visible } = useReveal(0.1, 36)
   const v = reduced || visible
@@ -126,6 +128,40 @@ function PhaseRow({
       : `opacity ${duration}ms ${EXPO} ${delay}ms, transform ${duration}ms ${EXPO} ${delay}ms`,
     willChange: v ? 'auto' : 'opacity, transform',
   })
+
+  if (isLast) {
+    return (
+      <div ref={ref} className="relative py-14 lg:py-20">
+        <DrawRule reduced={reduced} delay={0} />
+        <div
+          className="max-w-3xl"
+          style={fade(80, 540, '0', '10px')}
+        >
+          <h3
+            className="font-display font-normal leading-snug mb-6"
+            style={{
+              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+              color: 'var(--color-ink)',
+              letterSpacing: '-0.025em',
+            }}
+          >
+            <span className="sr-only">Step {index + 1}: </span>
+            {step}
+          </h3>
+          <p
+            className="font-display italic font-normal leading-relaxed"
+            style={{
+              fontSize: 'clamp(1.1rem, 1.8vw, 1.375rem)',
+              color: 'oklch(14% 0.006 30 / 0.58)',
+              maxWidth: '52ch',
+            }}
+          >
+            {body}
+          </p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div ref={ref} className="relative py-14 lg:py-16">
@@ -229,6 +265,7 @@ export default function HowWeWork() {
               body={phase.body}
               index={i}
               reduced={reduced}
+              isLast={i === phases.length - 1}
             />
           ))}
 

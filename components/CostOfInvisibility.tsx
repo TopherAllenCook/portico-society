@@ -29,11 +29,9 @@ export default function CostOfInvisibility() {
       style={{ backgroundColor: 'var(--color-ink)' }}
       aria-label="The cost of AI invisibility"
     >
+      {/* Eyebrow — contained */}
       <div className="mx-auto max-w-5xl">
-
         <h2 className="sr-only">The cost of AI invisibility</h2>
-
-        {/* Eyebrow */}
         <RevealOnScroll>
           <p
             className="font-mono mb-10 text-xs font-medium uppercase tracking-[0.18em]"
@@ -42,26 +40,29 @@ export default function CostOfInvisibility() {
             The New Referral Engine
           </p>
         </RevealOnScroll>
+      </div>
 
-        {/* AI tool names — cinnabar display */}
-        <RevealOnScroll>
-          <p
-            className="font-display italic font-normal leading-tight"
-            style={{
-              fontSize: 'clamp(2rem, 5vw, 4.25rem)',
-              color: 'var(--color-cinnabar)',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            ChatGPT. Perplexity.<br />
-            Google AI. Gemini. Siri.
-          </p>
-        </RevealOnScroll>
+      {/* Cinnabar headline — escapes container, runs at full section width */}
+      <RevealOnScroll>
+        <p
+          className="font-display italic font-normal"
+          style={{
+            fontSize: 'clamp(1.5rem, 6.5vw, 6rem)',
+            lineHeight: 1.02,
+            color: 'var(--color-cinnabar)',
+            letterSpacing: '-0.025em',
+          }}
+        >
+          ChatGPT. Perplexity.<br />
+          Google AI. Gemini. Siri.
+        </p>
+      </RevealOnScroll>
 
-        {/* Sub-statement */}
+      {/* Sub-statement, stats, closing — contained */}
+      <div className="mx-auto max-w-5xl">
         <RevealOnScroll delay={80}>
           <p
-            className="font-body font-light leading-relaxed mt-8"
+            className="font-body font-light leading-relaxed mt-10"
             style={{
               fontSize: 'clamp(1rem, 1.75vw, 1.25rem)',
               color: 'oklch(97% 0.008 75 / 0.6)',
@@ -73,7 +74,6 @@ export default function CostOfInvisibility() {
           </p>
         </RevealOnScroll>
 
-        {/* Stats */}
         <div
           className="mt-20 grid grid-cols-1 gap-px lg:grid-cols-3"
           style={{ backgroundColor: 'oklch(97% 0.008 75 / 0.08)' }}
@@ -105,7 +105,6 @@ export default function CostOfInvisibility() {
           ))}
         </div>
 
-        {/* Closing */}
         <RevealOnScroll>
           <p
             className="font-display italic font-normal mt-20"
@@ -119,7 +118,6 @@ export default function CostOfInvisibility() {
             authority in AI search is narrowing.
           </p>
         </RevealOnScroll>
-
       </div>
     </section>
   )

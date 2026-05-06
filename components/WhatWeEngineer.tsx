@@ -48,19 +48,27 @@ export default function WhatWeEngineer() {
           {outcomes.map(({ number, title, body }, i) => (
             <RevealOnScroll key={number} delay={i * 100}>
               <div
-                className="grid grid-cols-1 gap-8 py-12 lg:grid-cols-[8rem_1fr_1fr] lg:gap-12"
+                className="relative overflow-hidden grid grid-cols-1 gap-8 py-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16"
                 style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
               >
-                <p
-                  className="font-display font-normal leading-none"
-                  style={{ fontSize: 'clamp(3.5rem, 7vw, 6rem)', color: 'oklch(14% 0.006 30 / 0.18)', letterSpacing: '-0.03em' }}
+                {/* Watermark number — texture, not navigation */}
+                <span
+                  className="absolute right-0 bottom-0 font-display font-normal leading-none pointer-events-none select-none"
+                  style={{
+                    fontSize: 'clamp(8rem, 18vw, 16rem)',
+                    color: 'var(--color-ink)',
+                    opacity: 0.055,
+                    letterSpacing: '-0.05em',
+                    lineHeight: 0.82,
+                  }}
                   aria-hidden="true"
                 >
                   {number}
-                </p>
+                </span>
+
                 <h2
                   className="font-display font-normal leading-snug"
-                  style={{ fontSize: 'clamp(1.375rem, 2.5vw, 2rem)', color: 'var(--color-ink)' }}
+                  style={{ fontSize: 'clamp(1.625rem, 3vw, 2.5rem)', color: 'var(--color-ink)' }}
                 >
                   {title}
                 </h2>
