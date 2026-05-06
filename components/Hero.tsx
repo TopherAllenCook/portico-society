@@ -48,7 +48,7 @@ export default function Hero() {
       <div
         className="absolute top-0 bottom-0 hidden lg:block"
         style={{
-          left: '36%',
+          left: 'clamp(620px, 38%, 920px)',
           right: 0,
           zIndex: 0,
           ...fade(180, 1100),
@@ -60,17 +60,17 @@ export default function Hero() {
             alt={photoAlt}
             fill
             priority
-            sizes="(max-width: 1024px) 0px, 64vw"
+            sizes="(max-width: 1024px) 0px, 62vw"
             className="object-cover"
             style={{ objectPosition: '45% center', filter: 'brightness(0.92) saturate(0.88)' }}
           />
-          {/* Fade covers left third of photo — dissolves into ivory regardless of viewport width */}
+          {/* Gradient: ivory at left edge, dissolves into photo — text stays in ivory zone */}
           <div
             className="absolute inset-0 pointer-events-none"
             aria-hidden="true"
             style={{
               background:
-                'linear-gradient(to right, var(--color-ivory) 0%, oklch(97% 0.008 75 / 0.35) 26%, transparent 48%)',
+                'linear-gradient(to right, var(--color-ivory) 0%, oklch(97% 0.008 75 / 0.5) 28%, transparent 52%)',
             }}
           />
         </div>
