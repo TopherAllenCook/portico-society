@@ -23,11 +23,21 @@ export default function Footer() {
           <div>
             <Link
               href="/"
-              className="font-display font-normal"
-              style={{ fontSize: '1.125rem', color: 'var(--color-ink)' }}
-              aria-label="Verve Clinic Marketing — home"
+              className="flex flex-col leading-none"
+              aria-label="Verve Longevity Marketing — home"
             >
-              Verve
+              <span
+                className="font-display font-normal"
+                style={{ fontSize: '1.125rem', letterSpacing: '0.2em', color: 'var(--color-ink)', lineHeight: 1 }}
+              >
+                VERVE
+              </span>
+              <span
+                className="font-mono font-medium"
+                style={{ fontSize: '0.475rem', letterSpacing: '0.26em', color: 'oklch(14% 0.006 30 / 0.4)', marginTop: '0.25rem' }}
+              >
+                LONGEVITY MARKETING
+              </span>
             </Link>
             <p
               className="font-body mt-4 text-sm font-light leading-relaxed"

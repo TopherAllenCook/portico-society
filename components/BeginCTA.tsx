@@ -27,16 +27,9 @@ export default function BeginCTA() {
     <section
       id="begin"
       className="relative px-6 py-24 lg:px-16 lg:py-40"
-      style={{ backgroundColor: 'var(--color-ivory)' }}
+      style={{ backgroundColor: 'var(--color-cinnabar)' }}
       aria-labelledby="begin-heading"
     >
-      {/* Top rule */}
-      <div
-        className="absolute top-0 inset-x-0"
-        style={{ height: '1px', backgroundColor: 'oklch(14% 0.006 30 / 0.1)' }}
-        aria-hidden="true"
-      />
-
       <div className="mx-auto max-w-5xl">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24">
 
@@ -44,8 +37,8 @@ export default function BeginCTA() {
           <RevealOnScroll>
             <div>
               <p
-                className="font-mono text-xs font-medium tracking-[0.18em] uppercase mb-6"
-                style={{ color: 'oklch(14% 0.006 30 / 0.4)' }}
+                className="font-mono mb-6 text-xs font-medium tracking-[0.18em] uppercase"
+                style={{ color: 'oklch(97% 0.008 75 / 0.55)' }}
               >
                 Start Here
               </p>
@@ -54,35 +47,40 @@ export default function BeginCTA() {
                 className="font-display font-normal leading-snug mb-6"
                 style={{
                   fontSize: 'clamp(1.75rem, 4vw, 3.25rem)',
-                  color: 'var(--color-ink)',
+                  color: 'var(--color-ivory)',
                 }}
               >
                 Request a free AI visibility audit.
               </h2>
               <p
-                className="font-body font-light leading-relaxed mb-8"
-                style={{ fontSize: '1rem', color: 'oklch(14% 0.006 30 / 0.6)', maxWidth: '46ch' }}
+                className="font-body mb-8 font-light leading-relaxed"
+                style={{
+                  fontSize: '1rem',
+                  color: 'oklch(97% 0.008 75 / 0.65)',
+                  maxWidth: '46ch',
+                }}
               >
                 Within 48 hours, we analyze your practice across AI recommendation systems,
                 identify the gaps your competitors have already claimed, and deliver a specific
                 report with prioritized findings.
               </p>
 
-              {/* Sample finding */}
+              {/* Sample finding — full border, not side stripe */}
               <blockquote
-                className="border-l-2 pl-6"
-                style={{ borderColor: 'var(--color-cinnabar)' }}
+                className="p-6"
+                style={{ border: '1px solid oklch(97% 0.008 75 / 0.2)' }}
               >
                 <p
                   className="font-display italic font-normal leading-relaxed"
-                  style={{ fontSize: '0.9375rem', color: 'oklch(14% 0.006 30 / 0.6)' }}
+                  style={{ fontSize: '0.9375rem', color: 'oklch(97% 0.008 75 / 0.7)' }}
                 >
-                  "Your practice does not appear in any AI-generated recommendations for longevity
-                  clinics in your region. Two competitors do. This gap is recoverable within 60 days."
+                  &ldquo;Your practice does not appear in any AI-generated recommendations for
+                  longevity clinics in your region. Two competitors do. This gap is recoverable
+                  within 60 days.&rdquo;
                 </p>
                 <cite
                   className="font-mono mt-4 block not-italic text-xs tracking-[0.1em] uppercase"
-                  style={{ color: 'oklch(14% 0.006 30 / 0.3)' }}
+                  style={{ color: 'oklch(97% 0.008 75 / 0.35)' }}
                 >
                   Sample finding, Longevity practice, Q1 2025
                 </cite>
@@ -90,7 +88,7 @@ export default function BeginCTA() {
 
               <p
                 className="font-body mt-6 text-sm font-light"
-                style={{ color: 'oklch(14% 0.006 30 / 0.4)' }}
+                style={{ color: 'oklch(97% 0.008 75 / 0.45)' }}
               >
                 The audit is proof of methodology. No sales call required first.
               </p>
@@ -102,18 +100,21 @@ export default function BeginCTA() {
             <div className="lg:flex lg:flex-col lg:justify-center">
               {submitted ? (
                 <div
-                  className="border p-10"
-                  style={{ borderColor: 'oklch(14% 0.006 30 / 0.12)' }}
+                  className="p-10"
+                  style={{ border: '1px solid oklch(97% 0.008 75 / 0.2)' }}
                 >
                   <p
                     className="font-display font-normal leading-snug mb-4"
-                    style={{ fontSize: 'clamp(1.25rem, 2vw, 1.625rem)', color: 'var(--color-ink)' }}
+                    style={{
+                      fontSize: 'clamp(1.25rem, 2vw, 1.625rem)',
+                      color: 'var(--color-ivory)',
+                    }}
                   >
                     Audit request received.
                   </p>
                   <p
                     className="font-body text-sm font-light leading-relaxed"
-                    style={{ color: 'oklch(14% 0.006 30 / 0.55)' }}
+                    style={{ color: 'oklch(97% 0.008 75 / 0.6)' }}
                   >
                     Expect a report within 48 hours. If your practice is a strong fit, we will
                     follow up with an invitation to review the findings together.
@@ -124,8 +125,8 @@ export default function BeginCTA() {
                   <div>
                     <label
                       htmlFor="begin-email"
-                      className="font-mono mb-2 block text-xs font-medium tracking-[0.12em] uppercase"
-                      style={{ color: 'oklch(14% 0.006 30 / 0.5)' }}
+                      className="font-mono mb-2 block text-xs font-medium tracking-[0.14em] uppercase"
+                      style={{ color: 'oklch(97% 0.008 75 / 0.55)' }}
                     >
                       Work Email
                     </label>
@@ -136,13 +137,17 @@ export default function BeginCTA() {
                       onChange={e => setEmail(e.target.value)}
                       placeholder="you@yourpractice.com"
                       required
-                      className="font-body w-full border bg-transparent px-5 py-4 text-sm outline-none transition-colors duration-200"
+                      className="font-body w-full bg-transparent px-5 py-4 text-sm outline-none transition-colors duration-200"
                       style={{
-                        borderColor: 'oklch(14% 0.006 30 / 0.2)',
-                        color: 'var(--color-ink)',
+                        border: '1px solid oklch(97% 0.008 75 / 0.25)',
+                        color: 'var(--color-ivory)',
                       }}
-                      onFocus={e => { e.currentTarget.style.borderColor = 'oklch(14% 0.006 30 / 0.5)' }}
-                      onBlur={e => { e.currentTarget.style.borderColor = 'oklch(14% 0.006 30 / 0.2)' }}
+                      onFocus={e => {
+                        e.currentTarget.style.borderColor = 'oklch(97% 0.008 75 / 0.6)'
+                      }}
+                      onBlur={e => {
+                        e.currentTarget.style.borderColor = 'oklch(97% 0.008 75 / 0.25)'
+                      }}
                       aria-describedby={error ? 'begin-error' : undefined}
                     />
                     {error && (
@@ -150,7 +155,7 @@ export default function BeginCTA() {
                         id="begin-error"
                         role="alert"
                         className="font-body mt-2 text-xs"
-                        style={{ color: 'var(--color-cinnabar)' }}
+                        style={{ color: 'oklch(97% 0.008 75 / 0.8)' }}
                       >
                         {error}
                       </p>
@@ -160,8 +165,8 @@ export default function BeginCTA() {
                   <div>
                     <label
                       htmlFor="begin-website"
-                      className="font-mono mb-2 block text-xs font-medium tracking-[0.12em] uppercase"
-                      style={{ color: 'oklch(14% 0.006 30 / 0.5)' }}
+                      className="font-mono mb-2 block text-xs font-medium tracking-[0.14em] uppercase"
+                      style={{ color: 'oklch(97% 0.008 75 / 0.55)' }}
                     >
                       Practice Website
                     </label>
@@ -171,29 +176,37 @@ export default function BeginCTA() {
                       value={website}
                       onChange={e => setWebsite(e.target.value)}
                       placeholder="https://yourpractice.com"
-                      className="font-body w-full border bg-transparent px-5 py-4 text-sm outline-none transition-colors duration-200"
+                      className="font-body w-full bg-transparent px-5 py-4 text-sm outline-none transition-colors duration-200"
                       style={{
-                        borderColor: 'oklch(14% 0.006 30 / 0.2)',
-                        color: 'var(--color-ink)',
+                        border: '1px solid oklch(97% 0.008 75 / 0.25)',
+                        color: 'var(--color-ivory)',
                       }}
-                      onFocus={e => { e.currentTarget.style.borderColor = 'oklch(14% 0.006 30 / 0.5)' }}
-                      onBlur={e => { e.currentTarget.style.borderColor = 'oklch(14% 0.006 30 / 0.2)' }}
+                      onFocus={e => {
+                        e.currentTarget.style.borderColor = 'oklch(97% 0.008 75 / 0.6)'
+                      }}
+                      onBlur={e => {
+                        e.currentTarget.style.borderColor = 'oklch(97% 0.008 75 / 0.25)'
+                      }}
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="font-body mt-2 w-full px-8 py-4 text-xs font-medium tracking-[0.12em] uppercase transition-colors duration-200"
-                    style={{ backgroundColor: 'var(--color-ink)', color: 'var(--color-ivory)' }}
-                    onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)' }}
-                    onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'var(--color-ink)' }}
+                    className="font-body mt-2 w-full px-8 py-4 text-xs font-medium tracking-[0.14em] uppercase transition-colors duration-200"
+                    style={{ backgroundColor: 'var(--color-ivory)', color: 'var(--color-cinnabar)' }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.backgroundColor = 'oklch(97% 0.008 75 / 0.88)'
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.backgroundColor = 'var(--color-ivory)'
+                    }}
                   >
                     Request My Audit
                   </button>
 
                   <p
                     className="font-body text-center text-xs font-light"
-                    style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
+                    style={{ color: 'oklch(97% 0.008 75 / 0.4)' }}
                   >
                     No sales call required. The audit comes first.
                   </p>

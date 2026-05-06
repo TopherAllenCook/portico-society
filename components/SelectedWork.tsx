@@ -3,6 +3,7 @@ import RevealOnScroll from './RevealOnScroll'
 export default function SelectedWork() {
   return (
     <section
+      id="selected-work"
       className="relative px-6 py-24 lg:px-16 lg:py-40"
       style={{ backgroundColor: 'var(--color-ivory)' }}
       aria-label="Selected work"

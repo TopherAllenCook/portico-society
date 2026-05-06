@@ -41,7 +41,6 @@ export default function CostOfInvisibility() {
         {/* Stats */}
         <div
           className="mt-20 grid grid-cols-1 gap-px lg:grid-cols-3"
-          style={{ borderTop: '1px solid oklch(97% 0.008 75 / 0.1)' }}
         >
           {stats.map(({ figure, label }, i) => (
             <RevealOnScroll key={i} delay={i * 80}>

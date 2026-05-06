@@ -9,33 +9,48 @@ export default function Nav() {
   return (
     <header
       className="fixed top-0 inset-x-0 z-50"
-      style={{ borderBottom: '1px solid oklch(14% 0.006 30 / 0.08)' }}
+      style={{
+        backgroundColor: 'var(--color-ivory)',
+        borderBottom: '1px solid oklch(14% 0.006 30 / 0.1)',
+      }}
     >
-      <div
-        className="absolute inset-0"
-        style={{ backgroundColor: 'oklch(97% 0.008 75 / 0.92)', backdropFilter: 'blur(12px)' }}
-        aria-hidden="true"
-      />
       <nav
-        className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-16"
+        className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-16"
         aria-label="Primary navigation"
       >
-        {/* Wordmark */}
-        <Link
-          href="/"
-          className="font-display font-normal tracking-tight"
-          style={{ fontSize: '1.125rem', color: 'var(--color-ink)' }}
-          aria-label="Verve Clinic Marketing — home"
-        >
-          Verve
+        {/* Stacked wordmark */}
+        <Link href="/" aria-label="Verve Longevity Marketing — home" className="flex flex-col leading-none">
+          <span
+            className="font-display font-normal"
+            style={{
+              fontSize: '1.125rem',
+              letterSpacing: '0.2em',
+              color: 'var(--color-ink)',
+              lineHeight: 1,
+            }}
+          >
+            VERVE
+          </span>
+          <span
+            className="font-mono font-medium"
+            style={{
+              fontSize: '0.475rem',
+              letterSpacing: '0.26em',
+              color: 'oklch(14% 0.006 30 / 0.45)',
+              marginTop: '0.25rem',
+            }}
+          >
+            LONGEVITY MARKETING
+          </span>
         </Link>
 
-        {/* Desktop links */}
+        {/* Desktop center links */}
         <ul className="hidden items-center gap-10 lg:flex" role="list">
           {[
-            { label: 'What We Do', href: '#what-we-engineer' },
+            { label: 'Services', href: '#what-we-engineer' },
+            { label: 'Who We Help', href: '#categories' },
             { label: 'How We Work', href: '#how-we-work' },
-            { label: 'Specialties', href: '#categories' },
+            { label: 'Selected Work', href: '#selected-work' },
           ].map(({ label, href }) => (
             <li key={href}>
               <Link
@@ -49,31 +64,33 @@ export default function Nav() {
           ))}
         </ul>
 
-        {/* CTA */}
+        {/* Desktop CTA */}
         <div className="hidden lg:block">
           <Link
             href="#begin"
-            className="font-body inline-block border px-6 py-3 text-xs font-medium tracking-[0.1em] uppercase transition-colors duration-200"
-            style={{
-              borderColor: 'oklch(14% 0.006 30 / 0.25)',
-              color: 'var(--color-ink)',
-            }}
+            className="font-body inline-flex items-center gap-2 border px-6 py-3 text-xs font-medium tracking-[0.1em] uppercase transition-all duration-200"
+            style={{ borderColor: 'oklch(14% 0.006 30 / 0.3)', color: 'var(--color-ink)' }}
             onMouseEnter={e => {
-              e.currentTarget.style.backgroundColor = 'var(--color-ink)'
+              e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'
+              e.currentTarget.style.borderColor = 'var(--color-cinnabar)'
               e.currentTarget.style.color = 'var(--color-ivory)'
             }}
             onMouseLeave={e => {
               e.currentTarget.style.backgroundColor = 'transparent'
+              e.currentTarget.style.borderColor = 'oklch(14% 0.006 30 / 0.3)'
               e.currentTarget.style.color = 'var(--color-ink)'
             }}
           >
-            Request Audit
+            Elevate Your Clinic
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7h10M7.5 3l4.5 4-4.5 4" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </Link>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden"
+          className="flex h-10 w-10 items-center justify-center lg:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen(o => !o)}
@@ -94,22 +111,29 @@ export default function Nav() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile drawer */}
       {open && (
         <div
-          className="relative border-t px-6 pb-8 pt-6 lg:hidden"
-          style={{ backgroundColor: 'var(--color-ivory)', borderColor: 'oklch(14% 0.006 30 / 0.08)' }}
+          className="border-t px-6 pb-8 pt-6 lg:hidden"
+          style={{
+            backgroundColor: 'var(--color-ivory)',
+            borderColor: 'oklch(14% 0.006 30 / 0.1)',
+          }}
         >
-          <ul className="flex flex-col gap-5" role="list">
+          <ul className="flex flex-col gap-0" role="list">
             {[
-              { label: 'What We Do', href: '#what-we-engineer' },
+              { label: 'Services', href: '#what-we-engineer' },
+              { label: 'Who We Help', href: '#categories' },
               { label: 'How We Work', href: '#how-we-work' },
-              { label: 'Specialties', href: '#categories' },
+              { label: 'Selected Work', href: '#selected-work' },
             ].map(({ label, href }) => (
-              <li key={href}>
+              <li
+                key={href}
+                style={{ borderBottom: '1px solid oklch(14% 0.006 30 / 0.08)' }}
+              >
                 <Link
                   href={href}
-                  className="font-body text-sm font-medium tracking-[0.08em] uppercase"
+                  className="font-body block py-4 text-sm font-medium tracking-[0.08em] uppercase"
                   style={{ color: 'var(--color-ink)' }}
                   onClick={() => setOpen(false)}
                 >
@@ -120,11 +144,11 @@ export default function Nav() {
           </ul>
           <Link
             href="#begin"
-            className="font-body mt-8 inline-block w-full border py-4 text-center text-xs font-medium tracking-[0.1em] uppercase"
-            style={{ borderColor: 'oklch(14% 0.006 30 / 0.25)', color: 'var(--color-ink)' }}
+            className="font-body mt-6 inline-block w-full py-4 text-center text-xs font-medium tracking-[0.12em] uppercase transition-colors duration-200"
+            style={{ backgroundColor: 'var(--color-cinnabar)', color: 'var(--color-ivory)' }}
             onClick={() => setOpen(false)}
           >
-            Request Audit
+            Elevate Your Clinic
           </Link>
         </div>
       )}

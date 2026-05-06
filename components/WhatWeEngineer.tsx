@@ -55,7 +55,7 @@ export default function WhatWeEngineer() {
               >
                 <p
                   className="font-mono text-xs font-medium tracking-[0.1em]"
-                  style={{ color: 'oklch(14% 0.006 30 / 0.25)' }}
+                  style={{ color: 'var(--color-cinnabar)' }}
                 >
                   {number}
                 </p>
