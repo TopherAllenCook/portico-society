@@ -41,7 +41,7 @@ export default function EngagementPaths() {
   return (
     <section
       id="engagement"
-      className="relative px-6 py-24 lg:px-16 lg:py-40"
+      className="relative px-6 py-24 lg:px-16 lg:py-36"
       style={{ backgroundColor: 'var(--color-ink)' }}
       aria-label="Engagement paths"
     >
@@ -170,13 +170,13 @@ export default function EngagementPaths() {
               onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'oklch(34% 0.08 54)' }}
               onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)' }}
             >
-              Request Your Free Audit
+              Request the audit
             </Link>
             <p
               className="font-body text-xs font-light"
               style={{ color: 'oklch(97% 0.008 75 / 0.4)' }}
             >
-              No call required. We deliver the audit first.
+              Engagement scope is defined after you see the findings.
             </p>
           </div>
         </RevealOnScroll>

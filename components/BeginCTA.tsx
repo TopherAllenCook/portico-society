@@ -26,7 +26,7 @@ export default function BeginCTA() {
   return (
     <section
       id="begin"
-      className="relative px-6 py-24 lg:px-16 lg:py-40"
+      className="relative px-6 py-24 lg:px-16 lg:py-36"
       style={{ backgroundColor: 'var(--color-cta-surface)' }}
       aria-labelledby="begin-heading"
     >

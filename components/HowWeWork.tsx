@@ -186,8 +186,8 @@ export default function HowWeWork() {
   return (
     <section
       id="how-we-work"
-      className="relative px-6 py-24 lg:px-16 lg:py-40"
-      style={{ backgroundColor: 'var(--color-stone)' }}
+      className="relative px-6 py-28 lg:px-16 lg:py-44"
+      style={{ backgroundColor: 'var(--color-ivory)' }}
       aria-label="How we work"
     >
       <div className="mx-auto max-w-5xl">

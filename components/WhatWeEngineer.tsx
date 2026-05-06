@@ -22,7 +22,7 @@ export default function WhatWeEngineer() {
   return (
     <section
       id="what-we-engineer"
-      className="relative px-6 py-24 lg:px-16 lg:py-40"
+      className="relative px-6 py-28 lg:px-16 lg:py-44"
       style={{ backgroundColor: 'var(--color-ivory)' }}
       aria-label="What we engineer"
     >
@@ -53,7 +53,7 @@ export default function WhatWeEngineer() {
               >
                 <p
                   className="font-display font-normal leading-none"
-                  style={{ fontSize: 'clamp(3.5rem, 7vw, 6rem)', color: 'var(--color-cinnabar)', letterSpacing: '-0.03em' }}
+                  style={{ fontSize: 'clamp(3.5rem, 7vw, 6rem)', color: 'oklch(14% 0.006 30 / 0.18)', letterSpacing: '-0.03em' }}
                   aria-hidden="true"
                 >
                   {number}
