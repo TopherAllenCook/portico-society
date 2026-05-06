@@ -40,7 +40,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative flex min-h-svh flex-col overflow-hidden px-6 pt-32 pb-0 lg:px-16 lg:pt-0"
+      className="relative flex min-h-svh flex-col overflow-hidden px-6 pt-24 pb-0 lg:px-16 lg:pt-0"
       style={{ backgroundColor: 'var(--color-ivory)' }}
       aria-label="Hero"
     >
@@ -78,7 +78,7 @@ export default function Hero() {
 
       {/* Main content — pb shifts the flex:center anchor upward in the viewport */}
       <div
-        className="relative flex flex-1 flex-col justify-center pb-28 lg:pb-40"
+        className="relative flex flex-1 flex-col justify-start pt-6 pb-16 lg:justify-center lg:pt-0 lg:pb-[clamp(2rem,8vh,10rem)]"
         style={{ zIndex: 1 }}
       >
         {/* Eyebrow — mobile only */}
@@ -91,8 +91,8 @@ export default function Hero() {
 
         {/* Mobile photo strip */}
         <div
-          className="relative mb-10 -mx-6 h-56 overflow-hidden lg:hidden"
-          style={fade(60, 700)}
+          className="relative mb-10 -mx-6 overflow-hidden lg:hidden"
+          style={{ height: 'clamp(160px, 26vh, 224px)', ...fade(60, 700) }}
         >
           <Image
             src={photoSrc}
