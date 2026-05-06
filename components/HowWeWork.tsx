@@ -39,25 +39,34 @@ export default function HowWeWork() {
             </p>
             <div
               className="flex-1"
-              style={{ height: '1px', backgroundColor: 'oklch(14% 0.006 30 / 0.15)' }}
+              style={{ height: '1px', backgroundColor: 'oklch(14% 0.006 30 / 0.12)' }}
               aria-hidden="true"
             />
           </div>
         </RevealOnScroll>
 
-        <div className="space-y-0">
+        <div>
           {phases.map(({ step, body }, i) => (
             <RevealOnScroll key={step} delay={i * 100}>
               <div
                 className="grid grid-cols-1 gap-6 py-12 lg:grid-cols-[14rem_1fr] lg:gap-16"
                 style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.12)' }}
               >
-                <h3
-                  className="font-display font-normal leading-tight"
-                  style={{ fontSize: 'clamp(1.5rem, 2.75vw, 2.25rem)', color: 'var(--color-ink)' }}
-                >
-                  {step}
-                </h3>
+                <div className="flex flex-col gap-2">
+                  <span
+                    className="font-mono text-xs font-medium"
+                    style={{ color: 'var(--color-cinnabar)', letterSpacing: '0.08em' }}
+                    aria-hidden="true"
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h3
+                    className="font-display font-normal leading-tight"
+                    style={{ fontSize: 'clamp(1.5rem, 2.75vw, 2.25rem)', color: 'var(--color-ink)' }}
+                  >
+                    {step}
+                  </h3>
+                </div>
                 <p
                   className="font-body font-light leading-relaxed"
                   style={{ fontSize: '0.9375rem', color: 'oklch(14% 0.006 30 / 0.6)', maxWidth: '54ch' }}
@@ -67,6 +76,14 @@ export default function HowWeWork() {
               </div>
             </RevealOnScroll>
           ))}
+
+          {/* Closing rule to seal the last row */}
+          <RevealOnScroll delay={phases.length * 100}>
+            <div
+              style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.12)' }}
+              aria-hidden="true"
+            />
+          </RevealOnScroll>
         </div>
 
       </div>
