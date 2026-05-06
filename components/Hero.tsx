@@ -44,11 +44,12 @@ export default function Hero() {
       style={{ backgroundColor: 'var(--color-ivory)' }}
       aria-label="Hero"
     >
-      {/* Desktop photo — wider than before, starts further left, longer dissolve into ivory */}
+      {/* Desktop photo — fills right 64% of viewport at every breakpoint, no width ceiling */}
       <div
-        className="absolute right-0 top-0 bottom-0 hidden lg:block"
+        className="absolute top-0 bottom-0 hidden lg:block"
         style={{
-          width: 'clamp(480px, 58vw, 840px)',
+          left: '36%',
+          right: 0,
           zIndex: 0,
           ...fade(180, 1100),
         }}
@@ -59,17 +60,17 @@ export default function Hero() {
             alt={photoAlt}
             fill
             priority
-            sizes="(max-width: 1024px) 0px, 58vw"
+            sizes="(max-width: 1024px) 0px, 64vw"
             className="object-cover"
-            style={{ objectPosition: '60% center', filter: 'brightness(0.92) saturate(0.88)' }}
+            style={{ objectPosition: '45% center', filter: 'brightness(0.92) saturate(0.88)' }}
           />
-          {/* Extended fade — dissolves further into the frame to eliminate center void */}
+          {/* Fade covers left third of photo — dissolves into ivory regardless of viewport width */}
           <div
             className="absolute inset-0 pointer-events-none"
             aria-hidden="true"
             style={{
               background:
-                'linear-gradient(to right, var(--color-ivory) 0%, oklch(97% 0.008 75 / 0.4) 38%, transparent 62%)',
+                'linear-gradient(to right, var(--color-ivory) 0%, oklch(97% 0.008 75 / 0.35) 26%, transparent 48%)',
             }}
           />
         </div>
