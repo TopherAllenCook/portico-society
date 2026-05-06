@@ -58,7 +58,6 @@ function useReducedMotion() {
   return reduced
 }
 
-// Border rule that draws left-to-right on scroll entry
 function DrawRule({
   reduced,
   delay = 0,
@@ -129,48 +128,51 @@ function PhaseRow({
   })
 
   return (
-    <div ref={ref} className="relative py-12">
-      {/* Border draws first — the pen marking a line before writing */}
+    <div ref={ref} className="relative py-14 lg:py-16">
       <DrawRule reduced={reduced} delay={0} />
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[14rem_1fr] lg:gap-16">
-        {/* Left: step number slides in from the left, title surfaces below it */}
-        <div className="flex flex-col gap-2">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[13rem_1fr] lg:gap-16">
+        {/* Left: display-scale number — architectural anchor */}
+        <div>
           <span
-            className="font-mono text-xs font-medium"
+            className="font-display font-normal leading-none block"
             style={{
+              fontSize: 'clamp(5rem, 9vw, 7rem)',
               color: 'var(--color-cinnabar)',
-              letterSpacing: '0.08em',
-              ...fade(160, 380, '-10px', '0'),
+              letterSpacing: '-0.03em',
+              ...fade(140, 420, '-18px', '0'),
             }}
             aria-hidden="true"
           >
             {String(index + 1).padStart(2, '0')}
           </span>
+        </div>
+
+        {/* Right: title above body, stacked */}
+        <div className="flex flex-col gap-5">
           <h3
             className="font-display font-normal leading-tight"
             style={{
-              fontSize: 'clamp(1.5rem, 2.75vw, 2.25rem)',
+              fontSize: 'clamp(1.875rem, 3.5vw, 2.875rem)',
               color: 'var(--color-ink)',
-              ...fade(230, 440, '0', '7px'),
+              ...fade(240, 460, '0', '8px'),
             }}
           >
+            <span className="sr-only">Step {index + 1}: </span>
             {step}
           </h3>
+          <p
+            className="font-body font-light leading-relaxed"
+            style={{
+              fontSize: '0.9375rem',
+              color: 'oklch(14% 0.006 30 / 0.6)',
+              maxWidth: '56ch',
+              ...fade(370, 530, '0', '12px'),
+            }}
+          >
+            {body}
+          </p>
         </div>
-
-        {/* Right: body text surfaces slightly behind the title */}
-        <p
-          className="font-body font-light leading-relaxed"
-          style={{
-            fontSize: '0.9375rem',
-            color: 'oklch(14% 0.006 30 / 0.6)',
-            maxWidth: '54ch',
-            ...fade(360, 520, '0', '11px'),
-          }}
-        >
-          {body}
-        </p>
       </div>
     </div>
   )
@@ -190,7 +192,6 @@ export default function HowWeWork() {
     >
       <div className="mx-auto max-w-5xl">
 
-        {/* Eyebrow — text fades, rule draws right from the label */}
         <div
           ref={eyebrowRef}
           className="flex items-baseline gap-8 mb-16"
@@ -231,7 +232,6 @@ export default function HowWeWork() {
             />
           ))}
 
-          {/* Closing rule — draws last, sealing the final row */}
           <DrawRule reduced={reduced} position="static" />
         </div>
 
