@@ -9,7 +9,7 @@ export default function CostOfInvisibility() {
   return (
     <section
       className="relative px-6 py-24 lg:px-16 lg:py-36"
-      style={{ backgroundColor: 'var(--color-ivory)' }}
+      style={{ backgroundColor: 'var(--color-stone)' }}
       aria-label="The cost of AI invisibility"
     >
       <div className="mx-auto max-w-5xl">
