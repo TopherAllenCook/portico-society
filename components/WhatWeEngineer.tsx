@@ -32,13 +32,13 @@ export default function WhatWeEngineer() {
           <div className="flex items-baseline gap-8 mb-16">
             <p
               className="font-mono text-xs font-medium tracking-[0.18em] uppercase"
-              style={{ color: 'oklch(11% 0.002 264 / 0.7)' }}
+              style={{ color: 'oklch(14% 0.006 30 / 0.7)' }}
             >
               What We Engineer
             </p>
             <div
               className="flex-1"
-              style={{ height: '1px', backgroundColor: 'oklch(11% 0.002 264 / 0.1)' }}
+              style={{ height: '1px', backgroundColor: 'oklch(14% 0.006 30 / 0.1)' }}
               aria-hidden="true"
             />
           </div>
@@ -49,7 +49,7 @@ export default function WhatWeEngineer() {
             <RevealOnScroll key={number} delay={i * 100}>
               <div
                 className="relative overflow-hidden grid grid-cols-1 gap-8 py-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16"
-                style={{ borderTop: '1px solid oklch(11% 0.002 264 / 0.1)' }}
+                style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
               >
                 {/* Watermark number — texture, not navigation */}
                 <span
@@ -74,7 +74,7 @@ export default function WhatWeEngineer() {
                 </h2>
                 <p
                   className="font-body font-light leading-relaxed"
-                  style={{ fontSize: '1rem', color: 'oklch(11% 0.002 264 / 0.6)', maxWidth: '48ch' }}
+                  style={{ fontSize: '1rem', color: 'oklch(14% 0.006 30 / 0.6)', maxWidth: '48ch' }}
                 >
                   {body}
                 </p>
@@ -84,7 +84,7 @@ export default function WhatWeEngineer() {
 
           <RevealOnScroll delay={outcomes.length * 100}>
             <div
-              style={{ borderTop: '1px solid oklch(11% 0.002 264 / 0.1)' }}
+              style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
               aria-hidden="true"
             />
           </RevealOnScroll>

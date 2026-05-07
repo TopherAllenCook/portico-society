@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer
       className="px-6 py-16 lg:px-16"
-      style={{ backgroundColor: 'var(--color-ivory)', borderTop: '1px solid oklch(11% 0.002 264 / 0.1)' }}
+      style={{ backgroundColor: 'var(--color-ivory)', borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
     >
       <div className="mx-auto max-w-5xl">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_auto]">
@@ -31,14 +31,14 @@ export default function Footer() {
               </span>
               <span
                 className="font-mono font-medium"
-                style={{ fontSize: '0.475rem', letterSpacing: '0.26em', color: 'oklch(11% 0.002 264 / 0.7)', marginTop: '0.25rem' }}
+                style={{ fontSize: '0.475rem', letterSpacing: '0.26em', color: 'oklch(14% 0.006 30 / 0.7)', marginTop: '0.25rem' }}
               >
                 LONGEVITY MARKETING
               </span>
             </Link>
             <p
               className="font-body mt-4 text-sm font-light leading-relaxed"
-              style={{ color: 'oklch(11% 0.002 264 / 0.5)', maxWidth: '42ch' }}
+              style={{ color: 'oklch(14% 0.006 30 / 0.5)', maxWidth: '42ch' }}
             >
               Clinic marketing for longevity, concierge medicine, and aesthetic practices.
               AI search authority, patient inquiry architecture, and recurring revenue growth.
@@ -49,7 +49,7 @@ export default function Footer() {
           <nav aria-label="Footer navigation">
             <p
               className="font-mono mb-4 text-xs font-medium tracking-[0.15em] uppercase"
-              style={{ color: 'oklch(11% 0.002 264 / 0.35)' }}
+              style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
             >
               Navigate
             </p>
@@ -59,7 +59,7 @@ export default function Footer() {
                   <Link
                     href={href}
                     className="font-body text-sm font-light transition-opacity duration-200 hover:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                    style={{ color: 'oklch(11% 0.002 264 / 0.65)' }}
+                    style={{ color: 'oklch(14% 0.006 30 / 0.65)' }}
                   >
                     {label}
                   </Link>
@@ -72,11 +72,11 @@ export default function Footer() {
         {/* Bottom bar */}
         <div
           className="mt-12 flex flex-col gap-4 pt-8 lg:flex-row lg:items-center lg:justify-between"
-          style={{ borderTop: '1px solid oklch(11% 0.002 264 / 0.1)' }}
+          style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
         >
           <p
             className="font-body text-xs font-light"
-            style={{ color: 'oklch(11% 0.002 264 / 0.35)' }}
+            style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
           >
             &copy; {new Date().getFullYear()} Verve Clinic Marketing LLC. All rights reserved.
           </p>
@@ -89,7 +89,7 @@ export default function Footer() {
                 key={href}
                 href={href}
                 className="font-body text-xs font-light transition-opacity duration-200 hover:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                style={{ color: 'oklch(11% 0.002 264 / 0.35)' }}
+                style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
               >
                 {label}
               </Link>

@@ -43,7 +43,7 @@ export default function PhotoBand() {
               </span>
               <span
                 className="mx-6 inline-block h-1 w-1 rounded-full flex-shrink-0"
-                style={{ backgroundColor: 'oklch(100% 0 0 / 0.4)' }}
+                style={{ backgroundColor: 'oklch(97% 0.008 75 / 0.4)' }}
                 aria-hidden="true"
               />
             </span>

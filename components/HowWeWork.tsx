@@ -61,7 +61,7 @@ function useReducedMotion() {
 function DrawRule({
   reduced,
   delay = 0,
-  color = 'oklch(11% 0.002 264 / 0.12)',
+  color = 'oklch(14% 0.006 30 / 0.12)',
   position = 'absolute',
 }: {
   reduced: boolean
@@ -152,7 +152,7 @@ function PhaseRow({
             className="font-display italic font-normal leading-relaxed"
             style={{
               fontSize: 'clamp(1.1rem, 1.8vw, 1.375rem)',
-              color: 'oklch(11% 0.002 264 / 0.58)',
+              color: 'oklch(14% 0.006 30 / 0.58)',
               maxWidth: '52ch',
             }}
           >
@@ -201,7 +201,7 @@ function PhaseRow({
             className="font-body font-light leading-relaxed"
             style={{
               fontSize: '0.9375rem',
-              color: 'oklch(11% 0.002 264 / 0.6)',
+              color: 'oklch(14% 0.006 30 / 0.6)',
               maxWidth: '56ch',
               ...fade(370, 530, '0', '12px'),
             }}
@@ -241,7 +241,7 @@ export default function HowWeWork() {
         >
           <p
             className="font-mono text-xs font-medium tracking-[0.18em] uppercase"
-            style={{ color: 'oklch(11% 0.002 264 / 0.7)' }}
+            style={{ color: 'oklch(14% 0.006 30 / 0.7)' }}
           >
             How We Work
           </p>
@@ -250,7 +250,7 @@ export default function HowWeWork() {
             style={{
               flex: 1,
               height: '1px',
-              backgroundColor: 'oklch(11% 0.002 264 / 0.12)',
+              backgroundColor: 'oklch(14% 0.006 30 / 0.12)',
               transform: ey ? 'scaleX(1)' : 'scaleX(0)',
               transformOrigin: 'left',
               transition: reduced ? 'none' : `transform 540ms ${EXPO} 240ms`,

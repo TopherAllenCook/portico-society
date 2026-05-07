@@ -51,13 +51,13 @@ export default function EngagementPaths() {
           <div className="flex items-baseline gap-8 mb-14">
             <p
               className="font-mono text-xs font-medium tracking-[0.18em] uppercase"
-              style={{ color: 'oklch(100% 0 0 / 0.45)' }}
+              style={{ color: 'oklch(97% 0.008 75 / 0.45)' }}
             >
               How to Begin
             </p>
             <div
               className="flex-1"
-              style={{ height: '1px', backgroundColor: 'oklch(100% 0 0 / 0.12)' }}
+              style={{ height: '1px', backgroundColor: 'oklch(97% 0.008 75 / 0.12)' }}
               aria-hidden="true"
             />
           </div>
@@ -67,7 +67,7 @@ export default function EngagementPaths() {
           {/* Tab row */}
           <div
             className="flex gap-0 mb-14 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-            style={{ borderBottom: '1px solid oklch(100% 0 0 / 0.1)' }}
+            style={{ borderBottom: '1px solid oklch(97% 0.008 75 / 0.1)' }}
             role="tablist"
             aria-label="Engagement types"
           >
@@ -82,7 +82,7 @@ export default function EngagementPaths() {
               >
                 <span
                   className="font-mono text-xs font-medium tracking-[0.14em] uppercase transition-colors duration-200"
-                  style={{ color: active === i ? 'var(--color-ivory)' : 'oklch(100% 0 0 / 0.35)' }}
+                  style={{ color: active === i ? 'var(--color-ivory)' : 'oklch(97% 0.008 75 / 0.35)' }}
                 >
                   {p.name}
                 </span>
@@ -127,7 +127,7 @@ export default function EngagementPaths() {
               </div>
               <p
                 className="font-body font-light leading-relaxed"
-                style={{ fontSize: '0.9375rem', color: 'oklch(100% 0 0 / 0.6)', maxWidth: '52ch' }}
+                style={{ fontSize: '0.9375rem', color: 'oklch(97% 0.008 75 / 0.6)', maxWidth: '52ch' }}
               >
                 {path.description}
               </p>
@@ -137,7 +137,7 @@ export default function EngagementPaths() {
             <div>
               <p
                 className="font-mono mb-6 text-xs font-medium tracking-[0.16em] uppercase"
-                style={{ color: 'oklch(100% 0 0 / 0.3)' }}
+                style={{ color: 'oklch(97% 0.008 75 / 0.3)' }}
               >
                 What&rsquo;s Included
               </p>
@@ -146,7 +146,7 @@ export default function EngagementPaths() {
                   <li
                     key={j}
                     className="flex items-start gap-4 font-body font-light"
-                    style={{ fontSize: '0.9375rem', color: 'oklch(100% 0 0 / 0.6)' }}
+                    style={{ fontSize: '0.9375rem', color: 'oklch(97% 0.008 75 / 0.6)' }}
                   >
                     <span
                       className="mt-[0.45rem] h-1 w-1 rounded-full flex-shrink-0"
@@ -167,14 +167,14 @@ export default function EngagementPaths() {
               href="#begin"
               className="font-body inline-block rounded-full px-8 py-4 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
               style={{ backgroundColor: 'var(--color-cinnabar)', color: 'var(--color-ivory)' }}
-              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'oklch(40% 0.16 264)' }}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'oklch(34% 0.08 54)' }}
               onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)' }}
             >
               Request the audit
             </Link>
             <p
               className="font-body text-xs font-light"
-              style={{ color: 'oklch(100% 0 0 / 0.4)' }}
+              style={{ color: 'oklch(97% 0.008 75 / 0.4)' }}
             >
               Engagement scope is defined after you see the findings.
             </p>

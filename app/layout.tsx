@@ -1,5 +1,13 @@
 import type { Metadata } from 'next'
+import { Fraunces } from 'next/font/google'
 import './globals.css'
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  axes: ['opsz'],
+  variable: '--font-fraunces',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Verve — AI Visibility for Longevity and Concierge Practices',
@@ -14,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={fraunces.variable}>
       <body>{children}</body>
     </html>
   )

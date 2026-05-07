@@ -41,13 +41,13 @@ export default function Categories() {
         <RevealOnScroll>
           <p
             className="font-mono mb-4 text-xs font-medium tracking-[0.18em] uppercase"
-            style={{ color: 'oklch(11% 0.002 264 / 0.7)' }}
+            style={{ color: 'oklch(14% 0.006 30 / 0.7)' }}
           >
             Specialties
           </p>
           <p
             className="font-display italic font-normal mb-16"
-            style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)', color: 'oklch(11% 0.002 264 / 0.5)' }}
+            style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)', color: 'oklch(14% 0.006 30 / 0.5)' }}
           >
             Three categories. No exceptions.
           </p>
@@ -60,7 +60,7 @@ export default function Categories() {
               <RevealOnScroll key={name} delay={i * 100}>
                 <div
                   className={`flex flex-col gap-8 py-12 lg:items-start lg:gap-12 ${photoLeft ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
-                  style={{ borderTop: '1px solid oklch(11% 0.002 264 / 0.1)' }}
+                  style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
                 >
                   {/* Content — always the wide block */}
                   <div className="flex-1 min-w-0">
@@ -72,7 +72,7 @@ export default function Categories() {
                     </h2>
                     <p
                       className="font-body font-light leading-relaxed mb-6"
-                      style={{ fontSize: '0.9375rem', color: 'oklch(11% 0.002 264 / 0.6)' }}
+                      style={{ fontSize: '0.9375rem', color: 'oklch(14% 0.006 30 / 0.6)' }}
                     >
                       {description}
                     </p>
@@ -81,7 +81,7 @@ export default function Categories() {
                         <li
                           key={signal}
                           className="font-mono text-xs uppercase tracking-[0.1em]"
-                          style={{ color: 'oklch(11% 0.002 264 / 0.35)' }}
+                          style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
                         >
                           {signal}
                         </li>
@@ -110,7 +110,7 @@ export default function Categories() {
 
           <RevealOnScroll delay={categories.length * 100}>
             <div
-              style={{ borderTop: '1px solid oklch(11% 0.002 264 / 0.1)' }}
+              style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
               aria-hidden="true"
             />
           </RevealOnScroll>

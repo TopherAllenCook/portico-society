@@ -15,8 +15,8 @@ export default function Nav() {
   }, [])
 
   const textColor = 'var(--color-ink)'
-  const subColor = scrolled ? 'oklch(11% 0.002 264 / 0.45)' : 'oklch(11% 0.002 264 / 0.5)'
-  const ctaBorder = scrolled ? 'oklch(11% 0.002 264 / 0.28)' : 'oklch(11% 0.002 264 / 0.18)'
+  const subColor = scrolled ? 'oklch(14% 0.006 30 / 0.45)' : 'oklch(14% 0.006 30 / 0.5)'
+  const ctaBorder = scrolled ? 'oklch(14% 0.006 30 / 0.28)' : 'oklch(14% 0.006 30 / 0.18)'
 
   return (
     <header
@@ -24,7 +24,7 @@ export default function Nav() {
       style={{
         backgroundColor: scrolled ? 'var(--color-ivory)' : 'transparent',
         borderBottom: scrolled
-          ? '1px solid oklch(11% 0.002 264 / 0.1)'
+          ? '1px solid oklch(14% 0.006 30 / 0.1)'
           : '1px solid transparent',
       }}
     >
@@ -77,7 +77,7 @@ export default function Nav() {
             onMouseEnter={e => {
               e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'
               e.currentTarget.style.borderColor = 'var(--color-cinnabar)'
-              e.currentTarget.style.color = 'oklch(100% 0 0)'
+              e.currentTarget.style.color = 'oklch(97% 0.008 75)'
             }}
             onMouseLeave={e => {
               e.currentTarget.style.backgroundColor = 'transparent'
@@ -120,7 +120,7 @@ export default function Nav() {
       {open && (
         <div
           className="border-t px-6 pb-8 pt-6 lg:hidden"
-          style={{ backgroundColor: 'var(--color-ivory)', borderColor: 'oklch(11% 0.002 264 / 0.1)' }}
+          style={{ backgroundColor: 'var(--color-ivory)', borderColor: 'oklch(14% 0.006 30 / 0.1)' }}
         >
           <ul className="flex flex-col" role="list">
             {[
@@ -129,7 +129,7 @@ export default function Nav() {
               { label: 'How We Work', href: '#how-we-work' },
               { label: 'Selected Work', href: '#selected-work' },
             ].map(({ label, href }) => (
-              <li key={href} style={{ borderBottom: '1px solid oklch(11% 0.002 264 / 0.08)' }}>
+              <li key={href} style={{ borderBottom: '1px solid oklch(14% 0.006 30 / 0.08)' }}>
                 <Link
                   href={href}
                   className="font-body block py-4 text-sm font-medium uppercase"

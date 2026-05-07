@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  /* Apple Design System */
-  --color-ivory:            oklch(100% 0 0);              /* white #ffffff */
-  --color-ink:              oklch(11% 0.002 264);         /* near-black #1d1d1f */
-  --color-cinnabar:         oklch(47% 0.19 264);          /* action blue #0066cc */
-  --color-cinnabar-pale:    oklch(96% 0.015 264);         /* light blue tint */
-  --color-cinnabar-on-dark: oklch(72% 0.15 264);          /* blue on dark bg */
-  --color-cta-surface:      oklch(8% 0.001 264);          /* deep near-black */
-  --color-stone:            oklch(97% 0.001 264);         /* #f5f5f7 surface */
-  --color-stone-mid:        oklch(48% 0.003 264);         /* #6e6e73 secondary */
-  --color-hero-dark:        oklch(5% 0 0);
-  --color-card-dark:        oklch(15% 0.002 264);
+  /* Verve brand palette — warm editorial */
+  --color-ivory:            oklch(97% 0.008 75);
+  --color-ink:              oklch(14% 0.006 30);
+  --color-cinnabar:         oklch(42% 0.10 54);
+  --color-cinnabar-pale:    oklch(94% 0.024 65);
+  --color-cinnabar-on-dark: oklch(70% 0.13 54);
+  --color-cta-surface:      oklch(20% 0.012 40);
+  --color-stone:            oklch(91% 0.006 60);
+  --color-stone-mid:        oklch(72% 0.006 55);
+  --color-hero-dark:        oklch(8% 0.008 25);
+  --color-card-dark:        oklch(18% 0.008 30);
 
-  /* Typography: SF Pro system stack */
-  --font-display: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  /* Typography: Fraunces display + SF Pro system body */
+  --font-display: var(--font-fraunces), Georgia, serif;
   --font-body:    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   --font-mono:    ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
 
