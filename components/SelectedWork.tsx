@@ -39,13 +39,13 @@ export default function SelectedWork() {
           <div className="flex items-baseline gap-8 mb-16" aria-hidden="true">
             <p
               className="font-mono text-xs font-medium tracking-[0.18em] uppercase"
-              style={{ color: 'oklch(97% 0.008 75 / 0.45)' }}
+              style={{ color: 'oklch(100% 0 0 / 0.45)' }}
             >
               Selected Work
             </p>
             <div
               className="flex-1"
-              style={{ height: '1px', backgroundColor: 'oklch(97% 0.008 75 / 0.12)' }}
+              style={{ height: '1px', backgroundColor: 'oklch(100% 0 0 / 0.12)' }}
             />
           </div>
         </RevealOnScroll>
@@ -54,8 +54,9 @@ export default function SelectedWork() {
           {cases.map(({ category, location, statValue, statPrefix, statSuffix, statLabel, detail }, i) => (
             <RevealOnScroll key={category} delay={i * 120}>
               <div
+                role="group"
                 className="grid grid-cols-1 gap-8 py-12 lg:grid-cols-[auto_1fr] lg:items-start lg:gap-20"
-                style={{ borderTop: '1px solid oklch(97% 0.008 75 / 0.12)' }}
+                style={{ borderTop: '1px solid oklch(100% 0 0 / 0.12)' }}
                 aria-label={`${category}, ${location}`}
               >
                 {/* Stat — left anchor at document level, no card container */}
@@ -69,7 +70,7 @@ export default function SelectedWork() {
                   </p>
                   <p
                     className="font-mono text-xs uppercase tracking-[0.14em] mt-2"
-                    style={{ color: 'oklch(97% 0.008 75 / 0.45)' }}
+                    style={{ color: 'oklch(100% 0 0 / 0.45)' }}
                     aria-hidden="true"
                   >
                     {statLabel}
@@ -82,25 +83,25 @@ export default function SelectedWork() {
                   <div className="flex items-center gap-3 mb-6">
                     <h3
                       className="font-mono text-xs font-medium tracking-[0.12em] uppercase"
-                      style={{ color: 'var(--color-cinnabar)' }}
+                      style={{ color: 'var(--color-cinnabar-on-dark)' }}
                     >
                       {category}
                     </h3>
                     <span
                       className="h-1 w-1 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: 'oklch(97% 0.008 75 / 0.2)' }}
+                      style={{ backgroundColor: 'oklch(100% 0 0 / 0.2)' }}
                       aria-hidden="true"
                     />
                     <p
                       className="font-mono text-xs tracking-[0.1em]"
-                      style={{ color: 'oklch(97% 0.008 75 / 0.3)' }}
+                      style={{ color: 'oklch(100% 0 0 / 0.3)' }}
                     >
                       {location}
                     </p>
                   </div>
                   <p
                     className="font-body font-light leading-relaxed"
-                    style={{ fontSize: '0.9375rem', color: 'oklch(97% 0.008 75 / 0.55)', maxWidth: '48ch' }}
+                    style={{ fontSize: '0.9375rem', color: 'oklch(100% 0 0 / 0.55)', maxWidth: '48ch' }}
                   >
                     {detail}
                   </p>
@@ -111,7 +112,7 @@ export default function SelectedWork() {
 
           <RevealOnScroll>
             <div
-              style={{ borderTop: '1px solid oklch(97% 0.008 75 / 0.12)' }}
+              style={{ borderTop: '1px solid oklch(100% 0 0 / 0.12)' }}
               aria-hidden="true"
             />
           </RevealOnScroll>
@@ -120,7 +121,7 @@ export default function SelectedWork() {
         <RevealOnScroll>
           <p
             className="font-body font-light text-xs mt-8"
-            style={{ color: 'oklch(97% 0.008 75 / 0.3)' }}
+            style={{ color: 'oklch(100% 0 0 / 0.3)' }}
           >
             Client names withheld by agreement. Results available for discussion during the audit review.
           </p>

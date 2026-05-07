@@ -134,7 +134,7 @@ export default function Hero() {
             style={{
               fontSize: 'clamp(2.25rem, 7.5vw, 5.5rem)',
               lineHeight: '1.05',
-              color: 'oklch(14% 0.006 30 / 0.5)',
+              color: 'oklch(11% 0.002 264 / 0.5)',
               ...rise(300),
             }}
           >
@@ -160,7 +160,7 @@ export default function Hero() {
           className="font-display italic font-normal mt-10 lg:mt-12"
           style={{
             fontSize: 'clamp(1rem, 1.4vw, 1.2rem)',
-            color: 'oklch(14% 0.006 30 / 0.68)',
+            color: 'oklch(11% 0.002 264 / 0.68)',
             maxWidth: '42ch',
             lineHeight: '1.5',
             ...rise(580),
@@ -173,15 +173,14 @@ export default function Hero() {
         <div className="mt-12 lg:mt-14" style={rise(680)}>
           <Link
             href="#begin"
-            className="font-mono inline-flex items-center gap-3 px-8 py-4 text-xs font-medium uppercase transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+            className="font-body inline-flex items-center gap-3 rounded-full px-8 py-4 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
             style={{
-              letterSpacing: '0.16em',
               backgroundColor: 'var(--color-cinnabar)',
               color: 'var(--color-ivory)',
               outlineColor: 'var(--color-cinnabar)',
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.backgroundColor = 'oklch(34% 0.08 54)'
+              e.currentTarget.style.backgroundColor = 'oklch(40% 0.16 264)'
             }}
             onMouseLeave={e => {
               e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'
@@ -200,7 +199,7 @@ export default function Hero() {
           </Link>
           <p
             className="font-mono mt-4 text-xs tracking-[0.1em]"
-            style={{ color: 'oklch(14% 0.006 30 / 0.7)' }}
+            style={{ color: 'oklch(11% 0.002 264 / 0.7)' }}
           >
             Free. No call required. Delivered within 48 hours.
           </p>
@@ -215,7 +214,7 @@ export default function Hero() {
           viewBox="0 0 20 12"
           fill="none"
           aria-hidden="true"
-          style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
+          style={{ color: 'oklch(11% 0.002 264 / 0.35)' }}
         >
           <path
             d="M1 1l9 9 9-9"
