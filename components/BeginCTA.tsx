@@ -92,7 +92,7 @@ export default function BeginCTA() {
                   className="font-mono mt-4 block not-italic text-xs tracking-[0.1em] uppercase"
                   style={{ color: 'oklch(97% 0.008 75 / 0.35)' }}
                 >
-                  Sample finding, Longevity practice, Q1 2025
+                  Sample finding, Longevity practice, Q4 2025
                 </cite>
               </blockquote>
 
