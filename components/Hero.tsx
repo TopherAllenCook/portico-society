@@ -160,7 +160,7 @@ export default function Hero() {
           className="font-display italic font-normal mt-10 lg:mt-12"
           style={{
             fontSize: 'clamp(1rem, 1.4vw, 1.2rem)',
-            color: 'oklch(14% 0.006 30 / 0.68)',
+            color: 'var(--color-body-text)',
             maxWidth: '42ch',
             lineHeight: '1.5',
             ...rise(580),
@@ -199,7 +199,7 @@ export default function Hero() {
           </Link>
           <p
             className="font-mono mt-4 text-xs tracking-[0.1em]"
-            style={{ color: 'oklch(14% 0.006 30 / 0.7)' }}
+            style={{ color: 'var(--color-label-text)' }}
           >
             Free. No call required. Delivered within 48 hours.
           </p>

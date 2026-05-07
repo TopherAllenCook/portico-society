@@ -41,13 +41,13 @@ export default function Categories() {
         <RevealOnScroll>
           <p
             className="font-mono mb-4 text-xs font-medium tracking-[0.18em] uppercase"
-            style={{ color: 'oklch(14% 0.006 30 / 0.7)' }}
+            style={{ color: 'var(--color-label-text)' }}
           >
             Specialties
           </p>
           <p
             className="font-display italic font-normal mb-16"
-            style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)', color: 'oklch(14% 0.006 30 / 0.5)' }}
+            style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)', color: 'var(--color-label-text)' }}
           >
             Three categories. No exceptions.
           </p>
@@ -72,7 +72,7 @@ export default function Categories() {
                     </h2>
                     <p
                       className="font-body font-light leading-relaxed mb-6"
-                      style={{ fontSize: '0.9375rem', color: 'oklch(14% 0.006 30 / 0.6)' }}
+                      style={{ fontSize: '0.9375rem', color: 'var(--color-body-text)' }}
                     >
                       {description}
                     </p>
@@ -81,7 +81,7 @@ export default function Categories() {
                         <li
                           key={signal}
                           className="font-mono text-xs uppercase tracking-[0.1em]"
-                          style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
+                          style={{ color: 'var(--color-label-text)' }}
                         >
                           {signal}
                         </li>

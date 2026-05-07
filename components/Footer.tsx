@@ -31,14 +31,14 @@ export default function Footer() {
               </span>
               <span
                 className="font-mono font-medium"
-                style={{ fontSize: '0.475rem', letterSpacing: '0.26em', color: 'oklch(14% 0.006 30 / 0.7)', marginTop: '0.25rem' }}
+                style={{ fontSize: '0.475rem', letterSpacing: '0.26em', color: 'var(--color-label-text)', marginTop: '0.25rem' }}
               >
                 LONGEVITY MARKETING
               </span>
             </Link>
             <p
               className="font-body mt-4 text-sm font-light leading-relaxed"
-              style={{ color: 'oklch(14% 0.006 30 / 0.5)', maxWidth: '42ch' }}
+              style={{ color: 'var(--color-body-text)', maxWidth: '42ch' }}
             >
               Clinic marketing for longevity, concierge medicine, and aesthetic practices.
               AI search authority, patient inquiry architecture, and recurring revenue growth.
@@ -49,7 +49,7 @@ export default function Footer() {
           <nav aria-label="Footer navigation">
             <p
               className="font-mono mb-4 text-xs font-medium tracking-[0.15em] uppercase"
-              style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
+              style={{ color: 'var(--color-label-text)' }}
             >
               Navigate
             </p>
@@ -58,8 +58,8 @@ export default function Footer() {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="font-body text-sm font-light transition-opacity duration-200 hover:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                    style={{ color: 'oklch(14% 0.006 30 / 0.65)' }}
+                    className="font-body text-sm font-light transition-opacity duration-200 hover:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                    style={{ color: 'var(--color-body-text)' }}
                   >
                     {label}
                   </Link>
@@ -76,7 +76,7 @@ export default function Footer() {
         >
           <p
             className="font-body text-xs font-light"
-            style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
+            style={{ color: 'var(--color-label-text)' }}
           >
             &copy; {new Date().getFullYear()} Verve Clinic Marketing LLC. All rights reserved.
           </p>
@@ -89,7 +89,7 @@ export default function Footer() {
                 key={href}
                 href={href}
                 className="font-body text-xs font-light transition-opacity duration-200 hover:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
+                style={{ color: 'var(--color-label-text)' }}
               >
                 {label}
               </Link>

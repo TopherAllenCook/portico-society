@@ -32,7 +32,7 @@ export default function WhatWeEngineer() {
           <div className="flex items-baseline gap-8 mb-16">
             <p
               className="font-mono text-xs font-medium tracking-[0.18em] uppercase"
-              style={{ color: 'oklch(14% 0.006 30 / 0.7)' }}
+              style={{ color: 'var(--color-label-text)' }}
             >
               What We Engineer
             </p>
@@ -74,7 +74,7 @@ export default function WhatWeEngineer() {
                 </h2>
                 <p
                   className="font-body font-light leading-relaxed"
-                  style={{ fontSize: '1rem', color: 'oklch(14% 0.006 30 / 0.6)', maxWidth: '48ch' }}
+                  style={{ fontSize: '1rem', color: 'var(--color-body-text)', maxWidth: '48ch' }}
                 >
                   {body}
                 </p>

@@ -13,6 +13,10 @@
   --color-hero-dark:        oklch(8% 0.008 25);
   --color-card-dark:        oklch(18% 0.008 30);
 
+  /* Accessible text on light (ivory / stone) backgrounds — solid, no opacity */
+  --color-body-text:        oklch(40% 0.006 30);   /* ≈ 5.1:1 vs stone, 5.97:1 vs ivory */
+  --color-label-text:       oklch(42% 0.006 30);   /* ≈ 4.8:1 vs stone, 5.4:1 vs ivory  */
+
   /* Typography: Fraunces display + SF Pro system body */
   --font-display: var(--font-fraunces), Georgia, serif;
   --font-body:    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;

@@ -152,7 +152,7 @@ function PhaseRow({
             className="font-display italic font-normal leading-relaxed"
             style={{
               fontSize: 'clamp(1.1rem, 1.8vw, 1.375rem)',
-              color: 'oklch(14% 0.006 30 / 0.58)',
+              color: 'var(--color-body-text)',
               maxWidth: '52ch',
             }}
           >
@@ -201,7 +201,7 @@ function PhaseRow({
             className="font-body font-light leading-relaxed"
             style={{
               fontSize: '0.9375rem',
-              color: 'oklch(14% 0.006 30 / 0.6)',
+              color: 'var(--color-body-text)',
               maxWidth: '56ch',
               ...fade(370, 530, '0', '12px'),
             }}
@@ -241,7 +241,7 @@ export default function HowWeWork() {
         >
           <p
             className="font-mono text-xs font-medium tracking-[0.18em] uppercase"
-            style={{ color: 'oklch(14% 0.006 30 / 0.7)' }}
+            style={{ color: 'var(--color-label-text)' }}
           >
             How We Work
           </p>
