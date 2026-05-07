@@ -1,11 +1,20 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+
+const navItems = [
+  { label: 'Services', href: '#what-we-engineer' },
+  { label: 'Who We Help', href: '#categories' },
+  { label: 'How We Work', href: '#how-we-work' },
+  { label: 'Selected Work', href: '#selected-work' },
+]
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const drawerRef = useRef<HTMLDivElement>(null)
+  const toggleRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 72)
@@ -13,6 +22,40 @@ export default function Nav() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  // Focus trap + Escape key for mobile drawer
+  useEffect(() => {
+    if (!open) return
+
+    const drawer = drawerRef.current
+    if (!drawer) return
+
+    const focusable = drawer.querySelectorAll<HTMLElement>(
+      'a[href], button, [tabindex]:not([tabindex="-1"])'
+    )
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+
+    first?.focus()
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setOpen(false)
+        toggleRef.current?.focus()
+        return
+      }
+      if (e.key !== 'Tab') return
+      if (focusable.length === 0) { e.preventDefault(); return }
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last?.focus() }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first?.focus() }
+      }
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [open])
 
   const textColor = 'var(--color-ink)'
   const subColor = scrolled ? 'oklch(14% 0.006 30 / 0.45)' : 'oklch(14% 0.006 30 / 0.5)'
@@ -50,12 +93,7 @@ export default function Nav() {
 
         {/* Desktop links */}
         <ul className="hidden items-center gap-10 lg:flex" role="list">
-          {[
-            { label: 'Services', href: '#what-we-engineer' },
-            { label: 'Who We Help', href: '#categories' },
-            { label: 'How We Work', href: '#how-we-work' },
-            { label: 'Selected Work', href: '#selected-work' },
-          ].map(({ label, href }) => (
+          {navItems.map(({ label, href }) => (
             <li key={href}>
               <Link
                 href={href}
@@ -94,9 +132,11 @@ export default function Nav() {
 
         {/* Mobile toggle — 44×44px touch target */}
         <button
+          ref={toggleRef}
           className="flex h-11 w-11 cursor-pointer items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 lg:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
+          aria-controls="mobile-nav-drawer"
           onClick={() => setOpen(o => !o)}
           style={{ color: textColor }}
         >
@@ -119,16 +159,16 @@ export default function Nav() {
       {/* Mobile drawer */}
       {open && (
         <div
+          id="mobile-nav-drawer"
+          ref={drawerRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
           className="border-t px-6 pb-8 pt-6 lg:hidden"
           style={{ backgroundColor: 'var(--color-ivory)', borderColor: 'oklch(14% 0.006 30 / 0.1)' }}
         >
           <ul className="flex flex-col" role="list">
-            {[
-              { label: 'Services', href: '#what-we-engineer' },
-              { label: 'Who We Help', href: '#categories' },
-              { label: 'How We Work', href: '#how-we-work' },
-              { label: 'Selected Work', href: '#selected-work' },
-            ].map(({ label, href }) => (
+            {navItems.map(({ label, href }) => (
               <li key={href} style={{ borderBottom: '1px solid oklch(14% 0.006 30 / 0.08)' }}>
                 <Link
                   href={href}
