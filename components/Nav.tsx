@@ -111,17 +111,13 @@ export default function Nav() {
           <div className="hidden md:block">
             <Link
               href="#begin"
-              className="font-body inline-flex items-center gap-2 whitespace-nowrap rounded-full border px-6 py-3 text-sm font-medium transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-              style={{ borderColor: ctaBorder, color: textColor }}
+              className="font-body inline-flex items-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-sm font-medium transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              style={{ backgroundColor: 'var(--color-ink)', color: 'var(--color-ivory)' }}
               onMouseEnter={e => {
                 e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'
-                e.currentTarget.style.borderColor = 'var(--color-cinnabar)'
-                e.currentTarget.style.color = 'oklch(97% 0.008 75)'
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.backgroundColor = 'transparent'
-                e.currentTarget.style.borderColor = ctaBorder
-                e.currentTarget.style.color = textColor
+                e.currentTarget.style.backgroundColor = 'var(--color-ink)'
               }}
             >
               Request Your Free Audit
