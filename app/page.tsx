@@ -8,6 +8,7 @@ import WhatWeEngineer from '@/components/WhatWeEngineer'
 import EngagementPaths from '@/components/EngagementPaths'
 import Categories from '@/components/Categories'
 import HowWeWork from '@/components/HowWeWork'
+import Testimonials from '@/components/Testimonials'
 import SelectedWork from '@/components/SelectedWork'
 import BeginCTA from '@/components/BeginCTA'
 import Footer from '@/components/Footer'
@@ -25,6 +26,7 @@ export default function HomePage() {
         <WhatWeEngineer />
         <Categories />
         <HowWeWork />
+        <Testimonials />
         <SelectedWork />
         <EngagementPaths />
         <BeginCTA />
