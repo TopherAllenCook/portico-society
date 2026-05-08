@@ -42,12 +42,12 @@ export default function ServicesV2() {
             <div className="flex items-center gap-6">
               <p
                 className="font-mono text-xs font-medium uppercase tracking-[0.2em]"
-                style={{ color: 'oklch(97% 0.008 75 / 0.3)' }}
+                style={{ color: 'var(--color-label-text-on-dark)' }}
               >
                 Three Specialties
               </p>
               <div
-                style={{ flex: 1, height: '1px', backgroundColor: 'oklch(97% 0.008 75 / 0.08)' }}
+                style={{ flex: 1, height: '1px', backgroundColor: 'var(--color-ivory-subtle)' }}
                 aria-hidden="true"
               />
             </div>
@@ -76,7 +76,7 @@ export default function ServicesV2() {
           <RevealOnScroll key={spec.num}>
             <article
               className="grid grid-cols-1 lg:grid-cols-2"
-              style={{ borderTop: '1px solid oklch(97% 0.008 75 / 0.07)' }}
+              style={{ borderTop: '1px solid var(--color-ivory-subtle)' }}
             >
               {/* Image panel */}
               <div
@@ -88,7 +88,7 @@ export default function ServicesV2() {
                   alt={spec.imageAlt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700"
+                  className="object-cover"
                   style={{ filter: 'brightness(0.72) saturate(0.75)' }}
                 />
                 {/* Edge fade toward text column */}
@@ -126,13 +126,13 @@ export default function ServicesV2() {
                 </h3>
                 <p
                   className="font-body font-light leading-relaxed mb-6"
-                  style={{ fontSize: '0.9375rem', color: 'oklch(97% 0.008 75 / 0.55)', maxWidth: '46ch' }}
+                  style={{ fontSize: '0.9375rem', color: 'var(--color-body-text-on-dark)', maxWidth: '46ch' }}
                 >
                   {spec.body}
                 </p>
                 <p
                   className="font-display italic font-normal"
-                  style={{ fontSize: '0.9375rem', color: 'oklch(97% 0.008 75 / 0.38)', maxWidth: '42ch', lineHeight: '1.65' }}
+                  style={{ fontSize: '0.9375rem', color: 'var(--color-label-text-on-dark)', maxWidth: '42ch', lineHeight: '1.65' }}
                 >
                   {spec.pull}
                 </p>

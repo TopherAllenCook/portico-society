@@ -36,9 +36,9 @@ function CountUp({ target }: { target: number }) {
   }, [target])
 
   return (
-    <em ref={ref} className="not-italic" aria-label={`${target}`}>
+    <span ref={ref} aria-label={`${target}`}>
       {count}
-    </em>
+    </span>
   )
 }
 
@@ -91,7 +91,7 @@ export default function ManifestoV2() {
         <RevealOnScroll>
           <div
             className="my-16 lg:my-20"
-            style={{ height: '1px', backgroundColor: 'oklch(14% 0.006 30 / 0.1)' }}
+            style={{ height: '1px', backgroundColor: 'var(--color-ink-rule)' }}
             aria-hidden="true"
           />
         </RevealOnScroll>

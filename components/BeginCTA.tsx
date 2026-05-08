@@ -211,7 +211,7 @@ export default function BeginCTA() {
 
                   <p
                     className="font-body text-center text-xs font-light"
-                    style={{ color: 'oklch(97% 0.008 75 / 0.4)' }}
+                    style={{ color: 'var(--color-body-text-on-dark)' }}
                   >
                     No sales call required. The audit comes first.
                   </p>

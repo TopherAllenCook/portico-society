@@ -12,6 +12,21 @@
   --color-stone:            oklch(91% 0.006 60);
   --color-stone-mid:        oklch(72% 0.006 55);
 
+  /* Decorative non-text on light surfaces — rules, dividers, icons */
+  --color-ink-rule:         oklch(14% 0.006 30 / 0.1);
+  --color-ink-faint:        oklch(14% 0.006 30 / 0.08);
+  --color-ink-ghost:        oklch(14% 0.006 30 / 0.06);
+  --color-ink-icon:         oklch(14% 0.006 30 / 0.35);
+  --color-ivory-mid:        oklch(97% 0.008 75 / 0.5);
+
+  /* Decorative non-text on dark (ink / cta-surface) surfaces */
+  --color-ivory-subtle:     oklch(97% 0.008 75 / 0.07);
+  --color-ivory-dim:        oklch(97% 0.008 75 / 0.12);
+
+  /* Accessible text on dark (ink / cta-surface) backgrounds — solid, no opacity */
+  --color-body-text-on-dark:  oklch(78% 0.004 60);   /* ≈ 10:1 on ink, ≈ 8:1 on cta-surface */
+  --color-label-text-on-dark: oklch(65% 0.004 60);   /* ≈ 6.4:1 on ink, ≈ 5.0:1 on cta-surface */
+
   /* Accessible text on light (ivory / stone) backgrounds — solid, no opacity */
   --color-body-text:        oklch(40% 0.006 30);   /* ≈ 5.1:1 vs stone, 5.97:1 vs ivory */
   --color-label-text:       oklch(42% 0.006 30);   /* ≈ 4.8:1 vs stone, 5.4:1 vs ivory  */

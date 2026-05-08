@@ -14,7 +14,7 @@ export default function FooterV2() {
       className="px-6 py-16 lg:px-16"
       style={{
         backgroundColor: 'var(--color-ink)',
-        borderTop: '1px solid oklch(97% 0.008 75 / 0.07)',
+        borderTop: '1px solid var(--color-ivory-subtle)',
       }}
     >
       <div className="mx-auto max-w-5xl">
@@ -30,7 +30,7 @@ export default function FooterV2() {
             </p>
             <p
               className="font-body font-light leading-relaxed"
-              style={{ fontSize: '0.875rem', color: 'oklch(97% 0.008 75 / 0.38)', maxWidth: '36ch' }}
+              style={{ fontSize: '0.875rem', color: 'var(--color-body-text-on-dark)', maxWidth: '36ch' }}
             >
               AI visibility and patient acquisition marketing for longevity, concierge, and aesthetic medicine practices.
             </p>
@@ -42,10 +42,8 @@ export default function FooterV2() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-mono text-xs font-medium uppercase tracking-[0.13em] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
-                style={{ color: 'oklch(97% 0.008 75 / 0.28)', outlineColor: 'oklch(97% 0.008 75 / 0.4)' }}
-                onMouseEnter={e => { e.currentTarget.style.color = 'oklch(97% 0.008 75 / 0.65)' }}
-                onMouseLeave={e => { e.currentTarget.style.color = 'oklch(97% 0.008 75 / 0.28)' }}
+                className="font-mono text-xs font-medium uppercase tracking-[0.13em] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 text-[var(--color-label-text-on-dark)] hover:text-ivory"
+                style={{ outlineColor: 'oklch(97% 0.008 75 / 0.4)' }}
               >
                 {link.label}
               </Link>
@@ -60,13 +58,13 @@ export default function FooterV2() {
         >
           <p
             className="font-mono text-xs tracking-[0.1em]"
-            style={{ color: 'oklch(97% 0.008 75 / 0.18)' }}
+            style={{ color: 'var(--color-label-text-on-dark)' }}
           >
             &copy; 2026 Verve. All rights reserved.
           </p>
           <p
             className="font-mono text-xs tracking-[0.1em]"
-            style={{ color: 'oklch(97% 0.008 75 / 0.18)' }}
+            style={{ color: 'var(--color-label-text-on-dark)' }}
           >
             vervemd.com
           </p>

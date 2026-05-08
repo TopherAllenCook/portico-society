@@ -71,7 +71,7 @@ export default function ProofV2() {
         <RevealOnScroll>
           <div
             className="grid grid-cols-1 gap-0 sm:grid-cols-3"
-            style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
+            style={{ borderTop: '1px solid var(--color-ink-rule)' }}
           >
             {stats.map((stat, i) => (
               <div
@@ -80,7 +80,7 @@ export default function ProofV2() {
                 style={{
                   paddingRight: i < 2 ? '2rem' : undefined,
                   paddingLeft: i > 0 ? '2rem' : undefined,
-                  borderLeft: i > 0 ? '1px solid oklch(14% 0.006 30 / 0.1)' : undefined,
+                  borderLeft: i > 0 ? '1px solid var(--color-ink-rule)' : undefined,
                 }}
               >
                 <p

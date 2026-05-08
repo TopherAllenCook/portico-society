@@ -5,11 +5,13 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 export default function Hero() {
+  const [mounted, setMounted] = useState(false)
   const [entered, setEntered] = useState(false)
   const [reduced, setReduced] = useState(false)
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setMounted(true)
     setReduced(mq.matches)
     const id = requestAnimationFrame(() => setEntered(true))
     return () => cancelAnimationFrame(id)
@@ -18,19 +20,23 @@ export default function Hero() {
   const ease = 'cubic-bezier(0.16,1,0.3,1)'
 
   function rise(delayMs: number): React.CSSProperties {
-    if (reduced) return {}
+    if (!mounted || reduced) return {}
+    if (!entered) return { opacity: 0, transform: 'translateY(1.25rem)', willChange: 'opacity, transform' }
     return {
-      opacity: entered ? 1 : 0,
-      transform: entered ? 'translateY(0)' : 'translateY(1.25rem)',
+      opacity: 1,
+      transform: 'translateY(0)',
       transition: `opacity 640ms ${ease} ${delayMs}ms, transform 640ms ${ease} ${delayMs}ms`,
+      willChange: 'auto',
     }
   }
 
   function fade(delayMs: number, durationMs = 800): React.CSSProperties {
-    if (reduced) return {}
+    if (!mounted || reduced) return {}
+    if (!entered) return { opacity: 0, willChange: 'opacity' }
     return {
-      opacity: entered ? 1 : 0,
+      opacity: 1,
       transition: `opacity ${durationMs}ms ${ease} ${delayMs}ms`,
+      willChange: 'auto',
     }
   }
 
@@ -42,7 +48,7 @@ export default function Hero() {
     <section
       className="relative flex min-h-svh flex-col overflow-hidden px-6 pt-24 pb-0 lg:px-16 lg:pt-0"
       style={{ backgroundColor: 'var(--color-ivory)' }}
-      aria-label="Hero"
+      aria-label="AI visibility for medical practices"
     >
       {/* Desktop photo — fills right 64% of viewport at every breakpoint, no width ceiling */}
       <div
@@ -70,7 +76,7 @@ export default function Hero() {
             aria-hidden="true"
             style={{
               background:
-                'linear-gradient(to right, var(--color-ivory) 0%, oklch(97% 0.008 75 / 0.5) 28%, transparent 52%)',
+                'linear-gradient(to right, var(--color-ivory) 0%, var(--color-ivory-mid) 28%, transparent 52%)',
             }}
           />
         </div>
@@ -173,18 +179,8 @@ export default function Hero() {
         <div className="mt-12 lg:mt-14" style={rise(680)}>
           <Link
             href="#begin"
-            className="font-body inline-flex items-center gap-3 rounded-full px-8 py-4 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
-            style={{
-              backgroundColor: 'var(--color-cinnabar)',
-              color: 'var(--color-ivory)',
-              outlineColor: 'var(--color-cinnabar)',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.backgroundColor = 'var(--color-cinnabar-dark)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'
-            }}
+            className="font-body inline-flex items-center gap-3 rounded-full px-8 py-4 text-sm font-medium bg-cinnabar text-ivory hover:bg-cinnabar-dark transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+            style={{ outlineColor: 'var(--color-cinnabar)' }}
           >
             Request Your Free Audit
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -214,7 +210,7 @@ export default function Hero() {
           viewBox="0 0 20 12"
           fill="none"
           aria-hidden="true"
-          style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
+          style={{ color: 'var(--color-ink-icon)' }}
         >
           <path
             d="M1 1l9 9 9-9"

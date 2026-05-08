@@ -44,7 +44,7 @@ export default function ProcessV2() {
               How It Works
             </p>
             <div
-              style={{ flex: 1, height: '1px', backgroundColor: 'oklch(14% 0.006 30 / 0.1)' }}
+              style={{ flex: 1, height: '1px', backgroundColor: 'var(--color-ink-rule)' }}
               aria-hidden="true"
             />
           </div>
@@ -55,7 +55,7 @@ export default function ProcessV2() {
           <RevealOnScroll key={phase.num} delay={i * 60}>
             <div
               className="grid grid-cols-1 gap-8 py-14 lg:grid-cols-[10rem_1fr] lg:gap-20"
-              style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.1)' }}
+              style={{ borderTop: '1px solid var(--color-ink-rule)' }}
             >
               {/* Left: number + title */}
               <div>
@@ -100,7 +100,7 @@ export default function ProcessV2() {
 
         {/* Closing rule */}
         <div
-          style={{ height: '1px', backgroundColor: 'oklch(14% 0.006 30 / 0.1)' }}
+          style={{ height: '1px', backgroundColor: 'var(--color-ink-rule)' }}
           aria-hidden="true"
         />
 
