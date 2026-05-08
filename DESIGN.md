@@ -1,105 +1,160 @@
-<!-- SEED: re-run /impeccable document once there's code to capture the actual tokens and components. -->
-
 ---
-name: Portico Society
-description: Precision marketing for luxury service providers.
+name: Verve Clinic Marketing
+description: AI visibility and patient acquisition marketing for longevity, concierge, and aesthetic medicine practices.
 ---
 
-# Design System: Portico Society
+# Design System: Verve
 
 ## 1. Overview
 
-**Creative North Star: "The Antiquarian Provocateur"**
+**Creative North Star: "The Trade Journal"**
 
-Portico Society borrows its visual authority from heritage institutions — the weight of architectural stone, the restraint of a private museum catalog, the permanence of something built to last — and then uses that authority to challenge the status quo of how luxury brands market themselves. The surface has the gravity of terracotta and aged parchment. The voice has the edge of a provocation. Neither quality apologizes for the other.
+Verve occupies the register of a specialized financial or medical trade publication — the kind a practice owner reads twice. The aesthetic is editorial restraint: thin rules, generous whitespace, warm ivory surfaces, and a single committed accent color. Typography does the heavy lifting. Motion is choreographed and purposeful, not decorative.
 
-Color is committed: the oxidized terracotta signature carries 30–60% of key surfaces rather than appearing sparingly as an accent. This is not a neutral palette with a color wink. The brand commits to its hue the way a terracotta vessel commits to its material. On field sections, hero surfaces, and typographic moments, the color is the brand. Supporting neutrals are warm parchment and deep inkwell near-black — never pure white, never pure black.
-
-Typography is a deliberate pairing: a high-contrast sculptural serif (thin strokes, dramatic weight differential, classical optical presence) carries display and headline weight. A warm humanist sans handles body, captions, and UI text — approachable enough to read, restrained enough not to compete. Motion is choreographed and purposeful: scroll-driven sequences, orchestrated entrances, elements that arrive with presence rather than simply appearing. Every animation is load-bearing. No decoration.
+The brand is warm without being soft. Cinnabar red-orange reads as authority and urgency rather than healthcare or startup. Fraunces — a high-contrast optical serif with swash variants — carries the display voice. The system sans (SF Pro / system-ui) handles body copy and UI labels. SF Mono / system mono handles eyebrow tags and metadata.
 
 **Key Characteristics:**
-- Committed oxidized terracotta as identity signal, not accent
-- Warm parchment and deep near-black as supporting neutrals
-- Sculptural editorial serif + warm humanist sans pairing
-- Choreographed scroll-driven motion with exponential ease-out curves
-- Light theme — editorial daylight, not dark
-- Architectural restraint in layout with precise rhythmic spacing
-- Provocative in copy, restrained in ornament
+- Ivory warm near-white as default surface — never cold clinical white
+- Cinnabar (`oklch(42% 0.10 54)`) as the single committed accent — used on data, CTAs, and structural emphasis
+- Stone (`oklch(91% 0.006 60)`) as a mid-surface for contrast sections
+- Ink (`oklch(14% 0.006 30)`) as near-black for dark sections
+- Fraunces display serif + system-ui body + system mono
+- Scroll-driven reveals with exponential ease-out curves
+- Thin horizontal rules as structural dividers — never side-stripe borders
 
-## 2. Colors: The Terracotta Authority Palette
+## 2. Colors
 
-One signature color that does not hide. The rest of the palette exists to support it.
+### Core Tokens (defined in `app/globals.css` `@theme`)
 
-### Primary
-- **Oxidized Terracotta** ([to be resolved during implementation]): The committed brand signal. Rich, earthy red-orange pulled toward brown — the color of aged clay, sun-weathered stone, and Pompeian fresco. Used on hero fields, full-bleed section backgrounds, and high-emphasis interactive elements. Carries 30–60% of the surface on identity-forward pages. Desaturates slightly toward deep brown at the dark end of its tonal range; lightens toward warm sand at the pale end.
+| Token | Value | Usage |
+|---|---|---|
+| `--color-ivory` | `oklch(97% 0.008 75)` | Primary light surface, hero, footer |
+| `--color-ink` | `oklch(14% 0.006 30)` | Dark sections, primary headings, near-black |
+| `--color-cinnabar` | `oklch(42% 0.10 54)` | Data points, CTAs, structural emphasis |
+| `--color-cinnabar-on-dark` | `oklch(70% 0.13 54)` | Cinnabar at AA contrast on ink backgrounds |
+| `--color-cinnabar-pale` | `oklch(94% 0.024 65)` | Light cinnabar tint (reserved) |
+| `--color-stone` | `oklch(91% 0.006 60)` | Mid-surface for contrast alternation |
+| `--color-stone-mid` | `oklch(72% 0.006 55)` | Dividers, mid-tones |
+| `--color-cta-surface` | `oklch(20% 0.012 40)` | BeginCTA dark surface (warmer than ink) |
+| `--color-body-text` | `oklch(40% 0.006 30)` | Body prose on light surfaces — 5.97:1 vs ivory, 5.11:1 vs stone |
+| `--color-label-text` | `oklch(42% 0.006 30)` | Eyebrow labels, mono tags on light surfaces — 5.4:1 vs ivory, 4.8:1 vs stone |
 
-### Neutral
-- **Aged Parchment** ([to be resolved during implementation]): The primary background surface. Warm cream with a faint terracotta tint — not white, not beige, not cream from a tube. Carries the same editorial stillness as uncoated paper stock in a well-designed catalog.
-- **Inkwell** ([to be resolved during implementation]): The primary text color. Deep near-black with a warm cast, referencing iron-gall ink. Never pure `#000`. Used for body text, headlines, and structural chrome.
-- **Stone** ([to be resolved during implementation]): A mid-tone warm neutral for dividers, borders, and secondary surface containers. The space between parchment and inkwell.
+### Color Rules
 
-### Named Rules
-**The Committed Terracotta Rule.** The primary color is not an accent. On any surface where Portico Society is asserting its brand identity — heroes, section breaks, marquee statements — the terracotta carries the surface. Its rarity is not the point; its presence is. Do not reduce it to a button highlight.
+**On ivory or stone (light) backgrounds:** Use `--color-body-text` or `--color-label-text` for all text. Never use `oklch(14% 0.006 30 / <opacity>)` for text — alpha-composited opacity fails WCAG AA below opacity 1.0.
 
-**The No White Rule.** No surface uses pure white or pure black. Every neutral is tinted toward the terracotta hue — even if the chroma is imperceptible at 0.005. Tinting is the signal that the palette is a system, not a default.
+**On ink or cta-surface (dark) backgrounds:** Semi-transparent ivory is acceptable. `oklch(97% 0.008 75 / 0.45)` and above passes WCAG AA against ink.
 
-## 3. Typography: The Editorial Authority Pair
+**Cinnabar on dark:** Use `var(--color-cinnabar-on-dark)` for small cinnabar text on dark backgrounds. Base cinnabar fails AA against ink at small sizes.
 
-**Display Font:** A high-contrast sculptural serif with dramatic thin-to-thick stroke differential — Cormorant Garamond, Canela, or equivalent optical quality. Light to Regular weight; hierarchy through size, not weight inflation.
+**Decorative non-text:** Thin rules use `oklch(14% 0.006 30 / 0.1)` on light, `oklch(97% 0.008 75 / 0.12)` on dark. No contrast requirement.
 
-**Body Font:** A warm humanist sans with open apertures and legible stroke contrast — Freight Sans, Untitled Sans, or equivalent. Regular and Medium weights only; never bold for body copy.
+### Section Backgrounds
 
-**Character:** The display serif carries the authority of print — it signals the institution, not the startup. The humanist sans grounds it in readability without softening the brand into approachability. The pairing reads as an agency that has taste and expects its clients to share it.
+| Section | Background |
+|---|---|
+| Hero | `--color-ivory` |
+| PhotoBand | `--color-cinnabar` |
+| CostOfInvisibility | `--color-stone` |
+| WhatWeEngineer | `--color-ivory` |
+| Categories | `--color-stone` |
+| HowWeWork | `--color-ivory` |
+| SelectedWork | `--color-ink` |
+| EngagementPaths | `--color-ink` |
+| BeginCTA | `--color-cta-surface` |
+| Footer | `--color-ivory` |
 
-### Hierarchy
-- **Display** (Light, `clamp(3rem, 8vw, 6rem)`, line-height 0.95–1.0): Major hero statements, above-fold headlines. Set wide. Let the thin strokes breathe.
-- **Headline** (Light-Regular, `clamp(1.75rem, 4vw, 3rem)`, line-height 1.05–1.1): Section headers, campaign statements, service names.
-- **Title** (Medium sans, `clamp(1rem, 2vw, 1.375rem)`, line-height 1.2): Subheadings, card titles, navigation anchors.
-- **Body** (Regular sans, `1rem`, line-height 1.65, max 68ch): Running prose, service descriptions, case study body. Never exceed 68 characters per line.
-- **Label** (Medium sans, `0.75rem`, letter-spacing 0.08em, uppercase): Tags, metadata, form labels, category markers.
+Rhythm: ivory → cinnabar → stone → ivory → stone → ivory → ink → ink → dark → ivory. Never two identical consecutive surfaces.
 
-### Named Rules
-**The Serif Sovereignty Rule.** The display serif is used for statements of substance only — headlines, hero copy, section titles. It does not appear in navigation, buttons, labels, or UI chrome. The moment the serif appears in a button, it becomes decoration. Reserve it for authority.
+## 3. Typography
 
-**The Weight Ceiling Rule.** The humanist sans never exceeds Medium weight in body contexts. Bold weight is reserved for pull-quote emphasis only — and even then, only in the display serif. Bold sans reads as urgency; this brand is not urgent.
+### Fonts
 
-## 4. Elevation
+```css
+--font-display: var(--font-fraunces), Georgia, serif;
+--font-body:    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+--font-mono:    ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
+```
 
-Portico Society is flat by default. Surfaces rest at the same plane; shadows do not appear at rest. Depth is created through tonal layering (parchment on parchment, terracotta on stone) rather than through casting light. This is the choice of confidence: shadows suggest things need to be lifted; tonal layering suggests surfaces are simply where they belong.
+One Google Font request: Fraunces (`opsz` axis, `latin` subset). Body and mono use the system stack.
 
-Ambient diffuse shadows appear only as response to state — hover on interactive elements, focus on form fields — never as decoration. When they appear, they are warm-cast (terracotta hue in the shadow color) and never pure grey.
+### Scale Tokens
 
-Motion is the primary elevation signal. Elements entering the viewport, sections revealing on scroll, transitions between states — these create perceived depth through time, not through shadow. The choreography is the architecture.
+```css
+--text-display:  clamp(3rem, 8vw, 6.5rem);
+--text-headline: clamp(2rem, 4vw, 3.25rem);
+--text-title:    clamp(1.125rem, 2vw, 1.5rem);
+--text-body:     1.0625rem;
+--text-label:    0.75rem;
+```
 
-### Shadow Vocabulary
-- **Hover lift** ([to be resolved]): Applied on interactive card hover and primary button hover. Warm diffuse shadow, never purely grey. Paired with a subtle upward translate.
-- **Focus halo** ([to be resolved]): Applied on keyboard focus. Terracotta-tinted ring — never the browser default blue.
+### Usage Rules
 
-### Named Rules
-**The Flat-At-Rest Rule.** Every surface is flat at rest. Shadows are not structural; they are behavioral. If a shadow appears when nothing is happening, it is wrong.
+- **Display** (`font-display italic font-normal`): hero headline, cinnabar feature statements, major display moments. Never in nav or buttons.
+- **Headline** (`font-display font-normal`, `letterSpacing: '-0.025em'`): section headings, phase titles, category names.
+- **Body** (`font-body font-light`, `lineHeight: 1.65`, `maxWidth: 48–68ch`): all prose. Never bold.
+- **Label** (`font-mono text-xs font-medium uppercase tracking-[0.14–0.18em]`): eyebrows, metadata, form labels.
+- **Italic accent** (`font-display italic font-normal`): editorial pull quotes, confrontation lines. The Fraunces swash italic is the brand's literary signature.
 
-## 5. Components
+## 4. Layout
 
-[Components will be documented in the first scan-mode run of `/impeccable document` once implementation begins.]
+### Container
 
-## 6. Do's and Don'ts
+`mx-auto max-w-5xl` with `px-6 py-24 lg:px-16 lg:py-36`. Nav uses `max-w-7xl`.
 
-### Do:
-- **Do** lead with a point of view in every copy block. Portico Society provokes before it persuades — the first sentence should challenge an assumption, not introduce the company.
-- **Do** use the terracotta as a field color on hero and identity-asserting sections. Committed means committed — 30–60% of the surface on brand pages.
-- **Do** build scroll-driven entrances that feel purposeful. Each sequence should feel like a reveal, not an animation. Exponential ease-out curves only (ease-out-quart, ease-out-expo).
-- **Do** hold the editorial serif for statements of substance only. Display headlines, section titles, campaign copy. Never in buttons, labels, or navigation.
-- **Do** tint every neutral toward the terracotta hue, even at imperceptible chroma. The palette is a system.
-- **Do** write copy that assumes the reader already understands luxury. Luxury clients do not need the category explained to them.
-- **Do** maintain WCAG 2.1 AA contrast on all text, even on terracotta fields. The brand's authority cannot be at the expense of legibility.
+### Grid Patterns
 
-### Don't:
-- **Don't** use loud luxury signals: no flashy gold accents, no ornamental filigree, no ostentatious wealth markers. That aesthetic signals insecurity, not taste.
-- **Don't** produce typical agency portfolio patterns: no "We are a creative studio" hero copy in large type, no neon-on-dark backgrounds, no identical case study grids with icon + headline + text, no floating icons.
-- **Don't** use gradient text (background-clip: text with a gradient fill). Prohibited. Use a single solid color; emphasis through weight or size.
-- **Don't** use side-stripe borders (border-left or border-right greater than 1px as a colored accent). Never. Rewrite with full borders, background tints, or leading numbers.
-- **Don't** reach for a modal when an inline or progressive treatment exists. Modals are lazy; this brand is considered.
-- **Don't** animate layout properties (width, height, top, left, margin, padding). Animate transform and opacity only.
-- **Don't** produce SaaS or tech agency aesthetics: no gradient hero backgrounds, no floating product UI screenshots at angles, no "Scale your growth" copy patterns, no HubSpot-adjacent visual language.
-- **Don't** use pure `#000` or `#fff` anywhere. Every neutral is tinted. The no-white rule is not negotiable.
-- **Don't** use bold weight humanist sans for body or UI text. It reads as urgency. This brand is certain, not urgent.
+- Two-column standard: `grid-cols-1 lg:grid-cols-2 lg:gap-24`
+- Number-left stat rows: `grid-cols-1 lg:grid-cols-[auto_1fr] lg:gap-20`
+- HowWeWork: `grid-cols-1 lg:grid-cols-[13rem_1fr]`
+
+### No Cards
+
+Items are separated by thin horizontal `borderTop` rules, not card containers. `border: 1px solid` appears only in BeginCTA blockquote and form-submitted state.
+
+## 5. Motion
+
+### Easing
+
+```css
+--ease-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+--ease-quart: cubic-bezier(0.25, 1, 0.5, 1);
+```
+
+No bounce or elastic. All transitions ease-out exponential.
+
+### RevealOnScroll
+
+CSS-driven via `[data-reveal]` attribute. Pending: `visibility: hidden; opacity: 0; transform: translateY(1.25rem)`. Done: transitions to visible over 0.85s. `prefers-reduced-motion` skips the pending state entirely.
+
+### AnimatedStat
+
+IntersectionObserver triggers RAF cubic-eased count-up (0 → value, 1200–1400ms). Jumps to final value immediately under reduced motion.
+
+### Marquee
+
+`animation: marquee 40s linear infinite` applied only via `@media (prefers-reduced-motion: no-preference)`.
+
+## 6. Accessibility
+
+- WCAG 2.1 AA target on all text
+- All interactive elements have `focus-visible:outline` rings
+- Mobile nav: focus trap, Escape closes, aria-modal, role=dialog
+- RevealOnScroll uses `visibility: hidden` (not just opacity 0) to prevent invisible-but-focusable elements
+- prefers-reduced-motion respected in all animated components
+- AnimatedStat uses `aria-hidden` on numeral + `sr-only` sibling with full text
+- Semantic landmarks: header, nav, main, footer, section with aria-label
+
+## 7. Absolute Bans
+
+- Side-stripe borders (border-left/right > 1px as accent)
+- Gradient text (background-clip: text + gradient)
+- Glassmorphism decoratively
+- Hero-metric template (big number grid)
+- Identical card grids
+- Modal as first thought
+- `#000` or `#fff` — tint every neutral toward brand hue
+- Opacity-based ink text on light backgrounds — use solid tokens instead
+- Bold weight humanist sans in body or UI
+- Em dashes or `--` in copy
+- Bounce or elastic easing
