@@ -78,7 +78,7 @@ export default function Hero() {
 
       {/* Main content — pb shifts the flex:center anchor upward in the viewport */}
       <div
-        className="relative flex flex-1 flex-col justify-start pt-6 pb-16 lg:justify-center lg:pt-0 lg:pb-[clamp(2rem,8vh,10rem)]"
+        className="relative flex flex-1 flex-col justify-start pt-6 pb-16 lg:justify-center lg:pt-24 lg:pb-[clamp(2rem,8vh,10rem)]"
         style={{ zIndex: 1 }}
       >
         {/* Eyebrow — mobile only */}

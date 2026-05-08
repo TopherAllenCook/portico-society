@@ -72,7 +72,7 @@ export default function Nav() {
       }}
     >
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-16"
+        className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center px-6 py-4 lg:px-16"
         aria-label="Primary navigation"
       >
         {/* Stacked wordmark */}
@@ -91,8 +91,8 @@ export default function Nav() {
           </span>
         </Link>
 
-        {/* Desktop links */}
-        <ul className="hidden items-center gap-6 md:flex lg:gap-10" role="list">
+        {/* Desktop links — centered in the 1fr middle column */}
+        <ul className="hidden items-center justify-center gap-6 md:flex lg:gap-10" role="list">
           {navItems.map(({ label, href }) => (
             <li key={href}>
               <Link
@@ -106,54 +106,56 @@ export default function Nav() {
           ))}
         </ul>
 
-        {/* Desktop CTA */}
-        <div className="hidden shrink-0 md:block">
-          <Link
-            href="#begin"
-            className="font-body inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border px-6 py-3 text-sm font-medium transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-            style={{ borderColor: ctaBorder, color: textColor }}
-            onMouseEnter={e => {
-              e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'
-              e.currentTarget.style.borderColor = 'var(--color-cinnabar)'
-              e.currentTarget.style.color = 'oklch(97% 0.008 75)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.backgroundColor = 'transparent'
-              e.currentTarget.style.borderColor = ctaBorder
-              e.currentTarget.style.color = textColor
-            }}
-          >
-            Request Your Free Audit
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M2 7h10M7.5 3l4.5 4-4.5 4" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
-        </div>
+        {/* Right column — CTA on desktop, hamburger on mobile */}
+        <div className="flex items-center justify-end">
+          <div className="hidden md:block">
+            <Link
+              href="#begin"
+              className="font-body inline-flex items-center gap-2 whitespace-nowrap rounded-full border px-6 py-3 text-sm font-medium transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              style={{ borderColor: ctaBorder, color: textColor }}
+              onMouseEnter={e => {
+                e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'
+                e.currentTarget.style.borderColor = 'var(--color-cinnabar)'
+                e.currentTarget.style.color = 'oklch(97% 0.008 75)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.backgroundColor = 'transparent'
+                e.currentTarget.style.borderColor = ctaBorder
+                e.currentTarget.style.color = textColor
+              }}
+            >
+              Request Your Free Audit
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2 7h10M7.5 3l4.5 4-4.5 4" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          </div>
 
-        {/* Mobile toggle — 44×44px touch target */}
-        <button
-          ref={toggleRef}
-          className="flex h-11 w-11 cursor-pointer items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:hidden"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          aria-controls="mobile-nav-drawer"
-          onClick={() => setOpen(o => !o)}
-          style={{ color: textColor }}
-        >
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-            {open ? (
-              <>
-                <line x1="4" y1="4" x2="18" y2="18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="18" y1="4" x2="4" y2="18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </>
-            ) : (
-              <>
-                <line x1="3" y1="7" x2="19" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="3" y1="15" x2="19" y2="15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </>
-            )}
-          </svg>
-        </button>
+          {/* Mobile toggle — 44×44px touch target */}
+          <button
+            ref={toggleRef}
+            className="flex h-11 w-11 cursor-pointer items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:hidden"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            aria-controls="mobile-nav-drawer"
+            onClick={() => setOpen(o => !o)}
+            style={{ color: textColor }}
+          >
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+              {open ? (
+                <>
+                  <line x1="4" y1="4" x2="18" y2="18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  <line x1="18" y1="4" x2="4" y2="18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="7" x2="19" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  <line x1="3" y1="15" x2="19" y2="15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </>
+              )}
+            </svg>
+          </button>
+        </div>
       </nav>
 
       {/* Mobile drawer */}
