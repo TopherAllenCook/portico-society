@@ -47,7 +47,15 @@
       "Bash(python3 \"C:\\\\Users\\\\ChrisCook\\\\.claude\\\\plugins\\\\cache\\\\ui-ux-pro-max-skill\\\\ui-ux-pro-max\\\\2.0.1\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"healthcare luxury editorial restrained\" --domain landing -n 6)",
       "Bash(node \"c:/Users/ChrisCook/.claude/skills/impeccable/scripts/load-context.mjs\")",
       "Bash(node \"c:/tmp/impeccable/.claude/skills/impeccable/scripts/load-context.mjs\")",
-      "WebSearch"
+      "WebSearch",
+      "Bash(curl -s --max-time 8 \"https://rdap.verisign.com/com/v1/domain/vervemd.com\")",
+      "Bash(python3 -c ' *)",
+      "Bash(node \"c:\\\\tmp\\\\impeccable\\\\.claude\\\\skills\\\\impeccable\\\\scripts\\\\load-context.mjs\")",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:getdesign.md)",
+      "Bash(curl -s \"https://api.github.com/repos/VoltAgent/awesome-design-md/git/trees/main?recursive=1\")",
+      "Bash(node -e \"const d=require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\);const j=JSON.parse\\(d\\);console.log\\('designPath:',j.designPath\\)\")",
+      "Bash(node \"c:\\\\tmp\\\\impeccable\\\\.claude\\\\skills\\\\impeccable\\\\scripts\\\\load-context.mjs\" --dir \"c:\\\\Users\\\\ChrisCook\\\\.gemini\\\\antigravity\\\\brain\\\\a712f59b-8275-4298-a54a-beca9d564379\\\\Portico Society\")"
     ],
     "additionalDirectories": [
       "c:\\tmp\\impeccable\\.claude\\skills\\impeccable",

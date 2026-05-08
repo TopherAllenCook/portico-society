@@ -167,7 +167,7 @@ export default function EngagementPaths() {
               href="#begin"
               className="font-body inline-block rounded-full px-8 py-4 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
               style={{ backgroundColor: 'var(--color-cinnabar)', color: 'var(--color-ivory)' }}
-              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'oklch(34% 0.08 54)' }}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'oklch(35% 0.13 27)' }}
               onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)' }}
             >
               Request the audit

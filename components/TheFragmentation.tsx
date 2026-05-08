@@ -66,8 +66,8 @@ export default function TheFragmentation() {
 
             <RevealOnScroll delay={200}>
               <div
-                className="border-l-2 pl-5 py-1"
-                style={{ borderColor: 'var(--color-cinnabar)' }}
+                className="px-5 py-4"
+                style={{ border: '1px solid oklch(14% 0.006 30 / 0.12)' }}
               >
                 <p
                   className="font-display italic font-normal"

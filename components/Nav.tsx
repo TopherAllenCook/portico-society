@@ -76,7 +76,7 @@ export default function Nav() {
         aria-label="Primary navigation"
       >
         {/* Stacked wordmark */}
-        <Link href="/" aria-label="Verve Longevity Marketing, home" className="flex flex-col leading-none">
+        <Link href="/" aria-label="Verve Longevity Marketing, home" className="flex shrink-0 flex-col leading-none">
           <span
             className="font-display font-normal transition-colors duration-300"
             style={{ fontSize: '1.125rem', letterSpacing: '0.2em', color: textColor, lineHeight: 1 }}
@@ -92,7 +92,7 @@ export default function Nav() {
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-10 lg:flex" role="list">
+        <ul className="hidden items-center gap-6 md:flex lg:gap-10" role="list">
           {navItems.map(({ label, href }) => (
             <li key={href}>
               <Link
@@ -107,10 +107,10 @@ export default function Nav() {
         </ul>
 
         {/* Desktop CTA */}
-        <div className="hidden lg:block">
+        <div className="hidden shrink-0 md:block">
           <Link
             href="#begin"
-            className="font-body inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            className="font-body inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border px-6 py-3 text-sm font-medium transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
             style={{ borderColor: ctaBorder, color: textColor }}
             onMouseEnter={e => {
               e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'
@@ -133,7 +133,7 @@ export default function Nav() {
         {/* Mobile toggle — 44×44px touch target */}
         <button
           ref={toggleRef}
-          className="flex h-11 w-11 cursor-pointer items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 lg:hidden"
+          className="flex h-11 w-11 cursor-pointer items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="mobile-nav-drawer"
@@ -164,7 +164,7 @@ export default function Nav() {
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"
-          className="border-t px-6 pb-8 pt-6 lg:hidden"
+          className="border-t px-6 pb-8 pt-6 md:hidden"
           style={{ backgroundColor: 'var(--color-ivory)', borderColor: 'oklch(14% 0.006 30 / 0.1)' }}
         >
           <ul className="flex flex-col" role="list">

@@ -180,7 +180,7 @@ export default function Hero() {
               outlineColor: 'var(--color-cinnabar)',
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.backgroundColor = 'oklch(34% 0.08 54)'
+              e.currentTarget.style.backgroundColor = 'oklch(35% 0.13 27)'
             }}
             onMouseLeave={e => {
               e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'

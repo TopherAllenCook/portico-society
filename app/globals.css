@@ -4,9 +4,9 @@
   /* Verve brand palette — warm editorial */
   --color-ivory:            oklch(97% 0.008 75);
   --color-ink:              oklch(14% 0.006 30);
-  --color-cinnabar:         oklch(42% 0.10 54);
-  --color-cinnabar-pale:    oklch(94% 0.024 65);
-  --color-cinnabar-on-dark: oklch(70% 0.13 54);
+  --color-cinnabar:         oklch(44% 0.16 27);
+  --color-cinnabar-pale:    oklch(95% 0.012 35);
+  --color-cinnabar-on-dark: oklch(68% 0.16 27);
   --color-cta-surface:      oklch(20% 0.012 40);
   --color-stone:            oklch(91% 0.006 60);
   --color-stone-mid:        oklch(72% 0.006 55);
