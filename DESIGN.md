@@ -61,7 +61,6 @@ The brand is warm without being soft. Cinnabar red-orange reads as authority and
 | CostOfInvisibility | `--color-stone` |
 | TheFragmentation | `--color-ivory` |
 | PhotoBand | `--color-cinnabar` |
-| TheSystem | `--color-ivory` |
 | WhatWeEngineer | `--color-ink` |
 | Categories | `--color-stone` |
 | HowWeWork | `--color-ivory` |
@@ -71,7 +70,7 @@ The brand is warm without being soft. Cinnabar red-orange reads as authority and
 | BeginCTA | `--color-cta-surface` |
 | Footer | `--color-ivory` |
 
-Rhythm: ivory → stone → ivory → cinnabar → ivory → ink → stone → ivory → stone → ink → ink → cta-dark → ivory. No two identical consecutive surfaces.
+Rhythm: ivory → stone → ivory → cinnabar → ink → stone → ivory → stone → ink → ink → cta-dark → ivory. No two identical consecutive surfaces.
 
 ## 3. Typography
 
@@ -121,7 +120,7 @@ One Google Font request: Fraunces (`opsz` axis, `latin` subset). Body and mono u
 
 ### No Cards
 
-Items are separated by thin horizontal `borderTop` rules, not card containers. `border: 1px solid` appears only in BeginCTA blockquote, form-submitted state, and TheSystem browser chrome.
+Items are separated by thin horizontal `borderTop` rules, not card containers. `border: 1px solid` appears only in BeginCTA blockquote and form-submitted state.
 
 ## 5. Motion
 

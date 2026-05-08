@@ -55,7 +55,8 @@
       "WebFetch(domain:getdesign.md)",
       "Bash(curl -s \"https://api.github.com/repos/VoltAgent/awesome-design-md/git/trees/main?recursive=1\")",
       "Bash(node -e \"const d=require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\);const j=JSON.parse\\(d\\);console.log\\('designPath:',j.designPath\\)\")",
-      "Bash(node \"c:\\\\tmp\\\\impeccable\\\\.claude\\\\skills\\\\impeccable\\\\scripts\\\\load-context.mjs\" --dir \"c:\\\\Users\\\\ChrisCook\\\\.gemini\\\\antigravity\\\\brain\\\\a712f59b-8275-4298-a54a-beca9d564379\\\\Portico Society\")"
+      "Bash(node \"c:\\\\tmp\\\\impeccable\\\\.claude\\\\skills\\\\impeccable\\\\scripts\\\\load-context.mjs\" --dir \"c:\\\\Users\\\\ChrisCook\\\\.gemini\\\\antigravity\\\\brain\\\\a712f59b-8275-4298-a54a-beca9d564379\\\\Portico Society\")",
+      "Bash(python -c ' *)"
     ],
     "additionalDirectories": [
       "c:\\tmp\\impeccable\\.claude\\skills\\impeccable",

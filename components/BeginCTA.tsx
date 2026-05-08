@@ -100,7 +100,7 @@ export default function BeginCTA() {
                 className="font-body mt-6 text-sm font-light"
                 style={{ color: 'oklch(97% 0.008 75 / 0.45)' }}
               >
-                The audit is proof of methodology. No sales call required first.
+                The audit is proof of methodology.
               </p>
             </div>
           </RevealOnScroll>

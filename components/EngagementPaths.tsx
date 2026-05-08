@@ -6,8 +6,8 @@ import RevealOnScroll from './RevealOnScroll'
 
 const paths = [
   {
-    id: 'verve-engagement',
-    name: 'Verve Engagement',
+    id: 'structured-engagement',
+    name: 'Structured Engagement',
     duration: '6 months',
     description:
       'Built for established practices ready to address AI visibility and patient inquiry quality in a structured sequence. Covers AI search authority, inquiry architecture, and the growth foundation that keeps the right patients returning.',

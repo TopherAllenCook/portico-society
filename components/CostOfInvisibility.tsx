@@ -106,6 +106,15 @@ export default function CostOfInvisibility() {
           </p>
         </RevealOnScroll>
 
+        <RevealOnScroll>
+          <p
+            className="font-body font-light text-xs mt-8"
+            style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
+          >
+            Estimates based on AI recommendation analysis across longevity, concierge, and aesthetic practices, 2024–2025.
+          </p>
+        </RevealOnScroll>
+
       </div>
     </section>
   )

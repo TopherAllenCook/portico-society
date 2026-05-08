@@ -1,13 +1,11 @@
 import Image from 'next/image'
 import RevealOnScroll from './RevealOnScroll'
 
-const platforms = ['ChatGPT', 'Perplexity', 'Google AI Overviews', 'Siri', 'Gemini']
-
 const outcomes = [
   {
     number: '01',
     title: 'AI Search Authority',
-    body: 'When a patient asks ChatGPT or Perplexity for the best longevity clinic in your city, three practices get named. One of them should be yours. We build the signals, content authority, and AI-readable structure that gets you into that conversation. It is not SEO as typically practiced.',
+    body: 'When a patient asks ChatGPT or Perplexity for the best longevity clinic in your city, three practices get named. One of them should be yours. We build the content authority and citation signals that get you named. This is not SEO as it is typically practiced.',
   },
   {
     number: '02',
@@ -80,30 +78,11 @@ export default function WhatWeEngineer() {
                 {featured.title}
               </h2>
               <p
-                className="font-body font-light leading-relaxed mb-10"
+                className="font-body font-light leading-relaxed"
                 style={{ fontSize: '0.9375rem', color: 'oklch(97% 0.008 75 / 0.55)', maxWidth: '52ch' }}
               >
                 {featured.body}
               </p>
-              <div
-                className="flex flex-wrap gap-2"
-                role="list"
-                aria-label="AI platforms we optimize for"
-              >
-                {platforms.map(p => (
-                  <span
-                    key={p}
-                    role="listitem"
-                    className="font-mono text-xs uppercase tracking-[0.1em] px-3 py-1.5"
-                    style={{
-                      border: '1px solid oklch(97% 0.008 75 / 0.2)',
-                      color: 'oklch(97% 0.008 75 / 0.45)',
-                    }}
-                  >
-                    {p}
-                  </span>
-                ))}
-              </div>
             </div>
 
             <div

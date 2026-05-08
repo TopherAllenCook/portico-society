@@ -17,7 +17,7 @@ const phases = [
   },
   {
     step: 'The Compound',
-    body: 'AI authority compounds. A practice that appears consistently in AI recommendations over 6 months becomes the default answer. The patients who find you this way are the highest-intent, highest-value patients in your market.',
+    body: 'AI authority compounds. Each month a practice holds its position in AI recommendations, the signals reinforcing that position grow stronger. The patients who arrive this way are the highest-intent, highest-value patients in your market — and they were never going to convert from a paid ad.',
   },
 ]
 

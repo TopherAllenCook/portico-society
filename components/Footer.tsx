@@ -40,8 +40,8 @@ export default function Footer() {
               className="font-body mt-4 text-sm font-light leading-relaxed"
               style={{ color: 'var(--color-body-text)', maxWidth: '42ch' }}
             >
-              Clinic marketing for longevity, concierge medicine, and aesthetic practices.
-              AI search authority, patient inquiry architecture, and recurring revenue growth.
+              The first practice AI names wins the patient. We build that authority for
+              longevity, concierge, and aesthetic medicine.
             </p>
           </div>
 
