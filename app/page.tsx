@@ -1,7 +1,9 @@
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import CostOfInvisibility from '@/components/CostOfInvisibility'
+import TheFragmentation from '@/components/TheFragmentation'
 import PhotoBand from '@/components/PhotoBand'
+import TheSystem from '@/components/TheSystem'
 import WhatWeEngineer from '@/components/WhatWeEngineer'
 import EngagementPaths from '@/components/EngagementPaths'
 import Categories from '@/components/Categories'
@@ -17,7 +19,9 @@ export default function HomePage() {
       <main>
         <Hero />
         <CostOfInvisibility />
+        <TheFragmentation />
         <PhotoBand />
+        <TheSystem />
         <WhatWeEngineer />
         <Categories />
         <HowWeWork />
