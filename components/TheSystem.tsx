@@ -119,7 +119,7 @@ export default function TheSystem() {
 
           {/* Right: system diagram */}
           <RevealOnScroll delay={160}>
-            <div className="relative mx-auto" style={{ maxWidth: '340px', width: '100%' }} aria-hidden="true">
+            <div className="relative" style={{ width: '100%' }} aria-hidden="true">
 
               {/* Browser chrome */}
               <div

@@ -89,18 +89,18 @@ export default function Categories() {
                     </ul>
                   </div>
 
-                  {/* Editorial photo — fixed 200px, desktop only, alternates left/right */}
+                  {/* Editorial photo — portrait, full row height, md+ */}
                   <div
-                    className="relative hidden overflow-hidden lg:block flex-shrink-0"
-                    style={{ height: '200px', width: '200px' }}
+                    className="relative hidden overflow-hidden md:block flex-shrink-0 self-stretch"
+                    style={{ width: '360px', minHeight: '320px' }}
                   >
                     <Image
                       src={photo}
                       alt={photoAlt}
                       fill
-                      sizes="200px"
+                      sizes="360px"
                       className="object-cover"
-                      style={{ filter: 'brightness(0.9) saturate(0.8)' }}
+                      style={{ filter: 'brightness(0.88) saturate(0.78)' }}
                     />
                   </div>
                 </div>

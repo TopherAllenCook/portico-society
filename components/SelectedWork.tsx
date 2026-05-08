@@ -1,3 +1,6 @@
+'use client'
+
+import Image from 'next/image'
 import AnimatedStat from './AnimatedStat'
 import RevealOnScroll from './RevealOnScroll'
 
@@ -11,6 +14,9 @@ const cases = [
     statLabel: 'inquiry volume increase',
     detail:
       'Appeared in ChatGPT recommendations for "longevity clinic" + city within 68 days. Patients arrived having already researched protocols — shorter sales cycle, higher intent.',
+    photo: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=85&auto=format&fit=crop',
+    photoAlt: 'Longevity medicine consultation environment',
+    objectPosition: '60% center',
   },
   {
     category: 'Concierge Medicine',
@@ -21,6 +27,9 @@ const cases = [
     statLabel: 'reduction in patient acquisition cost',
     detail:
       'Membership retention increased from 71% to 89% at the 12-month mark. Practice now operates with a waitlist.',
+    photo: 'https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=800&q=85&auto=format&fit=crop',
+    photoAlt: 'Premium concierge medicine practice environment',
+    objectPosition: '50% 30%',
   },
 ]
 
@@ -51,16 +60,16 @@ export default function SelectedWork() {
         </RevealOnScroll>
 
         <div>
-          {cases.map(({ category, location, statValue, statPrefix, statSuffix, statLabel, detail }, i) => (
+          {cases.map(({ category, location, statValue, statPrefix, statSuffix, statLabel, detail, photo, photoAlt, objectPosition }, i) => (
             <RevealOnScroll key={category} delay={i * 120}>
               <div
                 role="group"
-                className="grid grid-cols-1 gap-8 py-12 lg:grid-cols-[auto_1fr] lg:items-start lg:gap-20"
+                className="grid grid-cols-1 gap-8 py-12 lg:grid-cols-[1fr_300px] lg:items-stretch lg:gap-14"
                 style={{ borderTop: '1px solid oklch(97% 0.008 75 / 0.12)' }}
                 aria-label={`${category}, ${location}`}
               >
-                {/* Stat — left anchor at document level, no card container */}
-                <div>
+                {/* Left: stat + detail */}
+                <div className="flex flex-col justify-center">
                   <p
                     className="font-display font-normal leading-none"
                     style={{ fontSize: 'clamp(4.5rem, 10vw, 7rem)', color: 'var(--color-cinnabar)', letterSpacing: '-0.03em' }}
@@ -69,18 +78,15 @@ export default function SelectedWork() {
                     <AnimatedStat value={statValue} prefix={statPrefix} suffix={statSuffix} duration={1200} />
                   </p>
                   <p
-                    className="font-mono text-xs uppercase tracking-[0.14em] mt-2"
+                    className="font-mono text-xs uppercase tracking-[0.14em] mt-2 mb-10"
                     style={{ color: 'oklch(97% 0.008 75 / 0.45)' }}
                     aria-hidden="true"
                   >
                     {statLabel}
                   </p>
                   <span className="sr-only">{statPrefix}{statValue}{statSuffix} {statLabel}</span>
-                </div>
 
-                {/* Right: category + location + detail */}
-                <div className="lg:pt-3">
-                  <div className="flex items-center gap-3 mb-6">
+                  <div className="flex items-center gap-3 mb-4">
                     <h3
                       className="font-mono text-xs font-medium tracking-[0.12em] uppercase"
                       style={{ color: 'var(--color-cinnabar-on-dark)' }}
@@ -105,6 +111,24 @@ export default function SelectedWork() {
                   >
                     {detail}
                   </p>
+                </div>
+
+                {/* Right: editorial portrait photo */}
+                <div
+                  className="relative hidden overflow-hidden lg:block"
+                  style={{ minHeight: '340px' }}
+                >
+                  <Image
+                    src={photo}
+                    alt={photoAlt}
+                    fill
+                    sizes="300px"
+                    className="object-cover"
+                    style={{
+                      objectPosition,
+                      filter: 'brightness(0.68) saturate(0.65)',
+                    }}
+                  />
                 </div>
               </div>
             </RevealOnScroll>
