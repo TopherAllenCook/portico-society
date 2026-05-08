@@ -1,35 +1,25 @@
-import Nav from '@/components/Nav'
-import Hero from '@/components/Hero'
-import CostOfInvisibility from '@/components/CostOfInvisibility'
-import TheFragmentation from '@/components/TheFragmentation'
-import PhotoBand from '@/components/PhotoBand'
-import WhatWeEngineer from '@/components/WhatWeEngineer'
-import EngagementPaths from '@/components/EngagementPaths'
-import Categories from '@/components/Categories'
-import HowWeWork from '@/components/HowWeWork'
-import Testimonials from '@/components/Testimonials'
-import SelectedWork from '@/components/SelectedWork'
-import BeginCTA from '@/components/BeginCTA'
-import Footer from '@/components/Footer'
+import NavV2 from '@/components/v2/NavV2'
+import HeroV2 from '@/components/v2/HeroV2'
+import ManifestoV2 from '@/components/v2/ManifestoV2'
+import ServicesV2 from '@/components/v2/ServicesV2'
+import ProcessV2 from '@/components/v2/ProcessV2'
+import ProofV2 from '@/components/v2/ProofV2'
+import CtaV2 from '@/components/v2/CtaV2'
+import FooterV2 from '@/components/v2/FooterV2'
 
 export default function HomePage() {
   return (
     <>
-      <Nav />
+      <NavV2 />
       <main>
-        <Hero />
-        <CostOfInvisibility />
-        <TheFragmentation />
-        <PhotoBand />
-        <WhatWeEngineer />
-        <Categories />
-        <HowWeWork />
-        <Testimonials />
-        <SelectedWork />
-        <EngagementPaths />
-        <BeginCTA />
+        <HeroV2 />
+        <ManifestoV2 />
+        <ServicesV2 />
+        <ProcessV2 />
+        <ProofV2 />
+        <CtaV2 />
       </main>
-      <Footer />
+      <FooterV2 />
     </>
   )
 }
