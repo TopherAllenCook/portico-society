@@ -112,7 +112,7 @@ export default function Nav() {
             <Link
               href="#begin"
               className="font-body inline-flex items-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-sm font-medium transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-              style={{ backgroundColor: 'var(--color-ink)', color: 'var(--color-ivory)' }}
+              style={{ backgroundColor: 'var(--color-ink)', color: 'var(--color-ivory)', outlineColor: 'var(--color-cinnabar)' }}
               onMouseEnter={e => {
                 e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'
               }}

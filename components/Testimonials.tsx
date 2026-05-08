@@ -38,6 +38,7 @@ export default function Testimonials() {
       aria-label="Client testimonials"
     >
       <div className="mx-auto max-w-5xl">
+        <h2 className="sr-only">From the Practices</h2>
 
         <RevealOnScroll>
           <p

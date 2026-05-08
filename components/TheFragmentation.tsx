@@ -15,10 +15,11 @@ export default function TheFragmentation() {
   return (
     <section
       className="relative px-6 py-24 lg:px-16 lg:py-36"
-      style={{ backgroundColor: 'var(--color-stone)' }}
+      style={{ backgroundColor: 'var(--color-ivory)' }}
       aria-label="Why disconnected marketing vendors fail"
     >
       <div className="mx-auto max-w-5xl">
+        <h2 className="sr-only">Why It Isn&apos;t Working</h2>
 
         <RevealOnScroll>
           <p
@@ -91,7 +92,7 @@ export default function TheFragmentation() {
                   key={vendor}
                   className="flex items-center gap-3 px-4 py-4"
                   style={{
-                    backgroundColor: 'var(--color-ivory)',
+                    backgroundColor: 'var(--color-stone)',
                     border: '1px solid oklch(14% 0.006 30 / 0.1)',
                     transform: `translateY(${offsets[i]}px)`,
                   }}

@@ -134,7 +134,7 @@ export default function Hero() {
             style={{
               fontSize: 'clamp(2.25rem, 7.5vw, 5.5rem)',
               lineHeight: '1.05',
-              color: 'oklch(14% 0.006 30 / 0.5)',
+              color: 'var(--color-ink-muted)',
               ...rise(300),
             }}
           >
@@ -180,7 +180,7 @@ export default function Hero() {
               outlineColor: 'var(--color-cinnabar)',
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.backgroundColor = 'oklch(35% 0.13 27)'
+              e.currentTarget.style.backgroundColor = 'var(--color-cinnabar-dark)'
             }}
             onMouseLeave={e => {
               e.currentTarget.style.backgroundColor = 'var(--color-cinnabar)'

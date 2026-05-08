@@ -32,6 +32,7 @@ export default function WhatWeEngineer() {
       aria-label="What we engineer"
     >
       <div className="mx-auto max-w-5xl">
+        <h2 className="sr-only">What We Engineer</h2>
 
         <RevealOnScroll>
           <div className="flex items-baseline gap-8 mb-16">
@@ -107,7 +108,7 @@ export default function WhatWeEngineer() {
 
             <div
               className="relative hidden overflow-hidden lg:block"
-              style={{ height: '380px' }}
+              style={{ minHeight: '320px' }}
               aria-hidden="true"
             >
               <Image

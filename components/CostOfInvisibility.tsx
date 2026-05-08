@@ -64,11 +64,8 @@ export default function CostOfInvisibility() {
           {stats.map(({ value, prefix, suffix, label }, i) => (
             <RevealOnScroll key={i} delay={i * 80}>
               <div
-                className="py-10 lg:py-12 lg:pr-10"
-                style={{
-                  backgroundColor: 'var(--color-stone)',
-                  paddingLeft: i > 0 ? '2.5rem' : 0,
-                }}
+                className={`py-10 lg:py-12 lg:pr-10${i > 0 ? ' lg:pl-10' : ''}`}
+                style={{ backgroundColor: 'var(--color-stone)' }}
               >
                 <p
                   className="font-display font-normal leading-none"

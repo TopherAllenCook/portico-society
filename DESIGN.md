@@ -15,7 +15,7 @@ The brand is warm without being soft. Cinnabar red-orange reads as authority and
 
 **Key Characteristics:**
 - Ivory warm near-white as default surface — never cold clinical white
-- Cinnabar (`oklch(42% 0.10 54)`) as the single committed accent — used on data, CTAs, and structural emphasis
+- Cinnabar (`oklch(44% 0.16 27)`) as the single committed accent — used on data, CTAs, and structural emphasis
 - Stone (`oklch(91% 0.006 60)`) as a mid-surface for contrast sections
 - Ink (`oklch(14% 0.006 30)`) as near-black for dark sections
 - Fraunces display serif + system-ui body + system mono
@@ -30,22 +30,26 @@ The brand is warm without being soft. Cinnabar red-orange reads as authority and
 |---|---|---|
 | `--color-ivory` | `oklch(97% 0.008 75)` | Primary light surface, hero, footer |
 | `--color-ink` | `oklch(14% 0.006 30)` | Dark sections, primary headings, near-black |
-| `--color-cinnabar` | `oklch(42% 0.10 54)` | Data points, CTAs, structural emphasis |
-| `--color-cinnabar-on-dark` | `oklch(70% 0.13 54)` | Cinnabar at AA contrast on ink backgrounds |
-| `--color-cinnabar-pale` | `oklch(94% 0.024 65)` | Light cinnabar tint (reserved) |
+| `--color-cinnabar` | `oklch(44% 0.16 27)` | Data points, CTAs, structural emphasis |
+| `--color-cinnabar-dark` | `oklch(35% 0.13 27)` | Cinnabar hover/active darkened state |
+| `--color-cinnabar-on-dark` | `oklch(68% 0.16 27)` | Cinnabar at AA contrast on ink backgrounds |
+| `--color-cinnabar-pale` | `oklch(95% 0.012 35)` | Light cinnabar tint (reserved) |
 | `--color-stone` | `oklch(91% 0.006 60)` | Mid-surface for contrast alternation |
 | `--color-stone-mid` | `oklch(72% 0.006 55)` | Dividers, mid-tones |
 | `--color-cta-surface` | `oklch(20% 0.012 40)` | BeginCTA dark surface (warmer than ink) |
 | `--color-body-text` | `oklch(40% 0.006 30)` | Body prose on light surfaces — 5.97:1 vs ivory, 5.11:1 vs stone |
 | `--color-label-text` | `oklch(42% 0.006 30)` | Eyebrow labels, mono tags on light surfaces — 5.4:1 vs ivory, 4.8:1 vs stone |
+| `--color-ink-muted` | `oklch(55% 0.004 50)` | Muted display text on light surfaces — ≥3:1 vs ivory (large text only) |
 
 ### Color Rules
 
-**On ivory or stone (light) backgrounds:** Use `--color-body-text` or `--color-label-text` for all text. Never use `oklch(14% 0.006 30 / <opacity>)` for text — alpha-composited opacity fails WCAG AA below opacity 1.0.
+**On ivory or stone (light) backgrounds:** Use `--color-body-text` or `--color-label-text` for all body and label text. For large display text that intentionally reads as muted, use `--color-ink-muted`. Never use `oklch(14% 0.006 30 / <opacity>)` for text — alpha-composited opacity fails WCAG AA below opacity 1.0.
 
 **On ink or cta-surface (dark) backgrounds:** Semi-transparent ivory is acceptable. `oklch(97% 0.008 75 / 0.45)` and above passes WCAG AA against ink.
 
 **Cinnabar on dark:** Use `var(--color-cinnabar-on-dark)` for small cinnabar text on dark backgrounds. Base cinnabar fails AA against ink at small sizes.
+
+**Cinnabar hover:** Use `var(--color-cinnabar-dark)` for the hover/active darkened state — never raw `oklch()` values inline.
 
 **Decorative non-text:** Thin rules use `oklch(14% 0.006 30 / 0.1)` on light, `oklch(97% 0.008 75 / 0.12)` on dark. No contrast requirement.
 
@@ -54,17 +58,20 @@ The brand is warm without being soft. Cinnabar red-orange reads as authority and
 | Section | Background |
 |---|---|
 | Hero | `--color-ivory` |
-| PhotoBand | `--color-cinnabar` |
 | CostOfInvisibility | `--color-stone` |
-| WhatWeEngineer | `--color-ivory` |
+| TheFragmentation | `--color-ivory` |
+| PhotoBand | `--color-cinnabar` |
+| TheSystem | `--color-ivory` |
+| WhatWeEngineer | `--color-ink` |
 | Categories | `--color-stone` |
 | HowWeWork | `--color-ivory` |
+| Testimonials | `--color-stone` |
 | SelectedWork | `--color-ink` |
 | EngagementPaths | `--color-ink` |
 | BeginCTA | `--color-cta-surface` |
 | Footer | `--color-ivory` |
 
-Rhythm: ivory → cinnabar → stone → ivory → stone → ivory → ink → ink → dark → ivory. Never two identical consecutive surfaces.
+Rhythm: ivory → stone → ivory → cinnabar → ivory → ink → stone → ivory → stone → ink → ink → cta-dark → ivory. No two identical consecutive surfaces.
 
 ## 3. Typography
 
@@ -105,12 +112,16 @@ One Google Font request: Fraunces (`opsz` axis, `latin` subset). Body and mono u
 ### Grid Patterns
 
 - Two-column standard: `grid-cols-1 lg:grid-cols-2 lg:gap-24`
+- Featured + photo: `grid-cols-1 lg:grid-cols-[1fr_260px] lg:gap-16`
+- Split with divider: `grid-cols-1 lg:grid-cols-[1fr_1px_1fr]` (1px col = decorative hairline)
+- Asymmetric testimonials: `grid-cols-1 lg:grid-cols-[1.35fr_1px_1fr]`
 - Number-left stat rows: `grid-cols-1 lg:grid-cols-[auto_1fr] lg:gap-20`
-- HowWeWork: `grid-cols-1 lg:grid-cols-[13rem_1fr]`
+- HowWeWork phases: `grid-cols-1 lg:grid-cols-[13rem_1fr]`
+- Category alternating: `flex-col lg:flex-row` / `lg:flex-row-reverse`
 
 ### No Cards
 
-Items are separated by thin horizontal `borderTop` rules, not card containers. `border: 1px solid` appears only in BeginCTA blockquote and form-submitted state.
+Items are separated by thin horizontal `borderTop` rules, not card containers. `border: 1px solid` appears only in BeginCTA blockquote, form-submitted state, and TheSystem browser chrome.
 
 ## 5. Motion
 
@@ -125,7 +136,7 @@ No bounce or elastic. All transitions ease-out exponential.
 
 ### RevealOnScroll
 
-CSS-driven via `[data-reveal]` attribute. Pending: `visibility: hidden; opacity: 0; transform: translateY(1.25rem)`. Done: transitions to visible over 0.85s. `prefers-reduced-motion` skips the pending state entirely.
+CSS-driven via `[data-reveal]` attribute. Pending: `visibility: hidden; opacity: 0; transform: translateY(1.25rem)`. Done: transitions to visible over 0.85s, then `will-change: auto` releases the GPU layer. `prefers-reduced-motion` skips the pending state entirely.
 
 ### AnimatedStat
 
@@ -135,26 +146,32 @@ IntersectionObserver triggers RAF cubic-eased count-up (0 → value, 1200–1400
 
 `animation: marquee 40s linear infinite` applied only via `@media (prefers-reduced-motion: no-preference)`.
 
+### HowWeWork
+
+Custom `useReveal` hook per row with `DrawRule` animated via `scaleX` transform. Fade-in on copy with staggered delays. All reduced-motion safe.
+
 ## 6. Accessibility
 
 - WCAG 2.1 AA target on all text
-- All interactive elements have `focus-visible:outline` rings
+- All interactive elements have `focus-visible:outline` rings with explicit `outlineColor`
 - Mobile nav: focus trap, Escape closes, aria-modal, role=dialog
 - RevealOnScroll uses `visibility: hidden` (not just opacity 0) to prevent invisible-but-focusable elements
 - prefers-reduced-motion respected in all animated components
 - AnimatedStat uses `aria-hidden` on numeral + `sr-only` sibling with full text
 - Semantic landmarks: header, nav, main, footer, section with aria-label
+- All major sections have either a visible heading or a `sr-only` h2
 
 ## 7. Absolute Bans
 
 - Side-stripe borders (border-left/right > 1px as accent)
 - Gradient text (background-clip: text + gradient)
 - Glassmorphism decoratively
-- Hero-metric template (big number grid)
+- Hero-metric template (big number grid with gradient accent)
 - Identical card grids
 - Modal as first thought
 - `#000` or `#fff` — tint every neutral toward brand hue
-- Opacity-based ink text on light backgrounds — use solid tokens instead
+- Opacity-based text on light backgrounds — use solid tokens (`--color-body-text`, `--color-label-text`, `--color-ink-muted`)
 - Bold weight humanist sans in body or UI
 - Em dashes or `--` in copy
 - Bounce or elastic easing
+- Raw `oklch()` hover values — use `--color-cinnabar-dark` token
