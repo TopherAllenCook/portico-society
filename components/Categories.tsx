@@ -7,7 +7,7 @@ const categories = [
     description:
       'Hormone optimization, cellular health, metabolic reset, and biological age reversal. This patient has done extensive research and arrives with sophisticated questions. They want a practice that speaks their language without overselling.',
     signals: ['Biological age testing', 'IV therapy', 'Peptide protocols', 'Metabolic optimization'],
-    photo: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&q=85&auto=format&fit=crop',
+    photo: '/longevity-medicine.png',
     photoAlt: 'Longevity medicine consultation and lab environment',
   },
   {
@@ -15,7 +15,7 @@ const categories = [
     description:
       'Direct primary care, membership medicine, and executive health programs. The patient is converting from traditional insurance-based care and is evaluating whether the relationship is worth the annual investment. Trust and access are the offer.',
     signals: ['Direct primary care', 'Membership medicine', 'Executive physicals', 'Chronic condition management'],
-    photo: 'https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=600&q=85&auto=format&fit=crop',
+    photo: '/concierge-medicine.png',
     photoAlt: 'Premium concierge medicine practice environment',
   },
   {
@@ -23,7 +23,7 @@ const categories = [
     description:
       'Non-surgical facial rejuvenation, body contouring, and skin health. The patient is discerning about provider credentials and outcome quality. They are not shopping for the lowest price; they are shopping for the most trustworthy result.',
     signals: ['Injectables', 'Body sculpting', 'Skin rejuvenation', 'Non-surgical facial'],
-    photo: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=85&auto=format&fit=crop',
+    photo: '/aesthetic-medicine.png',
     photoAlt: 'Aesthetic medicine clinic with clean modern interior',
   },
 ]
