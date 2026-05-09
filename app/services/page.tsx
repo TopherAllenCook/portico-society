@@ -1,17 +1,17 @@
 import type { Metadata } from 'next'
 import Nav from '@/components/Nav'
 import SvcHero from '@/components/SvcHero'
-import SvcArbitrage from '@/components/SvcArbitrage'
-import SvcProductized from '@/components/SvcProductized'
-import SvcTraining from '@/components/SvcTraining'
-import SvcBundles from '@/components/SvcBundles'
+import SvcWhatWeBuild from '@/components/SvcWhatWeBuild'
+import SvcEngagement from '@/components/SvcEngagement'
+import SvcTwoWays from '@/components/SvcTwoWays'
+import SvcAuditDetail from '@/components/SvcAuditDetail'
 import BeginCTA from '@/components/BeginCTA'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Services — Verve',
   description:
-    'Two motions, one engine. Arbitrage services where we carry the risk, and productized AI services on monthly retainer. Local lead gen, AI Receptionist, AEO, automations, and more.',
+    'AI search authority, inquiry architecture, and growth foundation for longevity, concierge, and aesthetic medicine practices. Two engagement paths: Verve Engagement and Strategic Advisory.',
 }
 
 export default function ServicesPage() {
@@ -20,10 +20,10 @@ export default function ServicesPage() {
       <Nav />
       <main>
         <SvcHero />
-        <SvcArbitrage />
-        <SvcProductized />
-        <SvcTraining />
-        <SvcBundles />
+        <SvcWhatWeBuild />
+        <SvcEngagement />
+        <SvcTwoWays />
+        <SvcAuditDetail />
         <BeginCTA />
       </main>
       <Footer />

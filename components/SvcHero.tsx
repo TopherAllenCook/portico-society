@@ -1,5 +1,11 @@
 import RevealOnScroll from './RevealOnScroll'
 
+const pillars = [
+  { label: 'AI Search Authority', desc: 'Be the practice AI cites.' },
+  { label: 'Inquiry Architecture', desc: 'Every lead captured and converted.' },
+  { label: 'Growth Foundation', desc: 'Retention, reputation, referral.' },
+]
+
 export default function SvcHero() {
   return (
     <section
@@ -8,6 +14,7 @@ export default function SvcHero() {
       aria-label="Services overview"
     >
       <div className="mx-auto max-w-5xl">
+
         <RevealOnScroll>
           <p
             className="font-mono text-xs font-medium tracking-[0.18em] uppercase mb-10"
@@ -26,29 +33,24 @@ export default function SvcHero() {
               letterSpacing: '-0.025em',
             }}
           >
-            Two motions,<br />one engine.
+            Three practices appear.<br />Most clinics aren&rsquo;t one of them.
           </h1>
         </RevealOnScroll>
 
         <RevealOnScroll>
           <div
-            className="grid grid-cols-1 gap-0 lg:grid-cols-[1fr_1px_1fr]"
+            className="grid grid-cols-1 lg:grid-cols-[1fr_1px_1fr]"
             style={{ borderTop: '1px solid var(--color-ink-rule)', paddingTop: '2.5rem' }}
           >
-            <div className="pb-10 lg:pb-0 lg:pr-14">
-              <p
-                className="font-mono text-xs font-medium tracking-[0.14em] uppercase mb-5"
-                style={{ color: 'var(--color-cinnabar)' }}
-              >
-                Motion A — Arbitrage
-              </p>
+            <div className="pb-12 lg:pb-0 lg:pr-16">
               <p
                 className="font-body font-light leading-relaxed"
-                style={{ fontSize: '1rem', color: 'var(--color-body-text)', maxWidth: '44ch' }}
+                style={{ fontSize: '1rem', color: 'var(--color-body-text)', maxWidth: '46ch' }}
               >
-                We carry the media risk and own the customer outcome. Revenue per lead,
-                per booked appointment, or as a share. Higher margin, harder to land,
-                stickier once proven.
+                When a high net worth patient asks an AI which longevity clinic to visit,
+                three practices are named. If yours is not among them, you are losing patients
+                you will never know you lost. We fix that, and we build the systems that
+                convert the ones who do find you.
               </p>
             </div>
 
@@ -59,25 +61,38 @@ export default function SvcHero() {
             />
 
             <div
-              className="pt-10 lg:pt-0 lg:pl-14 border-t lg:border-t-0 [border-top-color:var(--color-ink-faint)]"
+              className="pt-12 lg:pt-0 lg:pl-16 border-t lg:border-t-0"
+              style={{ borderColor: 'var(--color-ink-faint)' }}
             >
-              <p
-                className="font-mono text-xs font-medium tracking-[0.14em] uppercase mb-5"
-                style={{ color: 'var(--color-label-text)' }}
-              >
-                Motion B — Productized AI
-              </p>
-              <p
-                className="font-body font-light leading-relaxed"
-                style={{ fontSize: '1rem', color: 'var(--color-body-text)', maxWidth: '44ch' }}
-              >
-                You carry the retainer. We deliver software plus light services.
-                Faster to sell, predictable monthly revenue. The same AI stack we use
-                internally, packaged for operators who cannot or will not build it.
-              </p>
+              <ul className="space-y-6" aria-label="Three areas of work">
+                {pillars.map((item) => (
+                  <li key={item.label} className="flex items-start gap-4">
+                    <span
+                      className="mt-[0.6rem] h-1 w-1 rounded-full flex-shrink-0"
+                      style={{ backgroundColor: 'var(--color-cinnabar)' }}
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <span
+                        className="font-display font-normal block"
+                        style={{ fontSize: '1.0625rem', color: 'var(--color-ink)', letterSpacing: '-0.015em' }}
+                      >
+                        {item.label}
+                      </span>
+                      <span
+                        className="font-body font-light block text-sm mt-0.5"
+                        style={{ color: 'var(--color-body-text)' }}
+                      >
+                        {item.desc}
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </RevealOnScroll>
+
       </div>
     </section>
   )
