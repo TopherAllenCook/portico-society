@@ -52,6 +52,7 @@ export default function NavV2() {
   const navLinks = [
     { href: '#services', label: 'Specialties' },
     { href: '#process', label: 'How It Works' },
+    { href: '/services', label: 'Services' },
   ]
 
   return (
