@@ -1,4 +1,5 @@
 import RevealOnScroll from '@/components/RevealOnScroll'
+import VisibilityBars from '@/components/v2/VisibilityBars'
 
 const stats = [
   {
@@ -102,6 +103,10 @@ export default function ProofV2() {
               </div>
             ))}
           </div>
+        </RevealOnScroll>
+
+        <RevealOnScroll>
+          <VisibilityBars />
         </RevealOnScroll>
 
       </div>

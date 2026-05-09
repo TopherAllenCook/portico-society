@@ -1,6 +1,7 @@
 import NavV2 from '@/components/v2/NavV2'
 import HeroV2 from '@/components/v2/HeroV2'
 import ManifestoV2 from '@/components/v2/ManifestoV2'
+import SearchMockupV2 from '@/components/v2/SearchMockupV2'
 import ServicesV2 from '@/components/v2/ServicesV2'
 import ProcessV2 from '@/components/v2/ProcessV2'
 import ProofV2 from '@/components/v2/ProofV2'
@@ -14,6 +15,7 @@ export default function HomePage() {
       <main>
         <HeroV2 />
         <ManifestoV2 />
+        <SearchMockupV2 />
         <ServicesV2 />
         <ProcessV2 />
         <ProofV2 />

@@ -54,16 +54,24 @@ export default function ProcessV2() {
         {phases.map((phase, i) => (
           <RevealOnScroll key={phase.num} delay={i * 60}>
             <div
-              className="grid grid-cols-1 gap-8 py-14 lg:grid-cols-[10rem_1fr] lg:gap-20"
+              className="grid grid-cols-1 gap-8 py-14 lg:grid-cols-[2rem_9rem_1fr] lg:gap-x-12"
               style={{ borderTop: '1px solid var(--color-ink-rule)' }}
             >
+              {/* Dot column */}
+              <div className="hidden lg:flex items-start justify-center pt-2" aria-hidden="true">
+                <div
+                  className="h-2.5 w-2.5 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: 'var(--color-cinnabar)' }}
+                />
+              </div>
+
               {/* Left: number + title */}
               <div>
                 <p
-                  className="font-mono font-semibold leading-none mb-4"
+                  className="font-display font-normal leading-none mb-4"
                   style={{
                     fontSize: 'clamp(2.25rem, 4.5vw, 3.25rem)',
-                    color: 'var(--color-cinnabar)',
+                    color: 'var(--color-ink)',
                     letterSpacing: '-0.04em',
                   }}
                 >
@@ -81,7 +89,7 @@ export default function ProcessV2() {
                 </p>
                 <p
                   className="font-mono mt-2 text-xs font-medium uppercase tracking-[0.1em]"
-                  style={{ color: 'var(--color-label-text)' }}
+                  style={{ color: 'var(--color-cinnabar)' }}
                 >
                   {phase.timeline}
                 </p>
