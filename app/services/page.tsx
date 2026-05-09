@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Nav from '@/components/Nav'
+import NavV2 from '@/components/v2/NavV2'
 import SvcHero from '@/components/SvcHero'
 import SvcWhatWeBuild from '@/components/SvcWhatWeBuild'
 import SvcEngagement from '@/components/SvcEngagement'
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <Nav />
+      <NavV2 dark={false} />
       <main>
         <SvcHero />
         <SvcWhatWeBuild />

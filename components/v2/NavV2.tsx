@@ -3,7 +3,17 @@
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 
-export default function NavV2() {
+interface NavV2Props {
+  dark?: boolean
+}
+
+const navLinks = [
+  { href: '/#services', label: 'Specialties' },
+  { href: '/#process', label: 'How It Works' },
+  { href: '/services', label: 'Services' },
+]
+
+export default function NavV2({ dark = true }: NavV2Props) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const hamburgerRef = useRef<HTMLButtonElement>(null)
@@ -20,7 +30,6 @@ export default function NavV2() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  // Focus trap: constrain Tab within the menu, Escape closes it
   useEffect(() => {
     if (!menuOpen) return
     const menu = menuRef.current
@@ -49,28 +58,51 @@ export default function NavV2() {
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [menuOpen])
 
-  const navLinks = [
-    { href: '#services', label: 'Specialties' },
-    { href: '#process', label: 'How It Works' },
-    { href: '/services', label: 'Services' },
-  ]
+  const logoColor   = dark ? 'var(--color-ivory)'              : 'var(--color-ink)'
+  const linkColor   = dark ? 'var(--color-label-text-on-dark)' : 'var(--color-label-text)'
+  const iconColor   = dark ? 'var(--color-ivory)'              : 'var(--color-ink)'
+  const focusOutline = dark ? 'oklch(97% 0.008 75 / 0.4)'     : 'var(--color-cinnabar)'
+
+  const headerStyle: React.CSSProperties = scrolled
+    ? {
+        backgroundColor: dark ? 'oklch(14% 0.006 30 / 0.88)' : 'var(--color-ivory)',
+        backdropFilter:  dark ? 'blur(20px)' : 'none',
+        WebkitBackdropFilter: dark ? 'blur(20px)' : 'none',
+        borderBottom: `1px solid ${dark ? 'var(--color-ivory-subtle)' : 'var(--color-ink-rule)'}`,
+      }
+    : {
+        backgroundColor: 'transparent',
+        backdropFilter: 'none',
+        WebkitBackdropFilter: 'none',
+        borderBottom: '1px solid transparent',
+      }
+
+  const desktopLinkClass = dark
+    ? 'font-mono text-xs font-medium uppercase tracking-[0.13em] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 text-[var(--color-label-text-on-dark)] hover:text-ivory'
+    : 'font-mono text-xs font-medium uppercase tracking-[0.13em] transition-opacity duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 text-[var(--color-label-text)] hover:opacity-60'
+
+  const mobileLinkClass = dark
+    ? 'font-mono text-sm font-medium uppercase tracking-[0.13em] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-[var(--color-label-text-on-dark)] hover:text-ivory'
+    : 'font-mono text-sm font-medium uppercase tracking-[0.13em] transition-opacity duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-[var(--color-label-text)] hover:opacity-60'
+
+  const mobileMenuStyle: React.CSSProperties = {
+    maxHeight: menuOpen ? '22rem' : '0',
+    backgroundColor: dark ? 'oklch(14% 0.006 30 / 0.97)' : 'var(--color-ivory)',
+    backdropFilter: dark ? 'blur(20px)' : 'none',
+    borderTop: !dark && menuOpen ? '1px solid var(--color-ink-rule)' : 'none',
+  }
 
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-      style={{
-        backgroundColor: scrolled ? 'oklch(14% 0.006 30 / 0.88)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
-        borderBottom: scrolled ? '1px solid var(--color-ivory-subtle)' : '1px solid transparent',
-      }}
+      style={headerStyle}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-16">
 
         <Link
           href="/"
           className="font-display italic text-xl font-normal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
-          style={{ color: 'var(--color-ivory)', outlineColor: 'oklch(97% 0.008 75 / 0.4)' }}
+          style={{ color: logoColor, outlineColor: focusOutline }}
         >
           Verve
         </Link>
@@ -81,14 +113,14 @@ export default function NavV2() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-mono text-xs font-medium uppercase tracking-[0.13em] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 text-[var(--color-label-text-on-dark)] hover:text-ivory"
-              style={{ outlineColor: 'oklch(97% 0.008 75 / 0.4)' }}
+              className={desktopLinkClass}
+              style={{ outlineColor: focusOutline }}
             >
               {link.label}
             </Link>
           ))}
           <Link
-            href="#audit"
+            href="#begin"
             className="font-body rounded-full px-6 py-2.5 text-sm font-medium bg-cinnabar text-ivory hover:bg-cinnabar-dark transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
             style={{ outlineColor: 'var(--color-cinnabar)' }}
           >
@@ -99,8 +131,8 @@ export default function NavV2() {
         {/* Mobile toggle */}
         <button
           ref={hamburgerRef}
-          className="lg:hidden p-2 text-ivory focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-          style={{ outlineColor: 'oklch(97% 0.008 75 / 0.4)' }}
+          className="lg:hidden p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          style={{ color: iconColor, outlineColor: focusOutline }}
           onClick={() => setMenuOpen(o => !o)}
           aria-expanded={menuOpen}
           aria-controls="v2-mobile-menu"
@@ -134,11 +166,7 @@ export default function NavV2() {
         aria-modal="true"
         aria-label="Navigation menu"
         className="lg:hidden overflow-hidden transition-all duration-300"
-        style={{
-          maxHeight: menuOpen ? '20rem' : '0',
-          backgroundColor: 'oklch(14% 0.006 30 / 0.97)',
-          backdropFilter: 'blur(20px)',
-        }}
+        style={mobileMenuStyle}
         aria-hidden={menuOpen ? undefined : true}
       >
         <nav className="flex flex-col gap-6 px-6 pb-10 pt-4" aria-label="Mobile navigation">
@@ -147,14 +175,14 @@ export default function NavV2() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="font-mono text-sm font-medium uppercase tracking-[0.13em] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-              style={{ color: 'var(--color-label-text-on-dark)', outlineColor: 'oklch(97% 0.008 75 / 0.4)' }}
+              className={mobileLinkClass}
+              style={{ outlineColor: focusOutline }}
             >
               {link.label}
             </Link>
           ))}
           <Link
-            href="#audit"
+            href="#begin"
             onClick={() => setMenuOpen(false)}
             className="font-body inline-block rounded-full px-6 py-3 text-sm font-medium text-center bg-cinnabar text-ivory focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
             style={{ outlineColor: 'var(--color-cinnabar)' }}

@@ -147,7 +147,7 @@ export default function HeroV2() {
           {/* CTA cluster */}
           <div className="mt-12 flex flex-wrap items-center gap-5 lg:mt-14" style={rise(620)}>
             <Link
-              href="#audit"
+              href="#begin"
               className="font-body inline-flex items-center gap-3 rounded-full px-8 py-4 text-sm font-medium bg-cinnabar text-ivory hover:bg-cinnabar-dark transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
               style={{ outlineColor: 'var(--color-cinnabar)' }}
             >

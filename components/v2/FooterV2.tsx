@@ -5,7 +5,7 @@ import Link from 'next/link'
 const footerLinks = [
   { href: '/privacy', label: 'Privacy' },
   { href: '/terms', label: 'Terms' },
-  { href: '#audit', label: 'Request Audit' },
+  { href: '#begin', label: 'Request Audit' },
 ]
 
 export default function FooterV2() {

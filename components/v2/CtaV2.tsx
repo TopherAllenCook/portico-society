@@ -36,7 +36,7 @@ export default function CtaV2() {
 
   return (
     <section
-      id="audit"
+      id="begin"
       className="relative px-6 py-24 lg:px-16 lg:py-36 overflow-hidden"
       style={{ backgroundColor: 'var(--color-cta-surface)' }}
       aria-label="Request your free audit"
