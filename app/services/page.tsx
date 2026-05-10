@@ -23,9 +23,9 @@ export default function ServicesPage() {
         <SvcHero />
         <SvcWhatWeBuild />
         <SvcEngagement />
+        <SvcAuditDetail />
         <SvcTraining />
         <SvcTwoWays />
-        <SvcAuditDetail />
         <BeginCTA />
       </main>
       <Footer />

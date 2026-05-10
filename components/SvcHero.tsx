@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import RevealOnScroll from './RevealOnScroll'
 
 const pillars = [
@@ -103,6 +104,30 @@ export default function SvcHero() {
                 Longevity medicine · Private practice
               </p>
             </div>
+          </div>
+        </RevealOnScroll>
+
+        <RevealOnScroll>
+          <div
+            className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"
+            style={{ borderTop: '1px solid var(--color-ink-rule)', paddingTop: '1.75rem', marginTop: '2.5rem' }}
+          >
+            <p
+              className="font-body font-light"
+              style={{ fontSize: '0.9375rem', color: 'var(--color-body-text)' }}
+            >
+              Start with the free AI visibility audit. No discovery call required.
+            </p>
+            <Link
+              href="#begin"
+              className="font-body inline-flex items-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-cinnabar text-ivory hover:bg-cinnabar-dark flex-shrink-0"
+              style={{ outlineColor: 'var(--color-cinnabar)' }}
+            >
+              Request the free audit
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2 7h10M7.5 3l4.5 4-4.5 4" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
           </div>
         </RevealOnScroll>
 
