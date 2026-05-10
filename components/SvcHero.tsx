@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import RevealOnScroll from './RevealOnScroll'
 
 const pillars = [
@@ -11,7 +12,7 @@ export default function SvcHero() {
     <section
       className="relative px-6 pt-40 pb-28 lg:px-16 lg:pt-52 lg:pb-40"
       style={{ backgroundColor: 'var(--color-ivory)' }}
-      aria-label="Services overview"
+      aria-labelledby="services-hero-heading"
     >
       <div className="mx-auto max-w-5xl">
 
@@ -26,6 +27,7 @@ export default function SvcHero() {
 
         <RevealOnScroll>
           <h1
+            id="services-hero-heading"
             className="font-display italic font-normal leading-none mb-14"
             style={{
               fontSize: 'clamp(3rem, 8vw, 6.5rem)',
@@ -39,12 +41,13 @@ export default function SvcHero() {
 
         <RevealOnScroll>
           <div
-            className="grid grid-cols-1 lg:grid-cols-[1fr_1px_1fr]"
+            className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-12 lg:items-start"
             style={{ borderTop: '1px solid var(--color-ink-rule)', paddingTop: '2.5rem' }}
           >
-            <div className="pb-12 lg:pb-0 lg:pr-16">
+            {/* Left: intro + pillars */}
+            <div>
               <p
-                className="font-body font-light leading-relaxed"
+                className="font-body font-light leading-relaxed mb-10"
                 style={{ fontSize: '1rem', color: 'var(--color-body-text)', maxWidth: '46ch' }}
               >
                 When a high net worth patient asks an AI which longevity clinic to visit,
@@ -52,18 +55,7 @@ export default function SvcHero() {
                 you will never know you lost. We fix that, and we build the systems that
                 convert the ones who do find you.
               </p>
-            </div>
 
-            <div
-              className="hidden lg:block"
-              style={{ backgroundColor: 'var(--color-ink-faint)' }}
-              aria-hidden="true"
-            />
-
-            <div
-              className="pt-12 lg:pt-0 lg:pl-16 border-t lg:border-t-0"
-              style={{ borderColor: 'var(--color-ink-faint)' }}
-            >
               <ul className="space-y-6" aria-label="Three areas of work">
                 {pillars.map((item) => (
                   <li key={item.label} className="flex items-start gap-4">
@@ -89,6 +81,26 @@ export default function SvcHero() {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            {/* Right: editorial photo — swap src to /consultation-editorial.jpg when ready */}
+            <div>
+              <div className="relative overflow-hidden" style={{ aspectRatio: '3/4' }}>
+                <Image
+                  src="/hero-physician.png"
+                  alt="Physician in private practice consultation"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  style={{ filter: 'brightness(0.88) saturate(0.6)' }}
+                />
+              </div>
+              <p
+                className="font-mono text-xs tracking-[0.1em] mt-3"
+                style={{ color: 'var(--color-label-text)' }}
+              >
+                Longevity medicine · Private practice
+              </p>
             </div>
           </div>
         </RevealOnScroll>

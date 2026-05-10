@@ -48,7 +48,7 @@ export default function BeginCTA() {
             <div>
               <p
                 className="font-mono mb-6 text-xs font-medium tracking-[0.18em] uppercase"
-                style={{ color: 'oklch(97% 0.008 75 / 0.55)' }}
+                style={{ color: 'var(--color-label-text-on-dark)' }}
               >
                 Start Here
               </p>
@@ -66,7 +66,7 @@ export default function BeginCTA() {
                 className="font-body mb-8 font-light leading-relaxed"
                 style={{
                   fontSize: '1rem',
-                  color: 'oklch(97% 0.008 75 / 0.65)',
+                  color: 'var(--color-body-text-on-dark)',
                   maxWidth: '46ch',
                 }}
               >
@@ -82,7 +82,7 @@ export default function BeginCTA() {
               >
                 <p
                   className="font-display italic font-normal leading-relaxed"
-                  style={{ fontSize: '0.9375rem', color: 'oklch(97% 0.008 75 / 0.7)' }}
+                  style={{ fontSize: '0.9375rem', color: 'var(--color-body-text-on-dark)' }}
                 >
                   &ldquo;Your practice does not appear in any AI-generated recommendations for
                   longevity clinics in your region. Two competitors do. This gap is recoverable
@@ -90,7 +90,7 @@ export default function BeginCTA() {
                 </p>
                 <cite
                   className="font-mono mt-4 block not-italic text-xs tracking-[0.1em] uppercase"
-                  style={{ color: 'oklch(97% 0.008 75 / 0.35)' }}
+                  style={{ color: 'var(--color-label-text-on-dark)' }}
                 >
                   Sample finding, Longevity practice, Q4 2025
                 </cite>
@@ -98,7 +98,7 @@ export default function BeginCTA() {
 
               <p
                 className="font-body mt-6 text-sm font-light"
-                style={{ color: 'oklch(97% 0.008 75 / 0.45)' }}
+                style={{ color: 'var(--color-label-text-on-dark)' }}
               >
                 The audit is proof of methodology.
               </p>
@@ -110,6 +110,7 @@ export default function BeginCTA() {
             <div className="lg:flex lg:flex-col lg:justify-center">
               {submitted ? (
                 <div
+                  role="status"
                   className="p-10"
                   style={{ border: '1px solid oklch(97% 0.008 75 / 0.2)' }}
                 >
@@ -124,7 +125,7 @@ export default function BeginCTA() {
                   </p>
                   <p
                     className="font-body text-sm font-light leading-relaxed"
-                    style={{ color: 'oklch(97% 0.008 75 / 0.6)' }}
+                    style={{ color: 'var(--color-body-text-on-dark)' }}
                   >
                     Expect a report within 48 hours. If your practice is a strong fit, we will
                     follow up with an invitation to review the findings together.
@@ -136,7 +137,7 @@ export default function BeginCTA() {
                     <label
                       htmlFor="begin-email"
                       className="font-mono mb-2 block text-xs font-medium tracking-[0.14em] uppercase"
-                      style={{ color: 'oklch(97% 0.008 75 / 0.55)' }}
+                      style={{ color: 'var(--color-label-text-on-dark)' }}
                     >
                       Work Email
                     </label>
@@ -154,30 +155,16 @@ export default function BeginCTA() {
                       }}
                       aria-describedby={error ? 'begin-error' : undefined}
                     />
-                    {error && (
-                      <p
-                        id="begin-error"
-                        role="alert"
-                        className="font-body mt-2 text-xs"
-                        style={{ color: 'oklch(97% 0.008 75 / 0.8)' }}
-                      >
-                        {error}
-                      </p>
-                    )}
                   </div>
 
                   <div>
                     <label
                       htmlFor="begin-website"
                       className="font-mono mb-2 block text-xs font-medium tracking-[0.14em] uppercase"
-                      style={{ color: 'oklch(97% 0.008 75 / 0.55)' }}
+                      style={{ color: 'var(--color-label-text-on-dark)' }}
                     >
                       Practice Website{' '}
-                      <span
-                        className="normal-case font-normal tracking-normal"
-                        style={{ color: 'oklch(97% 0.008 75 / 0.35)' }}
-                        aria-label="optional"
-                      >
+                      <span className="normal-case font-normal tracking-normal">
                         (optional)
                       </span>
                     </label>
@@ -192,26 +179,31 @@ export default function BeginCTA() {
                         border: '1px solid oklch(97% 0.008 75 / 0.25)',
                         color: 'var(--color-ivory)',
                       }}
+                      aria-describedby={error ? 'begin-error' : undefined}
                     />
                   </div>
 
+                  {error && (
+                    <p
+                      id="begin-error"
+                      role="alert"
+                      className="font-body text-xs"
+                      style={{ color: 'var(--color-body-text-on-dark)' }}
+                    >
+                      {error}
+                    </p>
+                  )}
+
                   <button
                     type="submit"
-                    className="font-body mt-2 w-full cursor-pointer rounded-full px-8 py-4 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
-                    style={{ backgroundColor: 'var(--color-ivory)', color: 'var(--color-cinnabar)' }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.backgroundColor = 'oklch(97% 0.008 75 / 0.88)'
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.backgroundColor = 'var(--color-ivory)'
-                    }}
+                    className="font-body mt-2 w-full cursor-pointer rounded-full px-8 py-4 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60 bg-ivory text-cinnabar hover:bg-stone"
                   >
                     Request My Audit
                   </button>
 
                   <p
                     className="font-body text-center text-xs font-light"
-                    style={{ color: 'var(--color-body-text-on-dark)' }}
+                    style={{ color: 'var(--color-label-text-on-dark)' }}
                   >
                     No sales call required. The audit comes first.
                   </p>

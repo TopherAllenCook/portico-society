@@ -1,54 +1,49 @@
 import RevealOnScroll from './RevealOnScroll'
 
-const offerings = [
+const addons = [
   {
     number: '01',
-    title: 'Workshops and Team Trainings',
+    title: 'Paid Patient Acquisition',
+    tag: 'Google, Meta, YouTube',
     description:
-      'Half-day or full-day live training for your team on practical AI use, custom GPTs, prompt patterns, and the specific workflows you should automate first. Virtual or onsite. Customized to your tools and roles.',
+      'For practices ready to accelerate inquiry volume alongside the authority build. We design, launch, and manage paid campaigns targeting high-intent procedure searches — semaglutide near me, longevity clinic in [city], hormone optimization physician. Paid media compounds the organic work; it does not replace it.',
     includes: [
-      'Pre-workshop diagnostic call',
-      'Custom curriculum for your team and tools',
-      'Live training with take-home prompt library',
-      '30-day follow-up coaching call',
+      'Campaign strategy built around your specific procedures and geography',
+      'Google Search campaigns for high-intent terms',
+      'Meta campaigns for awareness and retargeting to site visitors',
+      'YouTube pre-roll for physician authority and procedure education',
+      'Monthly performance report with cost-per-inquiry and conversion tracking',
+      'Creative direction and copy — no stock photo doctors',
     ],
-    price: '$2,500 half-day — $4,500 full day',
+    model: 'Add-on to Verve Engagement',
+    price: 'Managed media from $3,000 / mo',
   },
   {
     number: '02',
-    title: 'Custom AI Playbooks',
+    title: 'AI Patient Receptionist',
+    tag: 'Voice + calendar integration',
     description:
-      'We audit your business, identify the top AI leverage points, and deliver a playbook your team can execute without a long retainer. Comes with prompt templates, recommended tools, and a 90-day rollout plan.',
+      'A voice agent trained on your practice answers every inbound call, qualifies the caller, books appointments, and routes urgent calls to your human staff. Available as a standalone product for practices not yet in a full Verve Engagement. Every missed call becomes a captured lead.',
     includes: [
-      'Two-hour discovery interview and ops audit',
-      'Custom 30 to 50-page playbook',
-      'Prompt and SOP library specific to your vertical',
-      'Two implementation calls over 60 days',
+      'Voice agent with branded persona and custom knowledge base for your practice',
+      'Call qualification — procedures offered, insurance, geography, urgency',
+      'Calendar booking integration — books directly into your scheduling system',
+      'Warm transfer to human staff for complex or urgent calls',
+      'Call summaries and CRM logging via email or SMS',
+      'Ongoing knowledge base updates as your practice changes',
     ],
-    price: '$3,500 to $5,000 flat project fee',
-  },
-  {
-    number: '03',
-    title: 'Membership + Cohort',
-    description:
-      'Monthly playbook drops, prompt and tool library access, a live monthly Q&A, and twice-yearly cohort programs that walk members through building their own AI agents. For operators who want the playbook before the retainer.',
-    includes: [
-      'Monthly playbook and prompt library drop',
-      'Live monthly Q&A with the team',
-      'Community access with other operators',
-      'Twice-yearly six-week build-along cohort',
-    ],
-    price: '$97/mo membership — $1,497 cohort',
+    model: 'Setup + monthly',
+    price: '$1,500 setup — from $497 / mo',
   },
 ]
 
 export default function SvcTraining() {
   return (
     <section
-      id="svc-training"
+      id="svc-addons"
       className="relative px-6 py-24 lg:px-16 lg:py-36"
       style={{ backgroundColor: 'var(--color-ivory)' }}
-      aria-labelledby="training-heading"
+      aria-labelledby="addons-heading"
     >
       <div className="mx-auto max-w-5xl">
 
@@ -58,7 +53,7 @@ export default function SvcTraining() {
               className="font-mono text-xs font-medium tracking-[0.18em] uppercase"
               style={{ color: 'var(--color-label-text)' }}
             >
-              Training + Playbooks
+              Add-On Services
             </p>
             <div
               className="flex-1"
@@ -70,7 +65,7 @@ export default function SvcTraining() {
 
         <RevealOnScroll>
           <h2
-            id="training-heading"
+            id="addons-heading"
             className="font-display font-normal leading-snug mb-4"
             style={{
               fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
@@ -78,20 +73,20 @@ export default function SvcTraining() {
               letterSpacing: '-0.025em',
             }}
           >
-            Learn the playbook before you buy the retainer.
+            Optional layers. Significant compounding.
           </h2>
           <p
             className="font-body font-light leading-relaxed mb-20"
             style={{ fontSize: '1rem', color: 'var(--color-body-text)', maxWidth: '56ch' }}
           >
-            For operators and teams that want to understand AI before outsourcing it.
-            Everything here uses the same methodology we deploy for clients. Lower
-            price point, faster to value.
+            Both services are available inside a Verve Engagement or as standalone products
+            for practices not yet ready for a full engagement. The AI Patient Receptionist
+            in particular pays for itself on the first recovered missed call in most practices.
           </p>
         </RevealOnScroll>
 
-        {offerings.map((o, i) => (
-          <RevealOnScroll key={o.number} delay={i * 80}>
+        {addons.map((addon, i) => (
+          <RevealOnScroll key={addon.number} delay={i * 80}>
             <div
               className="grid grid-cols-1 gap-10 py-14 lg:grid-cols-[auto_1fr] lg:gap-20"
               style={{ borderTop: '1px solid var(--color-ink-rule)' }}
@@ -107,30 +102,42 @@ export default function SvcTraining() {
                 }}
                 aria-hidden="true"
               >
-                {o.number}
+                {addon.number}
               </span>
 
-              <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-20">
-                <div>
+              <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1px_1fr] lg:gap-0">
+                <div className="lg:pr-12">
                   <h3
-                    className="font-display font-normal leading-snug mb-4"
+                    className="font-display font-normal leading-snug mb-2"
                     style={{
                       fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
                       color: 'var(--color-ink)',
                       letterSpacing: '-0.02em',
                     }}
                   >
-                    {o.title}
+                    {addon.title}
                   </h3>
+                  <p
+                    className="font-mono text-xs font-medium tracking-[0.1em] uppercase mb-5"
+                    style={{ color: 'var(--color-cinnabar)' }}
+                  >
+                    {addon.tag}
+                  </p>
                   <p
                     className="font-body font-light leading-relaxed"
                     style={{ fontSize: '0.9375rem', color: 'var(--color-body-text)', maxWidth: '42ch' }}
                   >
-                    {o.description}
+                    {addon.description}
                   </p>
                 </div>
 
-                <div>
+                <div
+                  className="hidden lg:block"
+                  style={{ backgroundColor: 'var(--color-ink-faint)' }}
+                  aria-hidden="true"
+                />
+
+                <div className="lg:pl-12">
                   <p
                     className="font-mono text-xs font-medium tracking-[0.16em] uppercase mb-5"
                     style={{ color: 'var(--color-label-text)' }}
@@ -138,7 +145,7 @@ export default function SvcTraining() {
                     What&rsquo;s Included
                   </p>
                   <ul className="space-y-3 mb-8">
-                    {o.includes.map((item, j) => (
+                    {addon.includes.map((item, j) => (
                       <li
                         key={j}
                         className="flex items-start gap-3 font-body font-light"
@@ -153,12 +160,20 @@ export default function SvcTraining() {
                       </li>
                     ))}
                   </ul>
-                  <p
-                    className="font-body font-light"
-                    style={{ fontSize: '0.875rem', color: 'var(--color-cinnabar)' }}
-                  >
-                    {o.price}
-                  </p>
+                  <div style={{ borderTop: '1px solid var(--color-ink-rule)', paddingTop: '1.25rem' }}>
+                    <p
+                      className="font-mono text-xs font-medium tracking-[0.1em] uppercase mb-1"
+                      style={{ color: 'var(--color-label-text)' }}
+                    >
+                      {addon.model}
+                    </p>
+                    <p
+                      className="font-body font-light"
+                      style={{ fontSize: '0.875rem', color: 'var(--color-cinnabar)' }}
+                    >
+                      {addon.price}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

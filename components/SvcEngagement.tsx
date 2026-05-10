@@ -1,4 +1,5 @@
 import RevealOnScroll from './RevealOnScroll'
+import EngagementTimeline from './EngagementTimeline'
 
 const phases = [
   {
@@ -95,7 +96,7 @@ export default function SvcEngagement() {
             responsive, and growing.
           </h2>
           <p
-            className="font-body font-light leading-relaxed mb-20"
+            className="font-body font-light leading-relaxed mb-12"
             style={{ fontSize: '1rem', color: 'var(--color-body-text)', maxWidth: '56ch' }}
           >
             A Verve Engagement is a structured six-month build. Each phase has a defined
@@ -103,6 +104,8 @@ export default function SvcEngagement() {
             spent on deliverables that precede the actual work.
           </p>
         </RevealOnScroll>
+
+        <EngagementTimeline />
 
         {phases.map((phase, i) => (
           <RevealOnScroll key={phase.number} delay={i * 80}>

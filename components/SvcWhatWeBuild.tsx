@@ -85,13 +85,99 @@ export default function SvcWhatWeBuild() {
             Three systems. Each one compounding.
           </h2>
           <p
-            className="font-body font-light leading-relaxed mb-20"
+            className="font-body font-light leading-relaxed mb-12"
             style={{ fontSize: '1rem', color: 'var(--color-body-text)', maxWidth: '56ch' }}
           >
             Visibility drives inquiry. Inquiry handled well drives retention.
             Retention drives reputation and referral. Every engagement builds
             all three, in sequence, in full.
           </p>
+        </RevealOnScroll>
+
+        <RevealOnScroll>
+          <div className="max-w-3xl mx-auto mb-20">
+            <svg
+              viewBox="0 0 800 82"
+              role="img"
+              aria-label="The three systems compound on each other in a continuous loop"
+              className="w-full h-auto"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <marker
+                  id="swb-arr"
+                  markerWidth="7"
+                  markerHeight="7"
+                  refX="6"
+                  refY="3.5"
+                  orient="auto"
+                >
+                  <path
+                    d="M0,0.5 L6,3.5 L0,6.5Z"
+                    style={{ fill: 'var(--color-ink-rule)' }}
+                  />
+                </marker>
+              </defs>
+
+              {/* Node labels */}
+              <text
+                x="120" y="13"
+                textAnchor="middle"
+                fontSize="8"
+                letterSpacing="0.8"
+                style={{ fill: 'var(--color-label-text)', fontFamily: 'monospace', textTransform: 'uppercase' }}
+              >
+                AI Search Authority
+              </text>
+              <text
+                x="400" y="13"
+                textAnchor="middle"
+                fontSize="8"
+                letterSpacing="0.8"
+                style={{ fill: 'var(--color-label-text)', fontFamily: 'monospace', textTransform: 'uppercase' }}
+              >
+                Inquiry Architecture
+              </text>
+              <text
+                x="680" y="13"
+                textAnchor="middle"
+                fontSize="8"
+                letterSpacing="0.8"
+                style={{ fill: 'var(--color-label-text)', fontFamily: 'monospace', textTransform: 'uppercase' }}
+              >
+                Growth Foundation
+              </text>
+
+              {/* Nodes */}
+              <circle cx="120" cy="28" r="5" style={{ fill: 'var(--color-cinnabar)' }} />
+              <circle cx="400" cy="28" r="5" style={{ fill: 'var(--color-cinnabar)' }} />
+              <circle cx="680" cy="28" r="5" style={{ fill: 'var(--color-cinnabar)' }} />
+
+              {/* Forward connecting lines */}
+              <line
+                x1="126" y1="28" x2="392" y2="28"
+                strokeWidth="1"
+                markerEnd="url(#swb-arr)"
+                style={{ stroke: 'var(--color-ink-rule)' }}
+              />
+              <line
+                x1="406" y1="28" x2="672" y2="28"
+                strokeWidth="1"
+                markerEnd="url(#swb-arr)"
+                style={{ stroke: 'var(--color-ink-rule)' }}
+              />
+
+              {/* Return arc (dashed, Growth Foundation → AI Search Authority) */}
+              <path
+                d="M 680 34 Q 680 70 655 70 L 145 70 Q 120 70 120 34"
+                fill="none"
+                strokeWidth="1"
+                strokeDasharray="4 3"
+                markerEnd="url(#swb-arr)"
+                style={{ stroke: 'var(--color-ink-rule)' }}
+              />
+            </svg>
+          </div>
         </RevealOnScroll>
 
         {pillars.map((p, i) => (

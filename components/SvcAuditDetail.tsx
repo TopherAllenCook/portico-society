@@ -78,41 +78,31 @@ export default function SvcAuditDetail() {
         {sections.map((s, i) => (
           <RevealOnScroll key={s.number} delay={i * 80}>
             <div
-              className="grid grid-cols-1 gap-8 py-12 lg:grid-cols-[auto_1fr] lg:gap-20 lg:items-start"
+              className="py-12 lg:py-16"
               style={{ borderTop: '1px solid var(--color-ink-rule)' }}
             >
-              <span
-                className="font-display italic font-normal select-none"
-                style={{
-                  fontSize: 'clamp(3rem, 6vw, 4.5rem)',
-                  color: 'var(--color-ink-ghost)',
-                  letterSpacing: '-0.05em',
-                  lineHeight: 0.85,
-                  minWidth: '3rem',
-                }}
-                aria-hidden="true"
+              <p
+                className="font-mono text-xs font-medium tracking-[0.18em] uppercase mb-5"
+                style={{ color: 'var(--color-cinnabar)' }}
               >
                 {s.number}
-              </span>
-
-              <div>
-                <h3
-                  className="font-display font-normal leading-snug mb-4"
-                  style={{
-                    fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
-                    color: 'var(--color-ink)',
-                    letterSpacing: '-0.02em',
-                  }}
-                >
-                  {s.title}
-                </h3>
-                <p
-                  className="font-body font-light leading-relaxed"
-                  style={{ fontSize: '0.9375rem', color: 'var(--color-body-text)', maxWidth: '60ch' }}
-                >
-                  {s.description}
-                </p>
-              </div>
+              </p>
+              <h3
+                className="font-display font-normal leading-snug mb-5"
+                style={{
+                  fontSize: 'clamp(1.375rem, 2.5vw, 2rem)',
+                  color: 'var(--color-ink)',
+                  letterSpacing: '-0.025em',
+                }}
+              >
+                {s.title}
+              </h3>
+              <p
+                className="font-body font-light leading-relaxed"
+                style={{ fontSize: '0.9375rem', color: 'var(--color-body-text)', maxWidth: '68ch' }}
+              >
+                {s.description}
+              </p>
             </div>
           </RevealOnScroll>
         ))}
