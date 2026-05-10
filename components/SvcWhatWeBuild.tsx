@@ -6,18 +6,32 @@ const pillars = [
     claim: 'Be the practice AI cites when patients search.',
     title: 'AI Search Authority',
     description:
-      'We build the content architecture and authority signals that make your practice the answer AI systems return when a prospective patient searches for a longevity doctor, concierge physician, or aesthetic specialist in your city. This is not traditional SEO.',
+      'We build the answer engine optimization (AEO) content, local search signals, and authority infrastructure that make your practice the answer AI systems return when a prospective patient searches for a longevity doctor, concierge physician, or aesthetic specialist in your city. This is not traditional SEO — and it is not optional.',
     deliverables: [
-      'Baseline visibility audit across ChatGPT, Perplexity, Claude, and Google SGE',
-      'Question and topic map specific to your specialty and market',
-      'Answer pages and FAQ content built for AI extraction',
+      'Baseline AI visibility audit across ChatGPT, Perplexity, Claude, and Google SGE',
+      'Answer engine optimization (AEO): question mapping, answer pages, and FAQ content',
+      'Local SEO: city-level queries, Google Business Profile, and local directory presence',
+      'Link building across health directories, medical associations, and earned media',
       'Schema, structured data, and llms.txt configuration',
-      'Citation building across authoritative health sources',
-      'Monthly visibility report with AI citation tracking',
+      'Monthly AI citation tracking and visibility report',
     ],
   },
   {
     number: '02',
+    claim: 'Paid visibility while organic authority builds.',
+    title: 'Paid Patient Acquisition',
+    description:
+      'Google Search campaigns and Meta ads targeted to high-intent patients in your market. Organic AI citation authority builds over 60 to 90 days. Paid channels keep the practice visible in the meantime — and continue to drive volume once organic is established. Every campaign is measured in appointments booked, not impressions.',
+    deliverables: [
+      'Google Search campaign setup and ongoing management',
+      'Meta and Instagram ads for local patient acquisition',
+      'Audience targeting by procedure, geography, and income tier',
+      'Retargeting for site visitors who did not convert',
+      'Monthly ROAS and appointment attribution reporting',
+    ],
+  },
+  {
+    number: '03',
     claim: 'Every patient inquiry captured, qualified, and converted.',
     title: 'Inquiry Architecture',
     description:
@@ -32,7 +46,7 @@ const pillars = [
     ],
   },
   {
-    number: '03',
+    number: '04',
     claim: 'Retention, reputation, and referral built into the practice.',
     title: 'Growth Foundation',
     description:
@@ -82,15 +96,15 @@ export default function SvcWhatWeBuild() {
               letterSpacing: '-0.025em',
             }}
           >
-            Three systems. Each one compounding.
+            Four systems. Each one compounding.
           </h2>
           <p
             className="font-body font-light leading-relaxed mb-12"
             style={{ fontSize: '1rem', color: 'var(--color-body-text)', maxWidth: '56ch' }}
           >
-            Visibility drives inquiry. Inquiry handled well drives retention.
-            Retention drives reputation and referral. Every engagement builds
-            all three, in sequence, in full.
+            Visibility drives inquiry. Paid channels amplify reach while authority builds.
+            Inquiry handled well drives retention. Retention drives reputation and referral.
+            Every engagement builds all four, in sequence, in full.
           </p>
         </RevealOnScroll>
 
@@ -99,7 +113,7 @@ export default function SvcWhatWeBuild() {
             <svg
               viewBox="0 0 800 82"
               role="img"
-              aria-label="The three systems compound on each other in a continuous loop"
+              aria-label="The four systems compound on each other in a continuous loop"
               className="w-full h-auto"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -121,7 +135,7 @@ export default function SvcWhatWeBuild() {
 
               {/* Node labels */}
               <text
-                x="120" y="13"
+                x="80" y="13"
                 textAnchor="middle"
                 fontSize="8"
                 letterSpacing="0.8"
@@ -130,7 +144,16 @@ export default function SvcWhatWeBuild() {
                 AI Search Authority
               </text>
               <text
-                x="400" y="13"
+                x="293" y="13"
+                textAnchor="middle"
+                fontSize="8"
+                letterSpacing="0.8"
+                style={{ fill: 'var(--color-label-text)', fontFamily: 'monospace', textTransform: 'uppercase' }}
+              >
+                Paid Acquisition
+              </text>
+              <text
+                x="507" y="13"
                 textAnchor="middle"
                 fontSize="8"
                 letterSpacing="0.8"
@@ -139,7 +162,7 @@ export default function SvcWhatWeBuild() {
                 Inquiry Architecture
               </text>
               <text
-                x="680" y="13"
+                x="720" y="13"
                 textAnchor="middle"
                 fontSize="8"
                 letterSpacing="0.8"
@@ -149,19 +172,26 @@ export default function SvcWhatWeBuild() {
               </text>
 
               {/* Nodes */}
-              <circle cx="120" cy="28" r="5" style={{ fill: 'var(--color-cinnabar)' }} />
-              <circle cx="400" cy="28" r="5" style={{ fill: 'var(--color-cinnabar)' }} />
-              <circle cx="680" cy="28" r="5" style={{ fill: 'var(--color-cinnabar)' }} />
+              <circle cx="80" cy="28" r="5" style={{ fill: 'var(--color-cinnabar)' }} />
+              <circle cx="293" cy="28" r="5" style={{ fill: 'var(--color-cinnabar)' }} />
+              <circle cx="507" cy="28" r="5" style={{ fill: 'var(--color-cinnabar)' }} />
+              <circle cx="720" cy="28" r="5" style={{ fill: 'var(--color-cinnabar)' }} />
 
               {/* Forward connecting lines */}
               <line
-                x1="126" y1="28" x2="392" y2="28"
+                x1="86" y1="28" x2="285" y2="28"
                 strokeWidth="1"
                 markerEnd="url(#swb-arr)"
                 style={{ stroke: 'var(--color-ink-rule)' }}
               />
               <line
-                x1="406" y1="28" x2="672" y2="28"
+                x1="299" y1="28" x2="499" y2="28"
+                strokeWidth="1"
+                markerEnd="url(#swb-arr)"
+                style={{ stroke: 'var(--color-ink-rule)' }}
+              />
+              <line
+                x1="513" y1="28" x2="712" y2="28"
                 strokeWidth="1"
                 markerEnd="url(#swb-arr)"
                 style={{ stroke: 'var(--color-ink-rule)' }}
@@ -169,7 +199,7 @@ export default function SvcWhatWeBuild() {
 
               {/* Return arc (dashed, Growth Foundation → AI Search Authority) */}
               <path
-                d="M 680 34 Q 680 70 655 70 L 145 70 Q 120 70 120 34"
+                d="M 720 34 Q 720 70 695 70 L 105 70 Q 80 70 80 34"
                 fill="none"
                 strokeWidth="1"
                 strokeDasharray="4 3"

@@ -3,6 +3,7 @@ import RevealOnScroll from './RevealOnScroll'
 
 const pillars = [
   { label: 'AI Search Authority', desc: 'Be the practice AI cites.' },
+  { label: 'Paid Patient Acquisition', desc: 'Google Ads and social while authority builds.' },
   { label: 'Inquiry Architecture', desc: 'Every lead captured and converted.' },
   { label: 'Growth Foundation', desc: 'Retention, reputation, referral.' },
 ]
@@ -56,7 +57,7 @@ export default function SvcHero() {
                 convert the ones who do find you.
               </p>
 
-              <ul className="space-y-6" aria-label="Three areas of work">
+              <ul className="space-y-6" aria-label="Four areas of work">
                 {pillars.map((item) => (
                   <li key={item.label} className="flex items-start gap-4">
                     <span
