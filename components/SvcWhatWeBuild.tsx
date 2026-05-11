@@ -1,4 +1,8 @@
 import RevealOnScroll from './RevealOnScroll'
+import SvcChartCitation from './SvcChartCitation'
+import SvcChartPaid from './SvcChartPaid'
+import SvcChartInquiry from './SvcChartInquiry'
+import SvcChartGrowth from './SvcChartGrowth'
 
 const pillars = [
   {
@@ -12,7 +16,7 @@ const pillars = [
       'Answer engine optimization (AEO): question mapping, answer pages, and FAQ content',
       'Local SEO: city-level queries, Google Business Profile, and local directory presence',
       'Link building across health directories, medical associations, and earned media',
-      'Schema, structured data, and llms.txt configuration',
+      'Schema, structured data, and llms.txt — the file AI systems read to understand and cite your practice',
       'Monthly AI citation tracking and visibility report',
     ],
   },
@@ -263,6 +267,10 @@ export default function SvcWhatWeBuild() {
                 />
 
                 <div className="lg:pl-12">
+                  {p.number === '01' && <SvcChartCitation />}
+                  {p.number === '02' && <SvcChartPaid />}
+                  {p.number === '03' && <SvcChartInquiry />}
+                  {p.number === '04' && <SvcChartGrowth />}
                   <p
                     className="font-mono text-xs font-medium tracking-[0.16em] uppercase mb-5"
                     style={{ color: 'var(--color-label-text)' }}

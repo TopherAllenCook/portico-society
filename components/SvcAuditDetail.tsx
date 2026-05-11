@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import RevealOnScroll from './RevealOnScroll'
+import SvcGapMap from './SvcGapMap'
 
 const sections = [
   {
     number: '01',
     title: 'AI Search Visibility',
     description:
-      'We query ChatGPT, Perplexity, Claude, and Google SGE with the specific questions your prospective patients ask: which longevity clinic to visit, which concierge physician accepts new patients, which aesthetic practice offers a given procedure near them. We record every result. Your practice either appears or it does not.',
+      'We query ChatGPT, Perplexity, Claude, and Google SGE (AI-generated search summaries) with the specific questions your prospective patients ask: which longevity clinic to visit, which concierge physician accepts new patients, which aesthetic practice offers a given procedure near them. We record every result. Your practice either appears or it does not.',
   },
   {
     number: '02',
@@ -104,6 +105,7 @@ export default function SvcAuditDetail() {
               >
                 {s.description}
               </p>
+              {i === 1 && <SvcGapMap />}
             </div>
           </RevealOnScroll>
         ))}
