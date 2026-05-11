@@ -111,9 +111,21 @@ export default function BeginCTA() {
               {submitted ? (
                 <div
                   role="status"
-                  className="p-10"
+                  className="p-8 lg:p-10"
                   style={{ border: '1px solid oklch(97% 0.008 75 / 0.2)' }}
                 >
+                  <div className="flex items-center gap-3 mb-6">
+                    <p
+                      className="font-mono text-xs font-medium tracking-[0.14em] uppercase"
+                      style={{ color: 'var(--color-cinnabar-on-dark)' }}
+                    >
+                      Received
+                    </p>
+                    <div
+                      style={{ height: '1px', flex: 1, backgroundColor: 'oklch(97% 0.008 75 / 0.15)' }}
+                      aria-hidden="true"
+                    />
+                  </div>
                   <p
                     className="font-display font-normal leading-snug mb-4"
                     style={{
@@ -124,11 +136,39 @@ export default function BeginCTA() {
                     Audit request received.
                   </p>
                   <p
-                    className="font-body text-sm font-light leading-relaxed"
-                    style={{ color: 'var(--color-body-text-on-dark)' }}
+                    className="font-body text-sm font-light leading-relaxed mb-6"
+                    style={{ color: 'var(--color-body-text-on-dark)', maxWidth: '44ch' }}
                   >
-                    Expect a report within 48 hours. If your practice is a strong fit, we will
-                    follow up with an invitation to review the findings together.
+                    Your report will be sent to{' '}
+                    <span style={{ color: 'var(--color-ivory)' }}>{email.trim()}</span>{' '}
+                    within 48 hours. It covers:
+                  </p>
+                  <ul className="space-y-2.5 mb-7">
+                    {[
+                      'AI Search Visibility — which platforms name you',
+                      'Competitive Gap Analysis — who appears instead',
+                      'Citation and Authority Audit — where the gaps are',
+                      'Prioritized Findings — three to five specific actions',
+                    ].map((item, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-3 font-body font-light text-sm"
+                        style={{ color: 'var(--color-body-text-on-dark)' }}
+                      >
+                        <span
+                          className="mt-[0.45rem] h-1 w-1 rounded-full flex-shrink-0"
+                          style={{ backgroundColor: 'var(--color-cinnabar)' }}
+                          aria-hidden="true"
+                        />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p
+                    className="font-body text-xs font-light"
+                    style={{ color: 'var(--color-label-text-on-dark)' }}
+                  >
+                    No call will be scheduled without your request.
                   </p>
                 </div>
               ) : (
