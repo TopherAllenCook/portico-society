@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import RevealOnScroll from './RevealOnScroll'
 
@@ -199,14 +200,21 @@ export default function SvcTwoWays() {
           </div>
         </RevealOnScroll>
 
-        {/*
-          When photo is ready, add between the grid and the CTA:
-          <div className="relative w-full mt-16 overflow-hidden" style={{ height: 'clamp(200px, 30vh, 360px)' }}>
-            <Image src="/svc-practice-interior.jpg" alt="" fill sizes="100vw"
-              className="object-cover" style={{ filter: 'brightness(0.6) saturate(0.5)' }} />
+        <RevealOnScroll>
+          <div
+            className="relative w-full mt-16 overflow-hidden"
+            style={{ height: 'clamp(200px, 30vh, 360px)' }}
+          >
+            <Image
+              src="/hero-physician.png"
+              alt="Physician in private practice — the clinical setting Verve is built for"
+              fill
+              sizes="100vw"
+              className="object-cover"
+              style={{ filter: 'brightness(0.55) saturate(0.5)' }}
+            />
           </div>
-          Recommended: physician consultation room, very dark treatment on ink background.
-        */}
+        </RevealOnScroll>
 
         {/* Bridge to audit */}
         <RevealOnScroll>

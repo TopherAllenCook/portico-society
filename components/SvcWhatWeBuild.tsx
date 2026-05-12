@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import RevealOnScroll from './RevealOnScroll'
 import SvcChartCitation from './SvcChartCitation'
 import SvcChartPaid from './SvcChartPaid'
@@ -7,6 +8,8 @@ import SvcChartGrowth from './SvcChartGrowth'
 const pillars = [
   {
     number: '01',
+    image: '/longevity-medicine.png',
+    imageAlt: 'Longevity medicine consultation — the patient population AI authority reaches first',
     claim: 'Be the practice AI cites when patients search.',
     title: 'AI Search Authority',
     description:
@@ -22,6 +25,8 @@ const pillars = [
   },
   {
     number: '02',
+    image: '/concierge-medicine.png',
+    imageAlt: 'Concierge medicine practice — the executive patient reached through targeted paid acquisition',
     claim: 'Paid visibility while organic authority builds.',
     title: 'Paid Patient Acquisition',
     description:
@@ -36,6 +41,8 @@ const pillars = [
   },
   {
     number: '03',
+    image: '/hero-physician.png',
+    imageAlt: 'Physician in private practice consultation — every patient inquiry captured and converted',
     claim: 'Every patient inquiry captured, qualified, and converted.',
     title: 'Inquiry Architecture',
     description:
@@ -51,6 +58,8 @@ const pillars = [
   },
   {
     number: '04',
+    image: '/aesthetic-medicine.png',
+    imageAlt: 'Aesthetic medicine practice — growth built on reputation, retention, and referral',
     claim: 'Retention, reputation, and referral built into the practice.',
     title: 'Growth Foundation',
     description:
@@ -258,18 +267,19 @@ export default function SvcWhatWeBuild() {
                   >
                     {p.description}
                   </p>
-                  {/*
-                    PLACEHOLDER — swap to <Image> when photos are ready:
-                    01 AI Search Authority  → /svc-search-authority.jpg  (MacBook showing search analytics)
-                    02 Paid Patient Acq.    → /svc-paid-acquisition.jpg  (city view from practice window)
-                    03 Inquiry Architecture → /svc-inquiry-arch.jpg      (phone on desk, shallow focus)
-                    04 Growth Foundation    → /svc-growth.jpg            (printed report with notes)
-
-                    <div className="relative w-full mt-8 overflow-hidden">
-                      <Image src={`/svc-${p.number}.jpg`} alt="" fill sizes="(max-width:1024px) 100vw, 40vw"
-                        className="object-cover" style={{ filter: 'brightness(0.88) saturate(0.65)' }} />
-                    </div>
-                  */}
+                  <div
+                    className="relative w-full mt-8 overflow-hidden"
+                    style={{ aspectRatio: '4/3' }}
+                  >
+                    <Image
+                      src={p.image}
+                      alt={p.imageAlt}
+                      fill
+                      sizes="(max-width:1024px) 100vw, 40vw"
+                      className="object-cover"
+                      style={{ filter: 'brightness(0.88) saturate(0.65)' }}
+                    />
+                  </div>
                 </div>
 
                 <div
