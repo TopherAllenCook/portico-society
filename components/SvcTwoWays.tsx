@@ -199,6 +199,26 @@ export default function SvcTwoWays() {
           </div>
         </RevealOnScroll>
 
+        {/*
+          PLACEHOLDER — half-bleed editorial photo anchoring the dark section.
+          Swap the div below to:
+
+          <div className="relative w-full mt-20 overflow-hidden" style={{ height: 'clamp(200px, 30vh, 360px)' }}>
+            <Image src="/svc-practice-interior.jpg" alt="" fill sizes="100vw"
+              className="object-cover"
+              style={{ filter: 'brightness(0.6) saturate(0.5)' }} />
+          </div>
+
+          Recommended shot: physician consultation room or private practice interior,
+          very dark treatment to sit on the ink background.
+        */}
+        <div
+          className="relative w-full mt-20 overflow-hidden"
+          style={{ height: 'clamp(200px, 30vh, 360px)', backgroundColor: 'oklch(97% 0.008 75 / 0.06)' }}
+          aria-hidden="true"
+          data-placeholder="svc-twoways-photo"
+        />
+
         {/* Bridge to audit */}
         <RevealOnScroll>
           <div

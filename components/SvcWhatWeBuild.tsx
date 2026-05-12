@@ -258,6 +258,24 @@ export default function SvcWhatWeBuild() {
                   >
                     {p.description}
                   </p>
+                  {/*
+                    PLACEHOLDER — swap to <Image> when photos are ready:
+                    01 AI Search Authority  → /svc-search-authority.jpg  (MacBook showing search analytics)
+                    02 Paid Patient Acq.    → /svc-paid-acquisition.jpg  (city view from practice window)
+                    03 Inquiry Architecture → /svc-inquiry-arch.jpg      (phone on desk, shallow focus)
+                    04 Growth Foundation    → /svc-growth.jpg            (printed report with notes)
+
+                    <div className="relative w-full mt-8 overflow-hidden">
+                      <Image src={`/svc-${p.number}.jpg`} alt="" fill sizes="(max-width:1024px) 100vw, 40vw"
+                        className="object-cover" style={{ filter: 'brightness(0.88) saturate(0.65)' }} />
+                    </div>
+                  */}
+                  <div
+                    className="relative w-full mt-8 overflow-hidden hidden lg:block"
+                    style={{ aspectRatio: '4/3', backgroundColor: 'var(--color-stone-mid)' }}
+                    aria-hidden="true"
+                    data-placeholder={`svc-pillar-${p.number}`}
+                  />
                 </div>
 
                 <div

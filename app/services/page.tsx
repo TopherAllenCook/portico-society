@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import NavV2 from '@/components/v2/NavV2'
 import SvcHero from '@/components/SvcHero'
+import SvcEditorialBreak from '@/components/SvcEditorialBreak'
 import SvcWhatWeBuild from '@/components/SvcWhatWeBuild'
 import SvcEngagement from '@/components/SvcEngagement'
 import SvcTraining from '@/components/SvcTraining'
@@ -21,6 +22,7 @@ export default function ServicesPage() {
       <NavV2 dark={false} />
       <main>
         <SvcHero />
+        <SvcEditorialBreak />
         <SvcWhatWeBuild />
         <SvcEngagement />
         <SvcAuditDetail />
