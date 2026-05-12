@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import NavV2 from '@/components/v2/NavV2'
 import SvcHero from '@/components/SvcHero'
+import CostOfInvisibility from '@/components/CostOfInvisibility'
 import SvcEditorialBreak from '@/components/SvcEditorialBreak'
 import SvcWhoWeServe from '@/components/SvcWhoWeServe'
 import SvcWhatWeBuild from '@/components/SvcWhatWeBuild'
+import ProofV2 from '@/components/v2/ProofV2'
 import SvcTwoWays from '@/components/SvcTwoWays'
 import SvcEngagement from '@/components/SvcEngagement'
 import SvcAuditDetail from '@/components/SvcAuditDetail'
@@ -24,9 +26,11 @@ export default function ServicesPage() {
       <NavV2 dark={false} />
       <main>
         <SvcHero />
+        <CostOfInvisibility />
         <SvcEditorialBreak />
         <SvcWhoWeServe />
         <SvcWhatWeBuild />
+        <ProofV2 />
         <SvcTwoWays />
         <SvcEngagement />
         <SvcAuditDetail />

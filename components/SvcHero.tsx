@@ -96,10 +96,11 @@ export default function SvcHero() {
               className="font-body font-light leading-relaxed mb-10"
               style={{ fontSize: '1rem', color: 'var(--color-body-text)', maxWidth: '46ch', ...rise(500) }}
             >
-              When a high net worth patient asks an AI which longevity clinic to visit,
-              three practices are named. If yours is not among them, you are losing patients
-              you will never know you lost. We fix that, and we build the systems that
-              convert the ones who do find you.
+              Right now, patients are asking AI which longevity clinic to trust, which
+              concierge physician to call, which aesthetic practice to visit. Three
+              practices are named in each of those answers. Yours is almost certainly
+              not among them. You never see those patients. You never know you lost them.
+              Verve fixes that.
             </p>
 
             <ul className="space-y-6" aria-label="Four areas of work">
@@ -160,7 +161,7 @@ export default function SvcHero() {
               className="font-body font-light"
               style={{ fontSize: '0.9375rem', color: 'var(--color-body-text)' }}
             >
-              Start with the free AI visibility audit. No discovery call required.
+              Find out which AI platforms are naming your competitors instead of you. Audit delivered in 48 hours — no call required.
             </p>
             <Link
               href="#begin"
