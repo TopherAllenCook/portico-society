@@ -8,7 +8,7 @@ import RevealOnScroll from '@/components/RevealOnScroll'
 export const metadata: Metadata = {
   title: 'Services — Verve',
   description:
-    'AI search authority, patient inquiry architecture, and revenue growth for longevity, concierge, and aesthetic medicine practices.',
+    'AI search, lead capture, reviews, and advisory services for longevity, concierge, and aesthetic medicine practices.',
 }
 
 // ─── Data ────────────────────────────────────────────────────────────────────
@@ -16,74 +16,75 @@ export const metadata: Metadata = {
 const services = [
   {
     index: '01',
-    name: 'AI Search Visibility',
-    tier: 'Verve Engagement',
+    name: 'AI Search',
+    tier: 'Monthly Retainer',
     outcome:
-      'Your practice named first when patients use ChatGPT, Perplexity, or Google AI to find your specialty.',
+      'Your practice named by ChatGPT, Perplexity, and Google AI when patients search your specialty.',
     bullets: [
-      'AEO and SEO authority built in parallel',
-      'Citation and entity profile development',
-      'Structured data and schema implementation',
-      'Monthly AI platform tracking dashboard',
+      'SEO and AI search optimization, built in parallel',
+      'Citation building across the web',
+      'Structured data markup',
+      'Monthly AI platform report',
     ],
   },
   {
     index: '02',
-    name: 'Patient Inquiry Architecture',
+    name: 'AI Lead Agent',
     tier: 'Add-On',
     outcome:
-      'Every inbound inquiry captured, qualified, and converted. No added headcount.',
+      'An AI agent handles every inbound inquiry — books, qualifies, and follows up. No extra staff.',
     bullets: [
-      'Booking and intake AI agent',
-      'Inquiry qualification and routing',
-      'CRO on the full inquiry flow',
-      'Attribution tracking from source to appointment',
+      'AI agent for booking and intake',
+      'Lead qualification and routing',
+      'Conversion optimization on the inquiry flow',
+      'Source-to-appointment tracking',
     ],
   },
   {
     index: '03',
-    name: 'Reputation and Growth',
-    tier: 'Verve Engagement',
+    name: 'Reviews & Referrals',
+    tier: 'Monthly Retainer',
     outcome:
-      'Review volume, citation authority, and referral infrastructure compounding in parallel with AI visibility.',
+      'More reviews. A referral system that runs on its own. Better visibility in AI recommendations.',
     bullets: [
-      'Review generation and response management',
-      'Referral infrastructure development',
+      'Review collection and response management',
+      'Referral system setup',
       'AI follow-up agent for patient re-engagement',
-      'Reputation monitoring and alerts',
+      'Reputation monitoring',
     ],
   },
   {
     index: '04',
-    name: 'Strategic Advisory',
-    tier: 'Advisory',
+    name: 'Advisory',
+    tier: 'Custom Project',
     outcome:
-      'CMO-level strategy for a new launch, competitive crisis, or multi-location expansion.',
+      'Direct strategy for a launch, a competitor threat, a revenue problem, or multi-location growth.',
     bullets: [
-      'Everything in Verve Engagement',
-      'PPC management and competitive intelligence',
-      'Multi-location playbook',
-      'Principal access throughout',
+      'Everything in the monthly retainer',
+      'Paid search (PPC) management',
+      'Competitive research',
+      'Multi-location strategy',
+      'Direct access to principal',
     ],
   },
 ]
 
 const faqs = [
   {
-    q: 'What is the difference between this and traditional SEO?',
-    a: "Traditional SEO targets Google's ranking algorithm. Verve targets the recommendation engines inside ChatGPT, Perplexity, and Google AI, which use different signals: citation quality, entity authority, and content depth. Most SEO work does not build these. Verve builds both in parallel.",
+    q: 'How is this different from regular SEO?',
+    a: 'Regular SEO targets Google rankings. Verve also targets the AI systems inside ChatGPT, Perplexity, and Google AI — which use different signals than Google search. Most SEO agencies are not building for these yet. We do both.',
   },
   {
-    q: 'How long before my practice appears in AI recommendations?',
-    a: 'First citations typically appear within 60 days. The audit you receive first shows exactly where you stand today and what is blocking you.',
+    q: 'How fast do results show up?',
+    a: 'AI citations typically start appearing within 60 days. The free audit tells you exactly where you stand today and what is in the way.',
   },
   {
-    q: 'Do I need to stop working with my current marketing vendor?',
-    a: 'Not necessarily. Verve focuses on AI search authority and inquiry architecture. If your current vendor handles paid social or website maintenance, that work continues alongside a Verve engagement without conflict.',
+    q: 'Can I keep my current marketing agency?',
+    a: 'Usually yes. We focus on AI search and lead capture. If your current agency handles ads or social, that work continues without conflict.',
   },
   {
-    q: 'What size practice does Verve work with?',
-    a: 'Established practices generating $1M or more in annual revenue. The authority build only makes sense when there is existing patient volume to compound.',
+    q: 'What size practice is this for?',
+    a: 'Practices doing $1M or more per year. The work only pays off when there is existing patient volume to build on.',
   },
 ]
 
@@ -106,11 +107,11 @@ function Hero() {
             letterSpacing: '-0.025em',
           }}
         >
-          <span className="block">The practice that earns</span>
+          <span className="block">AI search.</span>
           <span className="block" style={{ color: 'var(--color-cinnabar-on-dark)' }}>
-            the right patient
+            Lead capture.
           </span>
-          <span className="block">owns the market.</span>
+          <span className="block">Practice growth.</span>
         </h1>
 
         <p
@@ -196,7 +197,7 @@ function Services() {
               maxWidth: '28ch',
             }}
           >
-            Four systems. One starting point.
+            Four services. One starting point.
           </h2>
         </RevealOnScroll>
 
@@ -407,13 +408,13 @@ function Pricing() {
           <RevealOnScroll>
             <div className="pb-16 lg:pb-0 lg:pr-16">
               <p className="font-mono text-xs font-medium tracking-[0.14em] uppercase mb-3" style={{ color: 'var(--color-label-text-on-dark)' }}>
-                Foundation
+                Monthly Retainer
               </p>
               <h3
                 className="font-display font-normal leading-snug mb-2"
                 style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', color: 'var(--color-ivory)', letterSpacing: '-0.02em' }}
               >
-                Verve Engagement
+                Monthly Retainer
               </h3>
               <p
                 className="font-display font-normal mb-8"
@@ -424,7 +425,7 @@ function Pricing() {
               </p>
 
               <ul className="space-y-2.5 mb-10">
-                {['AEO + SEO authority build', 'Reputation management', 'AI follow-up agent', 'Monthly performance dashboard'].map((item) => (
+                {['AI search + SEO, built in parallel', 'Reviews and reputation management', 'AI follow-up agent', 'Monthly performance dashboard'].map((item) => (
                   <li key={item} className="flex items-start gap-3 font-body font-light" style={{ fontSize: '0.9375rem', color: 'var(--color-body-text-on-dark)' }}>
                     <span className="mt-[0.45rem] h-1 w-1 rounded-full flex-shrink-0" style={{ backgroundColor: 'var(--color-cinnabar-on-dark)' }} aria-hidden="true" />
                     {item}
@@ -437,7 +438,7 @@ function Pricing() {
                   Optional Add-On
                 </p>
                 <p className="font-display font-normal mb-1" style={{ fontSize: '1.125rem', color: 'var(--color-ivory)', letterSpacing: '-0.02em' }}>
-                  + Inquiry Architecture
+                  + AI Lead Agent
                 </p>
                 <p className="font-display font-normal mb-3" style={{ fontSize: '1.25rem', color: 'var(--color-ivory)', letterSpacing: '-0.025em' }}>
                   +$2,500&ndash;$3,500
@@ -469,13 +470,13 @@ function Pricing() {
               style={{ borderTop: '1px solid var(--color-ivory-dim)' }}
             >
               <p className="font-mono text-xs font-medium tracking-[0.14em] uppercase mb-3" style={{ color: 'var(--color-label-text-on-dark)' }}>
-                Advisory
+                Custom Project
               </p>
               <h3
                 className="font-display font-normal leading-snug mb-2"
                 style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', color: 'var(--color-ivory)', letterSpacing: '-0.02em' }}
               >
-                Strategic Advisory
+                Custom Project
               </h3>
               <p
                 className="font-display font-normal leading-snug mb-8"
@@ -489,7 +490,7 @@ function Pricing() {
               </p>
 
               <ul className="space-y-2.5 mb-10">
-                {['Everything in Verve Engagement', 'PPC management', 'Competitive intelligence', 'Multi-location playbook', 'CMO-level strategy and principal access'].map((item) => (
+                {['Everything in the monthly retainer', 'Paid search (PPC) management', 'Competitive research', 'Multi-location strategy', 'Direct access to principal'].map((item) => (
                   <li key={item} className="flex items-start gap-3 font-body font-light" style={{ fontSize: '0.9375rem', color: 'var(--color-body-text-on-dark)' }}>
                     <span className="mt-[0.45rem] h-1 w-1 rounded-full flex-shrink-0" style={{ backgroundColor: 'var(--color-cinnabar-on-dark)' }} aria-hidden="true" />
                     {item}
