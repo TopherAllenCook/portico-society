@@ -1,16 +1,11 @@
 import type { Metadata } from 'next'
 import NavV2 from '@/components/v2/NavV2'
-import SvcHero from '@/components/SvcHero'
+import SalesSvcHero from '@/components/SalesSvcHero'
 import CostOfInvisibility from '@/components/CostOfInvisibility'
-import SvcEditorialBreak from '@/components/SvcEditorialBreak'
-import SvcWhoWeServe from '@/components/SvcWhoWeServe'
-import SvcWhatWeBuild from '@/components/SvcWhatWeBuild'
+import SalesSvcServices from '@/components/SalesSvcServices'
 import ProofV2 from '@/components/v2/ProofV2'
-import SvcTwoWays from '@/components/SvcTwoWays'
-import SvcEngagement from '@/components/SvcEngagement'
-import SvcAuditDetail from '@/components/SvcAuditDetail'
-import SvcTraining from '@/components/SvcTraining'
-import SvcFAQ from '@/components/SvcFAQ'
+import SalesSvcPricing from '@/components/SalesSvcPricing'
+import SalesSvcRiskReversal from '@/components/SalesSvcRiskReversal'
 import BeginCTA from '@/components/BeginCTA'
 import Footer from '@/components/Footer'
 
@@ -25,17 +20,19 @@ export default function ServicesPage() {
     <>
       <NavV2 dark={false} />
       <main>
-        <SvcHero />
+        {/* Attention: headline + dual CTA */}
+        <SalesSvcHero />
+        {/* Pain: animated stats on what's being lost */}
         <CostOfInvisibility />
-        <SvcEditorialBreak />
-        <SvcWhoWeServe />
-        <SvcWhatWeBuild />
+        {/* Solution: four service panels + add-ons, each with inline CTA */}
+        <SalesSvcServices />
+        {/* Proof: testimonial + results + visibility bars */}
         <ProofV2 />
-        <SvcTwoWays />
-        <SvcEngagement />
-        <SvcAuditDetail />
-        <SvcTraining />
-        <SvcFAQ />
+        {/* Close: two-tier pricing, CTA on each path */}
+        <SalesSvcPricing />
+        {/* Risk reversal: free audit, zero commitment */}
+        <SalesSvcRiskReversal />
+        {/* Final close: audit request form */}
         <BeginCTA />
       </main>
       <Footer />
