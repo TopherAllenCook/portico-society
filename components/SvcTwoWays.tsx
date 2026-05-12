@@ -200,23 +200,18 @@ export default function SvcTwoWays() {
         </RevealOnScroll>
 
         {/*
-          PLACEHOLDER — half-bleed editorial photo anchoring the dark section.
-          Swap the div below to:
-
-          <div className="relative w-full mt-20 overflow-hidden" style={{ height: 'clamp(200px, 30vh, 360px)' }}>
+          When photo is ready, add between the grid and the CTA:
+          <div className="relative w-full mt-16 overflow-hidden" style={{ height: 'clamp(200px, 30vh, 360px)' }}>
             <Image src="/svc-practice-interior.jpg" alt="" fill sizes="100vw"
-              className="object-cover"
-              style={{ filter: 'brightness(0.6) saturate(0.5)' }} />
+              className="object-cover" style={{ filter: 'brightness(0.6) saturate(0.5)' }} />
           </div>
-
-          Recommended shot: physician consultation room or private practice interior,
-          very dark treatment to sit on the ink background.
+          Recommended: physician consultation room, very dark treatment on ink background.
         */}
 
         {/* Bridge to audit */}
         <RevealOnScroll>
           <div
-            className="mt-20 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
+            className="mt-16 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
             style={{ borderTop: '1px solid var(--color-ivory-dim)', paddingTop: '2.5rem' }}
           >
             <p

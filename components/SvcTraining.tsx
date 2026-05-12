@@ -33,7 +33,7 @@ const addons = [
       'Ongoing knowledge base updates as your practice changes',
     ],
     model: 'Setup + monthly',
-    price: '$1,500 setup — from $497 / mo',
+    price: '$1,500 setup, from $497/mo',
   },
 ]
 
