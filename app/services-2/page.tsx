@@ -179,23 +179,26 @@ function Services() {
     >
       <div className="mx-auto max-w-5xl">
 
-        <RevealOnScroll>
-          <div className="flex items-baseline gap-8 mb-16">
-            <p
-              className="font-mono text-xs font-medium tracking-[0.18em] uppercase"
-              style={{ color: 'var(--color-label-text)' }}
-            >
-              What We Build
-            </p>
-            <div
-              className="flex-1"
-              style={{ height: '1px', backgroundColor: 'var(--color-ink-rule)' }}
-              aria-hidden="true"
-            />
-          </div>
+        <RevealOnScroll soft>
+          <p
+            className="font-mono text-xs font-medium tracking-[0.18em] uppercase mb-5"
+            style={{ color: 'var(--color-label-text)' }}
+          >
+            Services
+          </p>
+          <h2
+            id="s2-services-heading"
+            className="font-display italic font-normal leading-snug mb-16"
+            style={{
+              fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
+              color: 'var(--color-ink)',
+              letterSpacing: '-0.025em',
+              maxWidth: '28ch',
+            }}
+          >
+            Four systems. One starting point.
+          </h2>
         </RevealOnScroll>
-
-        <h2 id="s2-services-heading" className="sr-only">Our services</h2>
 
         {services.map((svc, i) => (
           <RevealOnScroll key={svc.index} delay={i * 55}>
@@ -374,6 +377,12 @@ function Pricing() {
       <div className="mx-auto max-w-5xl">
 
         <RevealOnScroll soft>
+          <p
+            className="font-mono text-xs font-medium tracking-[0.18em] uppercase mb-5"
+            style={{ color: 'var(--color-label-text-on-dark)' }}
+          >
+            Pricing
+          </p>
           <h2
             id="s2-tiers-heading"
             className="font-display italic font-normal leading-snug mb-4"
@@ -383,13 +392,13 @@ function Pricing() {
               letterSpacing: '-0.025em',
             }}
           >
-            What an engagement costs.
+            Two packages. One starting point.
           </h2>
           <p
             className="font-body font-light leading-relaxed mb-16"
             style={{ fontSize: '1rem', color: 'var(--color-body-text-on-dark)', maxWidth: '48ch' }}
           >
-            Every path begins with the free audit. The audit findings tell you which tier fits.
+            Every engagement begins with a free audit. The findings tell you which package fits.
           </p>
         </RevealOnScroll>
 
