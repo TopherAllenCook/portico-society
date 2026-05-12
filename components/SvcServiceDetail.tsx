@@ -15,9 +15,9 @@ const services: Service[] = [
   {
     id: 'service-aeo',
     index: '01',
-    name: 'AI Search Authority',
+    name: 'AI Search Visibility',
     tier: 'Verve Engagement',
-    summary: 'We build the signals that cause AI systems to recommend your practice — citation networks, entity authority, structured data, and content depth — across ChatGPT, Perplexity, Google AI, and Gemini.',
+    summary: 'We build the signals that cause AI systems to recommend your practice: citation networks, entity authority, structured data, and content depth across ChatGPT, Perplexity, Google AI, and Gemini.',
     included: [
       'AEO and SEO authority build in parallel',
       'Citation and entity profile development',
@@ -25,14 +25,14 @@ const services: Service[] = [
       'Monthly performance dashboard with AI platform tracking',
     ],
     forWhom: 'Established practices ready to own AI search in their specialty and market.',
-    outcome: 'Your practice named first — or named at all — when patients use AI to find care.',
+    outcome: 'Your practice named first, or named at all, when patients use AI to find care.',
   },
   {
     id: 'service-inquiry',
     index: '02',
     name: 'Patient Inquiry Architecture',
     tier: 'Verve Engagement + Inquiry Architecture',
-    summary: 'Most practices leak patients between first contact and booked appointment. We build the intake layer that captures, qualifies, and converts every inquiry — without adding front-desk load.',
+    summary: 'Most practices lose patients between first contact and booked appointment. We build the intake layer that captures, qualifies, and converts every inquiry. No added front-desk load.',
     included: [
       'Booking and intake AI agent',
       'Inquiry qualification and routing',
@@ -62,7 +62,7 @@ const services: Service[] = [
     index: '04',
     name: 'Strategic Advisory',
     tier: 'Strategic Advisory',
-    summary: 'For situations that require more than execution. A new market launch, a competitive threat, a revenue decline, or a multi-location expansion — each scoped to the specific problem with clear milestones.',
+    summary: 'For situations that require more than execution. A new market launch, a competitive threat, a revenue decline, or a multi-location expansion, each scoped to the specific problem with clear milestones.',
     included: [
       'Everything in Verve Engagement',
       'PPC management',
@@ -79,15 +79,16 @@ function DetailBlock({ svc, flip }: { svc: Service; flip: boolean }) {
   return (
     <div
       id={svc.id}
-      className={`grid grid-cols-1 gap-16 lg:gap-20 lg:items-start ${
-        flip ? 'lg:grid-cols-[1.1fr_1fr]' : 'lg:grid-cols-[1fr_1.1fr]'
+      className={`grid grid-cols-1 gap-12 lg:gap-20 lg:items-start ${
+        flip ? 'lg:grid-cols-[1fr_1.15fr]' : 'lg:grid-cols-[1.15fr_1fr]'
       }`}
     >
-      {/* Index + header — switches side on flip */}
+      {/* Index + header */}
       <div className={flip ? 'lg:order-2' : ''}>
         <p
           className="font-mono text-xs font-medium tracking-[0.1em] uppercase mb-3"
           style={{ color: 'var(--color-label-text)' }}
+          aria-hidden="true"
         >
           {svc.index}
         </p>
@@ -115,19 +116,17 @@ function DetailBlock({ svc, flip }: { svc: Service; flip: boolean }) {
         </p>
       </div>
 
-      {/* Details panel */}
+      {/* Detail panel — rules and typography, no box */}
       <div className={flip ? 'lg:order-1' : ''}>
-        <div
-          className="p-8 lg:p-10"
-          style={{ backgroundColor: 'var(--color-stone)' }}
-        >
+
+        <div style={{ borderTop: '1px solid var(--color-ink-rule)', paddingTop: '1.5rem', marginBottom: '1.75rem' }}>
           <p
             className="font-mono text-xs font-medium tracking-[0.14em] uppercase mb-4"
             style={{ color: 'var(--color-label-text)' }}
           >
             Included
           </p>
-          <ul className="space-y-2.5 mb-8">
+          <ul className="space-y-2.5">
             {svc.included.map((item) => (
               <li
                 key={item}
@@ -143,10 +142,9 @@ function DetailBlock({ svc, flip }: { svc: Service; flip: boolean }) {
               </li>
             ))}
           </ul>
-          <div
-            style={{ height: '1px', backgroundColor: 'var(--color-ink-rule)', marginBottom: '1.25rem' }}
-            aria-hidden="true"
-          />
+        </div>
+
+        <div style={{ borderTop: '1px solid var(--color-ink-rule)', paddingTop: '1.5rem', marginBottom: '1.75rem' }}>
           <p
             className="font-mono text-xs font-medium tracking-[0.14em] uppercase mb-2"
             style={{ color: 'var(--color-label-text)' }}
@@ -154,11 +152,14 @@ function DetailBlock({ svc, flip }: { svc: Service; flip: boolean }) {
             Best fit
           </p>
           <p
-            className="font-body font-light leading-relaxed mb-5"
+            className="font-body font-light leading-relaxed"
             style={{ fontSize: '0.9375rem', color: 'var(--color-body-text)' }}
           >
             {svc.forWhom}
           </p>
+        </div>
+
+        <div style={{ borderTop: '1px solid var(--color-ink-rule)', paddingTop: '1.5rem' }}>
           <p
             className="font-mono text-xs font-medium tracking-[0.14em] uppercase mb-2"
             style={{ color: 'var(--color-label-text)' }}
@@ -172,6 +173,7 @@ function DetailBlock({ svc, flip }: { svc: Service; flip: boolean }) {
             {svc.outcome}
           </p>
         </div>
+
       </div>
     </div>
   )
@@ -217,7 +219,7 @@ export default function SvcServiceDetail() {
           </h2>
         </RevealOnScroll>
 
-        <div className="flex flex-col gap-24 lg:gap-32">
+        <div className="flex flex-col gap-20 lg:gap-28">
           {services.map((svc, i) => (
             <RevealOnScroll key={svc.id}>
               <DetailBlock svc={svc} flip={i % 2 === 1} />
