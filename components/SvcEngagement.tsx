@@ -82,7 +82,7 @@ export default function SvcEngagement() {
           </div>
         </RevealOnScroll>
 
-        <RevealOnScroll>
+        <RevealOnScroll soft>
           <h2
             id="engagement-heading"
             className="font-display italic font-normal leading-snug mb-4"
@@ -92,8 +92,7 @@ export default function SvcEngagement() {
               letterSpacing: '-0.025em',
             }}
           >
-            Six months. A practice that&rsquo;s findable,<br className="hidden lg:block" />
-            responsive, and growing.
+            Six months. A practice that&rsquo;s findable, responsive, and growing.
           </h2>
           <p
             className="font-body font-light leading-relaxed mb-12"

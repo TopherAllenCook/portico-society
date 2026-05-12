@@ -7,6 +7,9 @@ interface RevealOnScrollProps {
   delay?: number
   className?: string
   style?: CSSProperties
+  /** Use for wrappers containing headings. Omits visibility:hidden so AT heading
+      navigation finds the heading before the user scrolls to it. */
+  soft?: boolean
 }
 
 export default function RevealOnScroll({
@@ -14,8 +17,10 @@ export default function RevealOnScroll({
   delay = 0,
   className = '',
   style,
+  soft = false,
 }: RevealOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null)
+  const attr = soft ? 'data-reveal-soft' : 'data-reveal'
 
   useEffect(() => {
     const el = ref.current
@@ -23,14 +28,14 @@ export default function RevealOnScroll({
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
-    el.setAttribute('data-reveal', 'pending')
+    el.setAttribute(attr, 'pending')
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setTimeout(() => {
             if (delay) el.style.transitionDelay = `${delay}ms`
-            el.setAttribute('data-reveal', 'done')
+            el.setAttribute(attr, 'done')
           }, 50)
           observer.disconnect()
         }
@@ -40,7 +45,7 @@ export default function RevealOnScroll({
 
     observer.observe(el)
     return () => observer.disconnect()
-  }, [delay])
+  }, [delay, attr])
 
   return (
     <div ref={ref} className={className} style={style}>

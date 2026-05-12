@@ -90,7 +90,7 @@ export default function SvcWhatWeBuild() {
           </div>
         </RevealOnScroll>
 
-        <RevealOnScroll>
+        <RevealOnScroll soft>
           <h2
             id="what-we-build-heading"
             className="font-display font-normal leading-snug mb-4"
@@ -112,7 +112,7 @@ export default function SvcWhatWeBuild() {
           </p>
         </RevealOnScroll>
 
-        <RevealOnScroll>
+        <RevealOnScroll className="hidden lg:block">
           <div className="max-w-3xl mx-auto mb-20">
             <svg
               viewBox="0 0 800 82"
@@ -143,7 +143,7 @@ export default function SvcWhatWeBuild() {
                 textAnchor="middle"
                 fontSize="8"
                 letterSpacing="0.8"
-                style={{ fill: 'var(--color-label-text)', fontFamily: 'monospace', textTransform: 'uppercase' }}
+                style={{ fill: 'var(--color-label-text)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase' }}
               >
                 AI Search Authority
               </text>
@@ -152,7 +152,7 @@ export default function SvcWhatWeBuild() {
                 textAnchor="middle"
                 fontSize="8"
                 letterSpacing="0.8"
-                style={{ fill: 'var(--color-label-text)', fontFamily: 'monospace', textTransform: 'uppercase' }}
+                style={{ fill: 'var(--color-label-text)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase' }}
               >
                 Paid Acquisition
               </text>
@@ -161,7 +161,7 @@ export default function SvcWhatWeBuild() {
                 textAnchor="middle"
                 fontSize="8"
                 letterSpacing="0.8"
-                style={{ fill: 'var(--color-label-text)', fontFamily: 'monospace', textTransform: 'uppercase' }}
+                style={{ fill: 'var(--color-label-text)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase' }}
               >
                 Inquiry Architecture
               </text>
@@ -170,7 +170,7 @@ export default function SvcWhatWeBuild() {
                 textAnchor="middle"
                 fontSize="8"
                 letterSpacing="0.8"
-                style={{ fill: 'var(--color-label-text)', fontFamily: 'monospace', textTransform: 'uppercase' }}
+                style={{ fill: 'var(--color-label-text)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase' }}
               >
                 Growth Foundation
               </text>
@@ -270,12 +270,6 @@ export default function SvcWhatWeBuild() {
                         className="object-cover" style={{ filter: 'brightness(0.88) saturate(0.65)' }} />
                     </div>
                   */}
-                  <div
-                    className="relative w-full mt-8 overflow-hidden hidden lg:block"
-                    style={{ aspectRatio: '4/3', backgroundColor: 'var(--color-stone-mid)' }}
-                    aria-hidden="true"
-                    data-placeholder={`svc-pillar-${p.number}`}
-                  />
                 </div>
 
                 <div

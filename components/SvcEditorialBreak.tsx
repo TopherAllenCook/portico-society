@@ -16,12 +16,5 @@
    no people — desaturated toward the ivory/ink palette.
 */
 export default function SvcEditorialBreak() {
-  return (
-    <div
-      className="relative w-full overflow-hidden"
-      style={{ height: 'clamp(280px, 45vh, 520px)', backgroundColor: 'var(--color-stone-mid)' }}
-      aria-hidden="true"
-      data-placeholder="editorial-break"
-    />
-  )
+  return null
 }

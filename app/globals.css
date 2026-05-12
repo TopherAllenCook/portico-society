@@ -80,6 +80,33 @@
   }
 }
 
+/* Opacity-only reveal for heading containers — no visibility:hidden so AT heading
+   navigation always finds the heading, even before scroll brings it into view. */
+[data-reveal-soft="pending"] {
+  will-change: opacity, transform;
+  opacity: 0;
+  transform: translateY(1.25rem);
+}
+
+[data-reveal-soft="done"] {
+  will-change: auto;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.85s var(--ease-expo),
+    transform 0.85s var(--ease-expo);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal-soft="pending"] {
+    opacity: 1;
+    transform: none;
+  }
+  [data-reveal-soft="done"] {
+    transition: none;
+  }
+}
+
 /* Pulsing status dot for eyebrow */
 @keyframes pulse-dot {
   0%, 100% { opacity: 0.35; transform: scale(0.85); }

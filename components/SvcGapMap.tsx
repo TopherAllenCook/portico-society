@@ -1,6 +1,8 @@
 'use client'
 import { useChartReveal } from './useChartReveal'
 
+const EXPO = 'cubic-bezier(0.16, 1, 0.3, 1)'
+
 const platforms = ['ChatGPT', 'Perplexity', 'Claude', 'Google SGE']
 const competitors = ['Competitor A', 'Competitor B', 'Your Practice']
 
@@ -63,7 +65,7 @@ export default function SvcGapMap() {
                     opacity: triggered ? 1 : 0,
                     transform: triggered ? 'none' : 'translateY(6px)',
                     transition: triggered
-                      ? `opacity 0.45s ease ${row * 80}ms, transform 0.45s cubic-bezier(0.25,1,0.5,1) ${row * 80}ms`
+                      ? `opacity 0.45s ${EXPO} ${row * 80}ms, transform 0.45s ${EXPO} ${row * 80}ms`
                       : 'none',
                   }}
                 >
@@ -78,7 +80,7 @@ export default function SvcGapMap() {
                       opacity: triggered ? 1 : 0,
                       transform: triggered ? 'none' : 'translateY(6px)',
                       transition: triggered
-                        ? `opacity 0.45s ease ${row * 80 + col * 40}ms, transform 0.45s cubic-bezier(0.25,1,0.5,1) ${row * 80 + col * 40}ms`
+                        ? `opacity 0.45s ${EXPO} ${row * 80 + col * 40}ms, transform 0.45s ${EXPO} ${row * 80 + col * 40}ms`
                         : 'none',
                     }}
                   >

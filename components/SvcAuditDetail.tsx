@@ -55,7 +55,7 @@ export default function SvcAuditDetail() {
           </div>
         </RevealOnScroll>
 
-        <RevealOnScroll>
+        <RevealOnScroll soft>
           <h2
             id="audit-detail-heading"
             className="font-display italic font-normal leading-snug mb-4"

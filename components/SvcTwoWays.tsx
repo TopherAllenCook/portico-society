@@ -212,12 +212,6 @@ export default function SvcTwoWays() {
           Recommended shot: physician consultation room or private practice interior,
           very dark treatment to sit on the ink background.
         */}
-        <div
-          className="relative w-full mt-20 overflow-hidden"
-          style={{ height: 'clamp(200px, 30vh, 360px)', backgroundColor: 'oklch(97% 0.008 75 / 0.06)' }}
-          aria-hidden="true"
-          data-placeholder="svc-twoways-photo"
-        />
 
         {/* Bridge to audit */}
         <RevealOnScroll>

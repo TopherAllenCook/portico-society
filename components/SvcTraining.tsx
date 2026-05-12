@@ -63,7 +63,7 @@ export default function SvcTraining() {
           </div>
         </RevealOnScroll>
 
-        <RevealOnScroll>
+        <RevealOnScroll soft>
           <h2
             id="addons-heading"
             className="font-display font-normal leading-snug mb-4"
