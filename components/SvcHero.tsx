@@ -78,11 +78,9 @@ export default function SvcHero() {
                 letterSpacing: '-0.025em',
               }}
             >
-              <span className="block" style={rise(100)}>Your patients are finding</span>
-              <span className="block" style={rise(180)}>practices through AI.</span>
-              <span className="block" style={{ color: 'var(--color-cinnabar)', ...rise(260) }}>
-                Most aren&rsquo;t finding yours.
-              </span>
+              <span className="block" style={rise(100)}>The AI search authority agency</span>
+              <span className="block" style={rise(180)}>for longevity, concierge,</span>
+              <span className="block" style={{ color: 'var(--color-cinnabar)', ...rise(260) }}>and aesthetic medicine.</span>
             </h1>
 
             <div aria-hidden="true" style={{ ...rule(380), marginBottom: '2rem' }} />
@@ -96,9 +94,9 @@ export default function SvcHero() {
                 ...rise(450),
               }}
             >
-              Verve builds the authority signals, inquiry systems, and growth
-              infrastructure that make your practice the one AI names — in your
-              specialty, in your market.
+              Verve builds AI visibility, patient inquiry systems, and growth
+              infrastructure for established practices. Starting with a free audit
+              that shows exactly where you stand.
             </p>
 
             <div
@@ -116,7 +114,7 @@ export default function SvcHero() {
                 </svg>
               </Link>
               <Link
-                href="#tiers"
+                href="#services-grid"
                 className="font-body inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                 style={{
                   border: '1px solid var(--color-ink-rule)',
@@ -124,7 +122,7 @@ export default function SvcHero() {
                   outlineColor: 'var(--color-ink)',
                 }}
               >
-                See engagement model
+                See what we build
               </Link>
             </div>
 

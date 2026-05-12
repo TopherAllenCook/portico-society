@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import NavV2 from '@/components/v2/NavV2'
 import SvcHero from '@/components/SvcHero'
-import SvcProblem from '@/components/SvcProblem'
-import SvcContrast from '@/components/SvcContrast'
-import ProofV2 from '@/components/v2/ProofV2'
+import SvcServicesGrid from '@/components/SvcServicesGrid'
+import SvcTrustStrip from '@/components/SvcTrustStrip'
+import SvcServiceDetail from '@/components/SvcServiceDetail'
 import SvcProcess from '@/components/SvcProcess'
+import ProofV2 from '@/components/v2/ProofV2'
 import SvcTiers from '@/components/SvcTiers'
 import SvcFAQ from '@/components/SvcFAQ'
 import BeginCTA from '@/components/BeginCTA'
@@ -21,21 +22,23 @@ export default function ServicesPage() {
     <>
       <NavV2 dark={false} />
       <main>
-        {/* Attention: market shift headline + dual CTA */}
+        {/* Offer: agency identity + dual CTA */}
         <SvcHero />
-        {/* Pain: AI search stats + early pricing anchor */}
-        <SvcProblem />
-        {/* Contrast: generic agency vs. what Verve builds */}
-        <SvcContrast />
-        {/* Proof: testimonial + results */}
-        <ProofV2 />
+        {/* What we build: 4 service cards with anchor links */}
+        <SvcServicesGrid />
+        {/* Trust: testimonial + stats */}
+        <SvcTrustStrip />
+        {/* Detail: what each system includes */}
+        <SvcServiceDetail />
         {/* Process: 4 numbered steps */}
         <SvcProcess />
-        {/* Close: 3 tier cards */}
+        {/* Proof: extended testimonial + results */}
+        <ProofV2 />
+        {/* Pricing: 3 tier cards */}
         <SvcTiers />
         {/* FAQ: 5 physician objections */}
         <SvcFAQ />
-        {/* Final close: audit request form */}
+        {/* CTA: audit request form */}
         <BeginCTA />
       </main>
       <Footer />
