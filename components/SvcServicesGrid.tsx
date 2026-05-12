@@ -77,10 +77,7 @@ export default function SvcServicesGrid() {
             <RevealOnScroll key={svc.id}>
               <a
                 href={svc.anchor}
-                className="group flex flex-col gap-5 p-8 lg:p-10 transition-colors duration-200"
-                style={{ backgroundColor: 'var(--color-stone)' }}
-                onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--color-ivory)')}
-                onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'var(--color-stone)')}
+                className="group flex flex-col gap-5 p-8 lg:p-10 transition-colors duration-200 bg-stone hover:bg-ivory"
               >
                 <div className="flex items-start justify-between gap-4">
                   <span
