@@ -3,10 +3,11 @@ import NavV2 from '@/components/v2/NavV2'
 import SvcHero from '@/components/SvcHero'
 import SvcEditorialBreak from '@/components/SvcEditorialBreak'
 import SvcWhatWeBuild from '@/components/SvcWhatWeBuild'
-import SvcEngagement from '@/components/SvcEngagement'
-import SvcTraining from '@/components/SvcTraining'
 import SvcTwoWays from '@/components/SvcTwoWays'
+import SvcEngagement from '@/components/SvcEngagement'
 import SvcAuditDetail from '@/components/SvcAuditDetail'
+import SvcTraining from '@/components/SvcTraining'
+import SvcFAQ from '@/components/SvcFAQ'
 import BeginCTA from '@/components/BeginCTA'
 import Footer from '@/components/Footer'
 
@@ -24,10 +25,11 @@ export default function ServicesPage() {
         <SvcHero />
         <SvcEditorialBreak />
         <SvcWhatWeBuild />
+        <SvcTwoWays />
         <SvcEngagement />
         <SvcAuditDetail />
         <SvcTraining />
-        <SvcTwoWays />
+        <SvcFAQ />
         <BeginCTA />
       </main>
       <Footer />
