@@ -114,7 +114,7 @@ export default function SalesSvcHero() {
                 </svg>
               </Link>
               <Link
-                href="#begin"
+                href="mailto:hello@vervemd.com?subject=Strategy%20Call%20Request"
                 className="font-body inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                 style={{
                   border: '1px solid var(--color-ink-rule)',

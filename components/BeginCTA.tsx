@@ -75,29 +75,8 @@ export default function BeginCTA() {
                 report with prioritized findings.
               </p>
 
-              {/* Sample finding — full border, not side stripe */}
-              <blockquote
-                className="p-6"
-                style={{ border: '1px solid oklch(97% 0.008 75 / 0.2)' }}
-              >
-                <p
-                  className="font-display italic font-normal leading-relaxed"
-                  style={{ fontSize: '0.9375rem', color: 'var(--color-body-text-on-dark)' }}
-                >
-                  &ldquo;Your practice does not appear in any AI-generated recommendations for
-                  longevity clinics in your region. Two competitors do. This gap is recoverable
-                  within 60 days.&rdquo;
-                </p>
-                <cite
-                  className="font-mono mt-4 block not-italic text-xs tracking-[0.1em] uppercase"
-                  style={{ color: 'var(--color-label-text-on-dark)' }}
-                >
-                  Sample finding, Longevity practice, Q4 2025
-                </cite>
-              </blockquote>
-
               <p
-                className="font-body mt-6 text-sm font-light"
+                className="font-body text-sm font-light"
                 style={{ color: 'var(--color-label-text-on-dark)' }}
               >
                 The audit is proof of methodology.

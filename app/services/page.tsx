@@ -6,6 +6,7 @@ import SalesSvcServices from '@/components/SalesSvcServices'
 import ProofV2 from '@/components/v2/ProofV2'
 import SalesSvcPricing from '@/components/SalesSvcPricing'
 import SalesSvcRiskReversal from '@/components/SalesSvcRiskReversal'
+import CtaBridge from '@/components/CtaBridge'
 import BeginCTA from '@/components/BeginCTA'
 import Footer from '@/components/Footer'
 
@@ -28,6 +29,8 @@ export default function ServicesPage() {
         <SalesSvcServices />
         {/* Proof: testimonial + results + visibility bars */}
         <ProofV2 />
+        {/* Bridge: catch ready-to-convert readers between proof and pricing */}
+        <CtaBridge />
         {/* Close: two-tier pricing, CTA on each path */}
         <SalesSvcPricing />
         {/* Risk reversal: free audit, zero commitment */}

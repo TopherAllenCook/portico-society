@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import AnimatedStat from './AnimatedStat'
 import RevealOnScroll from './RevealOnScroll'
 
@@ -111,8 +112,37 @@ export default function CostOfInvisibility() {
             className="font-body font-light text-xs mt-8"
             style={{ color: 'oklch(14% 0.006 30 / 0.35)' }}
           >
-            Estimates based on AI recommendation analysis across longevity, concierge, and aesthetic practices, 2024–2025.
+            Estimates based on AI recommendation analysis across longevity, concierge, and aesthetic practices, 2024&ndash;2025.
           </p>
+        </RevealOnScroll>
+
+        {/* Pricing anchor — gives ready buyers a number before the detail sections */}
+        <RevealOnScroll>
+          <div
+            className="mt-16 pt-10 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"
+            style={{ borderTop: '1px solid oklch(14% 0.006 30 / 0.12)' }}
+          >
+            <p
+              className="font-body font-light"
+              style={{ fontSize: '0.9375rem', color: 'var(--color-body-text)' }}
+            >
+              Verve Engagement from{' '}
+              <span style={{ color: 'var(--color-ink)', fontWeight: 500 }}>$4,500 / mo</span>
+              {' '}· Strategic Advisory{' '}
+              <span style={{ color: 'var(--color-ink)', fontWeight: 500 }}>custom scope</span>
+              {' '}· Both begin with a free audit.
+            </p>
+            <Link
+              href="#begin"
+              className="font-mono inline-flex items-center gap-2 text-xs font-medium tracking-[0.12em] uppercase transition-opacity duration-200 hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 flex-shrink-0"
+              style={{ color: 'var(--color-cinnabar)', outlineColor: 'var(--color-cinnabar)' }}
+            >
+              Request the free audit
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2 7h10M7.5 3l4.5 4-4.5 4" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          </div>
         </RevealOnScroll>
 
       </div>

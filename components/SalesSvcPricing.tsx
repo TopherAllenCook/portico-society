@@ -17,6 +17,21 @@ const advisoryItems = [
   'Option to convert to a full Verve Engagement at conclusion',
 ]
 
+const addons = [
+  {
+    label: 'A',
+    title: 'Paid Patient Acquisition',
+    price: 'from $3,000 / mo',
+    model: 'Add-on to Verve Engagement or standalone',
+  },
+  {
+    label: 'B',
+    title: 'AI Patient Receptionist',
+    price: '$1,500 setup · from $497 / mo',
+    model: 'Available standalone or inside an engagement',
+  },
+]
+
 function PillButton({
   href,
   variant,
@@ -257,7 +272,7 @@ export default function SalesSvcPricing() {
                 ))}
               </ul>
 
-              <PillButton href="#begin" variant="secondary">
+              <PillButton href="mailto:hello@vervemd.com?subject=Strategy%20Call%20Request" variant="secondary">
                 Book a strategy call
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                   <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
@@ -284,6 +299,59 @@ export default function SalesSvcPricing() {
             </Link>{' '}
             The findings make the choice obvious.
           </p>
+        </RevealOnScroll>
+
+        {/* Add-ons */}
+        <RevealOnScroll>
+          <div className="mt-16 pt-10" style={{ borderTop: '1px solid var(--color-ink-rule)' }}>
+            <p
+              className="font-mono text-xs font-medium tracking-[0.18em] uppercase mb-8"
+              style={{ color: 'var(--color-label-text)' }}
+            >
+              Add-On Services
+            </p>
+            <div
+              className="grid grid-cols-1 gap-px sm:grid-cols-2"
+              style={{ backgroundColor: 'var(--color-ink-rule)' }}
+            >
+              {addons.map((addon) => (
+                <div
+                  key={addon.label}
+                  className="py-6 pr-8"
+                  style={{ backgroundColor: 'var(--color-stone)' }}
+                >
+                  <p
+                    className="font-mono text-xs font-medium tracking-[0.1em] uppercase mb-1"
+                    style={{ color: 'var(--color-cinnabar)' }}
+                  >
+                    {addon.label}
+                  </p>
+                  <p
+                    className="font-display font-normal mb-1"
+                    style={{
+                      fontSize: '1.0625rem',
+                      color: 'var(--color-ink)',
+                      letterSpacing: '-0.015em',
+                    }}
+                  >
+                    {addon.title}
+                  </p>
+                  <p
+                    className="font-body font-light text-sm"
+                    style={{ color: 'var(--color-cinnabar)' }}
+                  >
+                    {addon.price}
+                  </p>
+                  <p
+                    className="font-body font-light text-xs mt-1"
+                    style={{ color: 'var(--color-label-text)' }}
+                  >
+                    {addon.model}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </RevealOnScroll>
 
       </div>

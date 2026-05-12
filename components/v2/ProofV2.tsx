@@ -11,8 +11,8 @@ const stats = [
     label: 'Audit delivered with findings — before any engagement, no call required',
   },
   {
-    value: '$1M+',
-    label: 'Minimum annual practice revenue to qualify for a Verve engagement',
+    value: '60d',
+    label: 'First AI citations typically appear within 60 days of engagement start',
   },
 ]
 
