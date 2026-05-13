@@ -57,31 +57,45 @@ export default function TileGrid({ tiles }: { tiles: Tile[] }) {
       className="grid grid-cols-2 lg:grid-cols-3 gap-px"
       style={{ backgroundColor: 'var(--color-ink-rule)' }}
     >
-      {tiles.map((tile) => (
-        <div
-          key={tile.name}
-          data-tile
-          className="service-tile px-6 py-7 flex flex-col gap-2"
-          style={{ backgroundColor: 'var(--color-ivory)' }}
-        >
-          <p
-            className="service-tile-name font-display font-normal leading-tight"
-            style={{
-              fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
-              color: 'var(--color-ink)',
-              letterSpacing: '-0.02em',
-            }}
+      {tiles.map((tile, i) => {
+        const num = String(i + 1).padStart(2, '0')
+        return (
+          <div
+            key={tile.name}
+            data-tile
+            className="service-tile relative overflow-hidden px-8 py-10 flex flex-col gap-3"
+            style={{ backgroundColor: 'var(--color-ivory)' }}
           >
-            {tile.name}
-          </p>
-          <p
-            className="font-body font-light leading-snug"
-            style={{ fontSize: '0.8125rem', color: 'var(--color-body-text)' }}
-          >
-            {tile.desc}
-          </p>
-        </div>
-      ))}
+            <span
+              className="service-tile-index absolute -top-2 right-3 font-mono font-medium select-none pointer-events-none"
+              style={{
+                fontSize: 'clamp(3.75rem, 5.5vw, 5.5rem)',
+                lineHeight: 1,
+                letterSpacing: '-0.04em',
+              }}
+              aria-hidden="true"
+            >
+              {num}
+            </span>
+            <p
+              className="service-tile-name font-display italic font-normal leading-tight relative"
+              style={{
+                fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+                color: 'var(--color-ink)',
+                letterSpacing: '-0.03em',
+              }}
+            >
+              {tile.name}
+            </p>
+            <p
+              className="service-tile-desc font-body font-light leading-snug relative"
+              style={{ fontSize: '0.625rem', color: 'var(--color-body-text)' }}
+            >
+              {tile.desc}
+            </p>
+          </div>
+        )
+      })}
     </div>
   )
 }

@@ -190,19 +190,41 @@ function Hero() {
 function ServiceTiles() {
   return (
     <section
-      aria-label="Everything we do"
-      className="px-6 py-20 lg:px-16 lg:py-28"
+      aria-labelledby="s2-tiles-heading"
+      className="py-20 lg:py-28"
       style={{ backgroundColor: 'var(--color-ivory)' }}
     >
-      <div className="mx-auto max-w-5xl">
-        <RevealOnScroll soft>
-          <p
-            className="font-mono text-xs font-medium tracking-[0.18em] uppercase mb-12"
-            style={{ color: 'var(--color-label-text)' }}
-          >
-            Everything We Do
-          </p>
+      <div className="px-6 lg:px-16 mx-auto max-w-5xl mb-12">
+        <RevealOnScroll>
+          <div className="flex items-baseline gap-8 mb-6">
+            <p
+              className="font-mono text-xs font-medium tracking-[0.18em] uppercase"
+              style={{ color: 'var(--color-label-text)' }}
+            >
+              Everything We Do
+            </p>
+            <div
+              className="flex-1"
+              style={{ height: '1px', backgroundColor: 'var(--color-ink-rule)' }}
+              aria-hidden="true"
+            />
+          </div>
         </RevealOnScroll>
+        <RevealOnScroll soft>
+          <h2
+            id="s2-tiles-heading"
+            className="font-display italic font-normal leading-snug"
+            style={{
+              fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
+              color: 'var(--color-ink)',
+              letterSpacing: '-0.025em',
+            }}
+          >
+            The full stack.
+          </h2>
+        </RevealOnScroll>
+      </div>
+      <div className="px-6 lg:px-16">
         <TileGrid tiles={tiles} />
       </div>
     </section>

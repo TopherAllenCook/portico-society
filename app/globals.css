@@ -134,19 +134,38 @@
 
 /* Service tile grid hover */
 .service-tile {
-  transition: background-color 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: background-color 0.18s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .service-tile:hover {
-  background-color: oklch(94.5% 0.007 70);
+  background-color: var(--color-cinnabar);
 }
 
 .service-tile-name {
-  transition: color 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: color 0.18s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .service-tile:hover .service-tile-name {
-  color: var(--color-cinnabar);
+  color: var(--color-ivory);
+}
+
+.service-tile-desc {
+  transition: color 0.18s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-tile:hover .service-tile-desc {
+  color: oklch(97% 0.008 75 / 0.72);
+}
+
+.service-tile-index {
+  opacity: 0.08;
+  color: var(--color-ink);
+  transition: opacity 0.18s cubic-bezier(0.25, 1, 0.5, 1), color 0.18s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-tile:hover .service-tile-index {
+  opacity: 0.18;
+  color: var(--color-ivory);
 }
 
 /* Default border color */
