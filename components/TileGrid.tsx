@@ -17,13 +17,7 @@ export default function TileGrid({ tiles }: { tiles: Tile[] }) {
     if (!grid) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
-    const items = Array.from(grid.querySelectorAll<HTMLElement>('[data-tile]'))
-
-    items.forEach((el) => {
-      el.style.opacity = '0'
-      el.style.transform = 'scale(0.95)'
-      el.style.willChange = 'opacity, transform'
-    })
+    const items = Array.from(grid.querySelectorAll<HTMLElement>('[data-tile-pending]'))
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -33,13 +27,16 @@ export default function TileGrid({ tiles }: { tiles: Tile[] }) {
           const row = Math.floor(i / COLS)
           const delay = 40 + row * 80 + col * 55
           setTimeout(() => {
+            el.style.willChange = 'opacity, transform'
             el.style.transition = [
               'opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1)',
               'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)',
             ].join(', ')
-            el.style.opacity = '1'
-            el.style.transform = 'scale(1)'
-            setTimeout(() => { el.style.willChange = 'auto' }, 700)
+            el.removeAttribute('data-tile-pending')
+            setTimeout(() => {
+              el.style.willChange = 'auto'
+              el.style.transition = ''
+            }, 700)
           }, delay)
         })
         observer.disconnect()
@@ -63,6 +60,7 @@ export default function TileGrid({ tiles }: { tiles: Tile[] }) {
           <div
             key={tile.name}
             data-tile
+            data-tile-pending=""
             className="service-tile relative overflow-hidden px-8 py-10 flex flex-col gap-3"
             style={{ backgroundColor: 'var(--color-ivory)' }}
           >
@@ -89,7 +87,7 @@ export default function TileGrid({ tiles }: { tiles: Tile[] }) {
             </p>
             <p
               className="service-tile-desc font-body font-light leading-snug relative"
-              style={{ fontSize: '0.625rem', color: 'var(--color-body-text)' }}
+              style={{ fontSize: '0.75rem', color: 'var(--color-body-text)' }}
             >
               {tile.desc}
             </p>

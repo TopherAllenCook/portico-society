@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import NavV2 from '@/components/v2/NavV2'
@@ -162,26 +163,28 @@ function Hero() {
           </p>
         </div>
 
-        <div style={{ borderTop: '1px solid var(--color-ivory-dim)', paddingTop: '1.5rem' }}>
-          <p
-            className="font-display italic font-normal leading-snug mb-3"
-            style={{
-              fontSize: 'clamp(0.9375rem, 1.4vw, 1.125rem)',
-              color: 'var(--color-ivory)',
-              maxWidth: '44ch',
-              opacity: 0.82,
-            }}
-          >
-            &ldquo;Within four months, we were the first name ChatGPT mentioned
-            for longevity medicine in our market.&rdquo;
-          </p>
-          <p
+        <figure style={{ borderTop: '1px solid var(--color-ivory-dim)', paddingTop: '1.5rem' }}>
+          <blockquote>
+            <p
+              className="font-display italic font-normal leading-snug mb-3"
+              style={{
+                fontSize: 'clamp(0.9375rem, 1.4vw, 1.125rem)',
+                color: 'var(--color-ivory)',
+                maxWidth: '44ch',
+                opacity: 0.82,
+              }}
+            >
+              &ldquo;Within four months, we were the first name ChatGPT mentioned
+              for longevity medicine in our market.&rdquo;
+            </p>
+          </blockquote>
+          <figcaption
             className="font-mono text-xs font-medium tracking-[0.1em] uppercase"
             style={{ color: 'var(--color-label-text-on-dark)' }}
           >
             Medical Director / Longevity Practice, Austin TX
-          </p>
-        </div>
+          </figcaption>
+        </figure>
       </div>
     </section>
   )
@@ -384,12 +387,18 @@ function Proof() {
             style={{ borderTop: '1px solid var(--color-ink-rule)' }}
           >
             {stats.map((stat, i) => (
-              i % 2 === 0 ? (
+              <Fragment key={stat.value}>
+                {i > 0 && (
+                  <div
+                    className="hidden sm:block"
+                    style={{ backgroundColor: 'var(--color-ink-rule)' }}
+                    aria-hidden="true"
+                  />
+                )}
                 <div
-                  key={i}
                   className="py-10"
                   style={{
-                    paddingRight: i < 2 ? '2rem' : undefined,
+                    paddingRight: i < stats.length - 1 ? '2rem' : undefined,
                     paddingLeft: i > 0 ? '2rem' : undefined,
                   }}
                 >
@@ -410,14 +419,7 @@ function Proof() {
                     {stat.label}
                   </p>
                 </div>
-              ) : (
-                <div
-                  key={i}
-                  className="hidden sm:block"
-                  style={{ backgroundColor: 'var(--color-ink-rule)' }}
-                  aria-hidden="true"
-                />
-              )
+              </Fragment>
             ))}
           </div>
         </RevealOnScroll>
@@ -468,7 +470,7 @@ function Pricing() {
           <RevealOnScroll>
             <div className="pb-16 lg:pb-0 lg:pr-16">
               <p className="font-mono text-xs font-medium tracking-[0.14em] uppercase mb-3" style={{ color: 'var(--color-label-text-on-dark)' }}>
-                Monthly Retainer
+                Verve Engagement
               </p>
               <h3
                 className="font-display font-normal leading-snug mb-2"
@@ -511,7 +513,7 @@ function Pricing() {
 
               <Link
                 href="#begin"
-                className="font-body inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-cinnabar text-ivory hover:bg-cinnabar-dark"
+                className="font-body inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-cinnabar text-ivory hover:bg-cinnabar-dark"
                 style={{ outlineColor: 'var(--color-cinnabar)' }}
               >
                 Request the free audit
@@ -530,7 +532,7 @@ function Pricing() {
               style={{ borderTop: '1px solid var(--color-ivory-dim)' }}
             >
               <p className="font-mono text-xs font-medium tracking-[0.14em] uppercase mb-3" style={{ color: 'var(--color-label-text-on-dark)' }}>
-                Custom Project
+                Strategic Advisory
               </p>
               <h3
                 className="font-display font-normal leading-snug mb-2"
@@ -560,8 +562,8 @@ function Pricing() {
 
               <a
                 href="mailto:hello@vervemd.com?subject=Strategy%20Call%20Request"
-                className="font-body inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                style={{ border: '1px solid oklch(97% 0.008 75 / 0.25)', color: 'var(--color-ivory)', outlineColor: 'oklch(97% 0.008 75 / 0.6)' }}
+                className="font-body inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                style={{ border: '1px solid var(--color-ivory-muted)', color: 'var(--color-ivory)', outlineColor: 'var(--color-ivory-glow)' }}
               >
                 Book a strategy call
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">

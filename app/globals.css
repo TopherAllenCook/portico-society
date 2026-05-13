@@ -22,6 +22,9 @@
   /* Decorative non-text on dark (ink / cta-surface) surfaces */
   --color-ivory-subtle:     oklch(97% 0.008 75 / 0.07);
   --color-ivory-dim:        oklch(97% 0.008 75 / 0.12);
+  --color-ivory-muted:      oklch(97% 0.008 75 / 0.25);  /* border on dark */
+  --color-ivory-glow:       oklch(97% 0.008 75 / 0.6);   /* focus ring on dark */
+  --color-ivory-hover:      oklch(97% 0.008 75 / 0.72);  /* muted text on cinnabar hover */
 
   /* Accessible text on dark (ink / cta-surface) backgrounds — solid, no opacity */
   --color-body-text-on-dark:  oklch(78% 0.004 60);   /* ≈ 10:1 on ink, ≈ 8:1 on cta-surface */
@@ -154,7 +157,7 @@
 }
 
 .service-tile:hover .service-tile-desc {
-  color: oklch(97% 0.008 75 / 0.72);
+  color: var(--color-ivory-hover);
 }
 
 .service-tile-index {
@@ -166,6 +169,19 @@
 .service-tile:hover .service-tile-index {
   opacity: 0.18;
   color: var(--color-ivory);
+}
+
+/* Tile entrance — CSS-driven initial state, no hydration flash */
+[data-tile-pending] {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-tile-pending] {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Default border color */
