@@ -136,6 +136,18 @@ Financial professionals at community banks and credit unions are on LinkedIn. Th
 **Referral activation via email**
 A-tier members (40+ points) are the best acquisition channel FMS has. A specific referral ask outperforms a vague invitation. Not "invite a colleague" — "who on your team would benefit from the annual conference?" Give the ask a specific context and a low-friction submission method.
 
+**Event attendee pipeline**
+People who attended FMS events in 2025 but are not current members are almost certainly already in Informz. They have already raised their hand. A dedicated email campaign targeting this segment -- "you've attended, here's what you're missing as a member" -- is the warmest cold acquisition audience available. Pull this segment from Informz during the audit and build a 2-email sequence: email 1 surfaces specific member benefits they didn't get access to, email 2 is a direct membership offer with a clear CTA.
+
+**Lead magnet via LinkedIn**
+LinkedIn content builds awareness but doesn't capture anyone. A free resource -- salary benchmark, regulatory update summary, industry trends report -- gives non-members a reason to hand over their email. Post the offer on LinkedIn, collect emails via a simple form, and route them into Informz for the non-member nurture sequence. The lead magnet topic should come from whatever content performs best in the LinkedIn audit.
+
+**Non-member nurture sequence**
+If Informz contains non-member contacts (event registrants who didn't join, lapsed former members, lead magnet downloads), build a 3-email nurture sequence: email 1 frames the problem FMS solves for their career, email 2 surfaces a specific high-value benefit (education credits, certification, peer network), email 3 is a direct membership offer. This segment likely already exists -- the audit will confirm its size.
+
+**Corporate/group membership pitch**
+Community banks and credit unions often have multiple finance team members who could benefit from FMS. A single email to the CFO or HR director at a target institution -- pitching a group membership covering their full finance team -- converts one outreach into 3-5 members. Build a short, specific email targeting finance leadership at institutions in FMS's existing member geography. One send, high leverage.
+
 ---
 
 ## Section 4: Board Deliverable
@@ -167,12 +179,12 @@ The board needs to feel two things: FMS has a real problem worth taking seriousl
 
 ## Timeline
 
-| Week | Track 1 (Quick Wins) | Track 2 (Audit + Strategy) |
+| Week | Track 1 (Quick Wins + Acquisition) | Track 2 (Audit + Strategy) |
 |---|---|---|
-| 1 | Build re-engagement and welcome sequences | Informz + LinkedIn audit |
-| 2 | Launch all three campaigns, first LinkedIn posts live | Analyze findings, identify tier distribution |
-| 3 | Monitor early results | Draft strategy and board deliverable |
-| 4 | Refine based on early data | Finalize board document |
+| 1 | Build re-engagement and welcome sequences | Informz + LinkedIn audit; identify event attendee segment and non-member contacts |
+| 2 | Launch re-engagement, welcome, and event attendee campaigns; first LinkedIn posts live | Analyze findings, identify tier distribution, determine lead magnet topic |
+| 3 | Build and post lead magnet on LinkedIn; build non-member nurture sequence; build corporate pitch email | Draft strategy and board deliverable |
+| 4 | Launch non-member nurture and corporate pitch; monitor early results | Finalize board document |
 
 ---
 
