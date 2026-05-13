@@ -4,6 +4,7 @@ import NavV2 from '@/components/v2/NavV2'
 import BeginCTA from '@/components/BeginCTA'
 import Footer from '@/components/Footer'
 import RevealOnScroll from '@/components/RevealOnScroll'
+import TileGrid from '@/components/TileGrid'
 
 export const metadata: Metadata = {
   title: 'Services — Verve',
@@ -202,29 +203,7 @@ function ServiceTiles() {
             Everything We Do
           </p>
         </RevealOnScroll>
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-px" style={{ backgroundColor: 'var(--color-ink-rule)' }}>
-          {tiles.map((tile, i) => (
-            <RevealOnScroll key={tile.name} delay={i * 35}>
-              <div
-                className="px-6 py-7 flex flex-col gap-2"
-                style={{ backgroundColor: 'var(--color-ivory)' }}
-              >
-                <p
-                  className="font-display font-normal leading-tight"
-                  style={{ fontSize: 'clamp(1rem, 1.5vw, 1.25rem)', color: 'var(--color-ink)', letterSpacing: '-0.02em' }}
-                >
-                  {tile.name}
-                </p>
-                <p
-                  className="font-body font-light leading-snug"
-                  style={{ fontSize: '0.8125rem', color: 'var(--color-body-text)' }}
-                >
-                  {tile.desc}
-                </p>
-              </div>
-            </RevealOnScroll>
-          ))}
-        </div>
+        <TileGrid tiles={tiles} />
       </div>
     </section>
   )

@@ -132,6 +132,23 @@
   }
 }
 
+/* Service tile grid hover */
+.service-tile {
+  transition: background-color 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-tile:hover {
+  background-color: oklch(94.5% 0.007 70);
+}
+
+.service-tile-name {
+  transition: color 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-tile:hover .service-tile-name {
+  color: var(--color-cinnabar);
+}
+
 /* Default border color */
 @layer base {
   *, *::before, *::after {
