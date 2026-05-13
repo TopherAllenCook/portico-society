@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 
 const services = [
   {
+    id: 's2-search',
     index: '01',
     name: 'AI Search',
     tier: 'Monthly Retainer',
@@ -30,6 +31,7 @@ const services = [
     ],
   },
   {
+    id: 's2-lead',
     index: '02',
     name: 'AI Lead Agent',
     tier: 'Add-On',
@@ -43,6 +45,7 @@ const services = [
     ],
   },
   {
+    id: 's2-reviews',
     index: '03',
     name: 'Reviews & Referrals',
     tier: 'Monthly Retainer',
@@ -56,6 +59,7 @@ const services = [
     ],
   },
   {
+    id: 's2-advisory',
     index: '04',
     name: 'Advisory',
     tier: 'Custom Project',
@@ -91,18 +95,78 @@ const faqs = [
 ]
 
 const tiles = [
-  { name: 'SEO', desc: 'Google rankings for your specialty and market.' },
-  { name: 'AEO', desc: 'Citations in ChatGPT, Perplexity, and Google AI.' },
-  { name: 'PPC', desc: 'Google and Meta paid search, managed end to end.' },
-  { name: 'Web Design', desc: 'Practice websites built to convert, not just look good.' },
-  { name: 'AI Lead Agent', desc: 'AI handles booking, intake, and follow-up automatically.' },
-  { name: 'Reviews', desc: 'Collect, respond, and protect your reputation at scale.' },
-  { name: 'Referral Systems', desc: 'Automated infrastructure so referrals actually happen.' },
-  { name: 'Citation Building', desc: 'Authority signals across the web that AI systems read.' },
-  { name: 'CRO', desc: 'Conversion optimization from first click to booked appointment.' },
-  { name: 'Competitive Research', desc: 'Know exactly what your competitors are doing and where.' },
-  { name: 'Attribution Tracking', desc: 'See which channels drive appointments, not just clicks.' },
-  { name: 'Multi-location Strategy', desc: 'Expand without losing authority in your existing markets.' },
+  {
+    name: 'SEO',
+    desc: 'Google rankings for your specialty and market.',
+    body: 'We optimize your practice for the search terms patients use when looking for your specialty and location. Technical health, content depth, and local authority signals, built to hold position.',
+    href: '#s2-search',
+  },
+  {
+    name: 'AEO',
+    desc: 'Citations in ChatGPT, Perplexity, and Google AI.',
+    body: 'AI systems recommend practices based on citation networks and entity authority, not just web rankings. We build the signals that get your name into those recommendations.',
+    href: '#s2-search',
+  },
+  {
+    name: 'PPC',
+    desc: 'Google and Meta paid search, managed end to end.',
+    body: 'Paid search campaigns managed from strategy and creative through bid management and attribution. Spend that produces appointments, not just clicks.',
+    href: '#s2-advisory',
+  },
+  {
+    name: 'Web Design',
+    desc: 'Practice websites built to convert, not just look good.',
+    body: 'A practice website designed around the patient decision journey, from first impression through the moment they book. Built on the same authority and conversion principles as the rest of the engagement.',
+    href: '#begin',
+  },
+  {
+    name: 'AI Lead Agent',
+    desc: 'AI handles booking, intake, and follow-up automatically.',
+    body: 'An AI agent handles every inbound inquiry: qualifying, booking, and following up so patients do not fall through the cracks when your front desk is busy or closed.',
+    href: '#s2-lead',
+  },
+  {
+    name: 'Reviews',
+    desc: 'Collect, respond, and protect your reputation at scale.',
+    body: 'Review volume and quality are direct inputs into AI recommendation systems. We build the infrastructure that generates reviews consistently and manages responses at scale.',
+    href: '#s2-reviews',
+  },
+  {
+    name: 'Referral Systems',
+    desc: 'Automated infrastructure so referrals actually happen.',
+    body: 'Referrals happen when you make it easy and systematic. We build the workflows that prompt satisfied patients to refer and track where referrals actually come from.',
+    href: '#s2-reviews',
+  },
+  {
+    name: 'Citation Building',
+    desc: 'Authority signals across the web that AI systems read.',
+    body: 'AI systems cite practices that appear consistently across authoritative web sources. We build and maintain the citation network that signals authority to both AI and traditional search.',
+    href: '#s2-search',
+  },
+  {
+    name: 'CRO',
+    desc: 'Conversion optimization from first click to booked appointment.',
+    body: 'Most practices leak patients between first click and booked appointment. We audit and optimize the full inquiry flow so more of the traffic you already have converts.',
+    href: '#s2-lead',
+  },
+  {
+    name: 'Competitive Research',
+    desc: 'Know exactly what your competitors are doing and where.',
+    body: 'We track what your top competitors are doing in search, AI visibility, and patient acquisition. The findings drive a strategy built to close the gaps that matter most.',
+    href: '#s2-advisory',
+  },
+  {
+    name: 'Attribution Tracking',
+    desc: 'See which channels drive appointments, not just clicks.',
+    body: 'Which channels are actually producing booked appointments? We build the tracking infrastructure that connects your marketing spend to practice revenue, not just website metrics.',
+    href: '#s2-lead',
+  },
+  {
+    name: 'Multi-location Strategy',
+    desc: 'Expand without losing authority in your existing markets.',
+    body: 'Expanding to a second or third location requires different strategy than growing a single practice. We build the market entry and authority playbook before you open the doors.',
+    href: '#s2-advisory',
+  },
 ]
 
 // ─── Sections ─────────────────────────────────────────────────────────────────
@@ -267,6 +331,7 @@ function Services() {
         {services.map((svc, i) => (
           <RevealOnScroll key={svc.index} delay={i * 55}>
             <div
+              id={svc.id}
               className="py-12 lg:py-14"
               style={{ borderTop: '1px solid var(--color-ink-rule)' }}
             >

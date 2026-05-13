@@ -135,12 +135,14 @@
   }
 }
 
-/* Service tile grid hover */
+/* Service tile grid — default, hover, and open states */
 .service-tile {
+  background-color: var(--color-ivory);
   transition: background-color 0.18s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.service-tile:hover {
+.service-tile:hover,
+.service-tile[data-open] {
   background-color: var(--color-cinnabar);
 }
 
@@ -148,7 +150,8 @@
   transition: color 0.18s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.service-tile:hover .service-tile-name {
+.service-tile:hover .service-tile-name,
+.service-tile[data-open] .service-tile-name {
   color: var(--color-ivory);
 }
 
@@ -156,7 +159,8 @@
   transition: color 0.18s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.service-tile:hover .service-tile-desc {
+.service-tile:hover .service-tile-desc,
+.service-tile[data-open] .service-tile-desc {
   color: var(--color-ivory-hover);
 }
 
@@ -166,8 +170,27 @@
   transition: opacity 0.18s cubic-bezier(0.25, 1, 0.5, 1), color 0.18s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.service-tile:hover .service-tile-index {
+.service-tile:hover .service-tile-index,
+.service-tile[data-open] .service-tile-index {
   opacity: 0.18;
+  color: var(--color-ivory);
+}
+
+.service-tile-body {
+  color: var(--color-body-text);
+  transition: color 0.18s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-tile[data-open] .service-tile-body {
+  color: var(--color-ivory-hover);
+}
+
+.service-tile-cta {
+  color: var(--color-cinnabar);
+  transition: color 0.18s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-tile[data-open] .service-tile-cta {
   color: var(--color-ivory);
 }
 
