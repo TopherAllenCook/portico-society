@@ -12,10 +12,6 @@
 
 FMS is a professional association serving financial managers at community banks, savings institutions, and credit unions. They offer education, certifications, events (webinars, seminars, annual conference), and peer networking.
 
-Chris has admin access to:
-- **Informz** — their email marketing platform (via Higher Logic)
-- **LinkedIn** — FMS company page content admin
-
 FMS already has a point-based member engagement scoring system built from 2025 activity (webinars, seminars, annual conference attendance). Tier thresholds: A = 40+ points, B = ~27 points, descending from there. This infrastructure exists but campaigns are not fully attached to it.
 
 The goal Alana stated: "get emails and campaigns updated and active before the June board meeting."
