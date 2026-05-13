@@ -307,13 +307,23 @@ function Services() {
     >
       <div className="mx-auto max-w-5xl">
 
+        <RevealOnScroll>
+          <div className="flex items-baseline gap-8 mb-16">
+            <p
+              className="font-mono text-xs font-medium tracking-[0.18em] uppercase"
+              style={{ color: 'var(--color-label-text)' }}
+            >
+              Services
+            </p>
+            <div
+              className="flex-1"
+              style={{ height: '1px', backgroundColor: 'var(--color-ink-rule)' }}
+              aria-hidden="true"
+            />
+          </div>
+        </RevealOnScroll>
+
         <RevealOnScroll soft>
-          <p
-            className="font-mono text-xs font-medium tracking-[0.18em] uppercase mb-5"
-            style={{ color: 'var(--color-label-text)' }}
-          >
-            Services
-          </p>
           <h2
             id="s2-services-heading"
             className="font-display italic font-normal leading-snug mb-16"
@@ -321,7 +331,6 @@ function Services() {
               fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
               color: 'var(--color-ink)',
               letterSpacing: '-0.025em',
-              maxWidth: '28ch',
             }}
           >
             Four services. One starting point.
@@ -329,66 +338,53 @@ function Services() {
         </RevealOnScroll>
 
         {services.map((svc, i) => (
-          <RevealOnScroll key={svc.index} delay={i * 55}>
+          <RevealOnScroll key={svc.id} delay={i * 55}>
             <div
               id={svc.id}
-              className="py-12 lg:py-14"
-              style={{ borderTop: '1px solid var(--color-ink-rule)' }}
+              className="grid py-10 lg:py-12"
+              style={{
+                gridTemplateColumns: '2.5rem 1fr',
+                columnGap: '2rem',
+                borderTop: '1px solid var(--color-ink-rule)',
+              }}
             >
-              <div className="flex items-baseline gap-4 mb-5">
-                <span
-                  className="font-mono text-xs font-medium tracking-[0.1em] uppercase"
-                  style={{ color: 'var(--color-label-text)' }}
-                  aria-hidden="true"
-                >
-                  {svc.index}
-                </span>
-                <span
-                  className="font-mono text-xs font-medium tracking-[0.1em] uppercase"
-                  style={{ color: 'var(--color-cinnabar)' }}
-                >
-                  {svc.tier}
-                </span>
-              </div>
-
-              <h3
-                className="font-display italic font-normal leading-tight mb-8"
+              <p
+                className="font-mono font-medium pt-2"
                 style={{
-                  fontSize: 'clamp(1.75rem, 4vw, 3rem)',
-                  color: 'var(--color-ink)',
-                  letterSpacing: '-0.03em',
+                  fontSize: '0.75rem',
+                  color: 'var(--color-cinnabar)',
+                  letterSpacing: '0.08em',
                 }}
+                aria-hidden="true"
               >
-                {svc.name}
-              </h3>
-
-              <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1fr] lg:gap-16">
+                {svc.index}
+              </p>
+              <div>
+                <h3
+                  className="font-display italic font-normal leading-tight mb-4"
+                  style={{
+                    fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
+                    color: 'var(--color-ink)',
+                    letterSpacing: '-0.025em',
+                  }}
+                >
+                  {svc.name}
+                </h3>
                 <p
                   className="font-body font-light leading-relaxed"
-                  style={{ fontSize: '1rem', color: 'var(--color-body-text)', maxWidth: '44ch' }}
+                  style={{
+                    fontSize: '1rem',
+                    color: 'var(--color-body-text)',
+                    maxWidth: '52ch',
+                  }}
                 >
                   {svc.outcome}
                 </p>
-                <ul className="space-y-2.5">
-                  {svc.bullets.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-3 font-body font-light"
-                      style={{ fontSize: '0.9375rem', color: 'var(--color-body-text)' }}
-                    >
-                      <span
-                        className="mt-[0.45rem] h-1 w-1 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: 'var(--color-cinnabar)' }}
-                        aria-hidden="true"
-                      />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
           </RevealOnScroll>
         ))}
+
         <div style={{ borderTop: '1px solid var(--color-ink-rule)' }} aria-hidden="true" />
 
       </div>
