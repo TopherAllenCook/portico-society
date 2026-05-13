@@ -88,6 +88,21 @@ const faqs = [
   },
 ]
 
+const tiles = [
+  { name: 'SEO', desc: 'Google rankings for your specialty and market.' },
+  { name: 'AEO', desc: 'Citations in ChatGPT, Perplexity, and Google AI.' },
+  { name: 'PPC', desc: 'Google and Meta paid search, managed end to end.' },
+  { name: 'Web Design', desc: 'Practice websites built to convert, not just look good.' },
+  { name: 'AI Lead Agent', desc: 'AI handles booking, intake, and follow-up automatically.' },
+  { name: 'Reviews', desc: 'Collect, respond, and protect your reputation at scale.' },
+  { name: 'Referral Systems', desc: 'Automated infrastructure so referrals actually happen.' },
+  { name: 'Citation Building', desc: 'Authority signals across the web that AI systems read.' },
+  { name: 'CRO', desc: 'Conversion optimization from first click to booked appointment.' },
+  { name: 'Competitive Research', desc: 'Know exactly what your competitors are doing and where.' },
+  { name: 'Attribution Tracking', desc: 'See which channels drive appointments, not just clicks.' },
+  { name: 'Multi-location Strategy', desc: 'Expand without losing authority in your existing markets.' },
+]
+
 // ─── Sections ─────────────────────────────────────────────────────────────────
 
 function Hero() {
@@ -165,6 +180,50 @@ function Hero() {
           >
             Medical Director / Longevity Practice, Austin TX
           </p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function ServiceTiles() {
+  return (
+    <section
+      aria-label="Everything we do"
+      className="px-6 py-20 lg:px-16 lg:py-28"
+      style={{ backgroundColor: 'var(--color-ivory)' }}
+    >
+      <div className="mx-auto max-w-5xl">
+        <RevealOnScroll soft>
+          <p
+            className="font-mono text-xs font-medium tracking-[0.18em] uppercase mb-12"
+            style={{ color: 'var(--color-label-text)' }}
+          >
+            Everything We Do
+          </p>
+        </RevealOnScroll>
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-px" style={{ backgroundColor: 'var(--color-ink-rule)' }}>
+          {tiles.map((tile, i) => (
+            <RevealOnScroll key={tile.name} delay={i * 35}>
+              <div
+                className="px-6 py-7 flex flex-col gap-2"
+                style={{ backgroundColor: 'var(--color-ivory)' }}
+              >
+                <p
+                  className="font-display font-normal leading-tight"
+                  style={{ fontSize: 'clamp(1rem, 1.5vw, 1.25rem)', color: 'var(--color-ink)', letterSpacing: '-0.02em' }}
+                >
+                  {tile.name}
+                </p>
+                <p
+                  className="font-body font-light leading-snug"
+                  style={{ fontSize: '0.8125rem', color: 'var(--color-body-text)' }}
+                >
+                  {tile.desc}
+                </p>
+              </div>
+            </RevealOnScroll>
+          ))}
         </div>
       </div>
     </section>
@@ -582,6 +641,7 @@ export default function ServicesPageV2() {
       <NavV2 dark={true} />
       <main>
         <Hero />
+        <ServiceTiles />
         <Services />
         <Proof />
         <Pricing />
