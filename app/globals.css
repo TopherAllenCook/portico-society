@@ -1,39 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  /* Verve brand palette — warm editorial */
-  --color-ivory:            oklch(97% 0.008 75);
-  --color-ink:              oklch(14% 0.006 30);
-  --color-cinnabar:         oklch(44% 0.16 27);
-  --color-cinnabar-dark:    oklch(35% 0.13 27);
-  --color-cinnabar-pale:    oklch(95% 0.012 35);
-  --color-cinnabar-on-dark: oklch(68% 0.16 27);
-  --color-cta-surface:      oklch(20% 0.012 40);
-  --color-stone:            oklch(91% 0.006 60);
-  --color-stone-mid:        oklch(72% 0.006 55);
+  /* Verve MD brand palette — editorial terracotta */
+  --color-ivory:            oklch(95% 0.016 82);    /* warm paper white */
+  --color-ink:              oklch(14% 0.012 50);    /* warm charcoal, not cool black */
+  --color-cinnabar:         oklch(51% 0.145 38);    /* terracotta — burnt orange, not crimson */
+  --color-cinnabar-dark:    oklch(41% 0.12 38);     /* deep terracotta */
+  --color-cinnabar-pale:    oklch(93% 0.020 62);    /* warm blush tint */
+  --color-cinnabar-on-dark: oklch(72% 0.13 38);     /* terracotta readable on dark */
+  --color-cta-surface:      oklch(20% 0.014 50);    /* warm dark card surface */
+  --color-stone:            oklch(90% 0.014 78);    /* warm light gray — section bg */
+  --color-stone-mid:        oklch(72% 0.010 65);    /* warm mid tone */
+  --color-sand:             oklch(87% 0.026 82);    /* kraft/sand — editorial accent bg */
 
   /* Decorative non-text on light surfaces — rules, dividers, icons */
-  --color-ink-rule:         oklch(14% 0.006 30 / 0.1);
-  --color-ink-faint:        oklch(14% 0.006 30 / 0.08);
-  --color-ink-ghost:        oklch(14% 0.006 30 / 0.06);
-  --color-ink-icon:         oklch(14% 0.006 30 / 0.35);
-  --color-ivory-mid:        oklch(97% 0.008 75 / 0.5);
+  --color-ink-rule:         oklch(14% 0.012 50 / 0.1);
+  --color-ink-faint:        oklch(14% 0.012 50 / 0.08);
+  --color-ink-ghost:        oklch(14% 0.012 50 / 0.06);
+  --color-ink-icon:         oklch(14% 0.012 50 / 0.35);
+  --color-ivory-mid:        oklch(95% 0.016 82 / 0.5);
 
   /* Decorative non-text on dark (ink / cta-surface) surfaces */
-  --color-ivory-subtle:     oklch(97% 0.008 75 / 0.07);
-  --color-ivory-dim:        oklch(97% 0.008 75 / 0.12);
-  --color-ivory-muted:      oklch(97% 0.008 75 / 0.25);  /* border on dark */
-  --color-ivory-glow:       oklch(97% 0.008 75 / 0.6);   /* focus ring on dark */
-  --color-ivory-hover:      oklch(97% 0.008 75 / 0.72);  /* muted text on cinnabar hover */
+  --color-ivory-subtle:     oklch(95% 0.016 82 / 0.07);
+  --color-ivory-dim:        oklch(95% 0.016 82 / 0.12);
+  --color-ivory-muted:      oklch(95% 0.016 82 / 0.25);  /* border on dark */
+  --color-ivory-glow:       oklch(95% 0.016 82 / 0.6);   /* focus ring on dark */
+  --color-ivory-hover:      oklch(95% 0.016 82 / 0.72);  /* muted text on terracotta hover */
 
   /* Accessible text on dark (ink / cta-surface) backgrounds — solid, no opacity */
-  --color-body-text-on-dark:  oklch(78% 0.004 60);   /* ≈ 10:1 on ink, ≈ 8:1 on cta-surface */
-  --color-label-text-on-dark: oklch(65% 0.004 60);   /* ≈ 6.4:1 on ink, ≈ 5.0:1 on cta-surface */
+  --color-body-text-on-dark:  oklch(79% 0.008 70);   /* warm light on dark */
+  --color-label-text-on-dark: oklch(65% 0.006 65);   /* warm muted on dark */
 
-  /* Accessible text on light (ivory / stone) backgrounds — solid, no opacity */
-  --color-body-text:        oklch(40% 0.006 30);   /* ≈ 5.1:1 vs stone, 5.97:1 vs ivory */
-  --color-label-text:       oklch(42% 0.006 30);   /* ≈ 4.8:1 vs stone, 5.4:1 vs ivory  */
-  --color-ink-muted:        oklch(55% 0.004 50);   /* muted display text, ≥3:1 vs ivory (large text) */
+  /* Accessible text on light (ivory / stone / sand) backgrounds — solid, no opacity */
+  --color-body-text:        oklch(38% 0.008 50);   /* warm dark body copy */
+  --color-label-text:       oklch(42% 0.008 55);   /* warm label/meta text */
+  --color-ink-muted:        oklch(55% 0.006 55);   /* muted display text */
 
   /* Typography: Fraunces display + SF Pro system body */
   --font-display: var(--font-fraunces), Georgia, serif;
