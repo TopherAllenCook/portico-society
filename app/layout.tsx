@@ -10,12 +10,12 @@ const fraunces = Fraunces({
 })
 
 export const metadata: Metadata = {
-  title: 'Verve — AI Visibility for Longevity and Concierge Practices',
+  title: 'Verve MD — Marketing for Longevity & Aesthetics Clinics',
   description:
-    'Verve engineers AI search authority, patient inquiry systems, and recurring revenue growth for longevity, concierge medicine, and aesthetic practices.',
+    'We help longevity and aesthetics clinics make more money. SEO, PPC, AI tools, and web design built exclusively for longevity and aesthetics practices.',
   openGraph: {
-    title: 'Verve',
-    description: 'Be the answer high net worth patients are already asking AI for.',
+    title: 'Verve MD',
+    description: 'We help longevity and aesthetics clinics make more money.',
     type: 'website',
   },
 }
