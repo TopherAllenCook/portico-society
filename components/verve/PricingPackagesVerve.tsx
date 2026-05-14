@@ -9,13 +9,13 @@ export default function PricingPackagesVerve() {
       aria-labelledby="pricing-packages-heading"
     >
       <div className="mx-auto max-w-5xl">
-        <p
+        <h2
           className="mb-10 text-xs font-medium uppercase tracking-[0.18em]"
           style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
           id="pricing-packages-heading"
         >
           Core Packages — Monthly Retainer
-        </p>
+        </h2>
 
         <div className="grid gap-4 md:grid-cols-3">
           {CORE_PACKAGES.map((pkg) => (

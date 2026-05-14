@@ -9,13 +9,13 @@ export default function PricingAIPackagesVerve() {
       aria-labelledby="ai-automation-heading"
     >
       <div className="mx-auto max-w-5xl">
-        <p
+        <h2
           className="text-xs font-medium uppercase tracking-[0.18em]"
           style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}
           id="ai-automation-heading"
         >
           AI Automation Systems
-        </p>
+        </h2>
         <p
           className="mt-2 text-sm"
           style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)', maxWidth: '52ch' }}

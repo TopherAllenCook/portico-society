@@ -21,6 +21,7 @@
   --color-ivory-mid:        oklch(95% 0.016 82 / 0.5);
 
   /* Decorative non-text on dark (ink / cta-surface) surfaces */
+  --color-ivory-ghost:      oklch(95% 0.016 82 / 0.04);  /* faintest overlay on dark */
   --color-ivory-subtle:     oklch(95% 0.016 82 / 0.07);
   --color-ivory-dim:        oklch(95% 0.016 82 / 0.12);
   --color-ivory-muted:      oklch(95% 0.016 82 / 0.25);  /* border on dark */
