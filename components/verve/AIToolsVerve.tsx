@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { AI_TOOLS_SECTION } from '@/lib/verve/content'
 
 export default function AIToolsVerve() {
@@ -60,6 +61,17 @@ export default function AIToolsVerve() {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10">
+          <Link
+            href="/ai"
+            className="inline-flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-100 opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-ivory-glow)] rounded-sm"
+            style={{ color: 'var(--color-ivory)', fontFamily: 'var(--font-body)' }}
+          >
+            See all 5 AI systems
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </div>
     </section>

@@ -53,10 +53,10 @@ export const CORE_PACKAGES: CorePackage[] = [
     tagline: 'Foundation for visibility',
     features: [
       'Clinic website design (initial build + ongoing updates)',
-      'SEO & technical setup',
-      'Google Business & local search',
-      'Review generation',
-      'Monthly analytics report',
+      'SEO & AEO — optimized for Google and AI search',
+      'Google Business & local citations',
+      'Review generation (automated post-visit requests)',
+      'Branded client dashboard — rankings, AI visibility, live',
     ],
   },
   {
@@ -66,11 +66,11 @@ export const CORE_PACKAGES: CorePackage[] = [
     popular: true,
     features: [
       'Everything in Essential',
-      'Google & Meta PPC',
+      'Google & Meta PPC — managed by med spa specialists',
       'AI ad creative & testing',
       'Landing pages & CRO',
       'AI content engine (blog, email, social)',
-      'Patient nurture automation',
+      'AI lead nurture (Day 1, 3, 7, 14 SMS + email)',
     ],
   },
   {
@@ -79,10 +79,10 @@ export const CORE_PACKAGES: CorePackage[] = [
     tagline: 'Complete marketing department',
     features: [
       'Everything in Growth',
-      'AI patient agent (24/7 lead qualification)',
+      'AI Patient Agent — voice, web chat, WhatsApp & Instagram, 24/7',
+      'AI no-show recovery + retention engine',
       'AI motion & social animations',
       'Short-form video & reels',
-      'Membership retention campaigns',
       'Dedicated strategy lead',
     ],
   },
@@ -96,13 +96,13 @@ export type AIPackage = {
 
 export const AI_PACKAGES: AIPackage[] = [
   {
-    name: 'AI Agent',
-    price: '$500',
+    name: 'AI Patient Agent',
+    price: '$600',
     features: [
-      '24/7 lead qualification chatbot',
-      'Answers service & pricing questions',
-      'Books consults automatically',
-      'Speaks longevity + aesthetics fluently',
+      '24/7 voice, web chat, WhatsApp & Instagram',
+      'Qualifies leads by service and urgency',
+      'Books consults directly to your calendar',
+      'Trained on longevity & aesthetics vocabulary',
     ],
   },
   {
@@ -119,7 +119,7 @@ export const AI_PACKAGES: AIPackage[] = [
     name: 'AI Content Engine',
     price: '$750',
     features: [
-      '4 SEO blog posts/mo',
+      '4 SEO + AEO blog posts/mo',
       'Monthly email campaign',
       'Social captions & copy',
       'Written in clinical voice',
@@ -129,8 +129,9 @@ export const AI_PACKAGES: AIPackage[] = [
 
 export const ALACARTE = [
   { name: 'Website Design', price: 'from $3,500', type: 'one-time' },
-  { name: 'PPC Management only', price: 'from $1,000/mo', type: 'monthly' },
-  { name: 'SEO Audit & Strategy', price: '$1,200', type: 'one-time' },
+  { name: 'PPC Management only', price: 'from $1,200/mo', type: 'monthly' },
+  { name: 'SEO + AEO Audit & Strategy', price: '$1,500', type: 'one-time' },
+  { name: 'AI Systems Setup & Onboarding', price: 'from $1,500', type: 'one-time' },
   { name: 'Landing Page (single)', price: 'from $800', type: 'one-time' },
   { name: 'Email Sequence Setup', price: 'from $600', type: 'one-time' },
   { name: 'Google Business Setup & Optimization', price: '$400', type: 'one-time' },
@@ -138,19 +139,19 @@ export const ALACARTE = [
 
 export const AI_TOOLS_SECTION = {
   title: 'Marketing that runs while you treat patients.',
-  sub: "We're not just a marketing agency. We build AI systems that generate and qualify leads around the clock.",
+  sub: "Five AI systems that respond to leads, follow up automatically, recover no-shows, and grow your reputation around the clock.",
   tools: [
     {
       name: 'AI Patient Agent',
-      description: '24/7 chatbot that qualifies leads, answers clinic questions, and books consults — before a human ever steps in.',
+      description: 'Answers calls, web chat, WhatsApp, and Instagram DMs 24/7. Qualifies leads, books consults, escalates to staff when needed.',
     },
     {
-      name: 'AI Creative',
-      description: 'Social animations, reels, and ad creative generated and branded for your clinic. Ready to post.',
+      name: 'AI Lead Nurture',
+      description: 'Day 1, 3, 7, and 14 SMS and email sequences that move unbooked leads toward their first consult. Stops the moment they book.',
     },
     {
-      name: 'AI Content Engine',
-      description: 'Blog posts, emails, and social copy written in clinical voice — NAD+, peptide protocols, biomarkers — the vocabulary your patients use.',
+      name: 'AI Reputation Manager',
+      description: 'Sends review requests 6 hours after every visit. Monitors Google, Yelp, and Healthgrades. Drafts responses for staff approval.',
     },
   ],
 }
@@ -198,6 +199,131 @@ export const WHO_WE_WORK_WITH = {
       description: 'Scaling from 1 to 3+ locations. Consistent campaigns, local SEO per location, centralized reporting.',
     },
   ],
+}
+
+export type AIService = {
+  id: string
+  name: string
+  tagline: string
+  description: string
+  features: string[]
+  price: string
+  requiresNote?: string
+}
+
+export const AI_SERVICES: AIService[] = [
+  {
+    id: 'patient-agent',
+    name: 'AI Patient Agent',
+    tagline: 'Never miss a lead again',
+    description: '24/7 voice and chat agent that qualifies inbound leads, answers clinic questions, and books consults — before a human ever steps in.',
+    features: [
+      'Answers calls and web chat around the clock',
+      'Qualifies leads by service interest',
+      'Books consults directly to your calendar',
+      'Trained on longevity & aesthetics vocabulary',
+      'Hands off to your team when a question needs a human touch',
+    ],
+    price: '$600/mo',
+  },
+  {
+    id: 'lead-nurture',
+    name: 'AI Lead Nurture Engine',
+    tagline: 'Turn cold leads warm, automatically',
+    description: 'Automated Day 1, 3, 7, and 14 SMS and email sequences that move unbooked leads toward their first consult — personalized by service interest.',
+    features: [
+      'Personalized SMS + email sequences',
+      'Separate sequences for each service you offer',
+      'Includes patient testimonials, common questions, and gentle booking prompts',
+      'Stops automatically when the lead books',
+      'Works with any booking system you already use',
+    ],
+    price: '$450/mo',
+  },
+  {
+    id: 'reputation',
+    name: 'AI Reputation Manager',
+    tagline: 'Steady five-star reviews without asking',
+    description: 'Monitors your review profiles, sends review requests 6 hours after each appointment, and drafts responses to new reviews for staff approval.',
+    features: [
+      'Automated review requests after every visit',
+      'Google, Yelp, and Healthgrades integrations',
+      'AI-drafted response suggestions for every review',
+      'Sentiment alerts for negative reviews before they spread',
+      'Monthly reputation report included',
+    ],
+    price: '$450/mo',
+  },
+  {
+    id: 'no-show',
+    name: 'AI No-Show Recovery',
+    tagline: 'Recapture 30%+ of missed appointments',
+    description: 'Sends a personalized "we missed you" text within hours of a no-show and follows up automatically over the next 7 days until they rebook.',
+    features: [
+      'Same-day no-show SMS with rebooking link',
+      'Follow-ups on day 3 and day 7',
+      'Direct calendar link in every message',
+      'Optional small incentive for rebooking',
+      'Monthly recovery rate reporting',
+    ],
+    price: '$350/mo',
+  },
+  {
+    id: 'retention',
+    name: 'AI Retention Engine',
+    tagline: 'Bring back patients before they drift',
+    description: 'Flags at-risk patients based on visit frequency and triggers personalized reactivation campaigns timed to their specific service cycle.',
+    features: [
+      'Identifies patients who haven\'t been in a while before they go elsewhere',
+      'Timed to each patient\'s treatment cycle — IV drip, Botox, memberships',
+      'Seasonal re-engagement campaigns',
+      'Personalized offers for patients who\'ve gone quiet',
+      'Reactivates 15–25% of dormant patients',
+    ],
+    price: '$500/mo',
+  },
+]
+
+export const AI_PAGE = {
+  eyebrow: 'AI Infrastructure',
+  headline: 'Your clinic should be running while you sleep.',
+  sub: 'Five AI systems that respond to leads across every channel, nurture patients, recover no-shows, and grow your reputation — automatically, around the clock.',
+  stats: [
+    { value: '< 60s', label: 'avg. lead response time with AI Patient Agent' },
+    { value: '32%', label: 'of no-shows rebook with automated follow-up' },
+    { value: '4.8★', label: 'avg. review rating maintained with reputation automation' },
+  ],
+  workflow: {
+    eyebrow: 'How it works',
+    title: 'One missed call. Six automated actions.',
+    sub: 'Every inbound lead triggers a chain of AI-powered steps. Nothing falls through the cracks.',
+    steps: [
+      {
+        label: 'Lead arrives',
+        description: 'Call, web form, DM, or chat widget — any channel, any hour.',
+      },
+      {
+        label: 'AI responds in 60s',
+        description: 'Clinic-branded message sent instantly. No hold time. No missed calls.',
+      },
+      {
+        label: 'Lead captured',
+        description: 'Contact logged with service interest noted. Nothing slips through.',
+      },
+      {
+        label: 'Follow-ups begin',
+        description: 'Day 1, 3, 7, 14 — personalized SMS and email follow-ups start automatically.',
+      },
+      {
+        label: 'Review requested',
+        description: '6 hours after each visit, a review request goes out while the experience is fresh.',
+      },
+      {
+        label: 'Win-back campaign starts',
+        description: 'At 90 days of silence, a personalized campaign goes out to bring them back.',
+      },
+    ],
+  },
 }
 
 export const AUDIT_PAGE = {

@@ -10,11 +10,11 @@ export default function AEOBlockVerve() {
     >
       <div
         className="mx-auto max-w-5xl rounded-2xl px-10 py-14 text-center"
-        style={{ background: 'var(--color-ink)' }}
+        style={{ background: 'var(--color-cinnabar)' }}
       >
         <p
           className="mb-3 text-xs font-medium uppercase tracking-[0.18em]"
-          style={{ color: 'var(--color-cinnabar-on-dark)', fontFamily: 'var(--font-body)' }}
+          style={{ color: 'var(--color-ivory)', opacity: 0.7, fontFamily: 'var(--font-body)' }}
         >
           Answer Engine Optimization
         </p>
@@ -33,12 +33,12 @@ export default function AEOBlockVerve() {
         </h2>
         <p
           className="mx-auto mt-5 text-base leading-relaxed"
-          style={{ color: 'var(--color-body-text-on-dark)', maxWidth: '52ch', fontFamily: 'var(--font-body)' }}
+          style={{ color: 'var(--color-ivory)', opacity: 0.82, maxWidth: '52ch', fontFamily: 'var(--font-body)' }}
         >
           {AEO_BLOCK.sub}
         </p>
         <div className="mt-8 flex justify-center">
-          <CTAButton href={AEO_BLOCK.cta.href} label={AEO_BLOCK.cta.label} variant="primary" />
+          <CTAButton href={AEO_BLOCK.cta.href} label={AEO_BLOCK.cta.label} variant="secondary" />
         </div>
       </div>
     </section>

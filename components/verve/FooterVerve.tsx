@@ -26,6 +26,7 @@ export default function FooterVerve() {
           <nav className="flex flex-wrap gap-x-8 gap-y-3" aria-label="Footer navigation">
             {[
               { label: 'Services', href: '/#services' },
+              { label: 'AI Systems', href: '/ai' },
               { label: 'Pricing', href: '/pricing' },
               { label: 'Free Audit', href: '/audit' },
               { label: 'Privacy', href: '/privacy' },
@@ -34,7 +35,7 @@ export default function FooterVerve() {
               <Link
                 key={href}
                 href={href}
-                className="text-sm transition-opacity hover:opacity-100 opacity-60"
+                className="text-sm transition-opacity hover:opacity-100 opacity-60 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-ivory-glow)] focus-visible:opacity-100"
                 style={{ color: 'var(--color-ivory)', fontFamily: 'var(--font-body)' }}
               >
                 {label}

@@ -8,7 +8,7 @@ type Props = {
 }
 
 export default function CTAButton({ href, label, variant = 'primary', className = '' }: Props) {
-  const base = 'inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4'
+  const base = 'inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4'
 
   const styles: Record<string, string> = {
     primary: 'bg-[var(--color-cinnabar)] text-[var(--color-ivory)] hover:opacity-90 focus-visible:outline-[var(--color-cinnabar)]',

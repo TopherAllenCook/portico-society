@@ -5,7 +5,7 @@ export default function ResultsVerve() {
     <section
       id="results"
       className="px-6 py-24 lg:px-16 lg:py-32"
-      style={{ background: 'var(--color-ink)' }}
+      style={{ background: 'var(--color-stone)' }}
       aria-labelledby="results-heading"
     >
       <div className="mx-auto max-w-5xl">
@@ -14,7 +14,7 @@ export default function ResultsVerve() {
           className="font-display font-semibold"
           style={{
             fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
-            color: 'var(--color-ivory)',
+            color: 'var(--color-ink)',
             letterSpacing: '-0.025em',
           }}
         >
@@ -26,23 +26,23 @@ export default function ResultsVerve() {
             <div
               key={item.metric}
               className="rounded-xl p-8"
-              style={{ background: 'var(--color-cta-surface)', border: '1px solid var(--color-ivory-subtle)' }}
+              style={{ background: 'var(--color-ivory)', border: '1px solid var(--color-ink-rule)' }}
             >
               <p
                 className="font-display font-bold"
-                style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: 'var(--color-cinnabar-on-dark)', letterSpacing: '-0.03em', lineHeight: 1 }}
+                style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: 'var(--color-cinnabar)', letterSpacing: '-0.03em', lineHeight: 1 }}
               >
                 {item.metric}
               </p>
               <p
                 className="mt-2 text-base font-medium"
-                style={{ color: 'var(--color-ivory)', fontFamily: 'var(--font-body)' }}
+                style={{ color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}
               >
                 {item.detail}
               </p>
               <p
                 className="mt-1 text-xs"
-                style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
+                style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}
               >
                 {item.context}
               </p>

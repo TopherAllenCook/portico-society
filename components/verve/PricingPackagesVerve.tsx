@@ -23,7 +23,7 @@ export default function PricingPackagesVerve() {
               key={pkg.name}
               className="flex flex-col rounded-xl p-8"
               style={{
-                background: pkg.popular ? 'var(--color-cta-surface)' : 'oklch(17% 0.008 30)',
+                background: 'var(--color-cta-surface)',
                 border: pkg.popular ? '1px solid var(--color-cinnabar)' : '1px solid var(--color-ivory-subtle)',
                 position: 'relative',
               }}

@@ -1,26 +1,33 @@
-export default function LogoStripVerve() {
-  const placeholders = ['Clinic A', 'Practice B', 'Wellness C', 'Med Spa D', 'Longevity E', 'Health F']
+const MARKETS = [
+  'Dallas', 'Manhattan', 'Los Angeles', 'Chicago',
+  'Austin', 'Miami', 'Denver', 'Boston',
+]
 
+export default function LogoStripVerve() {
   return (
     <div
-      className="px-6 py-10 lg:px-16"
-      style={{ background: 'var(--color-ink)', borderBottom: '1px solid var(--color-ivory-subtle)' }}
+      className="px-6 py-8 lg:px-16"
+      style={{ background: 'var(--color-ivory)', borderBottom: '1px solid var(--color-ink-rule)' }}
     >
       <div className="mx-auto max-w-5xl">
-        <p
-          className="mb-6 text-center text-xs font-medium uppercase tracking-[0.18em]"
-          style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
-        >
-          Trusted by longevity & aesthetics practices
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-          {placeholders.map((name) => (
-            <span
-              key={name}
-              className="text-sm font-medium opacity-30"
-              style={{ color: 'var(--color-ivory)', fontFamily: 'var(--font-body)' }}
-            >
-              {name}
+        <div className="flex flex-wrap items-center justify-center gap-x-1 gap-y-2">
+          <span
+            className="text-xs font-medium uppercase tracking-[0.18em] mr-2"
+            style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}
+          >
+            Active in
+          </span>
+          {MARKETS.map((city, i) => (
+            <span key={city} className="flex items-center gap-1">
+              <span
+                className="text-sm font-medium"
+                style={{ color: 'var(--color-ink-muted)', fontFamily: 'var(--font-body)' }}
+              >
+                {city}
+              </span>
+              {i < MARKETS.length - 1 && (
+                <span style={{ color: 'var(--color-ink-muted)', opacity: 0.4, fontFamily: 'var(--font-body)' }}>·</span>
+              )}
             </span>
           ))}
         </div>
