@@ -74,7 +74,20 @@ export default function PricingPackagesVerve() {
                 ))}
               </ul>
 
-              <div className="mt-8">
+              {pkg.valueNote && (
+                <p
+                  className="mt-6 text-xs px-3 py-2 rounded-lg"
+                  style={{
+                    color: 'var(--color-cinnabar-on-dark)',
+                    background: 'rgba(255,255,255,0.06)',
+                    fontFamily: 'var(--font-body)',
+                  }}
+                >
+                  {pkg.valueNote}
+                </p>
+              )}
+
+              <div className="mt-4">
                 <CTAButton
                   href="/audit"
                   label="Get Started"

@@ -44,6 +44,7 @@ export type CorePackage = {
   tagline: string
   features: string[]
   popular?: boolean
+  valueNote?: string
 }
 
 export const CORE_PACKAGES: CorePackage[] = [
@@ -55,8 +56,8 @@ export const CORE_PACKAGES: CorePackage[] = [
       'Clinic website design (initial build + ongoing updates)',
       'SEO & AEO — optimized for Google and AI search',
       'Google Business & local citations',
-      'Review generation (automated post-visit requests)',
-      'Branded client dashboard — rankings, AI visibility, live',
+      'Automated review requests after every visit',
+      'Live performance dashboard — rankings and AI search visibility',
     ],
   },
   {
@@ -67,11 +68,12 @@ export const CORE_PACKAGES: CorePackage[] = [
     features: [
       'Everything in Essential',
       'Google & Meta PPC — managed by med spa specialists',
-      'AI ad creative & testing',
+      'AI ad creative & A/B testing',
       'Landing pages & CRO',
-      'AI content engine (blog, email, social)',
-      'AI lead nurture (Day 1, 3, 7, 14 SMS + email)',
+      'AI Content Engine — 4 blog posts, monthly email & social copy',
+      'AI Lead Nurture included — Day 1, 3, 7 & 14 follow-up sequences',
     ],
+    valueNote: 'Includes AI Lead Nurture automation ($450/mo value)',
   },
   {
     name: 'Full Service',
@@ -80,52 +82,14 @@ export const CORE_PACKAGES: CorePackage[] = [
     features: [
       'Everything in Growth',
       'AI Patient Agent — voice, web chat, WhatsApp & Instagram, 24/7',
-      'AI no-show recovery + retention engine',
-      'AI motion & social animations',
-      'Short-form video & reels',
+      'AI No-Show Recovery + Retention Engine',
+      'AI social animations & short-form video reels',
       'Dedicated strategy lead',
     ],
+    valueNote: 'Includes $1,450/mo in AI automation systems',
   },
 ]
 
-export type AIPackage = {
-  name: string
-  price: string
-  features: string[]
-}
-
-export const AI_PACKAGES: AIPackage[] = [
-  {
-    name: 'AI Patient Agent',
-    price: '$600',
-    features: [
-      '24/7 voice, web chat, WhatsApp & Instagram',
-      'Qualifies leads by service and urgency',
-      'Books consults directly to your calendar',
-      'Trained on longevity & aesthetics vocabulary',
-    ],
-  },
-  {
-    name: 'AI Creative',
-    price: '$750',
-    features: [
-      '8 AI-generated social animations/mo',
-      '4 short-form video reels/mo',
-      'Clinic-branded & ready to post',
-      'Ad creative variants included',
-    ],
-  },
-  {
-    name: 'AI Content Engine',
-    price: '$750',
-    features: [
-      '4 SEO + AEO blog posts/mo',
-      'Monthly email campaign',
-      'Social captions & copy',
-      'Written in clinical voice',
-    ],
-  },
-]
 
 export const ALACARTE = [
   { name: 'Website Design', price: 'from $3,500', type: 'one-time' },
