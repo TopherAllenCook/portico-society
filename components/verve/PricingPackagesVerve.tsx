@@ -14,7 +14,7 @@ export default function PricingPackagesVerve() {
           style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
           id="pricing-packages-heading"
         >
-          Core Packages — Monthly Retainer
+          Core Packages: Monthly Retainer
         </h2>
 
         <div className="grid gap-4 md:grid-cols-3">
@@ -37,12 +37,12 @@ export default function PricingPackagesVerve() {
                 </span>
               )}
               <div>
-                <p
+                <h3
                   className="text-xs font-medium uppercase tracking-[0.15em]"
                   style={{ color: pkg.popular ? 'var(--color-cinnabar-on-dark)' : 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
                 >
                   {pkg.name}
-                </p>
+                </h3>
                 <p
                   className="mt-2 font-display font-bold"
                   style={{ fontSize: '2.25rem', color: 'var(--color-ivory)', letterSpacing: '-0.03em', lineHeight: 1 }}

@@ -20,14 +20,14 @@ export default function PricingAlaCarteVerve() {
           className="mt-2 text-sm"
           style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
         >
-          À la carte services — one-time or ongoing, no retainer required.
+          À la carte services: one-time or ongoing, no retainer required.
         </p>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-2">
-          {ALACARTE.map((item) => (
+          {ALACARTE.map((item, i) => (
             <div
               key={item.name}
-              className="flex items-center justify-between rounded-lg px-5 py-4"
+              className={`flex items-center justify-between rounded-lg px-5 py-4${ALACARTE.length % 2 !== 0 && i === ALACARTE.length - 1 ? ' sm:col-span-2' : ''}`}
               style={{ background: 'var(--color-ivory)', border: '1px solid var(--color-ink-ghost)' }}
             >
               <span

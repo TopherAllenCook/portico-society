@@ -43,8 +43,7 @@ export default function AIServicesListVerve() {
                 className="hidden font-display font-bold leading-none lg:block"
                 style={{
                   fontSize: '3.5rem',
-                  color: 'var(--color-ink)',
-                  opacity: 0.08,
+                  color: 'var(--color-ink-faint)',
                   letterSpacing: '-0.04em',
                   lineHeight: 1,
                   paddingTop: '0.1em',

@@ -22,7 +22,7 @@ export default function PricingHeroVerve() {
           className="mt-6 text-lg"
           style={{ color: 'var(--color-body-text-on-dark)', maxWidth: '48ch', fontFamily: 'var(--font-body)' }}
         >
-          Every package includes clinic-specific strategy — not a generic marketing playbook.
+          Every package includes clinic-specific strategy: no generic marketing playbooks.
         </p>
       </div>
     </section>

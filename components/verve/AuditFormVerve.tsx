@@ -62,6 +62,7 @@ export default function AuditFormVerve() {
     padding: '0.75rem 1rem',
     fontSize: '0.9rem',
     width: '100%',
+    outline: 'none',
   }
 
   const labelStyle: React.CSSProperties = {
