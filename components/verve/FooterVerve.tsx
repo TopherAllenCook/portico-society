@@ -47,6 +47,7 @@ export default function FooterVerve() {
         <p
           className="mt-12 text-xs"
           style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
+          suppressHydrationWarning
         >
           © {new Date().getFullYear()} Verve MD. All rights reserved.
         </p>

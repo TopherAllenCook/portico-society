@@ -21,31 +21,40 @@ export default function ResultsVerve() {
           {RESULTS.title}
         </h2>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div
+          className="mt-14"
+          style={{ borderTop: '1px solid var(--color-ink-rule)' }}
+        >
           {RESULTS.items.map((item) => (
             <div
               key={item.metric}
-              className="rounded-xl p-8"
-              style={{ background: 'var(--color-ivory)', border: '1px solid var(--color-ink-rule)' }}
+              className="grid py-10 gap-6 sm:grid-cols-[10rem_1fr]"
+              style={{ borderBottom: '1px solid var(--color-ink-rule)' }}
             >
               <p
-                className="font-display font-bold"
-                style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: 'var(--color-cinnabar)', letterSpacing: '-0.03em', lineHeight: 1 }}
+                className="font-display font-bold tabular-nums leading-none"
+                style={{
+                  fontSize: 'clamp(2.75rem, 5vw, 4rem)',
+                  color: 'var(--color-cinnabar)',
+                  letterSpacing: '-0.035em',
+                }}
               >
                 {item.metric}
               </p>
-              <p
-                className="mt-2 text-base font-medium"
-                style={{ color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}
-              >
-                {item.detail}
-              </p>
-              <p
-                className="mt-1 text-xs"
-                style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}
-              >
-                {item.context}
-              </p>
+              <div className="flex flex-col justify-center">
+                <p
+                  className="text-base font-medium"
+                  style={{ color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}
+                >
+                  {item.detail}
+                </p>
+                <p
+                  className="mt-1 text-xs"
+                  style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}
+                >
+                  {item.context}
+                </p>
+              </div>
             </div>
           ))}
         </div>

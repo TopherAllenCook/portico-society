@@ -1,7 +1,7 @@
 export const HERO = {
   eyebrow: 'Longevity & Aesthetics Marketing',
   headline: 'We help longevity & aesthetics clinics make more money.',
-  sub: 'SEO, PPC, AI tools, and web design — built exclusively for longevity and aesthetics practices.',
+  sub: 'SEO, PPC, AI tools, and web design built exclusively for longevity and aesthetics practices.',
   primaryCTA: { label: 'Get Your Free AEO + Marketing Audit', href: '/audit' },
   secondaryCTA: { label: 'See our results', href: '#results' },
   stats: [
@@ -32,8 +32,8 @@ export const PAIN_POINTS = {
 export const RESULTS = {
   title: 'What we\'ve done for clinics like yours.',
   items: [
-    { metric: '+312%', detail: 'new patient consults', context: 'Dallas longevity clinic — 6 months' },
-    { metric: '$22', detail: 'avg. cost-per-lead', context: 'Manhattan med spa — Google + Meta' },
+    { metric: '+312%', detail: 'new patient consults', context: 'Dallas longevity clinic, 6 months' },
+    { metric: '$22', detail: 'avg. cost-per-lead', context: 'Manhattan med spa, Google + Meta' },
     { metric: '91%', detail: 'membership retention rate', context: 'Multi-location aesthetics practice' },
   ],
 }
@@ -54,10 +54,10 @@ export const CORE_PACKAGES: CorePackage[] = [
     tagline: 'Foundation for visibility',
     features: [
       'Clinic website design (initial build + ongoing updates)',
-      'SEO & AEO — optimized for Google and AI search',
+      'SEO & AEO: optimized for Google and AI search',
       'Google Business & local citations',
       'Automated review requests after every visit',
-      'Live performance dashboard — rankings and AI search visibility',
+      'Live performance dashboard: rankings and AI search visibility',
     ],
   },
   {
@@ -67,11 +67,11 @@ export const CORE_PACKAGES: CorePackage[] = [
     popular: true,
     features: [
       'Everything in Essential',
-      'Google & Meta PPC — managed by med spa specialists',
+      'Google & Meta PPC, managed by med spa specialists',
       'AI ad creative & A/B testing',
       'Landing pages & CRO',
-      'AI Content Engine — 4 blog posts, monthly email & social copy',
-      'AI Lead Nurture included — Day 1, 3, 7 & 14 follow-up sequences',
+      'AI Content Engine: 4 blog posts, monthly email & social copy',
+      'AI Lead Nurture included: Day 1, 3, 7 & 14 follow-up sequences',
     ],
     valueNote: 'Includes AI Lead Nurture automation ($450/mo value)',
   },
@@ -81,7 +81,7 @@ export const CORE_PACKAGES: CorePackage[] = [
     tagline: 'Complete marketing department',
     features: [
       'Everything in Growth',
-      'AI Patient Agent — voice, web chat, WhatsApp & Instagram, 24/7',
+      'AI Patient Agent: voice, web chat, WhatsApp & Instagram, 24/7',
       'AI No-Show Recovery + Retention Engine',
       'AI social animations & short-form video reels',
       'Dedicated strategy lead',
@@ -103,7 +103,7 @@ export const ALACARTE = [
 
 export const AI_TOOLS_SECTION = {
   title: 'Marketing that runs while you treat patients.',
-  sub: "Five AI systems that respond to leads, follow up automatically, recover no-shows, and grow your reputation around the clock.",
+  sub: 'Five AI systems that respond to leads, follow up automatically, recover no-shows, and grow your reputation around the clock.',
   tools: [
     {
       name: 'AI Patient Agent',
@@ -122,13 +122,13 @@ export const AI_TOOLS_SECTION = {
 
 export const AEO_BLOCK = {
   title: 'Is your clinic showing up when patients ask AI?',
-  sub: "When someone asks ChatGPT or Perplexity for the best longevity clinic in their city, do you appear? Most clinics don't. Find out where you stand — free.",
+  sub: "When someone asks ChatGPT or Perplexity for the best longevity clinic in their city, do you appear? Most clinics don't. Find out where you stand. Free.",
   cta: { label: 'Get Your Free AEO + Marketing Audit', href: '/audit' },
 }
 
 export const TESTIMONIALS = [
   {
-    quote: "Within 90 days we had more inbound consults than we'd seen all of last year. The team actually understands what we offer — they don't need a glossary for peptide protocols.",
+    quote: "Within 90 days we had more inbound consults than we'd seen all of last year. The team actually understands what we offer. They don't need a glossary for peptide protocols.",
     name: 'Dr. Sarah M.',
     title: 'Founder',
     clinicType: 'Longevity & Functional Medicine Practice, Texas',
@@ -180,7 +180,7 @@ export const AI_SERVICES: AIService[] = [
     id: 'patient-agent',
     name: 'AI Patient Agent',
     tagline: 'Never miss a lead again',
-    description: '24/7 voice and chat agent that qualifies inbound leads, answers clinic questions, and books consults — before a human ever steps in.',
+    description: '24/7 voice and chat agent that qualifies inbound leads, answers clinic questions, and books consults before a human ever steps in.',
     features: [
       'Answers calls and web chat around the clock',
       'Qualifies leads by service interest',
@@ -194,7 +194,7 @@ export const AI_SERVICES: AIService[] = [
     id: 'lead-nurture',
     name: 'AI Lead Nurture Engine',
     tagline: 'Turn cold leads warm, automatically',
-    description: 'Automated Day 1, 3, 7, and 14 SMS and email sequences that move unbooked leads toward their first consult — personalized by service interest.',
+    description: 'Automated Day 1, 3, 7, and 14 SMS and email sequences that move unbooked leads toward their first consult, personalized by service interest.',
     features: [
       'Personalized SMS + email sequences',
       'Separate sequences for each service you offer',
@@ -239,10 +239,10 @@ export const AI_SERVICES: AIService[] = [
     description: 'Flags at-risk patients based on visit frequency and triggers personalized reactivation campaigns timed to their specific service cycle.',
     features: [
       'Identifies patients who haven\'t been in a while before they go elsewhere',
-      'Timed to each patient\'s treatment cycle — IV drip, Botox, memberships',
+      'Timed to each patient\'s treatment cycle: IV drip, Botox, memberships',
       'Seasonal re-engagement campaigns',
       'Personalized offers for patients who\'ve gone quiet',
-      'Reactivates 15–25% of dormant patients',
+      'Reactivates 15-25% of dormant patients',
     ],
     price: '$500/mo',
   },
@@ -251,7 +251,7 @@ export const AI_SERVICES: AIService[] = [
 export const AI_PAGE = {
   eyebrow: 'AI Infrastructure',
   headline: 'Your clinic should be running while you sleep.',
-  sub: 'Five AI systems that respond to leads across every channel, nurture patients, recover no-shows, and grow your reputation — automatically, around the clock.',
+  sub: 'Five AI systems that respond to leads across every channel, nurture patients, recover no-shows, and grow your reputation. Automatically, around the clock.',
   stats: [
     { value: '< 60s', label: 'avg. lead response time with AI Patient Agent' },
     { value: '32%', label: 'of no-shows rebook with automated follow-up' },
@@ -264,7 +264,7 @@ export const AI_PAGE = {
     steps: [
       {
         label: 'Lead arrives',
-        description: 'Call, web form, DM, or chat widget — any channel, any hour.',
+        description: 'Call, web form, DM, or chat widget: any channel, any hour.',
       },
       {
         label: 'AI responds in 60s',
@@ -276,7 +276,7 @@ export const AI_PAGE = {
       },
       {
         label: 'Follow-ups begin',
-        description: 'Day 1, 3, 7, 14 — personalized SMS and email follow-ups start automatically.',
+        description: 'Day 1, 3, 7, 14: personalized SMS and email follow-ups start automatically.',
       },
       {
         label: 'Review requested',
@@ -292,7 +292,7 @@ export const AI_PAGE = {
 
 export const AUDIT_PAGE = {
   headline: 'Find out if AI recommends your clinic.',
-  sub: "We'll audit your clinic's visibility in ChatGPT, Perplexity, and Google AI Overviews — plus your SEO, Google Ads, and website conversion rate. Free. No pitch.",
+  sub: "We'll audit your clinic's visibility in ChatGPT, Perplexity, and Google AI Overviews, plus your SEO, Google Ads, and website conversion rate. Free. No pitch.",
   deliverables: [
     { title: 'AEO Visibility Score', description: 'Are you showing up in AI search when patients ask about longevity or aesthetics care?' },
     { title: 'SEO Health Check', description: 'Technical issues, keyword gaps, and quick wins.' },

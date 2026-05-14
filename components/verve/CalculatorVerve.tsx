@@ -32,10 +32,6 @@ const LABEL: React.CSSProperties = {
 
 const INPUT: React.CSSProperties = {
   background: 'transparent',
-  border: 'none',
-  borderBottom: RULE,
-  borderRadius: 0,
-  outline: 'none',
   width: '100%',
   fontSize: 'clamp(1.1rem, 1.8vw, 1.35rem)',
   fontFamily: 'var(--font-display)',
@@ -189,6 +185,7 @@ export default function CalculatorVerve() {
                     placeholder="2,500"
                     value={budget}
                     onChange={e => setBudget(e.target.value.replace(/[^0-9,]/g, ''))}
+                    className="verve-calc-input"
                     style={{ ...INPUT, paddingLeft: '1.1rem' }}
                     aria-label="Monthly ad budget in dollars"
                   />
@@ -207,6 +204,7 @@ export default function CalculatorVerve() {
                     placeholder="55"
                     value={cpl}
                     onChange={e => setCpl(e.target.value.replace(/[^0-9.]/g, ''))}
+                    className="verve-calc-input"
                     style={{ ...INPUT, paddingLeft: '1.1rem' }}
                     aria-label="Target cost per lead in dollars"
                   />
@@ -225,6 +223,7 @@ export default function CalculatorVerve() {
                     placeholder="25"
                     value={closeRate}
                     onChange={e => setCloseRate(e.target.value.replace(/[^0-9.]/g, ''))}
+                    className="verve-calc-input"
                     style={{ ...INPUT, paddingRight: '1.4rem' }}
                     aria-label="Lead close rate as a percentage"
                   />
@@ -250,6 +249,7 @@ export default function CalculatorVerve() {
                     placeholder="504"
                     value={avgValue}
                     onChange={e => setAvgValue(e.target.value.replace(/[^0-9,]/g, ''))}
+                    className="verve-calc-input"
                     style={{ ...INPUT, paddingLeft: '1.1rem' }}
                     aria-label="Average patient value per visit in dollars"
                   />
@@ -265,6 +265,20 @@ export default function CalculatorVerve() {
             <p style={{ ...LABEL, color: 'var(--color-cinnabar)', marginBottom: '2rem' }}>
               Projected performance
             </p>
+
+            {!result && (
+              <p
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.68rem',
+                  color: 'var(--color-ink-muted)',
+                  letterSpacing: '0.06em',
+                  marginBottom: '1.5rem',
+                }}
+              >
+                Fill in all four values to see your projections.
+              </p>
+            )}
 
             <div>
               {outputRows.map((row, i) => (

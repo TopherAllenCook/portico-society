@@ -34,31 +34,42 @@ export default function AIToolsVerve() {
           {AI_TOOLS_SECTION.sub}
         </p>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div
+          className="mt-14"
+          style={{ borderTop: '1px solid var(--color-ivory-subtle)' }}
+        >
           {AI_TOOLS_SECTION.tools.map((tool, i) => (
             <div
               key={tool.name}
-              className="rounded-xl p-7"
-              style={{ background: 'var(--color-cta-surface)', border: '1px solid var(--color-ivory-subtle)' }}
+              className="grid gap-6 py-9 sm:grid-cols-[5rem_1fr]"
+              style={{ borderBottom: '1px solid var(--color-ivory-subtle)' }}
             >
-              <div
-                className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-lg text-sm font-bold"
-                style={{ background: 'var(--color-ivory-dim)', color: 'var(--color-ivory)' }}
+              <p
+                className="font-display font-bold tabular-nums leading-none"
+                style={{
+                  fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
+                  color: 'var(--color-cinnabar-on-dark)',
+                  letterSpacing: '-0.02em',
+                  paddingTop: '0.15rem',
+                }}
+                aria-hidden="true"
               >
-                {i + 1}
+                {String(i + 1).padStart(2, '0')}
+              </p>
+              <div>
+                <p
+                  className="font-display font-medium"
+                  style={{ fontSize: '1.1rem', color: 'var(--color-ivory)', letterSpacing: '-0.01em' }}
+                >
+                  {tool.name}
+                </p>
+                <p
+                  className="mt-3 text-sm leading-relaxed"
+                  style={{ color: 'var(--color-body-text-on-dark)', fontFamily: 'var(--font-body)' }}
+                >
+                  {tool.description}
+                </p>
               </div>
-              <p
-                className="font-display font-medium"
-                style={{ fontSize: '1.1rem', color: 'var(--color-ivory)', letterSpacing: '-0.01em' }}
-              >
-                {tool.name}
-              </p>
-              <p
-                className="mt-3 text-sm leading-relaxed"
-                style={{ color: 'var(--color-body-text-on-dark)', fontFamily: 'var(--font-body)' }}
-              >
-                {tool.description}
-              </p>
             </div>
           ))}
         </div>

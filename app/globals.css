@@ -209,6 +209,26 @@
   }
 }
 
+/* Text on cinnabar/accent surfaces — solid values, no inline opacity needed */
+@theme {
+  --color-ivory-label-on-accent: oklch(95% 0.016 82 / 0.68);  /* label/eyebrow on cinnabar */
+  --color-ivory-body-on-accent:  oklch(95% 0.016 82 / 0.85);  /* body copy on cinnabar */
+}
+
+/* Calculator inputs: custom bottom-border focus indicator */
+.verve-calc-input {
+  border: none;
+  border-bottom: 1px solid var(--color-ink-rule);
+  border-radius: 0;
+  outline: none;
+  transition: border-bottom-color 0.15s ease;
+}
+
+.verve-calc-input:focus-visible {
+  outline: none;
+  border-bottom-color: var(--color-cinnabar);
+}
+
 /* Default border color */
 @layer base {
   *, *::before, *::after {

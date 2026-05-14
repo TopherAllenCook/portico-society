@@ -51,6 +51,7 @@ export default function NavVerve() {
         onClick={() => setOpen(!open)}
         aria-label={open ? 'Close menu' : 'Open menu'}
         aria-expanded={open}
+        aria-controls="mobile-nav"
       >
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
           {open ? (
@@ -61,18 +62,18 @@ export default function NavVerve() {
         </svg>
       </button>
 
-      {open && (
-        <div
-          className="absolute top-full left-0 right-0 flex flex-col gap-4 p-6 md:hidden"
-          style={{ background: 'var(--color-ink)', borderTop: '1px solid var(--color-ivory-muted)' }}
-        >
-          <Link href="/#services" className={NAV_LINK} style={{ color: 'var(--color-ivory)' }} onClick={() => setOpen(false)}>Services</Link>
-          <Link href="/ai" className={NAV_LINK} style={{ color: 'var(--color-ivory)' }} onClick={() => setOpen(false)}>AI</Link>
-          <Link href="/pricing" className={NAV_LINK} style={{ color: 'var(--color-ivory)' }} onClick={() => setOpen(false)}>Pricing</Link>
-          <Link href="/audit" className={NAV_LINK} style={{ color: 'var(--color-ivory)' }} onClick={() => setOpen(false)}>Free Audit</Link>
-          <CTAButton href="/audit" label="Get Free Audit" variant="primary" className="w-fit" />
-        </div>
-      )}
+      <div
+        id="mobile-nav"
+        hidden={!open}
+        className="absolute top-full left-0 right-0 flex flex-col gap-4 p-6 md:hidden"
+        style={{ background: 'var(--color-ink)', borderTop: '1px solid var(--color-ivory-muted)' }}
+      >
+        <Link href="/#services" className={NAV_LINK} style={{ color: 'var(--color-ivory)' }} onClick={() => setOpen(false)}>Services</Link>
+        <Link href="/ai" className={NAV_LINK} style={{ color: 'var(--color-ivory)' }} onClick={() => setOpen(false)}>AI</Link>
+        <Link href="/pricing" className={NAV_LINK} style={{ color: 'var(--color-ivory)' }} onClick={() => setOpen(false)}>Pricing</Link>
+        <Link href="/audit" className={NAV_LINK} style={{ color: 'var(--color-ivory)' }} onClick={() => setOpen(false)}>Free Audit</Link>
+        <CTAButton href="/audit" label="Get Free Audit" variant="primary" className="w-fit" />
+      </div>
     </header>
   )
 }

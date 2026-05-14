@@ -24,7 +24,7 @@ export default function PackagesOverviewVerve() {
           </h2>
           <Link
             href="/pricing"
-            className="shrink-0 text-sm font-medium underline-offset-4 hover:underline"
+            className="shrink-0 text-sm font-medium underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-cinnabar)] rounded-sm"
             style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
           >
             See full pricing →
@@ -50,12 +50,12 @@ export default function PackagesOverviewVerve() {
                   Most Popular
                 </span>
               )}
-              <p
+              <h3
                 className="text-xs font-medium uppercase tracking-[0.15em]"
                 style={{ color: pkg.popular ? 'var(--color-cinnabar-on-dark)' : 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}
               >
                 {pkg.name}
-              </p>
+              </h3>
               <p
                 className="mt-1 font-display font-bold"
                 style={{
