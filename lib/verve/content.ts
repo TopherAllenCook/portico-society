@@ -6,7 +6,7 @@ export const HERO = {
   secondaryCTA: { label: 'See our results', href: '#results' },
   stats: [
     { value: '$47k', label: 'avg. new monthly revenue added within 90 days' },
-    { value: '6.2×', label: 'avg. return on marketing spend' },
+    { value: '3.5×', label: 'avg. return on ad spend' },
     { value: '83%', label: 'of clients renew after year one' },
   ],
 }
