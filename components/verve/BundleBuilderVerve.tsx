@@ -102,13 +102,13 @@ export default function BundleBuilderVerve() {
         <div className="lg:grid lg:grid-cols-[1fr_320px] lg:gap-10">
           {/* LEFT: selection */}
           <div>
-            {/* Step 1 — radio group for mutually exclusive package selection */}
+            {/* Step 1: radio group for mutually exclusive package selection */}
             <p
               id="pkg-group-label"
               className="mb-4 text-xs font-medium uppercase tracking-[0.16em]"
               style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
             >
-              Step 1 — Choose a marketing plan
+              Step 1: Choose a marketing plan
             </p>
             <div
               role="radiogroup"
@@ -156,13 +156,13 @@ export default function BundleBuilderVerve() {
               })}
             </div>
 
-            {/* Step 2 — full-row touch targets, aria-disabled for included items */}
+            {/* Step 2: full-row touch targets, aria-disabled for included items */}
             <p
               id="ai-group-label"
               className="mb-4 mt-10 text-xs font-medium uppercase tracking-[0.16em]"
               style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
             >
-              Step 2 — Add AI automation systems
+              Step 2: Add AI automation systems
             </p>
             <div
               role="group"
@@ -173,7 +173,7 @@ export default function BundleBuilderVerve() {
                 const included = includedAI.has(svc.id)
                 const checked  = included || addedAI.has(svc.id)
                 const label    = included
-                  ? `${svc.name} — included with ${selectedPkg}`
+                  ? `${svc.name}, included with ${selectedPkg}`
                   : `${checked ? 'Remove' : 'Add'} ${svc.name}, ${svc.price}`
 
                 return (
@@ -324,7 +324,7 @@ export default function BundleBuilderVerve() {
                   {/* Divider */}
                   <div className="my-5" style={{ borderTop: '1px solid var(--color-ivory-subtle)' }} />
 
-                  {/* Total + ROI as stacked table rows — avoids the hero-metric pattern */}
+                  {/* Total + ROI as stacked table rows: avoids the hero-metric pattern */}
                   <div className="flex flex-col gap-3">
                     <div className="flex items-baseline justify-between">
                       <span
@@ -354,7 +354,7 @@ export default function BundleBuilderVerve() {
                             className="font-display font-bold"
                             style={{ fontSize: '1.4rem', color: 'var(--color-cinnabar-on-dark)', letterSpacing: '-0.03em' }}
                           >
-                            {fmtK(roiLow)}–{fmtK(roiHigh)}<span className="text-xs font-normal opacity-60 ml-0.5">/mo</span>
+                            {fmtK(roiLow)} to {fmtK(roiHigh)}<span className="text-xs font-normal opacity-60 ml-0.5">/mo</span>
                           </span>
                         </div>
                         {multipleLow && (
@@ -369,7 +369,7 @@ export default function BundleBuilderVerve() {
                               className="text-sm font-medium"
                               style={{ color: 'var(--color-body-text-on-dark)', fontFamily: 'var(--font-body)' }}
                             >
-                              {multipleLow}×–{multipleHigh}×
+                              {multipleLow}× to {multipleHigh}×
                             </span>
                           </div>
                         )}

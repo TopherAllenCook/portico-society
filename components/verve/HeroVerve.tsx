@@ -33,7 +33,7 @@ export default function HeroVerve() {
     <section
       className="relative min-h-svh overflow-hidden"
       style={{ background: 'var(--color-ink)' }}
-      aria-label="Verve MD — marketing for longevity and aesthetics clinics"
+      aria-label="Verve MD: marketing for longevity and aesthetics clinics"
     >
       <div className="mx-auto grid w-full max-w-5xl grid-cols-1 lg:grid-cols-[1fr_380px] lg:gap-0">
 
@@ -106,14 +106,15 @@ export default function HeroVerve() {
           </div>
         </div>
 
-        {/* Image column — hidden on mobile */}
+        {/* Image column: hidden on mobile */}
         <div className="relative hidden lg:block">
           <Image
-            src="https://picsum.photos/seed/verve-clinic/760/1200"
-            alt="Modern longevity clinic treatment room"
+            src="https://images.unsplash.com/photo-1774192621035-20d11389f781?auto=format&fit=crop&w=1200&q=80"
+            alt="Warm wood-paneled clinic reception with low evening light"
             fill
+            sizes="(min-width: 1024px) 380px, 0"
             className="object-cover"
-            style={{ opacity: 0.6 }}
+            style={{ opacity: 0.55 }}
             priority
           />
           {/* Fade edge toward text column */}

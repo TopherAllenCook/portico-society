@@ -17,25 +17,27 @@ export default function SvcTrustStrip() {
         <RevealOnScroll>
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1px_1fr] lg:gap-0 lg:items-center">
 
-            <div className="lg:pr-16">
-              <p
-                className="font-display italic font-normal leading-snug mb-4"
-                style={{
-                  fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
-                  color: 'var(--color-ivory)',
-                  letterSpacing: '-0.02em',
-                  maxWidth: '34ch',
-                }}
-              >
-                "Within three months, ChatGPT was recommending our longevity practice unprompted. That hadn't happened with any other agency."
-              </p>
-              <p
+            <figure className="lg:pr-16">
+              <blockquote>
+                <p
+                  className="font-display italic font-normal leading-snug mb-4"
+                  style={{
+                    fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
+                    color: 'var(--color-ivory)',
+                    letterSpacing: '-0.02em',
+                    maxWidth: '34ch',
+                  }}
+                >
+                  &ldquo;Within three months, ChatGPT was recommending our longevity practice unprompted. That hadn&rsquo;t happened with any other agency.&rdquo;
+                </p>
+              </blockquote>
+              <figcaption
                 className="font-mono text-xs font-medium tracking-[0.1em] uppercase"
                 style={{ color: 'var(--color-label-text-on-dark)' }}
               >
                 Longevity physician, California
-              </p>
-            </div>
+              </figcaption>
+            </figure>
 
             <div
               className="hidden lg:block self-stretch"

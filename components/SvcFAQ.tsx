@@ -1,20 +1,20 @@
 'use client'
 
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import RevealOnScroll from './RevealOnScroll'
 
 const faqs = [
   {
     q: 'What is the difference between this and traditional SEO?',
-    a: 'Traditional SEO targets Google\'s search algorithm. AI search authority targets the recommendation engines inside ChatGPT, Perplexity, Google AI, and Gemini — which use different signals: citation quality, content depth, entity authority, and structured data. Most SEO work does not build these signals. Verve builds both in parallel.',
+    a: 'Traditional SEO targets Google\'s search algorithm. AI search authority targets the recommendation engines inside ChatGPT, Perplexity, Google AI, and Gemini, which use different signals: citation quality, content depth, entity authority, and structured data. Most SEO work does not build these signals. Verve builds both in parallel.',
   },
   {
     q: 'How long before my practice appears in AI recommendations?',
-    a: 'First citations typically appear within 60 days of engagement start. Full authority — where your practice is consistently named across multiple AI platforms for your specialty and market — builds over three to four months. The audit you receive first shows exactly where you stand today.',
+    a: 'First citations typically appear within 60 days of engagement start. Full authority, where your practice is consistently named across multiple AI platforms for your specialty and market, builds over three to four months. The audit you receive first shows exactly where you stand today.',
   },
   {
     q: 'Do I need to stop working with my current marketing vendor?',
-    a: 'Not necessarily. Verve focuses on AI search authority and inquiry architecture — areas most generalist agencies do not touch. If your current vendor handles paid social or website maintenance, that work typically continues alongside a Verve engagement without conflict.',
+    a: 'Not necessarily. Verve focuses on AI search authority and inquiry architecture, areas most generalist agencies do not touch. If your current vendor handles paid social or website maintenance, that work typically continues alongside a Verve engagement without conflict.',
   },
   {
     q: 'What size practice does Verve work with?',
@@ -22,12 +22,13 @@ const faqs = [
   },
   {
     q: 'What if I am not ready for a full engagement?',
-    a: 'Start with the Strategic Advisory tier. It is scoped to your specific situation — a competitive analysis, a new location launch, a positioning review — with clear milestones and no ongoing commitment unless you choose one.',
+    a: 'Start with the Strategic Advisory tier. It is scoped to your specific situation: a competitive analysis, a new location launch, a positioning review, with clear milestones and no ongoing commitment unless you choose one.',
   },
 ]
 
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false)
+  const panelId = useId()
 
   return (
     <div style={{ borderTop: '1px solid var(--color-ink-rule)' }}>
@@ -37,6 +38,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         className="w-full flex items-center justify-between gap-6 py-7 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
         style={{ outlineColor: 'var(--color-cinnabar)' }}
         aria-expanded={open}
+        aria-controls={panelId}
       >
         <span
           className="font-display font-normal"
@@ -62,16 +64,14 @@ function FAQItem({ q, a }: { q: string; a: string }) {
           </svg>
         </span>
       </button>
-      {open && (
-        <div className="pb-7">
-          <p
-            className="font-body font-light leading-relaxed"
-            style={{ fontSize: '0.9375rem', color: 'var(--color-body-text)', maxWidth: '60ch' }}
-          >
-            {a}
-          </p>
-        </div>
-      )}
+      <div id={panelId} hidden={!open} className="pb-7">
+        <p
+          className="font-body font-light leading-relaxed"
+          style={{ fontSize: '0.9375rem', color: 'var(--color-body-text)', maxWidth: '60ch' }}
+        >
+          {a}
+        </p>
+      </div>
     </div>
   )
 }

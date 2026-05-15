@@ -46,31 +46,39 @@ export default function AIHeroVerve() {
           <CTAButton href="#ai-services" label="See all AI systems" variant="secondary" />
         </div>
 
-        <div
-          className="mt-16 grid gap-px md:grid-cols-3"
-          style={{ background: 'var(--color-ivory-subtle)' }}
+        <dl
+          className="mt-16 flex flex-col gap-6 border-t pt-10 sm:flex-row sm:gap-12"
+          style={{ borderColor: 'var(--color-ivory-subtle)' }}
         >
           {stats.map((s) => (
-            <div
-              key={s.value}
-              className="px-8 py-7"
-              style={{ background: 'var(--color-ink)' }}
-            >
-              <p
-                className="font-display font-bold leading-none"
-                style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', color: 'var(--color-ivory)', letterSpacing: '-0.03em' }}
-              >
-                {s.value}
-              </p>
-              <p
-                className="mt-2 text-xs leading-snug"
-                style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
-              >
-                {s.label}
-              </p>
+            <div key={s.value}>
+              <dt className="sr-only">{s.label}</dt>
+              <dd>
+                <p
+                  className="font-display font-semibold leading-none"
+                  style={{
+                    fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
+                    color: 'var(--color-ivory)',
+                    letterSpacing: '-0.025em',
+                  }}
+                >
+                  {s.value}
+                </p>
+                <p
+                  className="mt-2 text-xs leading-snug"
+                  style={{
+                    color: 'var(--color-label-text-on-dark)',
+                    fontFamily: 'var(--font-body)',
+                    maxWidth: '22ch',
+                  }}
+                  aria-hidden="true"
+                >
+                  {s.label}
+                </p>
+              </dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   )

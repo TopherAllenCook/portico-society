@@ -3,7 +3,6 @@ import { PAIN_POINTS } from '@/lib/verve/content'
 export default function PainPointsVerve() {
   return (
     <section
-      id="services"
       className="px-6 py-24 lg:px-16 lg:py-32"
       style={{ background: 'var(--color-ivory)' }}
       aria-labelledby="pain-heading"

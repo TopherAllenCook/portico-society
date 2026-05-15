@@ -116,7 +116,7 @@ function DetailBlock({ svc, flip }: { svc: Service; flip: boolean }) {
         </p>
       </div>
 
-      {/* Detail panel — rules and typography, no box */}
+      {/* Detail panel: rules and typography, no box */}
       <div className={flip ? 'lg:order-1' : ''}>
 
         <div style={{ borderTop: '1px solid var(--color-ink-rule)', paddingTop: '1.5rem', marginBottom: '1.75rem' }}>

@@ -10,7 +10,7 @@ const fraunces = Fraunces({
 })
 
 export const metadata: Metadata = {
-  title: 'Verve MD — Marketing for Longevity & Aesthetics Clinics',
+  title: 'Verve MD: Marketing for Longevity & Aesthetics Clinics',
   description:
     'We help longevity and aesthetics clinics make more money. SEO, PPC, AI tools, and web design built exclusively for longevity and aesthetics practices.',
   openGraph: {

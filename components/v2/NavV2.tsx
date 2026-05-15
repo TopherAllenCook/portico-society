@@ -8,9 +8,10 @@ interface NavV2Props {
 }
 
 const navLinks = [
-  { href: '/#services', label: 'Specialties' },
-  { href: '/#process', label: 'How It Works' },
-  { href: '/services', label: 'Services' },
+  { href: '/#services', label: 'Services' },
+  { href: '/ai', label: 'AI' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/audit', label: 'Free Audit' },
 ]
 
 export default function NavV2({ dark = true }: NavV2Props) {
@@ -59,13 +60,12 @@ export default function NavV2({ dark = true }: NavV2Props) {
   }, [menuOpen])
 
   const logoColor   = dark ? 'var(--color-ivory)'              : 'var(--color-ink)'
-  const linkColor   = dark ? 'var(--color-label-text-on-dark)' : 'var(--color-label-text)'
   const iconColor   = dark ? 'var(--color-ivory)'              : 'var(--color-ink)'
-  const focusOutline = dark ? 'oklch(97% 0.008 75 / 0.4)'     : 'var(--color-cinnabar)'
+  const focusOutline = dark ? 'var(--color-ivory-glow)'        : 'var(--color-cinnabar)'
 
   const headerStyle: React.CSSProperties = scrolled
     ? {
-        backgroundColor: dark ? 'oklch(14% 0.006 30 / 0.88)' : 'var(--color-ivory)',
+        backgroundColor: dark ? 'color-mix(in oklab, var(--color-ink) 88%, transparent)' : 'var(--color-ivory)',
         backdropFilter:  dark ? 'blur(20px)' : 'none',
         WebkitBackdropFilter: dark ? 'blur(20px)' : 'none',
         borderBottom: `1px solid ${dark ? 'var(--color-ivory-subtle)' : 'var(--color-ink-rule)'}`,
@@ -87,7 +87,7 @@ export default function NavV2({ dark = true }: NavV2Props) {
 
   const mobileMenuStyle: React.CSSProperties = {
     maxHeight: menuOpen ? '22rem' : '0',
-    backgroundColor: dark ? 'oklch(14% 0.006 30 / 0.97)' : 'var(--color-ivory)',
+    backgroundColor: dark ? 'color-mix(in oklab, var(--color-ink) 97%, transparent)' : 'var(--color-ivory)',
     backdropFilter: dark ? 'blur(20px)' : 'none',
     borderTop: !dark && menuOpen ? '1px solid var(--color-ink-rule)' : 'none',
   }
@@ -101,10 +101,10 @@ export default function NavV2({ dark = true }: NavV2Props) {
 
         <Link
           href="/"
-          className="font-display italic text-xl font-normal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+          className="font-display text-xl font-semibold tracking-tight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
           style={{ color: logoColor, outlineColor: focusOutline }}
         >
-          Verve
+          Verve MD
         </Link>
 
         {/* Desktop nav */}

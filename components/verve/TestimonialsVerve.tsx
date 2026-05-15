@@ -1,11 +1,4 @@
-import Image from 'next/image'
 import { TESTIMONIALS } from '@/lib/verve/content'
-
-const AVATARS = [
-  'https://picsum.photos/seed/verve-dr1/96/96',
-  'https://picsum.photos/seed/verve-dr2/96/96',
-  'https://picsum.photos/seed/verve-dr3/96/96',
-]
 
 export default function TestimonialsVerve() {
   const [featured, ...rest] = TESTIMONIALS
@@ -29,7 +22,7 @@ export default function TestimonialsVerve() {
           What clinic owners say.
         </h2>
 
-        {/* Featured testimonial — full width, ink surface */}
+        {/* Featured testimonial: full width, ink surface */}
         <blockquote
           className="mt-10 rounded-2xl p-10 lg:p-14"
           style={{ background: 'var(--color-ink)' }}
@@ -45,37 +38,28 @@ export default function TestimonialsVerve() {
           >
             &ldquo;{featured.quote}&rdquo;
           </p>
-          <footer className="mt-8 flex items-center gap-4">
-            <Image
-              src={AVATARS[0]}
-              alt={featured.name}
-              width={48}
-              height={48}
-              className="rounded-full object-cover shrink-0"
-              style={{ opacity: 0.9 }}
+          <footer className="mt-8 flex flex-wrap items-baseline gap-x-4 gap-y-2">
+            <span
+              aria-hidden="true"
+              className="h-px w-8 shrink-0"
+              style={{ background: 'var(--color-cinnabar-on-dark)' }}
             />
-            <div>
-              <p
-                className="text-sm font-semibold"
-                style={{ color: 'var(--color-ivory)', fontFamily: 'var(--font-body)' }}
-              >
-                {featured.name}
-              </p>
-              <p
-                className="mt-0.5 text-xs"
-                style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
-              >
-                {featured.title} — {featured.clinicType}
-              </p>
-            </div>
-            <div
-              className="ml-auto hidden h-px flex-1 sm:block"
-              style={{ background: 'var(--color-ivory-muted)' }}
-            />
+            <p
+              className="text-sm font-semibold"
+              style={{ color: 'var(--color-ivory)', fontFamily: 'var(--font-body)' }}
+            >
+              {featured.name}
+            </p>
+            <p
+              className="text-xs"
+              style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
+            >
+              {featured.title}, {featured.clinicType}
+            </p>
           </footer>
         </blockquote>
 
-        {/* Supporting testimonials — ruled rows, sand bg */}
+        {/* Supporting testimonials: ruled rows, sand bg */}
         <div
           className="mt-4 grid gap-px md:grid-cols-2"
           style={{ background: 'var(--color-ink-rule)' }}
@@ -106,28 +90,24 @@ export default function TestimonialsVerve() {
               >
                 &ldquo;{t.quote}&rdquo;
               </p>
-              <footer className="mt-5 flex items-center gap-3">
-                <Image
-                  src={AVATARS[i + 1]}
-                  alt={t.name}
-                  width={36}
-                  height={36}
-                  className="rounded-full object-cover shrink-0"
+              <footer className="mt-5 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <span
+                  aria-hidden="true"
+                  className="h-px w-6 shrink-0"
+                  style={{ background: 'var(--color-cinnabar)' }}
                 />
-                <div>
-                  <p
-                    className="text-sm font-semibold"
-                    style={{ color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}
-                  >
-                    {t.name}
-                  </p>
-                  <p
-                    className="mt-0.5 text-xs"
-                    style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}
-                  >
-                    {t.title} — {t.clinicType}
-                  </p>
-                </div>
+                <p
+                  className="text-sm font-semibold"
+                  style={{ color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}
+                >
+                  {t.name}
+                </p>
+                <p
+                  className="text-xs"
+                  style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}
+                >
+                  {t.title}, {t.clinicType}
+                </p>
               </footer>
             </blockquote>
           ))}

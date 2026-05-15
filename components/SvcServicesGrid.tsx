@@ -75,7 +75,7 @@ export default function SvcServicesGrid() {
                   {svc.index}
                 </span>
                 <div>
-                  <p
+                  <h3
                     className="font-display font-normal leading-snug mb-2"
                     style={{
                       fontSize: 'clamp(1.0625rem, 1.75vw, 1.375rem)',
@@ -84,7 +84,7 @@ export default function SvcServicesGrid() {
                     }}
                   >
                     {svc.name}
-                  </p>
+                  </h3>
                   <p
                     className="font-body font-light leading-relaxed"
                     style={{ fontSize: '0.9375rem', color: 'var(--color-body-text)', maxWidth: '54ch' }}

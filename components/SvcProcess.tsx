@@ -76,9 +76,8 @@ export default function SvcProcess() {
                   className="font-display font-normal leading-none mb-4 lg:mb-0"
                   style={{
                     fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-                    color: 'var(--color-cinnabar)',
+                    color: 'var(--color-ink-icon)',
                     letterSpacing: '-0.04em',
-                    opacity: 0.3,
                   }}
                   aria-hidden="true"
                 >

@@ -3,9 +3,11 @@ export default function PricingHeroVerve() {
     <section
       className="px-6 pb-16 pt-36 lg:px-16 lg:pt-44"
       style={{ background: 'var(--color-ink)' }}
+      aria-labelledby="pricing-hero-heading"
     >
       <div className="mx-auto max-w-5xl">
         <h1
+          id="pricing-hero-heading"
           className="font-display font-semibold"
           style={{
             fontSize: 'clamp(2.5rem, 6vw, 5rem)',

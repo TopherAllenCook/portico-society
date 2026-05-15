@@ -8,7 +8,7 @@ const stats = [
   },
   {
     value: '48h',
-    label: 'Audit delivered with findings — before any engagement, no call required',
+    label: 'Audit delivered with findings, before any engagement, no call required',
   },
   {
     value: '60d',

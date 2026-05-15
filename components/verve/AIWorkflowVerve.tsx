@@ -24,45 +24,52 @@ export default function AIWorkflowVerve() {
           {workflow.title}
         </h2>
         <p
-          className="mt-3 text-sm"
-          style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)', maxWidth: '48ch' }}
+          className="mt-3 text-sm leading-relaxed"
+          style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)', maxWidth: '52ch' }}
         >
           {workflow.sub}
         </p>
 
-        <div
-          className="mt-12 grid gap-px md:grid-cols-3"
-          style={{ background: 'var(--color-ink-rule)' }}
+        <ol
+          className="mt-12"
+          style={{ borderTop: '1px solid var(--color-ink-rule)' }}
         >
           {workflow.steps.map((step, i) => (
-            <div
+            <li
               key={step.label}
-              className="px-8 py-8"
-              style={{ background: 'var(--color-sand)' }}
+              className="grid gap-4 py-7 sm:grid-cols-[64px_1fr] sm:gap-8"
+              style={{ borderBottom: '1px solid var(--color-ink-rule)' }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <span
-                  className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-semibold shrink-0"
-                  style={{ background: 'var(--color-cinnabar)', color: 'var(--color-ivory)', fontFamily: 'var(--font-body)' }}
-                >
-                  {i + 1}
-                </span>
+              <p
+                className="font-display font-bold leading-none"
+                style={{
+                  fontSize: '2.25rem',
+                  color: 'var(--color-cinnabar)',
+                  letterSpacing: '-0.03em',
+                  lineHeight: 1,
+                  opacity: 0.6,
+                }}
+                aria-hidden="true"
+              >
+                {String(i + 1).padStart(2, '0')}
+              </p>
+              <div>
                 <p
-                  className="font-display font-semibold leading-tight"
-                  style={{ fontSize: '1.05rem', color: 'var(--color-ink)' }}
+                  className="font-display font-semibold"
+                  style={{ fontSize: '1.15rem', color: 'var(--color-ink)', letterSpacing: '-0.015em' }}
                 >
                   {step.label}
                 </p>
+                <p
+                  className="mt-2 text-sm leading-relaxed"
+                  style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)', maxWidth: '60ch' }}
+                >
+                  {step.description}
+                </p>
               </div>
-              <p
-                className="text-sm leading-relaxed"
-                style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
-              >
-                {step.description}
-              </p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   )

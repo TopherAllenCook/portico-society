@@ -5,6 +5,7 @@ import PainPointsVerve from '@/components/verve/PainPointsVerve'
 import ResultsVerve from '@/components/verve/ResultsVerve'
 import PackagesOverviewVerve from '@/components/verve/PackagesOverviewVerve'
 import CalculatorVerve from '@/components/verve/CalculatorVerve'
+import PhotoBandVerve from '@/components/verve/PhotoBandVerve'
 import AIToolsVerve from '@/components/verve/AIToolsVerve'
 import AEOBlockVerve from '@/components/verve/AEOBlockVerve'
 import TestimonialsVerve from '@/components/verve/TestimonialsVerve'
@@ -23,6 +24,7 @@ export default function HomePage() {
         <ResultsVerve />
         <PackagesOverviewVerve />
         <CalculatorVerve />
+        <PhotoBandVerve />
         <AIToolsVerve />
         <AEOBlockVerve />
         <TestimonialsVerve />

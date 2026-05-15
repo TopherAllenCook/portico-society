@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
     body: JSON.stringify({
       from: 'Verve <noreply@vervemd.com>',
       to: [notifyEmail],
-      subject: `Audit request — ${email}`,
+      subject: `Audit request: ${email}`,
       html,
     }),
   })

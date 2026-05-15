@@ -8,7 +8,7 @@ import FooterVerve from '@/components/verve/FooterVerve'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Pricing — Verve MD',
+  title: 'Pricing: Verve MD',
   description: 'Straightforward pricing for longevity and aesthetics clinic marketing. Essential, Growth, and Full Service plans.',
 }
 

@@ -20,7 +20,7 @@ const tiers: TierRow[] = [
     tag: 'Foundation',
     name: 'Verve Engagement',
     priceMeta: 'Six-month retainer',
-    price: '$4,500–$6,500',
+    price: '$4,500 to $6,500',
     priceUnit: '/ month',
     description:
       'The full authority and inquiry build for established practices ready to own AI search in their market.',
@@ -38,7 +38,7 @@ const tiers: TierRow[] = [
     tagAccent: true,
     name: '+ Inquiry Architecture',
     priceMeta: 'Added to Verve Engagement',
-    price: '+$2,500–$3,500',
+    price: '+$2,500 to $3,500',
     priceUnit: '/ month',
     description:
       'For practices that want every patient inquiry captured, qualified, and converted. No additional staff required.',
@@ -206,9 +206,9 @@ export default function SvcTiers() {
                     href={tier.ctaHref}
                     className="font-body inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                     style={{
-                      border: '1px solid oklch(97% 0.008 75 / 0.25)',
+                      border: '1px solid var(--color-ivory-muted)',
                       color: 'var(--color-ivory)',
-                      outlineColor: 'oklch(97% 0.008 75 / 0.6)',
+                      outlineColor: 'var(--color-ivory-glow)',
                     }}
                   >
                     {tier.cta}
@@ -238,13 +238,13 @@ export default function SvcTiers() {
         <RevealOnScroll>
           <p
             className="font-body font-light text-center mt-10"
-            style={{ fontSize: '0.875rem', color: 'oklch(97% 0.008 75 / 0.4)' }}
+            style={{ fontSize: '0.875rem', color: 'var(--color-label-text-on-dark)' }}
           >
             Not sure which path fits?{' '}
             <Link
               href="#begin"
               className="underline underline-offset-4 transition-opacity duration-200 hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-              style={{ color: 'oklch(97% 0.008 75 / 0.65)', outlineColor: 'oklch(97% 0.008 75 / 0.5)' }}
+              style={{ color: 'var(--color-body-text-on-dark)', outlineColor: 'var(--color-ivory-glow)' }}
             >
               Start with the audit.
             </Link>{' '}

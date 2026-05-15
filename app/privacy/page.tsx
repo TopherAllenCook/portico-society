@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import NavVerve from '@/components/verve/NavVerve'
+import FooterVerve from '@/components/verve/FooterVerve'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — Verve',
+  title: 'Privacy Policy: Verve MD',
   description: 'How Verve Clinic Marketing collects, uses, and protects your information.',
 }
 
@@ -39,71 +40,59 @@ const sections = [
 
 export default function PrivacyPage() {
   return (
-    <div style={{ backgroundColor: 'var(--color-ivory)', minHeight: '100vh' }}>
-      {/* Nav-height spacer */}
-      <div style={{ height: '5rem' }} aria-hidden="true" />
+    <>
+      <NavVerve />
+      <main
+        style={{ backgroundColor: 'var(--color-ivory)', minHeight: '100vh' }}
+        aria-labelledby="privacy-heading"
+      >
+        <div className="mx-auto max-w-3xl px-6 pt-40 pb-24 lg:px-8 lg:pt-52 lg:pb-32">
+          <p
+            className="font-mono text-xs font-medium uppercase tracking-[0.18em] mb-6"
+            style={{ color: 'var(--color-label-text)' }}
+          >
+            Legal
+          </p>
+          <h1
+            id="privacy-heading"
+            className="font-display font-normal leading-tight mb-3"
+            style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)', color: 'var(--color-ink)', letterSpacing: '-0.02em' }}
+          >
+            Privacy Policy
+          </h1>
+          <p
+            className="font-mono text-xs tracking-[0.1em] mb-12"
+            style={{ color: 'var(--color-label-text)' }}
+          >
+            Effective: January 1, 2025
+          </p>
 
-      <main className="mx-auto max-w-3xl px-6 py-16 lg:px-8 lg:py-24">
-        <Link
-          href="/"
-          className="font-mono text-xs font-medium uppercase tracking-[0.14em] transition-opacity duration-200 hover:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-          style={{ color: 'var(--color-label-text)' }}
-        >
-          ← Back to Verve
-        </Link>
-
-        <div
-          style={{ height: '1px', backgroundColor: 'oklch(14% 0.006 30 / 0.1)', margin: '2.5rem 0' }}
-          aria-hidden="true"
-        />
-
-        <h1
-          className="font-display font-normal leading-tight mb-3"
-          style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)', color: 'var(--color-ink)', letterSpacing: '-0.02em' }}
-        >
-          Privacy Policy
-        </h1>
-        <p
-          className="font-mono text-xs tracking-[0.1em] mb-14"
-          style={{ color: 'var(--color-label-text)' }}
-        >
-          Effective: January 1, 2025
-        </p>
-
-        <div className="space-y-12">
-          {sections.map(({ heading, body }) => (
-            <div key={heading}>
+          <div className="flex flex-col">
+            {sections.map(({ heading, body }) => (
               <div
-                style={{ height: '1px', backgroundColor: 'oklch(14% 0.006 30 / 0.08)', marginBottom: '1.5rem' }}
-                aria-hidden="true"
-              />
-              <h2
-                className="font-display font-normal mb-4"
-                style={{ fontSize: 'clamp(1.125rem, 2vw, 1.375rem)', color: 'var(--color-ink)' }}
+                key={heading}
+                className="py-8 lg:py-10"
+                style={{ borderTop: '1px solid var(--color-ink-rule)' }}
               >
-                {heading}
-              </h2>
-              <p
-                className="font-body font-light leading-relaxed"
-                style={{ fontSize: '1rem', color: 'var(--color-body-text)', maxWidth: '60ch' }}
-              >
-                {body}
-              </p>
-            </div>
-          ))}
+                <h2
+                  className="font-display font-normal mb-4"
+                  style={{ fontSize: 'clamp(1.125rem, 2vw, 1.375rem)', color: 'var(--color-ink)' }}
+                >
+                  {heading}
+                </h2>
+                <p
+                  className="font-body leading-relaxed"
+                  style={{ fontSize: '1rem', color: 'var(--color-body-text)', maxWidth: '60ch' }}
+                >
+                  {body}
+                </p>
+              </div>
+            ))}
+            <div aria-hidden="true" style={{ borderTop: '1px solid var(--color-ink-rule)' }} />
+          </div>
         </div>
-
-        <div
-          style={{ height: '1px', backgroundColor: 'oklch(14% 0.006 30 / 0.1)', margin: '4rem 0 2rem' }}
-          aria-hidden="true"
-        />
-        <p
-          className="font-body text-xs font-light"
-          style={{ color: 'var(--color-label-text)' }}
-        >
-          &copy; {new Date().getFullYear()} Verve Clinic Marketing LLC. All rights reserved.
-        </p>
       </main>
-    </div>
+      <FooterVerve />
+    </>
   )
 }

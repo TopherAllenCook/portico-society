@@ -8,7 +8,7 @@ import RevealOnScroll from '@/components/RevealOnScroll'
 import TileGrid from '@/components/TileGrid'
 
 export const metadata: Metadata = {
-  title: 'Services — Verve',
+  title: 'Services: Verve MD',
   description:
     'AI search, lead capture, reviews, and advisory services for longevity, concierge, and aesthetic medicine practices.',
 }
@@ -36,7 +36,7 @@ const services = [
     name: 'AI Lead Agent',
     tier: 'Add-On',
     outcome:
-      'An AI agent handles every inbound inquiry — books, qualifies, and follows up. No extra staff.',
+      'An AI agent handles every inbound inquiry. Books, qualifies, and follows up. No extra staff.',
     bullets: [
       'AI agent for booking and intake',
       'Lead qualification and routing',
@@ -78,7 +78,7 @@ const services = [
 const faqs = [
   {
     q: 'How is this different from regular SEO?',
-    a: 'Regular SEO targets Google rankings. Verve also targets the AI systems inside ChatGPT, Perplexity, and Google AI — which use different signals than Google search. Most SEO agencies are not building for these yet. We do both.',
+    a: 'Regular SEO targets Google rankings. Verve also targets the AI systems inside ChatGPT, Perplexity, and Google AI, which use different signals than Google search. Most SEO agencies are not building for these yet. We do both.',
   },
   {
     q: 'How fast do results show up?',

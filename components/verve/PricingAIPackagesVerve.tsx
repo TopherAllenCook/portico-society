@@ -20,7 +20,7 @@ export default function PricingAIPackagesVerve() {
           className="mt-2 text-sm"
           style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)', maxWidth: '52ch' }}
         >
-          Add to any marketing plan or use standalone. Each system runs independently — add what your clinic needs now, expand as you grow.
+          Add to any marketing plan or use standalone. Each system runs independently. Add what your clinic needs now, expand as you grow.
         </p>
 
         <div style={{ borderTop: '1px solid var(--color-ink-rule)', marginTop: '2rem' }}>
@@ -52,7 +52,7 @@ export default function PricingAIPackagesVerve() {
                       className="flex items-center gap-1.5 text-xs"
                       style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
                     >
-                      <span style={{ color: 'var(--color-cinnabar)', flexShrink: 0 }}>—</span>
+                      <span aria-hidden="true" style={{ color: 'var(--color-cinnabar)', flexShrink: 0 }}>·</span>
                       {f}
                     </li>
                   ))}

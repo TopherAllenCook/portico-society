@@ -5,15 +5,17 @@ export default function AuditHeroVerve() {
     <section
       className="px-6 pb-12 pt-36 lg:px-16 lg:pt-44"
       style={{ background: 'var(--color-ink)' }}
+      aria-labelledby="audit-hero-heading"
     >
       <div className="mx-auto max-w-3xl text-center">
         <p
           className="mb-3 text-xs font-medium uppercase tracking-[0.2em]"
           style={{ color: 'var(--color-cinnabar-on-dark)', fontFamily: 'var(--font-body)' }}
         >
-          Free — No Call Required
+          Free. No call required.
         </p>
         <h1
+          id="audit-hero-heading"
           className="font-display font-semibold"
           style={{
             fontSize: 'clamp(2.25rem, 5vw, 4rem)',

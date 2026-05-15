@@ -86,25 +86,25 @@ export default function CalculatorVerve() {
   const outputRows = [
     {
       id: 'leads',
-      display: result ? `+${Math.round(result.leads)}` : '—',
+      display: result ? `+${Math.round(result.leads)}` : '·',
       label: 'projected leads per month',
       sub: null,
     },
     {
       id: 'patients',
-      display: result ? `+${Math.round(result.patients)}` : '—',
+      display: result ? `+${Math.round(result.patients)}` : '·',
       label: 'new patients per month',
       sub: null,
     },
     {
       id: 'revenue',
-      display: result ? fmtCurrency(result.monthlyRevenue) : '—',
+      display: result ? fmtCurrency(result.monthlyRevenue) : '·',
       label: 'monthly revenue from ads',
       sub: result ? `${fmtCurrency(result.annualProfit)} projected annual profit` : null,
     },
     {
       id: 'roi',
-      display: result ? `${result.roi >= 0 ? '+' : ''}${Math.round(result.roi)}%` : '—',
+      display: result ? `${result.roi >= 0 ? '+' : ''}${Math.round(result.roi)}%` : '·',
       label: 'return on ad spend',
       sub: null,
       roiColor: result
@@ -209,7 +209,7 @@ export default function CalculatorVerve() {
                     aria-label="Target cost per lead in dollars"
                   />
                 </div>
-                <span style={HINT}>Med spa avg $45–80 · Longevity avg $65–150</span>
+                <span style={HINT}>Med spa avg $45 to $80 · Longevity avg $65 to $150</span>
               </div>
 
               {/* Close rate */}
@@ -234,7 +234,7 @@ export default function CalculatorVerve() {
                     %
                   </span>
                 </div>
-                <span style={HINT}>Aesthetics avg 20–35%</span>
+                <span style={HINT}>Aesthetics avg 20% to 35%</span>
               </div>
 
               {/* Avg patient value */}
@@ -379,7 +379,7 @@ export default function CalculatorVerve() {
             className="text-xs leading-relaxed"
             style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)', maxWidth: '52ch' }}
           >
-            CPL benchmarks: med spa $45–80, longevity $65–150. Close rate: aesthetics avg 20–35%. Patient value: $504 median. Results vary by market and practice type.
+            CPL benchmarks: med spa $45 to $80, longevity $65 to $150. Close rate: aesthetics avg 20% to 35%. Patient value: $504 median. Results vary by market and practice type.
           </p>
           <Link
             href="/audit"

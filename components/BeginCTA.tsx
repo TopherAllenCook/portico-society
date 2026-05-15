@@ -90,7 +90,7 @@ export default function BeginCTA() {
                 <div
                   role="status"
                   className="p-8 lg:p-10"
-                  style={{ border: '1px solid oklch(97% 0.008 75 / 0.2)' }}
+                  style={{ border: '1px solid var(--color-ivory-muted)' }}
                 >
                   <div className="flex items-center gap-3 mb-6">
                     <p
@@ -100,7 +100,7 @@ export default function BeginCTA() {
                       Received
                     </p>
                     <div
-                      style={{ height: '1px', flex: 1, backgroundColor: 'oklch(97% 0.008 75 / 0.15)' }}
+                      style={{ height: '1px', flex: 1, backgroundColor: 'var(--color-ivory-dim)' }}
                       aria-hidden="true"
                     />
                   </div>
@@ -123,10 +123,10 @@ export default function BeginCTA() {
                   </p>
                   <ul className="space-y-2.5 mb-7">
                     {[
-                      'AI Search Visibility — which platforms name you',
-                      'Competitive Gap Analysis — who appears instead',
-                      'Citation and Authority Audit — where the gaps are',
-                      'Prioritized Findings — three to five specific actions',
+                      'AI Search Visibility: which platforms name you',
+                      'Competitive Gap Analysis: who appears instead',
+                      'Citation and Authority Audit: where the gaps are',
+                      'Prioritized Findings: three to five specific actions',
                     ].map((item, i) => (
                       <li
                         key={i}
@@ -166,10 +166,12 @@ export default function BeginCTA() {
                       onChange={e => setEmail(e.target.value)}
                       placeholder="you@yourpractice.com"
                       required
-                      className="font-body w-full bg-transparent px-5 py-4 text-sm outline-none transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
+                      className="font-body w-full bg-transparent px-5 py-4 text-sm transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                       style={{
-                        border: '1px solid oklch(97% 0.008 75 / 0.25)',
+                        border: '1px solid var(--color-ivory-muted)',
                         color: 'var(--color-ivory)',
+                        outline: 'none',
+                        outlineColor: 'var(--color-ivory-glow)',
                       }}
                       aria-describedby={error ? 'begin-error' : undefined}
                     />
@@ -192,10 +194,12 @@ export default function BeginCTA() {
                       value={website}
                       onChange={e => setWebsite(e.target.value)}
                       placeholder="https://yourpractice.com"
-                      className="font-body w-full bg-transparent px-5 py-4 text-sm outline-none transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
+                      className="font-body w-full bg-transparent px-5 py-4 text-sm transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                       style={{
-                        border: '1px solid oklch(97% 0.008 75 / 0.25)',
+                        border: '1px solid var(--color-ivory-muted)',
                         color: 'var(--color-ivory)',
+                        outline: 'none',
+                        outlineColor: 'var(--color-ivory-glow)',
                       }}
                       aria-describedby={error ? 'begin-error' : undefined}
                     />
@@ -214,7 +218,8 @@ export default function BeginCTA() {
 
                   <button
                     type="submit"
-                    className="font-body mt-2 w-full cursor-pointer rounded-full px-8 py-4 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60 bg-ivory text-cinnabar hover:bg-stone"
+                    className="font-body mt-2 w-full cursor-pointer rounded-full px-8 py-4 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-ivory text-cinnabar hover:bg-stone"
+                    style={{ outlineColor: 'var(--color-ivory-glow)' }}
                   >
                     Request My Audit
                   </button>
