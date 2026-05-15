@@ -41,7 +41,7 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <>
-      <NavVerve />
+      <NavVerve light />
       <main
         style={{ backgroundColor: 'var(--color-ivory)', minHeight: '100vh' }}
         aria-labelledby="privacy-heading"

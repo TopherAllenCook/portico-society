@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function CalculatorPage() {
   return (
     <>
-      <NavVerve />
+      <NavVerve light />
       <main style={{ paddingTop: '5rem' }}>
         <CalculatorVerve />
       </main>

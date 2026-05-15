@@ -16,7 +16,7 @@ import FooterVerve from '@/components/verve/FooterVerve'
 export default function HomePage() {
   return (
     <>
-      <NavVerve />
+      <NavVerve light />
       <main>
         <HeroVerve />
         <LogoStripVerve />

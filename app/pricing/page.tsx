@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <>
-      <NavVerve />
+      <NavVerve light />
       <main>
         <PricingHeroVerve />
         <PricingPackagesVerve />

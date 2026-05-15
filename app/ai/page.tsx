@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function AIPage() {
   return (
     <>
-      <NavVerve />
+      <NavVerve light />
       <main>
         <AIHeroVerve />
         <AIWorkflowVerve />

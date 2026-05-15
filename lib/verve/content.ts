@@ -1,14 +1,12 @@
 export const HERO = {
-  eyebrow: 'Longevity & Aesthetics Marketing',
-  headline: 'We help longevity & aesthetics clinics make more money.',
-  sub: 'SEO, PPC, AI tools, and web design built exclusively for longevity and aesthetics practices.',
-  primaryCTA: { label: 'Get Your Free AEO + Marketing Audit', href: '/audit' },
-  secondaryCTA: { label: 'See our results', href: '#results' },
-  stats: [
-    { value: '$47k', label: 'avg. new monthly revenue added within 90 days' },
-    { value: '3.5×', label: 'avg. return on ad spend' },
-    { value: '83%', label: 'of clients renew after year one' },
-  ],
+  pill: 'Marketing for established longevity & aesthetic practices',
+  headlineLead: 'Your patients ask',
+  // Two italic words flank the inline icon: HeroVerve splits this string into <emphLeft> <icon> <emphRight>
+  emphasisLeft: 'AI',
+  emphasisRight: 'before you do.',
+  sub: 'AI search, paid media, and patient inquiry systems. Free audit in 48 hours.',
+  primaryCTA: { label: 'Book your free audit', href: '/audit' },
+  secondaryCTA: { label: 'See our results', href: '#services' },
 }
 
 export const PAIN_POINTS = {

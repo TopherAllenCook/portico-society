@@ -45,7 +45,7 @@ const sections = [
 export default function TermsPage() {
   return (
     <>
-      <NavVerve />
+      <NavVerve light />
       <main
         style={{ backgroundColor: 'var(--color-ivory)', minHeight: '100vh' }}
         aria-labelledby="terms-heading"

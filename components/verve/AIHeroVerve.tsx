@@ -1,80 +1,107 @@
+import Link from 'next/link'
 import { AI_PAGE } from '@/lib/verve/content'
-import CTAButton from './CTAButton'
 
 export default function AIHeroVerve() {
-  const { eyebrow, headline, sub, stats } = AI_PAGE
-
   return (
     <section
-      className="relative px-6 pt-40 pb-24 lg:px-16 lg:pt-48 lg:pb-32"
-      style={{ background: 'var(--color-ink)' }}
+      className="relative flex flex-col items-center justify-center overflow-hidden px-6 pb-20 pt-40 lg:px-16 lg:pb-28 lg:pt-48"
+      style={{ background: 'var(--color-ivory)' }}
       aria-labelledby="ai-hero-heading"
     >
-      <div className="mx-auto max-w-5xl">
-        <p
-          className="text-xs font-medium uppercase tracking-[0.18em]"
-          style={{ color: 'var(--color-cinnabar-on-dark)', fontFamily: 'var(--font-body)' }}
-        >
-          {eyebrow}
-        </p>
-
-        <h1
-          id="ai-hero-heading"
-          className="mt-5 font-display font-semibold leading-[1.05] tracking-tight"
-          style={{
-            fontSize: 'clamp(2.5rem, 5.5vw, 5rem)',
-            color: 'var(--color-ivory)',
-            maxWidth: '18ch',
-          }}
-        >
-          {headline}
-        </h1>
-
-        <p
-          className="mt-6 text-base leading-relaxed"
-          style={{
-            color: 'var(--color-body-text-on-dark)',
-            fontFamily: 'var(--font-body)',
-            maxWidth: '52ch',
-          }}
-        >
-          {sub}
-        </p>
-
-        <div className="mt-8 flex flex-wrap gap-3">
-          <CTAButton href="/audit" label="Get your free AI audit" variant="primary" />
-          <CTAButton href="#ai-services" label="See all AI systems" variant="secondary" />
+      <div className="mx-auto w-full max-w-3xl text-center">
+        {/* Trust pill */}
+        <div className="flex justify-center">
+          <span
+            className="inline-flex items-center gap-2 rounded-full border bg-white px-4 py-1.5 text-xs font-medium"
+            style={{
+              borderColor: 'var(--color-ink-rule)',
+              color: 'var(--color-ink)',
+              fontFamily: 'var(--font-body)',
+              boxShadow: '0 4px 16px oklch(14% 0.012 50 / 0.04)',
+            }}
+          >
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path
+                d="M6 1.2l1.4 3.1 3.4.3-2.6 2.2.8 3.3L6 8.4 3 10.1l.8-3.3L1.2 4.6l3.4-.3z"
+                fill="var(--color-cinnabar)"
+              />
+            </svg>
+            {AI_PAGE.eyebrow} · Five AI systems built for clinics
+          </span>
         </div>
 
-        <dl
-          className="mt-16 flex flex-col gap-6 border-t pt-10 sm:flex-row sm:gap-12"
-          style={{ borderColor: 'var(--color-ivory-subtle)' }}
+        {/* Headline */}
+        <h1
+          id="ai-hero-heading"
+          className="mt-10 font-display font-semibold"
+          style={{
+            fontSize: 'clamp(2.5rem, 6.5vw, 4.75rem)',
+            lineHeight: 1.04,
+            letterSpacing: '-0.025em',
+            color: 'var(--color-ink)',
+          }}
         >
-          {stats.map((s) => (
-            <div key={s.value}>
-              <dt className="sr-only">{s.label}</dt>
-              <dd>
-                <p
-                  className="font-display font-semibold leading-none"
-                  style={{
-                    fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
-                    color: 'var(--color-ivory)',
-                    letterSpacing: '-0.025em',
-                  }}
-                >
-                  {s.value}
-                </p>
-                <p
-                  className="mt-2 text-xs leading-snug"
-                  style={{
-                    color: 'var(--color-label-text-on-dark)',
-                    fontFamily: 'var(--font-body)',
-                    maxWidth: '22ch',
-                  }}
-                  aria-hidden="true"
-                >
-                  {s.label}
-                </p>
+          Your clinic should be{' '}
+          <span style={{ fontStyle: 'italic', color: 'var(--color-cinnabar)' }}>
+            running while you sleep.
+          </span>
+        </h1>
+
+        {/* Sub */}
+        <p
+          className="mx-auto mt-7 max-w-xl text-base leading-relaxed"
+          style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
+        >
+          {AI_PAGE.sub}
+        </p>
+
+        {/* CTAs */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <Link
+            href="/audit"
+            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+            style={{
+              background: 'var(--color-ink)',
+              color: 'var(--color-ivory)',
+              fontFamily: 'var(--font-body)',
+              outlineColor: 'var(--color-cinnabar)',
+            }}
+          >
+            Get your free AI audit
+            <span aria-hidden="true">↗</span>
+          </Link>
+          <Link
+            href="#ai-services"
+            className="inline-flex items-center gap-2 rounded-full border bg-white px-7 py-3.5 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+            style={{
+              borderColor: 'var(--color-ink-rule)',
+              color: 'var(--color-ink)',
+              fontFamily: 'var(--font-body)',
+              outlineColor: 'var(--color-cinnabar)',
+            }}
+          >
+            See all AI systems
+          </Link>
+        </div>
+
+        {/* Tiny stat row in editorial style — not a hero metric block */}
+        <dl
+          className="mx-auto mt-14 grid max-w-2xl grid-cols-1 gap-y-3 border-t pt-6 sm:grid-cols-3 sm:gap-y-0"
+          style={{ borderColor: 'var(--color-ink-rule)' }}
+        >
+          {AI_PAGE.stats.map((s) => (
+            <div key={s.value} className="sm:px-3">
+              <dt
+                className="text-xs"
+                style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}
+              >
+                {s.label}
+              </dt>
+              <dd
+                className="mt-1 font-display font-semibold"
+                style={{ fontSize: '1.25rem', color: 'var(--color-cinnabar)', letterSpacing: '-0.02em' }}
+              >
+                {s.value}
               </dd>
             </div>
           ))}

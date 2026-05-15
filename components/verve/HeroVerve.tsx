@@ -1,10 +1,22 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { HERO } from '@/lib/verve/content'
-import CTAButton from './CTAButton'
+
+// Floating chips placed at anchor points on the ring perimeter.
+// Each anchor: angle in degrees, measured clockwise from 12 o'clock.
+// 0 = top, 90 = right, 180 = bottom, 270 = left.
+// Angles pulled to the sides so chips sit clear of the trust pill (top center)
+// and the CTAs (bottom center).
+const CHIPS = [
+  { label: 'Longevity',  accent: 'cinnabar', angle: 290 }, // upper-left
+  { label: 'Concierge',  accent: 'ink',      angle: 70  }, // upper-right
+  { label: 'Aesthetic',  accent: 'cinnabar', angle: 245 }, // lower-left
+  { label: 'AI Search',  accent: 'ink',      angle: 115 }, // lower-right
+] as const
+
+const RING_DIAMETER = 'min(720px, 82vmin)'
 
 export default function HeroVerve() {
   const [entered, setEntered] = useState(false)
@@ -18,123 +30,189 @@ export default function HeroVerve() {
 
   const ease = 'cubic-bezier(0.16,1,0.3,1)'
 
-  function rise(delay: number): React.CSSProperties {
+  function rise(delay: number, duration = 900): React.CSSProperties {
     if (!mounted) return {}
     if (!entered) return { opacity: 0, transform: 'translateY(1.5rem)', willChange: 'opacity, transform' }
     return {
       opacity: 1,
       transform: 'translateY(0)',
-      transition: `opacity 900ms ${ease} ${delay}ms, transform 900ms ${ease} ${delay}ms`,
+      transition: `opacity ${duration}ms ${ease} ${delay}ms, transform ${duration}ms ${ease} ${delay}ms`,
+      willChange: 'auto',
+    }
+  }
+
+  function chipRise(delay: number, x: string, y: string): React.CSSProperties {
+    const settled = `translate(-50%, -50%) translate(${x}, ${y}) scale(1)`
+    const pending = `translate(-50%, -50%) translate(${x}, ${y}) scale(0.5)`
+    if (!mounted) return { transform: settled }
+    if (!entered) return { opacity: 0, transform: pending, willChange: 'opacity, transform' }
+    return {
+      opacity: 1,
+      transform: settled,
+      transition: `opacity 1100ms ${ease} ${delay}ms, transform 1100ms ${ease} ${delay}ms`,
       willChange: 'auto',
     }
   }
 
   return (
     <section
-      className="relative min-h-svh overflow-hidden"
-      style={{ background: 'var(--color-ink)' }}
-      aria-label="Verve MD: marketing for longevity and aesthetics clinics"
+      className="relative flex min-h-svh items-center justify-center overflow-hidden"
+      style={{ background: 'var(--color-ivory)' }}
+      aria-labelledby="hero-heading"
     >
-      <div className="mx-auto grid w-full max-w-5xl grid-cols-1 lg:grid-cols-[1fr_380px] lg:gap-0">
+      {/* Decorative ring */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/2 hidden md:block"
+        style={{
+          width: RING_DIAMETER,
+          height: RING_DIAMETER,
+          transform: 'translate(-50%, -50%)',
+          borderRadius: '50%',
+          border: '1.5px dashed oklch(14% 0.012 50 / 0.18)',
+        }}
+      />
 
-        {/* Text column */}
-        <div className="flex flex-col justify-center px-6 pb-24 pt-36 lg:px-16 lg:py-44">
-          <p
-            className="mb-6 text-xs font-medium uppercase tracking-[0.2em]"
-            style={{ color: 'var(--color-cinnabar-on-dark)', fontFamily: 'var(--font-body)', ...rise(0) }}
-          >
-            {HERO.eyebrow}
-          </p>
-
-          <h1
-            className="font-display font-semibold"
+      {/* Floating specialty chips on the ring */}
+      {CHIPS.map((chip, i) => {
+        // Convert clockwise-from-12 angle to (x, y) offset on the ring.
+        const rad = (chip.angle * Math.PI) / 180
+        const dx = `calc(${RING_DIAMETER} / 2 * ${Math.sin(rad).toFixed(4)})`
+        const dy = `calc(${RING_DIAMETER} / 2 * ${(-Math.cos(rad)).toFixed(4)})`
+        const dotColor = chip.accent === 'cinnabar' ? 'var(--color-cinnabar)' : 'var(--color-ink)'
+        return (
+          <span
+            key={chip.label}
+            className="absolute hidden items-center gap-2 rounded-full border bg-white px-3.5 py-1.5 text-xs font-medium md:flex"
             style={{
-              fontSize: 'clamp(2.75rem, 5.5vw, 5rem)',
-              lineHeight: 1.0,
-              letterSpacing: '-0.03em',
-              color: 'var(--color-ivory)',
-              maxWidth: '16ch',
-              ...rise(100),
-            }}
-          >
-            {HERO.headline}
-          </h1>
-
-          <p
-            className="mt-7 text-lg leading-relaxed"
-            style={{
-              color: 'var(--color-body-text-on-dark)',
-              maxWidth: '44ch',
+              top: '50%',
+              left: '50%',
+              borderColor: 'var(--color-ink-rule)',
+              color: 'var(--color-ink)',
               fontFamily: 'var(--font-body)',
-              ...rise(220),
+              boxShadow: '0 4px 16px oklch(14% 0.012 50 / 0.06)',
+              ...chipRise(620 + i * 90, dx, dy),
+            }}
+            aria-hidden="true"
+          >
+            <span aria-hidden="true" style={{ background: dotColor, width: 8, height: 8, borderRadius: '50%' }} />
+            {chip.label}
+          </span>
+        )
+      })}
+
+      {/* Center content */}
+      <div className="relative z-10 mx-auto w-full max-w-3xl px-6 pb-24 pt-36 text-center lg:px-16 lg:pb-32 lg:pt-44">
+        {/* Trust pill */}
+        <div className="flex justify-center" style={rise(0)}>
+          <span
+            className="inline-flex items-center gap-2 rounded-full border bg-white px-4 py-1.5 text-xs font-medium"
+            style={{
+              borderColor: 'var(--color-ink-rule)',
+              color: 'var(--color-ink)',
+              fontFamily: 'var(--font-body)',
+              boxShadow: '0 4px 16px oklch(14% 0.012 50 / 0.04)',
             }}
           >
-            {HERO.sub}
-          </p>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path
+                d="M6 1.2l1.4 3.1 3.4.3-2.6 2.2.8 3.3L6 8.4 3 10.1l.8-3.3L1.2 4.6l3.4-.3z"
+                fill="var(--color-cinnabar)"
+              />
+            </svg>
+            {HERO.pill}
+          </span>
+        </div>
 
-          <div className="mt-10 flex flex-wrap items-center gap-4" style={rise(340)}>
-            <CTAButton href={HERO.primaryCTA.href} label={HERO.primaryCTA.label} variant="primary" />
-            <Link
-              href={HERO.secondaryCTA.href}
-              className="text-sm font-medium opacity-60 hover:opacity-100 transition-opacity rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-ivory-glow)] focus-visible:opacity-100"
-              style={{ color: 'var(--color-ivory)', fontFamily: 'var(--font-body)' }}
+        {/* Headline */}
+        <h1
+          id="hero-heading"
+          className="mt-10 font-display font-semibold"
+          style={{
+            fontSize: 'clamp(2.75rem, 7.5vw, 5.5rem)',
+            lineHeight: 1.04,
+            letterSpacing: '-0.025em',
+            color: 'var(--color-ink)',
+          }}
+        >
+          <span className="block" style={rise(140)}>
+            {HERO.headlineLead}
+          </span>
+          <span
+            className="mt-1 flex flex-wrap items-center justify-center gap-x-3 gap-y-0 italic"
+            style={{
+              color: 'var(--color-cinnabar)',
+              fontStyle: 'italic',
+              ...rise(280),
+            }}
+          >
+            <span>{HERO.emphasisLeft}</span>
+
+            {/* Inline cinnabar mark (clipzy-style) */}
+            <span
+              aria-hidden="true"
+              className="inline-flex shrink-0 items-center justify-center"
+              style={{
+                width: '0.95em',
+                height: '0.95em',
+                borderRadius: '0.22em',
+                background: 'var(--color-cinnabar)',
+                color: 'var(--color-ivory)',
+                transform: 'translateY(-0.05em)',
+              }}
             >
-              {HERO.secondaryCTA.label} ↓
-            </Link>
-          </div>
+              <svg viewBox="0 0 24 24" fill="none" width="62%" height="62%" aria-hidden="true">
+                <path
+                  d="M12 2.5l2.2 5.6 5.8.4-4.5 3.9 1.4 5.8L12 14.9l-4.9 3.3 1.4-5.8L4 8.5l5.8-.4z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
 
-          <div
-            className="mt-16 flex flex-col gap-6 border-t pt-10 sm:flex-row sm:gap-12"
-            style={{ borderColor: 'var(--color-ivory-subtle)', ...rise(460) }}
+            <span>{HERO.emphasisRight}</span>
+          </span>
+        </h1>
+
+        {/* Sub */}
+        <p
+          className="mx-auto mt-7 max-w-xl text-base leading-relaxed"
+          style={{
+            color: 'var(--color-body-text)',
+            fontFamily: 'var(--font-body)',
+            ...rise(420),
+          }}
+        >
+          {HERO.sub}
+        </p>
+
+        {/* CTAs */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3" style={rise(540)}>
+          <Link
+            href={HERO.primaryCTA.href}
+            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+            style={{
+              background: 'var(--color-ink)',
+              color: 'var(--color-ivory)',
+              fontFamily: 'var(--font-body)',
+              outlineColor: 'var(--color-cinnabar)',
+            }}
           >
-            {HERO.stats.map((stat) => (
-              <div key={stat.value}>
-                <p
-                  className="font-display text-4xl font-semibold"
-                  style={{ color: 'var(--color-ivory)', letterSpacing: '-0.03em' }}
-                >
-                  {stat.value}
-                </p>
-                <p
-                  className="mt-1 text-xs leading-snug"
-                  style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)', maxWidth: '18ch' }}
-                >
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Image column: hidden on mobile */}
-        <div className="relative hidden lg:block">
-          <Image
-            src="https://images.unsplash.com/photo-1774192621035-20d11389f781?auto=format&fit=crop&w=1200&q=80"
-            alt="Warm wood-paneled clinic reception with low evening light"
-            fill
-            sizes="(min-width: 1024px) 380px, 0"
-            className="object-cover"
-            style={{ opacity: 0.55 }}
-            priority
-          />
-          {/* Fade edge toward text column */}
-          <div
-            className="absolute inset-0"
+            {HERO.primaryCTA.label}
+            <span aria-hidden="true">↗</span>
+          </Link>
+          <Link
+            href={HERO.secondaryCTA.href}
+            className="inline-flex items-center gap-2 rounded-full border bg-white px-7 py-3.5 text-sm font-medium transition-colors hover:bg-stone focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
             style={{
-              background: 'linear-gradient(to right, var(--color-ink) 0%, transparent 40%)',
+              borderColor: 'var(--color-ink-rule)',
+              color: 'var(--color-ink)',
+              fontFamily: 'var(--font-body)',
+              outlineColor: 'var(--color-cinnabar)',
             }}
-            aria-hidden="true"
-          />
-          {/* Subtle bottom fade */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(to top, var(--color-ink) 0%, transparent 30%)',
-            }}
-            aria-hidden="true"
-          />
+          >
+            {HERO.secondaryCTA.label}
+          </Link>
         </div>
-
       </div>
     </section>
   )
