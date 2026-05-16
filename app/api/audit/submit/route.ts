@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { adminSupabase } from '@/lib/audit/supabase'
-import { AuditIntakeSchema } from '@/lib/audit/types'
+import { AuditIntakeSchema, type AuditIntake } from '@/lib/audit/types'
+import { leadNotifyEmail } from '@/lib/email/templates'
+import { sendEmail } from '@/lib/email/send'
 
 export const runtime = 'nodejs'
 
@@ -63,18 +65,21 @@ export async function POST(req: NextRequest) {
   return NextResponse.json({ ok: true, audit_id: data.id, share_token: data.share_token })
 }
 
-async function notifyOps(intake: { clinic_name: string; website_url: string; contact_email: string; city: string }, auditId: string) {
-  const apiKey = process.env.RESEND_API_KEY
-  if (!apiKey) return
+async function notifyOps(intake: AuditIntake, auditId: string) {
   const to = process.env.AUDIT_NOTIFY_EMAIL ?? 'topher.a.cook@gmail.com'
-  await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      from: 'Verve <noreply@vervemd.com>',
-      to: [to],
-      subject: `Audit started: ${intake.clinic_name}`,
-      html: `<p>Audit ID: ${auditId}</p><p>Clinic: ${intake.clinic_name} (${intake.city})</p><p>Website: ${intake.website_url}</p><p>Contact: ${intake.contact_email}</p>`,
-    }),
+  const base = process.env.PUBLIC_BASE_URL ?? 'https://vervemd.com'
+  const { subject, html, text } = leadNotifyEmail({
+    clinic_name: intake.clinic_name,
+    website_url: intake.website_url,
+    city: intake.city,
+    state: intake.state ?? null,
+    specialty: intake.specialty,
+    contact_name: intake.contact_name,
+    contact_email: intake.contact_email,
+    contact_phone: intake.contact_phone ?? null,
+    challenge: intake.challenge ?? null,
+    audit_id: auditId,
+    admin_url: `${base}/admin/audits/${auditId}`,
   })
+  await sendEmail({ to, subject, html, text, replyTo: intake.contact_email })
 }

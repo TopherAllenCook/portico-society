@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { runAudit } from '@/lib/audit/orchestrate'
 import { adminSupabase } from '@/lib/audit/supabase'
 import { seedNurtureQueue } from '@/lib/audit/nurture'
+import { auditReadyEmail } from '@/lib/email/templates'
+import { sendEmail } from '@/lib/email/send'
 
 export const runtime = 'nodejs'
 export const maxDuration = 300 // Vercel Pro: 5min ceiling; Hobby caps at 60s
@@ -33,34 +35,24 @@ export async function POST(req: NextRequest) {
 }
 
 async function deliverReadyEmail(jobId: string) {
-  const apiKey = process.env.RESEND_API_KEY
-  if (!apiKey) return
   const sb = adminSupabase()
   const { data } = await sb
     .from('audit_jobs')
-    .select('clinic_name, contact_email, contact_name, share_token, status')
+    .select('clinic_name, contact_email, contact_name, share_token, status, city')
     .eq('id', jobId)
     .single()
   if (!data || data.status === 'failed') return
 
   const reportUrl = `${process.env.PUBLIC_BASE_URL ?? 'https://vervemd.com'}/audit-report/${data.share_token}`
-  const html = `
-    <p>${data.contact_name},</p>
-    <p>Your AEO + marketing audit for ${data.clinic_name} is ready.</p>
-    <p><a href="${reportUrl}" style="background:#C44536;color:#FFF8EA;padding:12px 20px;text-decoration:none;border-radius:9999px;font-weight:600">View your audit</a></p>
-    <p style="color:#666;font-size:13px">Link is private to your inbox. Reply with questions and we'll walk you through it.</p>
-    <p>Verve MD</p>
-  `
-  await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      from: 'Verve <noreply@vervemd.com>',
-      to: [data.contact_email],
-      subject: `Your Verve audit: ${data.clinic_name}`,
-      html,
-    }),
+  const firstName = firstNameFrom(data.contact_name)
+  const { subject, html, text } = auditReadyEmail({
+    contact_first_name: firstName,
+    clinic_name: data.clinic_name,
+    report_url: reportUrl,
+    city: data.city ?? '',
   })
+  await sendEmail({ to: data.contact_email, subject, html, text })
+
   const deliveredAt = new Date()
   await sb.from('audit_jobs').update({ delivered_at: deliveredAt.toISOString() }).eq('id', jobId)
   try {
@@ -68,4 +60,11 @@ async function deliverReadyEmail(jobId: string) {
   } catch (err) {
     console.error('[audit/run] nurture seed failed', err)
   }
+}
+
+function firstNameFrom(full: string): string {
+  const trimmed = full.trim()
+  if (!trimmed) return 'there'
+  const noTitle = trimmed.replace(/^(dr|mr|mrs|ms|mx)\.?\s+/i, '')
+  return noTitle.split(/\s+/)[0]
 }
