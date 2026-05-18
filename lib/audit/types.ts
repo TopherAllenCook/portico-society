@@ -187,6 +187,29 @@ export interface Competitor {
   source: 'geo' | 'serp' | 'manual'
 }
 
+export interface CompetitorPageSummary {
+  url: string
+  title: string | null
+  word_count: number
+  jsonld_types: string[]
+  has_jsonld: boolean
+}
+
+export interface CompetitorSiteAudit {
+  domain: string
+  pages_crawled: number
+  pages: CompetitorPageSummary[]
+  /** Deduped union of schema types across all crawled pages. */
+  jsonld_types: string[]
+  avg_word_count: number
+  /** Subset of recommended clinic schema types that appear on at least one page. */
+  schema_coverage: string[]
+}
+
+export interface CompetitorCrawlPayload {
+  competitors: CompetitorSiteAudit[]
+}
+
 /* ─── Synthesis output ───────────────────────────────────────────────────── */
 
 export interface Scorecard {
@@ -205,6 +228,13 @@ export interface PrioritizedMove {
   impact: 'high' | 'medium' | 'low'
   effort: 'low' | 'medium' | 'high'
   pillar: 'seo' | 'aeo' | 'geo' | 'leadgen' | 'local'
+  /**
+   * Optional step-by-step checklist. When the synthesis returns concrete
+   * sub-tasks, the report renders them under the "How" paragraph as an
+   * actionable checklist. Older audits without `steps` fall back to the
+   * "How" prose alone.
+   */
+  steps?: string[]
 }
 
 export interface CompetitorEdge {
@@ -213,10 +243,36 @@ export interface CompetitorEdge {
   edges: string[] // short bullets describing why they win
 }
 
+export interface RecommendedPackage {
+  tier: 'essential' | 'growth' | 'full_service'
+  /** One sentence anchored to a specific finding in THIS audit. */
+  why: string
+  /** One sentence outcome in business terms (inquiry volume, CPC, etc.). */
+  estimated_lift: string
+}
+
 export interface SynthesisOutput {
   scorecard: Scorecard
   competitors: CompetitorEdge[]
   prioritized_moves: PrioritizedMove[]
   executive_summary: string
   narrative_markdown: string
+  /**
+   * One-sentence "overall readiness" interpretation grounded in this specific
+   * audit's data. Replaces the four canned `overallNarrative()` strings the
+   * UI used as a fallback. Optional for backward compat with older audits.
+   */
+  overall_narrative?: string
+  /**
+   * Recommended Verve package tier with reasoning. Drives the closing CTA
+   * section of the report. Optional for backward compat with audits run
+   * before this field was added.
+   */
+  recommended_package?: RecommendedPackage
+  /**
+   * 2-3 sentence personalized closing paragraph addressed to the founder.
+   * Ends with a discovery-call invitation. Rendered in the report's closing
+   * section. Optional for backward compat.
+   */
+  closing_cta?: string
 }
