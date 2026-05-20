@@ -1,8 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { adminSupabase } from '@/lib/audit/supabase'
 import { AuditIntakeSchema, type AuditIntake } from '@/lib/audit/types'
-import { leadNotifyEmail } from '@/lib/email/templates'
+import { auditAckEmail, leadNotifyEmail } from '@/lib/email/templates'
 import { sendEmail } from '@/lib/email/send'
+
+function firstNameFrom(full: string): string {
+  const trimmed = full.trim()
+  if (!trimmed) return 'there'
+  const noTitle = trimmed.replace(/^(dr|mr|mrs|ms|mx)\.?\s+/i, '')
+  return noTitle.split(/\s+/)[0]
+}
 
 export const runtime = 'nodejs'
 
@@ -62,7 +69,29 @@ export async function POST(req: NextRequest) {
   // Notify ops
   notifyOps(intake, data.id).catch((err) => console.error('[audit/submit] notify failed', err))
 
+  // Lead-facing acknowledgement. Best-effort: never block the response.
+  ackLead(intake, data.share_token).catch((err) => console.error('[audit/submit] ack failed', err))
+
   return NextResponse.json({ ok: true, audit_id: data.id, share_token: data.share_token })
+}
+
+async function ackLead(intake: AuditIntake, shareToken: string) {
+  const base = process.env.PUBLIC_BASE_URL ?? 'https://vervemd.com'
+  const unsubscribeUrl = `${base}/api/unsubscribe?token=${encodeURIComponent(shareToken)}`
+  const { subject, html, text } = auditAckEmail({
+    contact_first_name: firstNameFrom(intake.contact_name),
+    clinic_name: intake.clinic_name,
+    status_url: `${base}/audit-report/${shareToken}`,
+    unsubscribe_url: unsubscribeUrl,
+  })
+  await sendEmail({
+    to: intake.contact_email,
+    subject,
+    html,
+    text,
+    replyTo: 'hello@vervemd.com',
+    listUnsubscribeUrl: unsubscribeUrl,
+  })
 }
 
 async function notifyOps(intake: AuditIntake, auditId: string) {

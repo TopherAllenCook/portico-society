@@ -20,11 +20,15 @@ const COLORS = {
 } as const
 
 interface ShellOpts {
-  preheader: string  // hidden inbox preview
-  body: string       // raw HTML for the body cell
+  preheader: string         // hidden inbox preview
+  body: string              // raw HTML for the body cell
+  unsubscribeUrl?: string   // if set, renders an unsubscribe link in the outer footer
 }
 
-function shell({ preheader, body }: ShellOpts): string {
+function shell({ preheader, body, unsubscribeUrl }: ShellOpts): string {
+  const unsubLine = unsubscribeUrl
+    ? ` <a href="${unsubscribeUrl}" style="color:${COLORS.body};text-decoration:underline;">Unsubscribe</a> to stop these messages.`
+    : ''
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -73,7 +77,7 @@ function shell({ preheader, body }: ShellOpts): string {
         </table>
         <p style="font-size:11px;line-height:1.6;color:${COLORS.body};opacity:0.7;margin:18px 0 0 0;max-width:560px;">
           You're receiving this because you requested a free Verve MD audit.
-          Reply to this email if you didn't.
+          Reply to this email if you didn't.${unsubLine}
         </p>
       </td>
     </tr>
@@ -116,6 +120,7 @@ export interface AuditReadyArgs {
   clinic_name: string
   report_url: string
   city: string
+  unsubscribe_url: string
 }
 
 export function auditReadyEmail(args: AuditReadyArgs): { subject: string; html: string; text: string } {
@@ -131,13 +136,53 @@ export function auditReadyEmail(args: AuditReadyArgs): { subject: string; html: 
 
   return {
     subject: `Your Verve audit: ${args.clinic_name}`,
-    html: shell({ preheader: `Your AEO + marketing audit for ${args.clinic_name} is ready to view.`, body }),
+    html: shell({
+      preheader: `Your AEO + marketing audit for ${args.clinic_name} is ready to view.`,
+      body,
+      unsubscribeUrl: args.unsubscribe_url,
+    }),
     text:
       `${args.contact_first_name},\n\n` +
       `Your Verve MD audit for ${args.clinic_name} is ready.\n\n` +
       `View your audit: ${args.report_url}\n\n` +
       `Reply to this email with questions. The principal reads every response.\n\n` +
-      `— Verve MD\nhttps://vervemd.com`,
+      `— Verve MD\nhttps://vervemd.com\n` +
+      `Unsubscribe: ${args.unsubscribe_url}`,
+  }
+}
+
+export interface AuditAckArgs {
+  contact_first_name: string
+  clinic_name: string
+  status_url: string
+  unsubscribe_url: string
+}
+
+export function auditAckEmail(args: AuditAckArgs): { subject: string; html: string; text: string } {
+  const body = [
+    eyebrow('Audit in progress'),
+    display(`${args.contact_first_name}, we're on it.`),
+    para(`We received the audit request for ${args.clinic_name}. The pipeline is running now: AI search visibility, citation gaps, structured data, page performance, and inquiry-path conversion.`),
+    para(`Most audits land in your inbox within 10 minutes. If anything blocks the run, you'll hear from us directly.`),
+    pillButton(args.status_url, 'Check audit status'),
+    para(`Reply to this email anytime. The principal reads every response.`, { muted: true }),
+  ].join('\n')
+
+  return {
+    subject: `We're preparing your Verve audit: ${args.clinic_name}`,
+    html: shell({
+      preheader: `Your audit for ${args.clinic_name} is generating now. We'll email the report shortly.`,
+      body,
+      unsubscribeUrl: args.unsubscribe_url,
+    }),
+    text:
+      `${args.contact_first_name},\n\n` +
+      `We received your audit request for ${args.clinic_name} and the pipeline is running now.\n\n` +
+      `Most audits land in your inbox within 10 minutes. If anything blocks the run, you'll hear from us directly.\n\n` +
+      `Check status: ${args.status_url}\n\n` +
+      `Reply to this email anytime. The principal reads every response.\n\n` +
+      `— Verve MD\nhttps://vervemd.com\n` +
+      `Unsubscribe: ${args.unsubscribe_url}`,
   }
 }
 

@@ -1,4 +1,5 @@
 import { adminSupabase } from './supabase'
+import { sendEmail } from '@/lib/email/send'
 import type { Specialty } from './types'
 
 /**
@@ -26,12 +27,11 @@ export interface NurtureContext {
   report_url: string
   reply_to: string
   call_url: string
+  unsubscribe_url: string
 }
 
-const FROM = 'Verve <noreply@vervemd.com>'
-
-function shell(inner: string): string {
-  return `<div style="font-family:Georgia,serif;color:#1B1B1B;line-height:1.6;max-width:580px">${inner}<p style="margin-top:32px;font-size:13px;color:#666;font-family:-apple-system,sans-serif">Verve MD<br/>AI search authority and inquiry systems for established clinics.</p></div>`
+function shell(ctx: NurtureContext, inner: string): string {
+  return `<div style="font-family:Georgia,serif;color:#1B1B1B;line-height:1.6;max-width:580px">${inner}<p style="margin-top:32px;font-size:13px;color:#666;font-family:-apple-system,sans-serif">Verve MD<br/>AI search authority and inquiry systems for established clinics.</p><p style="margin-top:14px;font-size:11px;color:#999;font-family:-apple-system,sans-serif">Sent to a contact at ${ctx.clinic_name}. <a href="${ctx.unsubscribe_url}" style="color:#999;text-decoration:underline">Unsubscribe</a> to stop these follow-ups.</p></div>`
 }
 
 function specialtyTerm(s: Specialty): string {
@@ -49,7 +49,7 @@ export const NURTURE_STEPS: NurtureStep[] = [
     index: 1,
     dayOffset: 2,
     subject: (c) => `One move from your ${c.clinic_name} audit`,
-    html: (c) => shell(`
+    html: (c) => shell(c, `
       <p>${c.contact_first_name},</p>
       <p>Quick follow up on the audit we delivered for ${c.clinic_name}.</p>
       <p>Of the five prioritized moves in your report, one carries the most weight: closing the citation gap to the three ${specialtyTerm(c.specialty)} practices AI currently recommends in ${c.city}.</p>
@@ -64,7 +64,7 @@ export const NURTURE_STEPS: NurtureStep[] = [
     index: 2,
     dayOffset: 5,
     subject: () => `How clinics close the AI gap`,
-    html: (c) => shell(`
+    html: (c) => shell(c, `
       <p>${c.contact_first_name},</p>
       <p>What it actually takes to get named by ChatGPT, Perplexity, and Google's AI overview for a ${specialtyTerm(c.specialty)} query in a city like ${c.city}:</p>
       <ol>
@@ -81,7 +81,7 @@ export const NURTURE_STEPS: NurtureStep[] = [
     index: 3,
     dayOffset: 10,
     subject: (c) => `15 minutes to walk through your ${c.clinic_name} audit`,
-    html: (c) => shell(`
+    html: (c) => shell(c, `
       <p>${c.contact_first_name},</p>
       <p>Worth 15 minutes? I'll walk you through your audit, show you the AI overview captures behind the GEO score, and answer questions on the prioritized moves.</p>
       <p>No pitch. If we're a fit at the end, we'll talk about it. If not, you keep the audit.</p>
@@ -95,7 +95,7 @@ export const NURTURE_STEPS: NurtureStep[] = [
     index: 4,
     dayOffset: 21,
     subject: () => `Still relevant?`,
-    html: (c) => shell(`
+    html: (c) => shell(c, `
       <p>${c.contact_first_name},</p>
       <p>Closing the loop on the ${c.clinic_name} audit. Two questions:</p>
       <ol>
@@ -111,7 +111,7 @@ export const NURTURE_STEPS: NurtureStep[] = [
     index: 5,
     dayOffset: 45,
     subject: () => `Your AI visibility, six weeks later`,
-    html: (c) => shell(`
+    html: (c) => shell(c, `
       <p>${c.contact_first_name},</p>
       <p>The AI search landscape moves fast. Six weeks on, the ${specialtyTerm(c.specialty)} clinics ChatGPT named for ${c.city} may have changed. The clinics on top now will be hard to dislodge in six months.</p>
       <p>If you'd like a refreshed AI visibility snapshot (no charge), reply with the word "refresh" and I'll re-run it.</p>
@@ -176,25 +176,29 @@ export async function processDueNurture(): Promise<{ sent: number; failed: numbe
     const step = NURTURE_STEPS.find((s) => s.key === row.step_key)
     if (!step) { await markStatus(row.id, 'skipped'); skipped++; continue }
 
+    const base = process.env.PUBLIC_BASE_URL ?? 'https://vervemd.com'
     const ctx: NurtureContext = {
       clinic_name: job.clinic_name,
       contact_first_name: firstName(job.contact_name),
       city: job.city,
       specialty: job.specialty as Specialty,
-      report_url: `${process.env.PUBLIC_BASE_URL ?? 'https://vervemd.com'}/audit-report/${job.share_token}`,
+      report_url: `${base}/audit-report/${job.share_token}`,
       reply_to: process.env.NURTURE_REPLY_TO ?? 'topher.a.cook@gmail.com',
       call_url: process.env.NURTURE_CALL_URL ?? 'https://cal.com/vervemd/audit-review',
+      unsubscribe_url: `${base}/api/unsubscribe?token=${encodeURIComponent(job.share_token)}`,
     }
 
     try {
-      const resendId = await sendViaResend({
+      const sent_res = await sendEmail({
         to: job.contact_email,
         subject: step.subject(ctx),
         html: step.html(ctx),
         replyTo: ctx.reply_to,
+        listUnsubscribeUrl: ctx.unsubscribe_url,
       })
+      if (!sent_res) throw new Error('sendEmail returned null (missing RESEND_API_KEY in non-prod?)')
       await sb.from('audit_followups').update({
-        status: 'sent', sent_at: new Date().toISOString(), resend_id: resendId,
+        status: 'sent', sent_at: new Date().toISOString(), resend_id: sent_res.id,
       }).eq('id', row.id)
       await sb.from('audit_email_events').insert({
         job_id: job.id, followup_id: row.id, event_type: 'sent', payload: { step: row.step_key },
@@ -224,21 +228,3 @@ function firstName(full: string): string {
   return noTitle.split(/\s+/)[0]
 }
 
-async function sendViaResend(args: { to: string; subject: string; html: string; replyTo: string }): Promise<string> {
-  const apiKey = process.env.RESEND_API_KEY
-  if (!apiKey) throw new Error('RESEND_API_KEY missing')
-  const res = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      from: FROM,
-      to: [args.to],
-      reply_to: args.replyTo,
-      subject: args.subject,
-      html: args.html,
-    }),
-  })
-  if (!res.ok) throw new Error(`resend ${res.status}: ${await res.text()}`)
-  const json = await res.json() as { id?: string }
-  return json.id ?? ''
-}
