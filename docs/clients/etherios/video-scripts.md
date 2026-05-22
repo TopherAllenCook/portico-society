@@ -1,8 +1,8 @@
 # Etherios — Pre-Consult Video Scripts
 
-Three 30-second videos to embed in the post-booking sequence. Each addresses a specific drop-off cause and slots into a specific touchpoint.
+Four 30-second videos to embed in the post-booking sequence. Each addresses a specific drop-off cause and slots into a specific touchpoint.
 
-**Production notes for all three:**
+**Production notes for all four:**
 - Shot in the actual clinic or the clinician's actual office. Not a studio. Not a green screen.
 - Clinician wears what they'd wear to a consult. No white coat unless they actually wear one.
 - Direct-to-camera, eye-level, single take preferred. No B-roll cuts mid-sentence.
@@ -33,7 +33,31 @@ Three 30-second videos to embed in the post-booking sequence. Each addresses a s
 
 ---
 
-## Video 2 — "About the cost"
+## Video 2 — "Meet your clinician + Spravato primer"
+
+**Goal:** Put a face to the consult and give the patient something to read so they feel prepared rather than ambushed.
+**Slot into sequence:** Embedded in the personal clinician note (touch #2) or in a standalone email at T+24 hours after booking.
+**On camera:** The clinician the patient is booked with, in the consult room they'll actually use.
+**Length:** ~30 seconds, 76 words.
+
+---
+
+> Hi, I'm [Clinician Name]. I'll be the face you see on your consultation call.
+>
+> On the call, we'll go over anything you want to talk through — your history, what you're hoping for, questions you've been holding on to. Nothing is off the table.
+>
+> In the meantime, I've sent over a short guide to Spravato and how we work with it here at Etherios. Take a look when you have a minute. We'll pick it up from there.
+
+**Why this works:**
+- "The face you see on your consultation call" lands harder than "I'll be your clinician." It tells the patient exactly what to expect visually, which lowers anticipatory anxiety.
+- "Nothing is off the table" gives explicit permission to bring up cost, fear, family pushback, prior bad experiences — the things patients usually self-censor.
+- Pairing the video with a written Spravato primer means the patient has homework that doesn't feel like homework. They arrive informed, which makes the consult more productive and the no-show less likely.
+
+**Companion asset required:** A 1-page Spravato primer (PDF or web page). Should cover: what it is, what a session looks like, the 2-hour observation period, the REMS requirement, insurance reality, and what makes Etherios's approach specific. Do not skip this — the video promises it.
+
+---
+
+## Video 3 — "About the cost"
 
 **Goal:** Remove cost ambiguity before the patient talks to a partner or parent who asks "how much?"
 **Slot into sequence:** Embedded in the T-72 hours email (touch #3).
@@ -55,7 +79,7 @@ Three 30-second videos to embed in the post-booking sequence. Each addresses a s
 
 ---
 
-## Video 3 — "If today doesn't feel like the day"
+## Video 4 — "If today doesn't feel like the day"
 
 **Goal:** Convert no-shows into reschedules. This is the highest-leverage video in the set.
 **Slot into sequence:** Linked from the T-3 hour day-of SMS (touch #5) and from the no-show recovery SMS (touch #6).
@@ -79,11 +103,12 @@ Three 30-second videos to embed in the post-booking sequence. Each addresses a s
 
 If production bandwidth is limited, shoot in this order:
 
-1. **Video 3 first.** Highest impact on show rate. Goes in the SMS that recovers the most patients.
+1. **Video 4 first.** Highest impact on show rate. Goes in the SMS that recovers the most patients.
 2. **Video 1 second.** Sets the tone for the entire funnel and reduces the comparison-shopping problem.
-3. **Video 2 last.** Important, but the written cost language in the T-72 email carries most of the load even without video.
+3. **Video 2 third.** Pairs with the Spravato primer and gives patients something to do while they wait.
+4. **Video 3 last.** Important, but the written cost language in the T-72 email carries most of the load even without video.
 
-One shoot day with the clinician on camera should yield all three plus alternates.
+One shoot day with the clinician on camera should yield all four plus alternates.
 
 ---
 
