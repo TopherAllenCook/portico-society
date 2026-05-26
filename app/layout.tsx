@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Fraunces } from 'next/font/google'
 import JsonLd from '@/components/verve/JsonLd'
+import CalScript from '@/components/verve/CalScript'
 import './globals.css'
 
 const fraunces = Fraunces({
@@ -80,6 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {children}
         <JsonLd />
+        <CalScript />
       </body>
     </html>
   )

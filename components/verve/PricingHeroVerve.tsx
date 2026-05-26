@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import CalButton from './CalButton'
 
 export default function PricingHeroVerve() {
   return (
@@ -69,15 +70,15 @@ export default function PricingHeroVerve() {
             Book your free audit
             <span aria-hidden="true">↗</span>
           </Link>
+          <CalButton
+            label="Talk to founder"
+            variant="secondary"
+            style={{ padding: '0.875rem 1.75rem', background: '#fff', borderColor: 'var(--color-ink-rule)' }}
+          />
           <Link
             href="#pricing-packages-heading"
-            className="inline-flex items-center gap-2 rounded-full border bg-white px-7 py-3.5 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
-            style={{
-              borderColor: 'var(--color-ink-rule)',
-              color: 'var(--color-ink)',
-              fontFamily: 'var(--font-body)',
-              outlineColor: 'var(--color-cinnabar)',
-            }}
+            className="text-sm underline-offset-4 hover:underline"
+            style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
           >
             Compare packages
           </Link>

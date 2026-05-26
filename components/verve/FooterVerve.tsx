@@ -29,6 +29,7 @@ export default function FooterVerve() {
               { label: 'AI Systems', href: '/ai' },
               { label: 'Pricing', href: '/pricing' },
               { label: 'Free Audit', href: '/audit' },
+              { label: 'Contact', href: '/contact' },
               { label: 'Privacy', href: '/privacy' },
               { label: 'Terms', href: '/terms' },
             ].map(({ label, href }) => (
@@ -44,13 +45,22 @@ export default function FooterVerve() {
           </nav>
         </div>
 
-        <p
-          className="mt-12 text-xs"
+        <div
+          className="mt-12 flex flex-wrap items-center justify-between gap-3 text-xs"
           style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
-          suppressHydrationWarning
         >
-          © {new Date().getFullYear()} Verve MD. All rights reserved.
-        </p>
+          <p suppressHydrationWarning>© {new Date().getFullYear()} Verve MD. All rights reserved.</p>
+          <p>
+            <a
+              href="mailto:hello@vervemd.com?subject=Hello%20from%20vervemd.com"
+              className="opacity-70 hover:opacity-100 underline-offset-4 hover:underline focus-visible:opacity-100"
+              style={{ color: 'var(--color-ivory)' }}
+            >
+              hello@vervemd.com
+            </a>
+            {/* TODO: add tel: link once 385 area code confirmed (or replace with confirmed number) */}
+          </p>
+        </div>
       </div>
     </footer>
   )

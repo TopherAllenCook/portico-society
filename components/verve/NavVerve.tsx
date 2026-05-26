@@ -6,6 +6,9 @@ import CTAButton from './CTAButton'
 
 const NAV_LINK = 'text-sm font-medium transition-opacity hover:opacity-100 opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 rounded-sm'
 
+const CAL_LINK = 'christopher-cook-jfcxhu/verve-discovery'
+const CAL_NAMESPACE = 'verve-discovery'
+
 interface NavVerveProps {
   /** Use ink text + ivory fade when the hero below is on a light surface. Default false (dark hero). */
   light?: boolean
@@ -48,9 +51,19 @@ export default function NavVerve({ light = false }: NavVerveProps) {
         <Link href="/pricing" className={NAV_LINK} style={{ color: textColor, outlineColor: focusOutline, fontFamily: 'var(--font-body)' }}>
           Pricing
         </Link>
-        <Link href="/audit" className={NAV_LINK} style={{ color: textColor, outlineColor: focusOutline, fontFamily: 'var(--font-body)' }}>
-          Free Audit
+        <Link href="/contact" className={NAV_LINK} style={{ color: textColor, outlineColor: focusOutline, fontFamily: 'var(--font-body)' }}>
+          Contact
         </Link>
+        <button
+          type="button"
+          data-cal-link={CAL_LINK}
+          data-cal-namespace={CAL_NAMESPACE}
+          data-cal-config='{"layout":"month_view"}'
+          className={NAV_LINK}
+          style={{ color: textColor, outlineColor: focusOutline, fontFamily: 'var(--font-body)', background: 'transparent', cursor: 'pointer' }}
+        >
+          Book a call
+        </button>
         <CTAButton href="/audit" label="Get Free Audit" variant="primary" />
       </nav>
 
@@ -83,7 +96,18 @@ export default function NavVerve({ light = false }: NavVerveProps) {
         <Link href="/#services" className={NAV_LINK} style={{ color: textColor }} onClick={() => setOpen(false)}>Services</Link>
         <Link href="/ai" className={NAV_LINK} style={{ color: textColor }} onClick={() => setOpen(false)}>AI</Link>
         <Link href="/pricing" className={NAV_LINK} style={{ color: textColor }} onClick={() => setOpen(false)}>Pricing</Link>
-        <Link href="/audit" className={NAV_LINK} style={{ color: textColor }} onClick={() => setOpen(false)}>Free Audit</Link>
+        <Link href="/contact" className={NAV_LINK} style={{ color: textColor }} onClick={() => setOpen(false)}>Contact</Link>
+        <button
+          type="button"
+          data-cal-link={CAL_LINK}
+          data-cal-namespace={CAL_NAMESPACE}
+          data-cal-config='{"layout":"month_view"}'
+          className={`${NAV_LINK} text-left`}
+          style={{ color: textColor, fontFamily: 'var(--font-body)', background: 'transparent', cursor: 'pointer' }}
+          onClick={() => setOpen(false)}
+        >
+          Book a call
+        </button>
         <CTAButton href="/audit" label="Get Free Audit" variant="primary" className="w-fit" />
       </div>
     </header>
