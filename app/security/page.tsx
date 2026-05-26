@@ -2,11 +2,28 @@ import type { Metadata } from 'next'
 import NavVerve from '@/components/verve/NavVerve'
 import FooterVerve from '@/components/verve/FooterVerve'
 
+const SECURITY_TITLE = 'Security & HIPAA'
+const SECURITY_DESC =
+  'How Verve MD handles patient data, HIPAA, BAAs, and vendor risk. Verve does not store PHI; marketing-only signals stay on our systems.'
+const SECURITY_URL = 'https://www.vervemd.com/security'
+
 export const metadata: Metadata = {
-  title: 'Security & HIPAA',
-  description:
-    'How Verve MD handles patient data, HIPAA, BAAs, and vendor risk. Verve does not store PHI; marketing-only signals stay on our systems.',
-  alternates: { canonical: 'https://www.vervemd.com/security' },
+  title: SECURITY_TITLE,
+  description: SECURITY_DESC,
+  alternates: { canonical: SECURITY_URL },
+  openGraph: {
+    title: `${SECURITY_TITLE} · Verve MD`,
+    description: SECURITY_DESC,
+    url: SECURITY_URL,
+    type: 'website',
+    images: ['/opengraph-image'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${SECURITY_TITLE} · Verve MD`,
+    description: SECURITY_DESC,
+    images: ['/twitter-image'],
+  },
 }
 
 export default function SecurityPage() {

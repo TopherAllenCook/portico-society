@@ -11,6 +11,18 @@ const organization = {
   description:
     'Marketing systems for longevity, concierge, and aesthetic medicine practices. SEO, AEO, paid media, AI patient agents.',
   email: 'hello@vervemd.com',
+  telephone: '+1-385-275-6931',
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      email: 'hello@vervemd.com',
+      telephone: '+1-385-275-6931',
+      areaServed: 'US',
+      availableLanguage: ['en'],
+    },
+  ],
+  // sameAs: add LinkedIn / X URLs once published.
   sameAs: [],
 }
 
@@ -46,6 +58,14 @@ const website = {
   name: 'Verve MD',
   publisher: { '@id': `${BASE_URL}#organization` },
   inLanguage: 'en-US',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${BASE_URL}/?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
 }
 
 const offers = [

@@ -1,25 +1,25 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Verve MD — Brand assets',
+  title: 'Brand Assets',
   robots: { index: false, follow: false },
 }
 
 const ASSETS = [
   {
-    name: 'Wordmark — Light',
+    name: 'Wordmark, Light',
     file: '/brand/wordmark-light.svg',
     bg: 'var(--color-ivory)',
     note: 'Default. Use on ivory, sand, or other warm light surfaces.',
   },
   {
-    name: 'Wordmark — Dark',
+    name: 'Wordmark, Dark',
     file: '/brand/wordmark-dark.svg',
     bg: 'var(--color-ink)',
     note: 'Use on charcoal, deep terracotta, or photographic dark backgrounds.',
   },
   {
-    name: 'Wordmark — Mono',
+    name: 'Wordmark, Mono',
     file: '/brand/wordmark-mono.svg',
     bg: 'var(--color-ivory)',
     note: 'Single-color contexts (one-color print, embossing, faxes).',
@@ -246,7 +246,7 @@ function SectionHeader({ title, dim }: { title: string; dim: string }) {
 const PALETTE = [
   { name: 'Ink', hex: '#211c18', role: 'Primary text + dark surfaces' },
   { name: 'Ivory', hex: '#f1ead9', role: 'Primary background' },
-  { name: 'Cinnabar', hex: '#a14823', role: 'Accent — use sparingly' },
+  { name: 'Cinnabar', hex: '#a14823', role: 'Accent; use sparingly' },
   { name: 'Cinnabar pale', hex: '#d68d63', role: 'Accent on dark surfaces' },
   { name: 'Sand', hex: '#e6d9b8', role: 'Editorial accent block' },
   { name: 'Stone', hex: '#e0d8c8', role: 'Section dividers' },

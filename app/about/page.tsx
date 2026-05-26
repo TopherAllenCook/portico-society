@@ -3,11 +3,28 @@ import NavVerve from '@/components/verve/NavVerve'
 import FooterVerve from '@/components/verve/FooterVerve'
 import CalButton from '@/components/verve/CalButton'
 
+const ABOUT_TITLE = 'About'
+const ABOUT_DESC =
+  'Chris Cook on why Verve MD exists, who it is built for, and what a "marketing systems builder" actually does for longevity and aesthetic medicine practices.'
+const ABOUT_URL = 'https://www.vervemd.com/about'
+
 export const metadata: Metadata = {
-  title: 'About',
-  description:
-    'Chris Cook on why Verve MD exists, who it is built for, and what a "marketing systems builder" actually does for longevity and aesthetic medicine practices.',
-  alternates: { canonical: 'https://www.vervemd.com/about' },
+  title: ABOUT_TITLE,
+  description: ABOUT_DESC,
+  alternates: { canonical: ABOUT_URL },
+  openGraph: {
+    title: `${ABOUT_TITLE} · Verve MD`,
+    description: ABOUT_DESC,
+    url: ABOUT_URL,
+    type: 'profile',
+    images: ['/opengraph-image'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${ABOUT_TITLE} · Verve MD`,
+    description: ABOUT_DESC,
+    images: ['/twitter-image'],
+  },
 }
 
 // DRAFT bio composed from saved positioning memory. Chris to review and edit.

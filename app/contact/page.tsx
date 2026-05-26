@@ -4,10 +4,37 @@ import FooterVerve from '@/components/verve/FooterVerve'
 import InquiryFormVerve from '@/components/verve/InquiryFormVerve'
 import CalButton from '@/components/verve/CalButton'
 
+const CONTACT_TITLE = 'Contact'
+const CONTACT_DESC =
+  'Talk to the founder of Verve MD. Reply within one business day. Or book a 25-minute discovery call.'
+const CONTACT_URL = 'https://www.vervemd.com/contact'
+
 export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Talk to the founder. Reply within one business day. Or book a 25-minute discovery call.',
-  alternates: { canonical: 'https://www.vervemd.com/contact' },
+  title: CONTACT_TITLE,
+  description: CONTACT_DESC,
+  alternates: { canonical: CONTACT_URL },
+  openGraph: {
+    title: `${CONTACT_TITLE} · Verve MD`,
+    description: CONTACT_DESC,
+    url: CONTACT_URL,
+    type: 'website',
+    images: ['/opengraph-image'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${CONTACT_TITLE} · Verve MD`,
+    description: CONTACT_DESC,
+    images: ['/twitter-image'],
+  },
+}
+
+const contactBreadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.vervemd.com' },
+    { '@type': 'ListItem', position: 2, name: 'Contact', item: CONTACT_URL },
+  ],
 }
 
 export default function ContactPage() {
@@ -136,6 +163,10 @@ export default function ContactPage() {
         </section>
       </main>
       <FooterVerve />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactBreadcrumbLd) }}
+      />
     </>
   )
 }

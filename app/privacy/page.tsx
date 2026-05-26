@@ -3,8 +3,22 @@ import NavVerve from '@/components/verve/NavVerve'
 import FooterVerve from '@/components/verve/FooterVerve'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy: Verve MD',
+  title: 'Privacy Policy',
   description: 'How Verve Clinic Marketing collects, uses, and protects your information.',
+  alternates: { canonical: 'https://www.vervemd.com/privacy' },
+  openGraph: {
+    title: 'Privacy Policy · Verve MD',
+    description: 'How Verve Clinic Marketing collects, uses, and protects your information.',
+    url: 'https://www.vervemd.com/privacy',
+    type: 'website',
+    images: ['/opengraph-image'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Policy · Verve MD',
+    description: 'How Verve Clinic Marketing collects, uses, and protects your information.',
+    images: ['/twitter-image'],
+  },
 }
 
 const sections = [
