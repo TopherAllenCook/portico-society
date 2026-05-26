@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396" width="1584" height="396" role="img" aria-label="Verve MD — Brand strategy for longevity, concierge, and aesthetic medicine.">
+  <title>Verve MD — Brand strategy for longevity, concierge, and aesthetic medicine</title>
+
+  <!-- Background: warm ivory -->
+  <rect width="1584" height="396" fill="#f1ead9"/>
+
+  <!-- Subtle sand block on the right third for editorial weight -->
+  <rect x="1056" y="0" width="528" height="396" fill="#e6d9b8" opacity="0.55"/>
+
+  <!-- Top hairline rule -->
+  <line x1="96" y1="56" x2="1488" y2="56" stroke="#211c18" stroke-opacity="0.12" stroke-width="1"/>
+
+  <!-- Top eyebrow label -->
+  <text
+    x="96" y="80"
+    font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
+    font-size="13"
+    font-weight="500"
+    letter-spacing="3"
+    fill="#6e5f4a">VERVE&#160;MEDICAL&#160;BRAND&#160;&amp;&#160;DESIGN</text>
+
+  <!-- Wordmark -->
+  <text
+    x="96" y="240"
+    font-family="Fraunces, 'Fraunces 144pt', Georgia, 'Times New Roman', serif"
+    font-weight="600"
+    font-size="148"
+    letter-spacing="-4"
+    fill="#211c18">Verve</text>
+  <text
+    x="528" y="240"
+    font-family="Fraunces, 'Fraunces 144pt', Georgia, 'Times New Roman', serif"
+    font-weight="600"
+    font-size="92"
+    letter-spacing="2"
+    fill="#a14823">MD</text>
+
+  <!-- Tagline / positioning line -->
+  <text
+    x="96" y="296"
+    font-family="Fraunces, Georgia, 'Times New Roman', serif"
+    font-weight="400"
+    font-style="italic"
+    font-size="28"
+    fill="#3a3128">Brand strategy for longevity, concierge, and aesthetic medicine.</text>
+
+  <!-- Bottom hairline rule -->
+  <line x1="96" y1="340" x2="1488" y2="340" stroke="#211c18" stroke-opacity="0.12" stroke-width="1"/>
+
+  <!-- Footer meta row -->
+  <text
+    x="96" y="364"
+    font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
+    font-size="12"
+    font-weight="500"
+    letter-spacing="2"
+    fill="#6e5f4a">VERVEMD.COM</text>
+  <text
+    x="1488" y="364"
+    text-anchor="end"
+    font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
+    font-size="12"
+    font-weight="500"
+    letter-spacing="2"
+    fill="#6e5f4a">EST.&#160;2026</text>
+
+  <!-- Right column editorial pillars -->
+  <g transform="translate(1128, 110)">
+    <text
+      x="0" y="0"
+      font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
+      font-size="12"
+      font-weight="600"
+      letter-spacing="2.5"
+      fill="#6e5f4a">FIVE&#160;PILLARS</text>
+
+    <g font-family="Fraunces, Georgia, serif" font-size="22" font-weight="500" fill="#211c18">
+      <text x="0" y="40">SEO</text>
+      <text x="0" y="74">AEO</text>
+      <text x="0" y="108">GEO</text>
+      <text x="0" y="142">LEADGEN</text>
+      <text x="0" y="176">LOCAL</text>
+    </g>
+
+    <!-- vertical cinnabar rule alongside pillar list -->
+    <line x1="-20" y1="20" x2="-20" y2="184" stroke="#a14823" stroke-width="2"/>
+  </g>
+</svg>

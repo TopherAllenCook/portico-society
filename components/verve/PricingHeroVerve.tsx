@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import CalButton from './CalButton'
 
 export default function PricingHeroVerve() {
   return (
@@ -11,12 +12,12 @@ export default function PricingHeroVerve() {
         {/* Trust pill */}
         <div className="flex justify-center">
           <span
-            className="inline-flex items-center gap-2 rounded-full border bg-white px-4 py-1.5 text-xs font-medium"
+            className="inline-flex items-center gap-2 rounded-full border bg-[var(--color-paper)] px-4 py-1.5 text-xs font-medium"
             style={{
               borderColor: 'var(--color-ink-rule)',
               color: 'var(--color-ink)',
               fontFamily: 'var(--font-body)',
-              boxShadow: '0 4px 16px oklch(14% 0.012 50 / 0.04)',
+              boxShadow: 'var(--shadow-pill)',
             }}
           >
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
@@ -69,15 +70,15 @@ export default function PricingHeroVerve() {
             Book your free audit
             <span aria-hidden="true">↗</span>
           </Link>
+          <CalButton
+            label="Talk to founder"
+            variant="secondary"
+            style={{ padding: '0.875rem 1.75rem', background: 'var(--color-paper)', borderColor: 'var(--color-ink-rule)' }}
+          />
           <Link
             href="#pricing-packages-heading"
-            className="inline-flex items-center gap-2 rounded-full border bg-white px-7 py-3.5 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
-            style={{
-              borderColor: 'var(--color-ink-rule)',
-              color: 'var(--color-ink)',
-              fontFamily: 'var(--font-body)',
-              outlineColor: 'var(--color-cinnabar)',
-            }}
+            className="text-sm underline-offset-4 hover:underline"
+            style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
           >
             Compare packages
           </Link>

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { after, NextRequest, NextResponse } from 'next/server'
 import { adminSupabase } from '@/lib/audit/supabase'
 import { AuditIntakeSchema, type AuditIntake } from '@/lib/audit/types'
 import { auditAckEmail, leadNotifyEmail } from '@/lib/email/templates'
@@ -51,23 +51,46 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'submit_failed' }, { status: 500 })
   }
 
-  // Fire-and-forget the runner. In production this should be queued
-  // (Trigger.dev / Inngest / QStash). For now we hit the run endpoint
-  // with an internal token so the function survives the request returning.
+  // Background work after the response is sent. `after()` keeps the
+  // serverless function alive long enough for these to complete instead
+  // of getting nuked when the request returns (the old fire-and-forget
+  // pattern was racing the function shutdown — caused ~30% of audits to
+  // never start until the recovery cron picked them up). See:
+  //   https://nextjs.org/docs/app/api-reference/functions/after
   const runUrl = new URL('/api/audit/run', req.nextUrl.origin)
   const token = process.env.AUDIT_RUN_TOKEN
-  if (token) {
-    fetch(runUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-audit-run-token': token },
-      body: JSON.stringify({ audit_id: data.id }),
-    }).catch((err) => console.error('[audit/submit] runner kick failed', err))
-  } else {
-    console.warn('[audit/submit] AUDIT_RUN_TOKEN not set — job created but runner not kicked')
-  }
 
-  // Notify ops
-  notifyOps(intake, data.id).catch((err) => console.error('[audit/submit] notify failed', err))
+  after(async () => {
+    if (!token) {
+      console.warn('[audit/submit] AUDIT_RUN_TOKEN not set — job created but runner not kicked')
+      return
+    }
+    try {
+      await fetch(runUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-audit-run-token': token },
+        body: JSON.stringify({ audit_id: data.id }),
+      })
+    } catch (err) {
+      console.error('[audit/submit] runner kick failed', err)
+    }
+  })
+
+  after(async () => {
+    try {
+      await notifyOps(intake, data.id)
+    } catch (err) {
+      console.error('[audit/submit] notify failed', err)
+    }
+  })
+
+  after(async () => {
+    try {
+      await ackLead(intake, data.share_token)
+    } catch (err) {
+      console.error('[audit/submit] ack failed', err)
+    }
+  })
 
   // Lead-facing acknowledgement. Best-effort: never block the response.
   ackLead(intake, data.share_token).catch((err) => console.error('[audit/submit] ack failed', err))

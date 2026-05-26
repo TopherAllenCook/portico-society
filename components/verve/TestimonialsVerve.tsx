@@ -54,7 +54,7 @@ export default function TestimonialsVerve() {
               className="text-xs"
               style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
             >
-              {featured.title}, {featured.clinicType}
+              {featured.title ? `${featured.title}, ${featured.clinicType}` : featured.clinicType}
             </p>
           </footer>
         </blockquote>

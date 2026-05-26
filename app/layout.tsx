@@ -1,5 +1,7 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Fraunces } from 'next/font/google'
+import JsonLd from '@/components/verve/JsonLd'
+import CalScript from '@/components/verve/CalScript'
 import './globals.css'
 
 const fraunces = Fraunces({
@@ -9,21 +11,78 @@ const fraunces = Fraunces({
   display: 'swap',
 })
 
+const SITE_URL = 'https://www.vervemd.com'
+const SITE_NAME = 'Verve MD'
+const SITE_TITLE = 'Verve MD: Marketing for Longevity & Aesthetics Clinics'
+const SITE_DESCRIPTION =
+  'Patient acquisition systems for longevity, concierge, and aesthetic medicine. AI search visibility, paid media, lead capture, reputation. Free audit, no sales call.'
+
 export const metadata: Metadata = {
-  title: 'Verve MD: Marketing for Longevity & Aesthetics Clinics',
-  description:
-    'We help longevity and aesthetics clinics make more money. SEO, PPC, AI tools, and web design built exclusively for longevity and aesthetics practices.',
-  openGraph: {
-    title: 'Verve MD',
-    description: 'We help longevity and aesthetics clinics make more money.',
-    type: 'website',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: '%s · Verve MD',
   },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: 'Verve MD', url: SITE_URL }],
+  keywords: [
+    'longevity clinic marketing',
+    'aesthetics marketing',
+    'med spa marketing',
+    'AEO',
+    'answer engine optimization',
+    'AI search visibility',
+    'patient acquisition',
+    'concierge medicine marketing',
+  ],
+  alternates: {
+    canonical: SITE_URL,
+  },
+  openGraph: {
+    type: 'website',
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  category: 'business',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f1ead9' },
+    { media: '(prefers-color-scheme: dark)', color: '#211c18' },
+  ],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={fraunces.variable}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <JsonLd />
+        <CalScript />
+      </body>
     </html>
   )
 }

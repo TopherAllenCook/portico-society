@@ -37,6 +37,19 @@
   --color-label-text:       oklch(42% 0.008 55);   /* warm label/meta text */
   --color-ink-muted:        oklch(55% 0.006 55);   /* muted display text */
 
+  /* Elevated surfaces — warmer than #fff, brighter than ivory page */
+  --color-paper:            oklch(98% 0.01 82);    /* trust pills, floating chips, secondary CTAs */
+
+  /* Decorative dashed ring on light surfaces */
+  --color-ink-ring:         oklch(14% 0.012 50 / 0.18);
+
+  /* Box shadows — use these instead of raw oklch in component style props */
+  --shadow-pill:            0 4px 16px oklch(14% 0.012 50 / 0.04);
+  --shadow-chip:            0 4px 16px oklch(14% 0.012 50 / 0.06);
+  --shadow-card-soft:       0 20px 60px oklch(14% 0.012 50 / 0.10);
+  --shadow-card:            0 20px 60px oklch(14% 0.012 50 / 0.12);
+  --shadow-card-lg:         0 30px 80px oklch(14% 0.012 50 / 0.15);
+
   /* Typography: Fraunces display + SF Pro system body */
   --font-display: var(--font-fraunces), Georgia, serif;
   --font-body:    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;

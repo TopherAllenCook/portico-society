@@ -56,7 +56,7 @@ export const NURTURE_STEPS: NurtureStep[] = [
       <p>Everything else (technical SEO, schema, lead-gen polish) sits on top of that foundation. If you only do one thing this quarter, it's that.</p>
       <p>The full report is still here: <a href="${c.report_url}">${c.report_url}</a></p>
       <p>Reply with the move that surprised you most. I read every response.</p>
-      <p>— Verve MD</p>
+      <p>Verve MD</p>
     `),
   },
   {
@@ -73,7 +73,7 @@ export const NURTURE_STEPS: NurtureStep[] = [
         <li>Schema markup the AI engines actually read. <code>Physician</code>, <code>MedicalClinic</code>, <code>Service</code>, <code>FAQPage</code>. Not generic <code>LocalBusiness</code>.</li>
       </ol>
       <p>That's the work. It's specific and it's measurable. Audit link: <a href="${c.report_url}">${c.report_url}</a></p>
-      <p>— Verve MD</p>
+      <p>Verve MD</p>
     `),
   },
   {
@@ -87,7 +87,8 @@ export const NURTURE_STEPS: NurtureStep[] = [
       <p>No pitch. If we're a fit at the end, we'll talk about it. If not, you keep the audit.</p>
       <p><a href="${c.call_url}" style="display:inline-block;background:#C44536;color:#FFF8EA;padding:12px 22px;border-radius:9999px;text-decoration:none;font-family:-apple-system,sans-serif;font-weight:600">Pick a time</a></p>
       <p>Or just reply with a few windows.</p>
-      <p>— Verve MD</p>
+      <p style="margin-top:24px;padding-top:18px;border-top:1px solid #E5DCC9;font-size:14px;color:#56473e">Prefer to run the moves yourself first? The Clinic Brand Self-Audit Kit ($149) is the same framework as a self-serve operating doc. <a href="https://vervemd.com/kit" style="color:#C44536">See what's inside</a>. The $149 credits toward a paid audit if you decide to bring us in later.</p>
+      <p>Verve MD</p>
     `),
   },
   {
@@ -103,7 +104,7 @@ export const NURTURE_STEPS: NurtureStep[] = [
         <li>If yes, what's blocking the team from acting on the audit?</li>
       </ol>
       <p>A one-line reply is enough. If now isn't the right moment I'll set this aside and check back in six weeks.</p>
-      <p>— Verve MD</p>
+      <p>Verve MD</p>
     `),
   },
   {
@@ -116,7 +117,7 @@ export const NURTURE_STEPS: NurtureStep[] = [
       <p>The AI search landscape moves fast. Six weeks on, the ${specialtyTerm(c.specialty)} clinics ChatGPT named for ${c.city} may have changed. The clinics on top now will be hard to dislodge in six months.</p>
       <p>If you'd like a refreshed AI visibility snapshot (no charge), reply with the word "refresh" and I'll re-run it.</p>
       <p>Original audit: <a href="${c.report_url}">${c.report_url}</a></p>
-      <p>— Verve MD</p>
+      <p>Verve MD</p>
     `),
   },
 ]

@@ -6,6 +6,12 @@ import CTAButton from './CTAButton'
 
 const NAV_LINK = 'text-sm font-medium transition-opacity hover:opacity-100 opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 rounded-sm'
 
+const FOCUS_LIGHT = 'focus-visible:outline-[var(--color-cinnabar)]'
+const FOCUS_DARK = 'focus-visible:outline-[var(--color-ivory-glow)]'
+
+const CAL_LINK = 'christopher-cook-jfcxhu/verve-discovery'
+const CAL_NAMESPACE = 'verve-discovery'
+
 interface NavVerveProps {
   /** Use ink text + ivory fade when the hero below is on a light surface. Default false (dark hero). */
   light?: boolean
@@ -23,7 +29,7 @@ export default function NavVerve({ light = false }: NavVerveProps) {
 
   const textColor = light ? 'var(--color-ink)' : 'var(--color-ivory)'
   const fadeFrom = light ? 'var(--color-ivory)' : 'var(--color-ink)'
-  const focusOutline = light ? 'var(--color-cinnabar)' : 'var(--color-ivory-glow)'
+  const focusClass = light ? FOCUS_LIGHT : FOCUS_DARK
 
   return (
     <header
@@ -32,31 +38,41 @@ export default function NavVerve({ light = false }: NavVerveProps) {
     >
       <Link
         href="/"
-        className="font-display text-xl font-semibold tracking-tight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 rounded-sm"
-        style={{ color: textColor, outlineColor: focusOutline }}
+        className={`font-display text-xl font-semibold tracking-tight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 rounded-sm ${focusClass}`}
+        style={{ color: textColor }}
       >
         Verve MD
       </Link>
 
       <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
-        <Link href="/#services" className={NAV_LINK} style={{ color: textColor, outlineColor: focusOutline, fontFamily: 'var(--font-body)' }}>
+        <Link href="/#services" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor, fontFamily: 'var(--font-body)' }}>
           Services
         </Link>
-        <Link href="/ai" className={NAV_LINK} style={{ color: textColor, outlineColor: focusOutline, fontFamily: 'var(--font-body)' }}>
+        <Link href="/ai" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor, fontFamily: 'var(--font-body)' }}>
           AI
         </Link>
-        <Link href="/pricing" className={NAV_LINK} style={{ color: textColor, outlineColor: focusOutline, fontFamily: 'var(--font-body)' }}>
+        <Link href="/pricing" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor, fontFamily: 'var(--font-body)' }}>
           Pricing
         </Link>
-        <Link href="/audit" className={NAV_LINK} style={{ color: textColor, outlineColor: focusOutline, fontFamily: 'var(--font-body)' }}>
-          Free Audit
+        <Link href="/contact" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor, fontFamily: 'var(--font-body)' }}>
+          Contact
         </Link>
+        <button
+          type="button"
+          data-cal-link={CAL_LINK}
+          data-cal-namespace={CAL_NAMESPACE}
+          data-cal-config='{"layout":"month_view"}'
+          className={`${NAV_LINK} ${focusClass}`}
+          style={{ color: textColor, fontFamily: 'var(--font-body)', background: 'transparent', cursor: 'pointer' }}
+        >
+          Book a call
+        </button>
         <CTAButton href="/audit" label="Get Free Audit" variant="primary" />
       </nav>
 
       <button
-        className="md:hidden p-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-        style={{ color: textColor, outlineColor: focusOutline }}
+        className={`md:hidden p-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${focusClass}`}
+        style={{ color: textColor }}
         onClick={() => setOpen(!open)}
         aria-label={open ? 'Close menu' : 'Open menu'}
         aria-expanded={open}
@@ -80,10 +96,21 @@ export default function NavVerve({ light = false }: NavVerveProps) {
           borderTop: `1px solid ${light ? 'var(--color-ink-rule)' : 'var(--color-ivory-muted)'}`,
         }}
       >
-        <Link href="/#services" className={NAV_LINK} style={{ color: textColor }} onClick={() => setOpen(false)}>Services</Link>
-        <Link href="/ai" className={NAV_LINK} style={{ color: textColor }} onClick={() => setOpen(false)}>AI</Link>
-        <Link href="/pricing" className={NAV_LINK} style={{ color: textColor }} onClick={() => setOpen(false)}>Pricing</Link>
-        <Link href="/audit" className={NAV_LINK} style={{ color: textColor }} onClick={() => setOpen(false)}>Free Audit</Link>
+        <Link href="/#services" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor }} onClick={() => setOpen(false)}>Services</Link>
+        <Link href="/ai" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor }} onClick={() => setOpen(false)}>AI</Link>
+        <Link href="/pricing" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor }} onClick={() => setOpen(false)}>Pricing</Link>
+        <Link href="/contact" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor }} onClick={() => setOpen(false)}>Contact</Link>
+        <button
+          type="button"
+          data-cal-link={CAL_LINK}
+          data-cal-namespace={CAL_NAMESPACE}
+          data-cal-config='{"layout":"month_view"}'
+          className={`${NAV_LINK} ${focusClass} text-left`}
+          style={{ color: textColor, fontFamily: 'var(--font-body)', background: 'transparent', cursor: 'pointer' }}
+          onClick={() => setOpen(false)}
+        >
+          Book a call
+        </button>
         <CTAButton href="/audit" label="Get Free Audit" variant="primary" className="w-fit" />
       </div>
     </header>

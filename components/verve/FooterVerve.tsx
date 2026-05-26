@@ -19,7 +19,7 @@ export default function FooterVerve() {
               className="mt-2 text-sm"
               style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
             >
-              Exclusively serving longevity & aesthetics practices.
+              Exclusively serving longevity, concierge, and aesthetics practices.
             </p>
           </div>
 
@@ -29,6 +29,10 @@ export default function FooterVerve() {
               { label: 'AI Systems', href: '/ai' },
               { label: 'Pricing', href: '/pricing' },
               { label: 'Free Audit', href: '/audit' },
+              { label: 'About', href: '/about' },
+              { label: 'FAQ', href: '/faq' },
+              { label: 'Contact', href: '/contact' },
+              { label: 'Security', href: '/security' },
               { label: 'Privacy', href: '/privacy' },
               { label: 'Terms', href: '/terms' },
             ].map(({ label, href }) => (
@@ -44,13 +48,30 @@ export default function FooterVerve() {
           </nav>
         </div>
 
-        <p
-          className="mt-12 text-xs"
+        <div
+          className="mt-12 flex flex-wrap items-center justify-between gap-3 text-xs"
           style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
-          suppressHydrationWarning
         >
-          © {new Date().getFullYear()} Verve MD. All rights reserved.
-        </p>
+          <p suppressHydrationWarning>© {new Date().getFullYear()} Verve MD. All rights reserved.</p>
+          <p className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <a
+              href="mailto:hello@vervemd.com?subject=Hello%20from%20vervemd.com"
+              className="opacity-70 hover:opacity-100 underline-offset-4 hover:underline focus-visible:opacity-100"
+              style={{ color: 'var(--color-ivory)' }}
+            >
+              hello@vervemd.com
+            </a>
+            <span aria-hidden="true" className="opacity-40">·</span>
+            <a
+              href="tel:+13852756931"
+              className="opacity-70 hover:opacity-100 underline-offset-4 hover:underline focus-visible:opacity-100"
+              style={{ color: 'var(--color-ivory)' }}
+              aria-label="Call (385) 275-6931 for questions. Book a discovery call online."
+            >
+              (385) 275-6931
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   )
