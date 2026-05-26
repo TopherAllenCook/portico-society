@@ -17,6 +17,16 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // Orphan service pages (old design experiments). Canonical surface is /pricing.
+      { source: '/services', destination: '/pricing', permanent: true },
+      { source: '/services-2', destination: '/pricing', permanent: true },
+      // Old name fragments.
+      { source: '/work', destination: '/pricing', permanent: true },
+      { source: '/case-studies', destination: '/', permanent: false },
+    ]
+  },
 }
 
 export default nextConfig

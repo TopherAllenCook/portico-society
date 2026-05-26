@@ -124,24 +124,16 @@ export const AEO_BLOCK = {
   cta: { label: 'Get Your Free AEO + Marketing Audit', href: '/audit' },
 }
 
+// Only real, client-approved testimonials. Anonymized per client preference.
+// Adding fabricated testimonials in this vertical (medical) is an FTC endorsement-guide
+// violation and a brand-trust liability. Add new entries only after written client approval.
 export const TESTIMONIALS = [
   {
-    quote: "Within 90 days we had more inbound consults than we'd seen all of last year. The team actually understands what we offer. They don't need a glossary for peptide protocols.",
-    name: 'Dr. Sarah M.',
-    title: 'Founder',
-    clinicType: 'Longevity & Functional Medicine Practice, Texas',
-  },
-  {
-    quote: "We were throwing money at Google Ads with no idea what was working. Verve MD rebuilt our campaigns and cut our cost-per-consult by 60% in the first month.",
-    name: 'James K.',
-    title: 'Owner',
-    clinicType: 'Medical Aesthetics & Wellness, New York',
-  },
-  {
-    quote: "The AI patient agent alone paid for the entire package. It qualifies leads overnight and books consults while we sleep.",
-    name: 'Dr. Rachel T.',
-    title: 'Medical Director',
-    clinicType: 'Multi-Location Aesthetics Practice, California',
+    quote:
+      'Within four months, we were the first name ChatGPT mentioned for longevity medicine in our market.',
+    name: 'Medical Director',
+    title: '',
+    clinicType: 'Longevity Practice, Austin TX',
   },
 ]
 

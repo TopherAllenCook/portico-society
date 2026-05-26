@@ -4,6 +4,7 @@ import PricingPackagesVerve from '@/components/verve/PricingPackagesVerve'
 import PricingAIPackagesVerve from '@/components/verve/PricingAIPackagesVerve'
 import BundleBuilderVerve from '@/components/verve/BundleBuilderVerve'
 import PricingAlaCarteVerve from '@/components/verve/PricingAlaCarteVerve'
+import TestimonialsVerve from '@/components/verve/TestimonialsVerve'
 import FooterVerve from '@/components/verve/FooterVerve'
 import type { Metadata } from 'next'
 
@@ -19,6 +20,7 @@ export default function PricingPage() {
       <main>
         <PricingHeroVerve />
         <PricingPackagesVerve />
+        <TestimonialsVerve />
         <PricingAIPackagesVerve />
         <BundleBuilderVerve />
         <PricingAlaCarteVerve />
