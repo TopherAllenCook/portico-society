@@ -29,7 +29,10 @@ export default function FooterVerve() {
               { label: 'AI Systems', href: '/ai' },
               { label: 'Pricing', href: '/pricing' },
               { label: 'Free Audit', href: '/audit' },
+              { label: 'About', href: '/about' },
+              { label: 'FAQ', href: '/faq' },
               { label: 'Contact', href: '/contact' },
+              { label: 'Security', href: '/security' },
               { label: 'Privacy', href: '/privacy' },
               { label: 'Terms', href: '/terms' },
             ].map(({ label, href }) => (

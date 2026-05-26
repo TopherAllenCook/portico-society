@@ -3,6 +3,7 @@ import { adminSupabase } from '@/lib/audit/supabase'
 import NavVerve from '@/components/verve/NavVerve'
 import FooterVerve from '@/components/verve/FooterVerve'
 import AuditProgressPoller from '@/components/verve/AuditProgressPoller'
+import CalButton from '@/components/verve/CalButton'
 import type { Metadata } from 'next'
 import type { Scorecard, PrioritizedMove, CompetitorEdge, ModuleName, ModuleStatus } from '@/lib/audit/types'
 
@@ -72,7 +73,59 @@ export default async function AuditReportPage({ params }: PageProps) {
               synthesisReady={Boolean(synth)}
             />
           ) : (
-            <Report synth={synth as ReportData} competitors={(job.competitors ?? []) as { domain: string; mentions?: number }[]} />
+            <>
+              <Report synth={synth as ReportData} competitors={(job.competitors ?? []) as { domain: string; mentions?: number }[]} />
+              <aside
+                className="mt-16 rounded-2xl px-8 py-10 lg:px-12 lg:py-12"
+                style={{ background: 'var(--color-ink)' }}
+                aria-labelledby="audit-thank-you-cta"
+              >
+                <p
+                  className="text-xs font-medium uppercase tracking-[0.22em]"
+                  style={{ color: 'var(--color-cinnabar-on-dark)', fontFamily: 'var(--font-body)' }}
+                >
+                  Want to walk through it?
+                </p>
+                <h2
+                  id="audit-thank-you-cta"
+                  className="mt-3 font-display font-semibold"
+                  style={{
+                    fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
+                    color: 'var(--color-ivory)',
+                    letterSpacing: '-0.025em',
+                    lineHeight: 1.15,
+                    maxWidth: '24ch',
+                  }}
+                >
+                  Book a 25-minute call with the founder to talk through the findings.
+                </h2>
+                <p
+                  className="mt-4 text-sm leading-relaxed"
+                  style={{ color: 'var(--color-body-text-on-dark)', fontFamily: 'var(--font-body)', maxWidth: '52ch' }}
+                >
+                  No pitch deck. We open the report, walk through the three highest-impact
+                  moves, and you decide whether to keep going on your own or have us run it.
+                </p>
+                <div className="mt-7 flex flex-wrap items-center gap-4">
+                  <CalButton
+                    label="Book the walkthrough"
+                    variant="primary"
+                    style={{
+                      padding: '0.875rem 1.75rem',
+                      background: 'var(--color-cinnabar)',
+                      color: 'var(--color-ivory)',
+                    }}
+                  />
+                  <a
+                    href="mailto:hello@vervemd.com?subject=Question%20about%20my%20Verve%20audit"
+                    className="text-sm underline-offset-4 hover:underline"
+                    style={{ color: 'var(--color-ivory)', opacity: 0.85, fontFamily: 'var(--font-body)' }}
+                  >
+                    Or email a single question
+                  </a>
+                </div>
+              </aside>
+            </>
           )}
         </div>
       </main>
@@ -172,7 +225,50 @@ function Report({ synth }: { synth: ReportData; competitors: { domain: string; m
           dangerouslySetInnerHTML={{ __html: renderMarkdown(synth.narrative_markdown) }}
         />
       </section>
+
+      <KitUpsell />
     </div>
+  )
+}
+
+function KitUpsell() {
+  return (
+    <section
+      className="rounded-xl p-7 lg:p-9"
+      style={{ background: 'var(--color-ink)', border: '1px solid var(--color-ink-rule)' }}
+      aria-labelledby="kit-upsell-heading"
+    >
+      <p
+        className="text-xs font-medium uppercase tracking-[0.18em]"
+        style={{ color: 'var(--color-cinnabar-on-dark)', fontFamily: 'var(--font-body)' }}
+      >
+        Want to install the moves yourself?
+      </p>
+      <h2
+        id="kit-upsell-heading"
+        className="mt-3 font-display font-semibold leading-tight"
+        style={{ fontSize: 'clamp(1.4rem, 2.6vw, 2rem)', color: 'var(--color-ivory)', letterSpacing: '-0.02em', maxWidth: '28ch' }}
+      >
+        The Clinic Brand Self-Audit Kit walks you through the same framework. $149.
+      </h2>
+      <p
+        className="mt-4 max-w-2xl text-sm leading-relaxed"
+        style={{ color: 'var(--color-body-text-on-dark)', fontFamily: 'var(--font-body)' }}
+      >
+        Four documents: the scored audit, a Notion working doc, ten patient-touchpoint email templates, and our two-touch review system.
+        Self-serve, 90 minutes, no call required. If you decide you want us to install the repairs for you later, your $149 credits toward a paid audit.
+      </p>
+      <div className="mt-6 flex flex-wrap items-center gap-3">
+        <a
+          href="/kit"
+          className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-opacity hover:opacity-90"
+          style={{ background: 'var(--color-cinnabar)', color: 'var(--color-ivory)', fontFamily: 'var(--font-body)' }}
+        >
+          See what&rsquo;s inside the Kit
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
   )
 }
 
