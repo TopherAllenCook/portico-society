@@ -95,6 +95,27 @@ export default function ContactPage() {
 
               <div>
                 <p className="text-xs font-medium uppercase tracking-[0.18em]" style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}>
+                  Quick question? Call or text
+                </p>
+                <p className="mt-2" style={{ color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}>
+                  <a
+                    href="tel:+13852756931"
+                    className="underline underline-offset-4"
+                    style={{ color: 'var(--color-ink)' }}
+                  >
+                    (385) 275-6931
+                  </a>
+                </p>
+                <p
+                  className="mt-1 text-xs"
+                  style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)', opacity: 0.8 }}
+                >
+                  For discovery calls, please book above so the time is held on both calendars.
+                </p>
+              </div>
+
+              <div>
+                <p className="text-xs font-medium uppercase tracking-[0.18em]" style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}>
                   Who fits
                 </p>
                 <p className="mt-2" style={{ color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}>

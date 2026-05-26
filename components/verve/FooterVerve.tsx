@@ -50,7 +50,7 @@ export default function FooterVerve() {
           style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
         >
           <p suppressHydrationWarning>© {new Date().getFullYear()} Verve MD. All rights reserved.</p>
-          <p>
+          <p className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <a
               href="mailto:hello@vervemd.com?subject=Hello%20from%20vervemd.com"
               className="opacity-70 hover:opacity-100 underline-offset-4 hover:underline focus-visible:opacity-100"
@@ -58,7 +58,15 @@ export default function FooterVerve() {
             >
               hello@vervemd.com
             </a>
-            {/* TODO: add tel: link once 385 area code confirmed (or replace with confirmed number) */}
+            <span aria-hidden="true" className="opacity-40">·</span>
+            <a
+              href="tel:+13852756931"
+              className="opacity-70 hover:opacity-100 underline-offset-4 hover:underline focus-visible:opacity-100"
+              style={{ color: 'var(--color-ivory)' }}
+              aria-label="Call (385) 275-6931 for questions. Book a discovery call online."
+            >
+              (385) 275-6931
+            </a>
           </p>
         </div>
       </div>
