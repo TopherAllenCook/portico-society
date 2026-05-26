@@ -1,5 +1,5 @@
 export const HERO = {
-  pill: 'Marketing for established longevity & aesthetic practices',
+  pill: 'Marketing for established longevity, concierge & aesthetic practices',
   headlineLead: 'Your patients ask',
   // Two italic words flank the inline icon: HeroVerve splits this string into <emphLeft> <icon> <emphRight>
   emphasisLeft: 'AI',

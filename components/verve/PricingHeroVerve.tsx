@@ -12,12 +12,12 @@ export default function PricingHeroVerve() {
         {/* Trust pill */}
         <div className="flex justify-center">
           <span
-            className="inline-flex items-center gap-2 rounded-full border bg-white px-4 py-1.5 text-xs font-medium"
+            className="inline-flex items-center gap-2 rounded-full border bg-[var(--color-paper)] px-4 py-1.5 text-xs font-medium"
             style={{
               borderColor: 'var(--color-ink-rule)',
               color: 'var(--color-ink)',
               fontFamily: 'var(--font-body)',
-              boxShadow: '0 4px 16px oklch(14% 0.012 50 / 0.04)',
+              boxShadow: 'var(--shadow-pill)',
             }}
           >
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
@@ -73,7 +73,7 @@ export default function PricingHeroVerve() {
           <CalButton
             label="Talk to founder"
             variant="secondary"
-            style={{ padding: '0.875rem 1.75rem', background: '#fff', borderColor: 'var(--color-ink-rule)' }}
+            style={{ padding: '0.875rem 1.75rem', background: 'var(--color-paper)', borderColor: 'var(--color-ink-rule)' }}
           />
           <Link
             href="#pricing-packages-heading"

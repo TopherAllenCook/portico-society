@@ -38,7 +38,7 @@ export default function AEOBlockVerve() {
           {AEO_BLOCK.sub}
         </p>
         <div className="mt-8 flex justify-center">
-          <CTAButton href={AEO_BLOCK.cta.href} label={AEO_BLOCK.cta.label} variant="secondary" />
+          <CTAButton href={AEO_BLOCK.cta.href} label={AEO_BLOCK.cta.label} variant="on-cinnabar" />
         </div>
       </div>
     </section>

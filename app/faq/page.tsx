@@ -3,11 +3,28 @@ import NavVerve from '@/components/verve/NavVerve'
 import FooterVerve from '@/components/verve/FooterVerve'
 import CalButton from '@/components/verve/CalButton'
 
+const FAQ_TITLE = 'FAQ'
+const FAQ_DESC =
+  'Answers to the most common questions about Verve MD: AI visibility audits, retainers, HIPAA, contracts, how the AI patient agent works, and what we will not do.'
+const FAQ_URL = 'https://www.vervemd.com/faq'
+
 export const metadata: Metadata = {
-  title: 'FAQ',
-  description:
-    'Answers to the most common questions about Verve MD: AI visibility audits, retainers, HIPAA, contracts, how the AI patient agent works, and what we will not do.',
-  alternates: { canonical: 'https://www.vervemd.com/faq' },
+  title: FAQ_TITLE,
+  description: FAQ_DESC,
+  alternates: { canonical: FAQ_URL },
+  openGraph: {
+    title: `${FAQ_TITLE} · Verve MD`,
+    description: FAQ_DESC,
+    url: FAQ_URL,
+    type: 'website',
+    images: ['/opengraph-image'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${FAQ_TITLE} · Verve MD`,
+    description: FAQ_DESC,
+    images: ['/twitter-image'],
+  },
 }
 
 interface QA {
@@ -193,7 +210,7 @@ export default function FaqPage() {
               <CalButton label="Book a discovery call" variant="primary" style={{ padding: '0.875rem 1.75rem', background: 'var(--color-ink)', color: 'var(--color-ivory)' }} />
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-full border bg-white px-7 py-3.5 text-sm font-medium"
+                className="inline-flex items-center gap-2 rounded-full border bg-[var(--color-paper)] px-7 py-3.5 text-sm font-medium"
                 style={{ borderColor: 'var(--color-ink-rule)', color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}
               >
                 Send a message instead

@@ -12,12 +12,12 @@ export default function AuditHeroVerve() {
         {/* Trust pill */}
         <div className="flex justify-center">
           <span
-            className="inline-flex items-center gap-2 rounded-full border bg-white px-4 py-1.5 text-xs font-medium"
+            className="inline-flex items-center gap-2 rounded-full border bg-[var(--color-paper)] px-4 py-1.5 text-xs font-medium"
             style={{
               borderColor: 'var(--color-ink-rule)',
               color: 'var(--color-ink)',
               fontFamily: 'var(--font-body)',
-              boxShadow: '0 4px 16px oklch(14% 0.012 50 / 0.04)',
+              boxShadow: 'var(--shadow-pill)',
             }}
           >
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
@@ -73,7 +73,7 @@ export default function AuditHeroVerve() {
           </Link>
           <Link
             href="#audit-deliverables-heading"
-            className="inline-flex items-center gap-2 rounded-full border bg-white px-7 py-3.5 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+            className="inline-flex items-center gap-2 rounded-full border bg-[var(--color-paper)] px-7 py-3.5 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
             style={{
               borderColor: 'var(--color-ink-rule)',
               color: 'var(--color-ink)',
