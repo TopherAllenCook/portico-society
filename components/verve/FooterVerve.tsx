@@ -70,6 +70,16 @@ export default function FooterVerve() {
             >
               (385) 275-6931
             </a>
+            <span aria-hidden="true" className="opacity-40">·</span>
+            <a
+              href="https://www.linkedin.com/company/118464101/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-70 hover:opacity-100 underline-offset-4 hover:underline focus-visible:opacity-100"
+              style={{ color: 'var(--color-ivory)' }}
+            >
+              LinkedIn
+            </a>
           </p>
         </div>
       </div>

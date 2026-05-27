@@ -28,7 +28,8 @@ export const metadata: Metadata = {
 }
 
 // DRAFT bio composed from saved positioning memory. Chris to review and edit.
-// Replace headshot placeholder once /public/brand/founder-headshot.* lands.
+// No personal LinkedIn link by founder direction; company LinkedIn lives on
+// the Organization node in components/verve/JsonLd.tsx instead.
 
 const personLd = {
   '@context': 'https://schema.org',
@@ -39,7 +40,6 @@ const personLd = {
   url: 'https://www.vervemd.com/about',
   description:
     'Brand strategist and marketing-systems builder for longevity, concierge, and aesthetic medicine practices.',
-  // sameAs: [], // TODO: add LinkedIn URL once provided.
 }
 
 export default function AboutPage() {
@@ -51,7 +51,7 @@ export default function AboutPage() {
           className="px-6 pt-32 pb-16 lg:px-16 lg:pt-40 lg:pb-20"
           style={{ background: 'var(--color-ivory)' }}
         >
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-3xl">
             <p
               className="text-xs font-medium uppercase tracking-[0.22em]"
               style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}
@@ -61,10 +61,10 @@ export default function AboutPage() {
             <h1
               className="mt-4 font-display font-semibold"
               style={{
-                fontSize: 'clamp(2.25rem, 5.5vw, 3.75rem)',
+                fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
                 color: 'var(--color-ink)',
                 letterSpacing: '-0.03em',
-                lineHeight: 1.05,
+                lineHeight: 1.04,
                 maxWidth: '20ch',
               }}
             >
@@ -72,6 +72,13 @@ export default function AboutPage() {
               <span style={{ color: 'var(--color-cinnabar)', fontStyle: 'italic' }}>systems,</span>{' '}
               not campaigns.
             </h1>
+            <p
+              className="mt-7 text-base leading-relaxed"
+              style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)', maxWidth: '52ch' }}
+            >
+              Chris Cook · Founder of Verve MD · Thirteen-plus years in brand strategy, paid
+              media, and the unglamorous infrastructure that turns a campaign into a business.
+            </p>
           </div>
         </section>
 
@@ -79,103 +86,85 @@ export default function AboutPage() {
           className="px-6 py-16 lg:px-16 lg:py-24"
           style={{ background: 'var(--color-stone)' }}
         >
-          <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-[1fr_2fr] lg:gap-20">
-            <aside className="lg:sticky lg:top-32 lg:self-start">
-              <div
-                className="aspect-[4/5] w-full rounded-2xl flex items-center justify-center"
-                style={{
-                  background: 'var(--color-ink)',
-                  boxShadow: 'var(--shadow-card-soft)',
-                }}
-                aria-label="Founder headshot placeholder"
-              >
-                <span
-                  className="font-display font-semibold"
-                  style={{
-                    fontSize: 'clamp(4rem, 10vw, 7rem)',
-                    color: 'var(--color-ivory)',
-                    letterSpacing: '-0.04em',
-                    lineHeight: 1,
-                  }}
-                  aria-hidden="true"
-                >
-                  CC
-                </span>
-              </div>
-              <div className="mt-6">
-                <p
-                  className="font-display font-semibold"
-                  style={{ fontSize: '1.1rem', color: 'var(--color-ink)', letterSpacing: '-0.015em' }}
-                >
-                  Chris Cook
-                </p>
-                <p
-                  className="mt-1 text-sm"
-                  style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
-                >
-                  Founder, Verve MD
-                </p>
-                {/* TODO: wire LinkedIn URL once provided */}
-              </div>
-            </aside>
+          <div className="mx-auto max-w-3xl flex flex-col gap-8">
+            <p
+              className="text-lg leading-relaxed"
+              style={{ color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}
+            >
+              I&rsquo;ve been doing this work since 2012. Thirteen-plus years of brand
+              strategy, paid media, AI systems, and the operations work that turns a campaign
+              into a business. Verve is the version of that work built around one vertical I
+              actually know: longevity, concierge, and aesthetic medicine.
+            </p>
 
-            <div className="flex flex-col gap-7">
-              <p
-                className="text-lg leading-relaxed"
-                style={{ color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}
-              >
-                I&rsquo;ve been doing this work since 2012. Thirteen-plus years of brand
-                strategy, paid media, AI systems, and the unglamorous infrastructure that turns
-                a campaign into a business. Verve is the version of that work built around one
-                vertical I actually know: longevity, concierge, and aesthetic medicine.
-              </p>
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
-              >
-                The reason Verve exists is simple. Patients have started asking ChatGPT,
-                Claude, and Gemini for the best clinic in their city. Most clinics aren&rsquo;t
-                in those answers. The clinics that are win the consult. The rest don&rsquo;t
-                get the call. SEO and paid still matter; they just don&rsquo;t matter alone
-                anymore. The thing that closes the gap is a system that names you, runs the
-                paid media that fills the rest, and converts inquiries before they cool.
-              </p>
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
-              >
-                I run Verve as a systems operator, not a traditional agency. Strategy and
-                the close happen with me directly. Outbound is run by a named specialist. AI
-                handles the workload in between (review collection, lead nurture, drafting,
-                scheduling, reporting) so the human time goes to the parts that compound:
-                positioning, creative, and the relationship.
-              </p>
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
-              >
-                A few things I won&rsquo;t do. I won&rsquo;t promise specific patient counts;
-                no one honest can. I won&rsquo;t spin up a generic playbook and call it
-                medicine-specific. I won&rsquo;t bundle in services the clinic doesn&rsquo;t
-                need so the retainer looks bigger. The reason &ldquo;the founder reads every
-                one&rdquo; is in the copy is because it&rsquo;s true; if you write in, the
-                first reply is mine.
-              </p>
+            <p
+              className="text-base leading-relaxed"
+              style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
+            >
+              The reason Verve exists is simple. Patients have started asking ChatGPT,
+              Claude, and Gemini for the best clinic in their city. Most clinics aren&rsquo;t
+              in those answers. The ones that are win the consult. The rest don&rsquo;t get
+              the call. SEO and paid still matter. They just don&rsquo;t matter alone anymore.
+              The thing that closes the gap is a system that names you, runs the paid media
+              that fills the rest, and converts inquiries before they cool.
+            </p>
 
-              <div className="mt-6 flex flex-wrap items-center gap-4">
-                <CalButton
-                  label="Book a 25-min call"
-                  variant="primary"
-                  style={{ padding: '0.875rem 1.75rem', background: 'var(--color-ink)', color: 'var(--color-ivory)' }}
-                />
-                <a
-                  href="/audit"
-                  className="text-sm underline-offset-4 hover:underline"
-                  style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
-                >
-                  Or start with the free audit →
-                </a>
-              </div>
+            <p
+              className="text-base leading-relaxed"
+              style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
+            >
+              I run Verve as a systems operator, not a traditional agency. Strategy and the
+              close happen with me directly. Outbound is run by a named specialist. AI handles
+              the workload in between (review collection, lead nurture, drafting, scheduling,
+              reporting) so the human time goes to the parts that compound: positioning,
+              creative, and the relationship.
+            </p>
+
+            <p
+              className="text-base leading-relaxed"
+              style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
+            >
+              A few things I won&rsquo;t do. I won&rsquo;t promise specific patient counts;
+              no one honest can. I won&rsquo;t spin up a generic playbook and call it
+              medicine-specific. I won&rsquo;t bundle in services the clinic doesn&rsquo;t
+              need so the retainer looks bigger. The reason &ldquo;the founder reads every
+              one&rdquo; is in the copy is because it&rsquo;s true. If you write in, the first
+              reply is mine.
+            </p>
+          </div>
+        </section>
+
+        <section
+          className="px-6 py-20 lg:px-16 lg:py-28"
+          style={{ background: 'var(--color-ivory)' }}
+        >
+          <div className="mx-auto max-w-3xl text-center">
+            <h2
+              className="font-display font-semibold"
+              style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', color: 'var(--color-ink)', letterSpacing: '-0.025em' }}
+            >
+              Want to talk it through?
+            </h2>
+            <p
+              className="mt-4 text-base leading-relaxed"
+              style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)', maxWidth: '52ch', marginLeft: 'auto', marginRight: 'auto' }}
+            >
+              Book a 25-minute call with me. No deck, no pitch theater. We walk through your
+              market, what AI says about you today, and whether Verve is the right fit.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <CalButton
+                label="Book a 25-min call"
+                variant="primary"
+                style={{ padding: '0.875rem 1.75rem', background: 'var(--color-ink)', color: 'var(--color-ivory)' }}
+              />
+              <a
+                href="/audit"
+                className="inline-flex items-center gap-2 rounded-full border bg-white px-7 py-3.5 text-sm font-medium"
+                style={{ borderColor: 'var(--color-ink-rule)', color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}
+              >
+                Or start with the free audit
+              </a>
             </div>
           </div>
         </section>
