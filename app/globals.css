@@ -242,6 +242,55 @@
   border-bottom-color: var(--color-cinnabar);
 }
 
+/* Owner-economics range sliders */
+.verve-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background: var(--color-ink-rule);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.verve-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-cinnabar);
+  border: 2px solid var(--color-ivory);
+  box-shadow: var(--shadow-pill);
+  transition: transform 0.12s var(--ease-quart);
+}
+
+.verve-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-cinnabar);
+  border: 2px solid var(--color-ivory);
+  box-shadow: var(--shadow-pill);
+  transition: transform 0.12s var(--ease-quart);
+}
+
+.verve-range:hover::-webkit-slider-thumb { transform: scale(1.12); }
+.verve-range:hover::-moz-range-thumb { transform: scale(1.12); }
+
+.verve-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px var(--color-cinnabar-pale);
+}
+.verve-range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 4px var(--color-cinnabar-pale);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .verve-range::-webkit-slider-thumb { transition: none; }
+  .verve-range::-moz-range-thumb { transition: none; }
+}
+
 /* Default border color */
 @layer base {
   *, *::before, *::after {

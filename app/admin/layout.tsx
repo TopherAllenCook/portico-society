@@ -30,6 +30,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <nav className="flex items-center gap-5 text-sm" style={{ fontFamily: 'var(--font-body)' }}>
             <a href="/admin" style={{ color: 'var(--color-ink)' }}>Audits</a>
             <a href="/admin/content" style={{ color: 'var(--color-ink)' }}>Content</a>
+            <a href="/admin/owner-economics" style={{ color: 'var(--color-ink)' }}>Economics</a>
             <form action="/api/admin/signout" method="post">
               <button type="submit" className="text-sm" style={{ color: 'var(--color-ink-muted)' }}>Sign out</button>
             </form>
