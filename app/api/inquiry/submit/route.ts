@@ -1,6 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { after, NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { sendEmail } from '@/lib/email/send'
+import { upsertContact, addNoteToContact } from '@/lib/hubspot/client'
 
 export const runtime = 'nodejs'
 
@@ -17,9 +18,10 @@ const escape = (s: string) =>
 /**
  * POST /api/inquiry/submit
  *
- * Lightweight contact-form endpoint. Sends a single notification email to
- * hello@vervemd.com with the inquiry contents. No database row yet; once
- * CRM is wired (HubSpot) this should also push a contact + deal.
+ * Lightweight contact-form endpoint. Sends a notification email to
+ * hello@vervemd.com and (when HUBSPOT_ACCESS_TOKEN is set) mirrors the
+ * inquiry into HubSpot as a contact + note. HubSpot calls run via after()
+ * so they never block the user-facing response.
  */
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null)
@@ -71,9 +73,35 @@ export async function POST(req: NextRequest) {
       text,
       replyTo: email,
     })
-    return NextResponse.json({ ok: true })
   } catch (err) {
     console.error('[inquiry/submit] send failed', err)
     return NextResponse.json({ error: 'send_failed' }, { status: 500 })
   }
+
+  after(async () => {
+    try {
+      const [firstname, ...rest] = name.trim().split(/\s+/)
+      const lastname = rest.join(' ') || undefined
+      const contactId = await upsertContact({
+        email,
+        firstname,
+        lastname,
+        company: practice ?? undefined,
+        lifecyclestage: 'lead',
+        hs_lead_status: 'NEW',
+      })
+      if (contactId) {
+        await addNoteToContact(
+          contactId,
+          `<p><strong>Inbound inquiry from vervemd.com contact form</strong></p>` +
+            (practice ? `<p><em>Practice:</em> ${escape(practice)}</p>` : '') +
+            `<p>${escape(message).replace(/\n/g, '<br>')}</p>`,
+        )
+      }
+    } catch (err) {
+      console.error('[inquiry/submit] hubspot sync failed', err)
+    }
+  })
+
+  return NextResponse.json({ ok: true })
 }

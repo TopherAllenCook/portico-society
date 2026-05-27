@@ -3,6 +3,7 @@ import { adminSupabase } from '@/lib/audit/supabase'
 import { AuditIntakeSchema, type AuditIntake } from '@/lib/audit/types'
 import { auditAckEmail, leadNotifyEmail } from '@/lib/email/templates'
 import { sendEmail } from '@/lib/email/send'
+import { upsertContact, createDeal } from '@/lib/hubspot/client'
 
 function firstNameFrom(full: string): string {
   const trimmed = full.trim()
@@ -92,6 +93,14 @@ export async function POST(req: NextRequest) {
     }
   })
 
+  after(async () => {
+    try {
+      await syncToHubspot(intake, data.id)
+    } catch (err) {
+      console.error('[audit/submit] hubspot sync failed', err)
+    }
+  })
+
   // Lead-facing acknowledgement. Best-effort: never block the response.
   ackLead(intake, data.share_token).catch((err) => console.error('[audit/submit] ack failed', err))
 
@@ -115,6 +124,41 @@ async function ackLead(intake: AuditIntake, shareToken: string) {
     replyTo: 'hello@vervemd.com',
     listUnsubscribeUrl: unsubscribeUrl,
   })
+}
+
+async function syncToHubspot(intake: AuditIntake, auditId: string): Promise<void> {
+  const [firstname, ...rest] = intake.contact_name.trim().split(/\s+/)
+  const lastname = rest.join(' ') || undefined
+
+  const contactId = await upsertContact({
+    email: intake.contact_email,
+    firstname,
+    lastname,
+    phone: intake.contact_phone ?? undefined,
+    company: intake.clinic_name,
+    website: intake.website_url,
+    city: intake.city,
+    state: intake.state ?? undefined,
+    lifecyclestage: 'lead',
+    hs_lead_status: 'NEW',
+  })
+
+  if (!contactId) return // upsert failed (logged inside) — abort silently
+
+  await createDeal(
+    {
+      dealname: `Audit: ${intake.clinic_name} (${intake.city})`,
+      // Pipeline + stage default to env-var overrides; HubSpot uses defaults
+      // if they're absent. Note: leaving empty string out so HubSpot's own
+      // default kicks in.
+    },
+    contactId,
+  )
+
+  // audit_id is in the deal name; the full payload (challenge, specialty,
+  // status URL) is already in the ops notify email and the admin panel.
+  // If we want richer associations later, push as a note on the contact.
+  void auditId
 }
 
 async function notifyOps(intake: AuditIntake, auditId: string) {
