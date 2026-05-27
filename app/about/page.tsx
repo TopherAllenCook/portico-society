@@ -28,7 +28,8 @@ export const metadata: Metadata = {
 }
 
 // DRAFT bio composed from saved positioning memory. Chris to review and edit.
-// LinkedIn URL added once provided; until then the LinkedIn block stays out.
+// No personal LinkedIn link by founder direction; company LinkedIn lives on
+// the Organization node in components/verve/JsonLd.tsx instead.
 
 const personLd = {
   '@context': 'https://schema.org',
@@ -39,7 +40,6 @@ const personLd = {
   url: 'https://www.vervemd.com/about',
   description:
     'Brand strategist and marketing-systems builder for longevity, concierge, and aesthetic medicine practices.',
-  // sameAs: ['https://www.linkedin.com/in/<HANDLE>'], // TODO: add once Chris confirms slug
 }
 
 export default function AboutPage() {
