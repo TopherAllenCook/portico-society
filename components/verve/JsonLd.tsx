@@ -22,8 +22,7 @@ const organization = {
       availableLanguage: ['en'],
     },
   ],
-  // sameAs: add LinkedIn / X URLs once published.
-  sameAs: [],
+  sameAs: ['https://www.linkedin.com/company/118464101/'],
 }
 
 const professionalService = {
