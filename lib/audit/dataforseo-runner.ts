@@ -18,8 +18,8 @@ interface RunDfsArgs {
 }
 
 function asArrayResult<T = unknown>(json: unknown): T[] {
-  const j = json as { tasks?: Array<{ result?: T[] | null }> }
-  return j.tasks?.[0]?.result ?? []
+  const j = json as { tasks?: Array<{ result?: T[] | null }> } | null | undefined
+  return j?.tasks?.[0]?.result ?? []
 }
 
 function hostFromUrl(url: string): string {
