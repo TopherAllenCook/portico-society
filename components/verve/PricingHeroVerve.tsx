@@ -25,7 +25,7 @@ export default function PricingHeroVerve() {
                 fill="var(--color-cinnabar)"
               />
             </svg>
-            Two clear tracks. Built around your practice.
+            Every engagement starts with a free audit.
           </span>
         </div>
 
@@ -42,7 +42,7 @@ export default function PricingHeroVerve() {
         >
           Straightforward pricing.{' '}
           <span style={{ fontStyle: 'italic', color: 'var(--color-cinnabar)' }}>
-            No surprises.
+            Built around your practice.
           </span>
         </h1>
 
@@ -51,7 +51,7 @@ export default function PricingHeroVerve() {
           className="mx-auto mt-7 max-w-xl text-base leading-relaxed"
           style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
         >
-          Every package includes clinic-specific strategy. No generic marketing playbooks.
+          Every engagement is scoped to your practice. The audit determines where you start.
         </p>
 
         {/* CTAs */}
@@ -70,7 +70,7 @@ export default function PricingHeroVerve() {
             <span aria-hidden="true">↗</span>
           </Link>
           <Link
-            href="#pricing-packages-heading"
+            href="#tiers"
             className="inline-flex items-center gap-2 rounded-full border bg-white px-7 py-3.5 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
             style={{
               borderColor: 'var(--color-ink-rule)',
@@ -79,7 +79,7 @@ export default function PricingHeroVerve() {
               outlineColor: 'var(--color-cinnabar)',
             }}
           >
-            Compare packages
+            See engagement options
           </Link>
         </div>
       </div>

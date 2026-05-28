@@ -36,59 +36,6 @@ export const RESULTS = {
   ],
 }
 
-export type CorePackage = {
-  name: string
-  price: string
-  tagline: string
-  features: string[]
-  popular?: boolean
-  valueNote?: string
-}
-
-export const CORE_PACKAGES: CorePackage[] = [
-  {
-    name: 'Essential',
-    price: '$1,500',
-    tagline: 'Foundation for visibility',
-    features: [
-      'Clinic website design (initial build + ongoing updates)',
-      'SEO & AEO: optimized for Google and AI search',
-      'Google Business & local citations',
-      'Automated review requests after every visit',
-      'Live performance dashboard: rankings and AI search visibility',
-    ],
-  },
-  {
-    name: 'Growth',
-    price: '$3,500',
-    tagline: 'Active patient acquisition',
-    popular: true,
-    features: [
-      'Everything in Essential',
-      'Google & Meta PPC, managed by med spa specialists',
-      'AI ad creative & A/B testing',
-      'Landing pages & CRO',
-      'AI Content Engine: 4 blog posts, monthly email & social copy',
-      'AI Lead Nurture included: Day 1, 3, 7 & 14 follow-up sequences',
-    ],
-    valueNote: 'Includes AI Lead Nurture automation ($450/mo value)',
-  },
-  {
-    name: 'Full Service',
-    price: '$6,500',
-    tagline: 'Complete marketing department',
-    features: [
-      'Everything in Growth',
-      'AI Patient Agent: voice, web chat, WhatsApp & Instagram, 24/7',
-      'AI No-Show Recovery + Retention Engine',
-      'AI social animations & short-form video reels',
-      'Dedicated strategy lead',
-    ],
-    valueNote: 'Includes $1,450/mo in AI automation systems',
-  },
-]
-
-
 export const ALACARTE = [
   { name: 'Website Design', price: 'from $3,500', type: 'one-time' },
   { name: 'PPC Management only', price: 'from $1,200/mo', type: 'monthly' },
