@@ -71,16 +71,25 @@ export default async function AdminAuditsPage({ searchParams }: { searchParams: 
             Pipeline
           </h1>
         </div>
-        <form className="flex items-center gap-2" action="/admin">
-          {status && <input type="hidden" name="status" value={status} />}
-          <input
-            name="q"
-            defaultValue={q ?? ''}
-            placeholder="Search clinic, email, city"
-            className="rounded-md border px-3 py-2 text-sm"
-            style={{ borderColor: 'var(--color-ink-subtle)', background: 'var(--color-ivory)', color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}
-          />
-        </form>
+        <div className="flex items-center gap-3">
+          <form className="flex items-center gap-2" action="/admin">
+            {status && <input type="hidden" name="status" value={status} />}
+            <input
+              name="q"
+              defaultValue={q ?? ''}
+              placeholder="Search clinic, email, city"
+              className="rounded-md border px-3 py-2 text-sm"
+              style={{ borderColor: 'var(--color-ink-subtle)', background: 'var(--color-ivory)', color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}
+            />
+          </form>
+          <a
+            href="/new-audit"
+            className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold"
+            style={{ background: 'var(--color-cinnabar)', color: 'var(--color-ivory)', fontFamily: 'var(--font-body)' }}
+          >
+            + New audit
+          </a>
+        </div>
       </div>
 
       <div className="mt-6 flex flex-wrap gap-2">

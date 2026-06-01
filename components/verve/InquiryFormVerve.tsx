@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, type CSSProperties } from 'react'
+import { HONEYPOT_FIELD } from '@/lib/security/honeypot'
 
 const ENDPOINT = '/api/inquiry/submit'
 
@@ -39,6 +40,7 @@ export default function InquiryFormVerve() {
       email: String(data.get('email') ?? '').trim(),
       practice: String(data.get('practice') ?? '').trim() || null,
       message: String(data.get('message') ?? '').trim(),
+      [HONEYPOT_FIELD]: String(data.get(HONEYPOT_FIELD) ?? ''),
     }
 
     try {
@@ -120,6 +122,11 @@ export default function InquiryFormVerve() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6" noValidate>
+      {/* Honeypot — hidden from real users; bots that fill it are silently dropped. */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
+        <label htmlFor={HONEYPOT_FIELD}>Company size</label>
+        <input id={HONEYPOT_FIELD} name={HONEYPOT_FIELD} type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       <div>
         <label htmlFor="contact-name" style={labelStyle}>Your name</label>
         <input id="contact-name" name="name" type="text" autoComplete="name" required style={inputStyle} aria-invalid={!!errors.name} />
