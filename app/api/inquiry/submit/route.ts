@@ -2,6 +2,9 @@ import { after, NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { sendEmail } from '@/lib/email/send'
 import { upsertContact, addNoteToContact } from '@/lib/hubspot/client'
+import { adminSupabase } from '@/lib/audit/supabase'
+import { checkHoneypot } from '@/lib/security/honeypot'
+import { rateLimit, clientIp } from '@/lib/security/ratelimit'
 
 export const runtime = 'nodejs'
 
@@ -18,14 +21,25 @@ const escape = (s: string) =>
 /**
  * POST /api/inquiry/submit
  *
- * Lightweight contact-form endpoint. Sends a notification email to
- * hello@vervemd.com and (when HUBSPOT_ACCESS_TOKEN is set) mirrors the
- * inquiry into HubSpot as a contact + note. HubSpot calls run via after()
- * so they never block the user-facing response.
+ * Contact-form endpoint. Persists the inquiry to the `inquiries` table (so no
+ * lead is ever lost to an email/HubSpot hiccup), sends a notification email to
+ * hello@vervemd.com, and mirrors the inquiry into HubSpot as a contact + note.
+ * HubSpot runs via after() so it never blocks the user-facing response.
  */
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null)
   if (!body) return NextResponse.json({ error: 'invalid_json' }, { status: 400 })
+
+  // Bot trap: pretend success, do nothing.
+  if (checkHoneypot(body)) return NextResponse.json({ ok: true })
+
+  const limit = rateLimit(`inquiry:${clientIp(req)}`, { limit: 5, windowMs: 10 * 60_000 })
+  if (!limit.ok) {
+    return NextResponse.json(
+      { error: 'rate_limited' },
+      { status: 429, headers: { 'Retry-After': String(limit.retryAfterSec) } },
+    )
+  }
 
   const parsed = InquirySchema.safeParse(body)
   if (!parsed.success) {
@@ -34,6 +48,21 @@ export async function POST(req: NextRequest) {
 
   const { name, email, practice, message } = parsed.data
   const subject = `New inquiry: ${name}${practice ? ` (${practice})` : ''}`
+
+  // Persist first — the DB row is the durable record of the lead. Best-effort:
+  // a storage hiccup must not lose the email/HubSpot notification below.
+  let inquiryId: string | null = null
+  try {
+    const { data, error } = await adminSupabase()
+      .from('inquiries')
+      .insert({ name, email, practice: practice ?? null, message, source: 'contact_form' })
+      .select('id')
+      .single()
+    if (error) console.error('[inquiry/submit] persist failed', error)
+    else inquiryId = data?.id ?? null
+  } catch (err) {
+    console.error('[inquiry/submit] persist threw', err)
+  }
 
   const fieldRow = (label: string, value: string) =>
     `<tr>
@@ -75,6 +104,8 @@ export async function POST(req: NextRequest) {
     })
   } catch (err) {
     console.error('[inquiry/submit] send failed', err)
+    // The lead is already persisted, so it isn't lost — but surface the failure
+    // so the form can prompt a retry / the email fallback.
     return NextResponse.json({ error: 'send_failed' }, { status: 500 })
   }
 
@@ -97,6 +128,12 @@ export async function POST(req: NextRequest) {
             (practice ? `<p><em>Practice:</em> ${escape(practice)}</p>` : '') +
             `<p>${escape(message).replace(/\n/g, '<br>')}</p>`,
         )
+        if (inquiryId) {
+          await adminSupabase()
+            .from('inquiries')
+            .update({ hubspot_contact_id: contactId })
+            .eq('id', inquiryId)
+        }
       }
     } catch (err) {
       console.error('[inquiry/submit] hubspot sync failed', err)

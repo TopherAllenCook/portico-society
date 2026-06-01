@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { HONEYPOT_FIELD } from '@/lib/security/honeypot'
 
 const AUDIT_ENDPOINT = '/api/audit/submit'
 
@@ -54,6 +55,7 @@ export default function AuditFormVerve() {
       city: String(data.get('city') ?? '').trim(),
       state: String(data.get('state') ?? '').trim() || null,
       challenge: String(data.get('challenge') ?? '').trim() || null,
+      [HONEYPOT_FIELD]: String(data.get(HONEYPOT_FIELD) ?? ''),
     }
 
     try {
@@ -110,6 +112,11 @@ export default function AuditFormVerve() {
       style={{ background: 'var(--color-cta-surface)', border: '1px solid var(--color-ivory-subtle)' }}
       noValidate
     >
+      {/* Honeypot — hidden from real users; bots that fill it are silently dropped. */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
+        <label htmlFor={HONEYPOT_FIELD}>Company size</label>
+        <input id={HONEYPOT_FIELD} name={HONEYPOT_FIELD} type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="clinic_name" style={labelStyle}>Clinic Name</label>
