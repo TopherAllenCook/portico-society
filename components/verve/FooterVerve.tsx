@@ -19,7 +19,7 @@ export default function FooterVerve() {
               className="mt-2 text-sm"
               style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
             >
-              Exclusively serving longevity, concierge, and aesthetics practices.
+              The marketing department for home service businesses.
             </p>
           </div>
 

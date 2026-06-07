@@ -18,7 +18,7 @@ export default function BottomCTAVerve() {
             lineHeight: 1.1,
           }}
         >
-          Let&rsquo;s find out exactly what your clinic is leaving on the table.
+          Let&rsquo;s find out exactly what your business is leaving on the table.
         </h2>
         <p
           className="mx-auto mt-6 text-base leading-relaxed"

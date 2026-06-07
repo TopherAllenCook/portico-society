@@ -61,7 +61,7 @@ export default function NewAuditForm() {
       contact_name: String(data.get('name') ?? '').trim(),
       contact_email: email,
       contact_phone: String(data.get('phone') ?? '').trim() || null,
-      specialty: String(data.get('specialty') ?? 'longevity'),
+      specialty: String(data.get('specialty') ?? 'plumbing'),
       city: String(data.get('city') ?? '').trim(),
       state: String(data.get('state') ?? '').trim() || null,
       challenge: String(data.get('challenge') ?? '').trim() || null,
@@ -148,17 +148,17 @@ export default function NewAuditForm() {
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field id="clinic_name" label="Clinic name" error={errors.clinic_name}>
-          <input id="clinic_name" name="clinic_name" type="text" placeholder="Apex Longevity" style={inputStyle} />
+        <Field id="clinic_name" label="Business name" error={errors.clinic_name}>
+          <input id="clinic_name" name="clinic_name" type="text" placeholder="Apex Plumbing" style={inputStyle} />
         </Field>
         <Field id="website" label="Website URL" error={errors.website}>
-          <input id="website" name="website" type="url" placeholder="https://yourclinic.com" style={inputStyle} />
+          <input id="website" name="website" type="url" placeholder="https://yourcompany.com" style={inputStyle} />
         </Field>
         <Field id="name" label="Contact name" error={errors.name}>
-          <input id="name" name="name" type="text" placeholder="Dr. Sarah Miller" style={inputStyle} />
+          <input id="name" name="name" type="text" placeholder="Sarah Miller" style={inputStyle} />
         </Field>
         <Field id="email" label="Contact email" error={errors.email}>
-          <input id="email" name="email" type="email" placeholder="sarah@clinic.com" style={inputStyle} />
+          <input id="email" name="email" type="email" placeholder="sarah@company.com" style={inputStyle} />
         </Field>
         <Field id="city" label="Primary city" error={errors.city}>
           <input id="city" name="city" type="text" placeholder="Austin" style={inputStyle} />
@@ -169,13 +169,14 @@ export default function NewAuditForm() {
         <Field id="phone" label="Phone (optional)">
           <input id="phone" name="phone" type="tel" placeholder="+1 (555) 000-0000" style={inputStyle} />
         </Field>
-        <Field id="specialty" label="Primary specialty" error={errors.specialty}>
+        <Field id="specialty" label="Trade" error={errors.specialty}>
           <select id="specialty" name="specialty" defaultValue="" style={{ ...inputStyle, appearance: 'none' }}>
             <option value="" disabled>Choose one</option>
-            <option value="longevity">Longevity</option>
-            <option value="concierge">Concierge</option>
-            <option value="aesthetic">Aesthetic</option>
-            <option value="mixed">Mixed</option>
+            <option value="plumbing">Plumbing</option>
+            <option value="hvac">HVAC</option>
+            <option value="electrical">Electrical</option>
+            <option value="roofing">Roofing</option>
+            <option value="other">Other home service</option>
           </select>
         </Field>
       </div>
@@ -184,7 +185,7 @@ export default function NewAuditForm() {
         <label htmlFor="challenge" className="mb-1.5 block text-xs uppercase" style={{ letterSpacing: '0.12em', color: 'var(--color-ink-muted)', fontFamily: 'var(--font-mono)' }}>
           Biggest marketing challenge (optional)
         </label>
-        <textarea id="challenge" name="challenge" rows={3} placeholder="e.g. Not showing up in Google, wasting ad spend, need more new patients…" style={{ ...inputStyle, resize: 'vertical' }} />
+        <textarea id="challenge" name="challenge" rows={3} placeholder="e.g. Not showing up in Google, wasting money on shared leads, calls going to voicemail…" style={{ ...inputStyle, resize: 'vertical' }} />
       </div>
 
       <label className="mt-5 flex items-start gap-3 rounded-lg border p-3" style={{ borderColor: 'var(--color-ink-subtle)', background: 'var(--color-ivory)' }}>

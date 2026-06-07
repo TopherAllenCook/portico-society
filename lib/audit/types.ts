@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const SpecialtySchema = z.enum(['longevity', 'concierge', 'aesthetic', 'mixed'])
+export const SpecialtySchema = z.enum(['plumbing', 'hvac', 'electrical', 'roofing', 'other'])
 export type Specialty = z.infer<typeof SpecialtySchema>
 
 export const AuditIntakeSchema = z.object({

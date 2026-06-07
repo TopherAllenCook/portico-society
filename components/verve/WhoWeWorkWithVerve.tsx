@@ -4,15 +4,15 @@ import { WHO_WE_WORK_WITH } from '@/lib/verve/content'
 const PERSONA_IMAGES = [
   {
     src: 'https://images.unsplash.com/photo-1660557989725-f511e9fa6267?auto=format&fit=crop&w=720&q=80',
-    alt: 'Modern consultation lounge with a low couch and warm wood coffee table, the kind of intimate clinical space a founder would build',
+    alt: 'A calm, well-designed reception lounge with a low couch and warm wood coffee table',
   },
   {
     src: 'https://images.unsplash.com/photo-1764445274425-f6bcdd84bbd4?auto=format&fit=crop&w=720&q=80',
-    alt: 'Quiet shoji-screen treatment room opening to a garden, light filtering through warm wood',
+    alt: 'A quiet, light-filled room opening to a garden through warm wood screens',
   },
   {
     src: 'https://images.unsplash.com/photo-1657687380097-88a4a3570bba?auto=format&fit=crop&w=720&q=80',
-    alt: 'Long corridor with wooden floors and an upholstered bench, suggesting a multi-suite practice',
+    alt: 'A long corridor with wooden floors and an upholstered bench in a multi-room office',
   },
 ]
 

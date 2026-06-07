@@ -27,7 +27,7 @@ export default function AIBottomCTAVerve() {
               className="mt-3 text-sm"
               style={{ color: 'var(--color-body-text-on-dark)', fontFamily: 'var(--font-body)', maxWidth: '46ch' }}
             >
-              We audit your current systems, identify which AI tools will move the needle fastest for your clinic, and have them running in under two weeks.
+              We audit your current systems, identify which AI tools will move the needle fastest for your business, and have them running in under two weeks.
             </p>
           </div>
           <div className="flex flex-wrap gap-3 shrink-0">

@@ -187,7 +187,7 @@ export async function runGeo(args: {
   specialty: Specialty
   city: string
 }): Promise<GeoPayload> {
-  const specialty = args.specialty === 'mixed' ? 'longevity' : args.specialty
+  const specialty = args.specialty === 'other' ? 'plumbing' : args.specialty
   const queries = buildPatientQueries(specialty, args.city)
   const enabled = providers.filter((p) => p.enabled())
   if (enabled.length === 0) throw new Error('No GEO providers enabled — set ANTHROPIC_API_KEY at minimum')

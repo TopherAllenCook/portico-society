@@ -140,7 +140,7 @@ export default function InquiryFormVerve() {
       </div>
 
       <div>
-        <label htmlFor="contact-practice" style={labelStyle}>Practice or clinic (optional)</label>
+        <label htmlFor="contact-practice" style={labelStyle}>Business name (optional)</label>
         <input id="contact-practice" name="practice" type="text" autoComplete="organization" style={inputStyle} />
       </div>
 

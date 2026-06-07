@@ -26,7 +26,7 @@ export default function NewAuditToolPage() {
             Create an audit
           </h1>
           <p className="mt-2 text-sm" style={{ color: 'var(--color-ink-muted)', fontFamily: 'var(--font-body)' }}>
-            Enter the clinic’s details to add them to the pipeline and (with “Run now” on) run the full audit and email the prospect.
+            Enter the business’s details to add them to the pipeline and (with “Run now” on) run the full audit and email the prospect.
             No sign-in needed.
           </p>
           <div className="mt-8">

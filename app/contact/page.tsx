@@ -64,7 +64,7 @@ export default function ContactPage() {
               }}
             >
               Tell us about your{' '}
-              <span style={{ color: 'var(--color-cinnabar)', fontStyle: 'italic' }}>practice.</span>
+              <span style={{ color: 'var(--color-cinnabar)', fontStyle: 'italic' }}>business.</span>
             </h1>
             <p
               className="mt-5 text-base leading-relaxed"
@@ -146,7 +146,7 @@ export default function ContactPage() {
                   Who fits
                 </p>
                 <p className="mt-2" style={{ color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}>
-                  Established longevity, concierge, and aesthetic practices. $1M+ revenue.
+                  Established home service businesses. $1M+ revenue.
                 </p>
               </div>
 

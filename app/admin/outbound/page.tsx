@@ -79,7 +79,7 @@ async function kickoffScrape(formData: FormData) {
   const specialtyRaw = formData.get('specialty') as string
   const maxResultsRaw = formData.get('max_results') as string
   const sourceRaw = formData.get('source') as string
-  const specialty = ['longevity', 'concierge', 'aesthetic', 'mixed'].includes(specialtyRaw)
+  const specialty = ['plumbing', 'hvac', 'electrical', 'roofing', 'mixed'].includes(specialtyRaw)
     ? specialtyRaw
     : undefined
   const source = ['places', 'apify', 'both'].includes(sourceRaw) ? sourceRaw : 'places'
@@ -178,12 +178,13 @@ export default async function AdminOutboundPage({ searchParams }: { searchParams
           <input name="state" required defaultValue="UT" maxLength={2} className="mt-1 w-full rounded-md border px-3 py-2 text-sm" style={{ borderColor: 'var(--color-ink-subtle)', background: 'var(--color-ivory)' }} />
         </div>
         <div>
-          <label className="block text-xs uppercase tracking-[0.14em]" style={{ color: 'var(--color-ink-muted)', fontFamily: 'var(--font-mono)' }}>Specialty</label>
+          <label className="block text-xs uppercase tracking-[0.14em]" style={{ color: 'var(--color-ink-muted)', fontFamily: 'var(--font-mono)' }}>Trade</label>
           <select name="specialty" defaultValue="mixed" className="mt-1 w-full rounded-md border px-3 py-2 text-sm" style={{ borderColor: 'var(--color-ink-subtle)', background: 'var(--color-ivory)' }}>
-            <option value="mixed">All (mixed)</option>
-            <option value="longevity">Longevity</option>
-            <option value="concierge">Concierge</option>
-            <option value="aesthetic">Aesthetic</option>
+            <option value="mixed">All trades</option>
+            <option value="plumbing">Plumbing</option>
+            <option value="hvac">HVAC</option>
+            <option value="electrical">Electrical</option>
+            <option value="roofing">Roofing</option>
           </select>
         </div>
         <div>

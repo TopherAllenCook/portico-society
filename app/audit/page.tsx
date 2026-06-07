@@ -7,9 +7,9 @@ import FooterVerve from '@/components/verve/FooterVerve'
 import type { Metadata } from 'next'
 
 const PAGE_URL = 'https://www.vervemd.com/audit'
-const PAGE_TITLE = 'Free AEO + Marketing Audit for Clinics'
+const PAGE_TITLE = 'Free AEO + Marketing Audit for Home Service Businesses'
 const PAGE_DESC =
-  'Find out if AI recommends your clinic. Free AEO visibility audit + marketing assessment for longevity and aesthetics practices. Delivered in 48 hours, no sales call.'
+  'Find out if AI recommends your business. Free AEO visibility audit + marketing assessment for home service businesses. Delivered in 48 hours, no sales call.'
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 const AUDIT_FAQ = [
   {
     q: 'What is the free audit, and what do I actually get?',
-    a: 'A real-time check of how ChatGPT, Claude, and Gemini answer patient questions for your specialty and city. You get an AI Visibility Score, a Competitor Edge Map, SEO + schema health notes, and an Inquiry Path audit with specific fixes ranked by impact. Delivered to your inbox in about three minutes.',
+    a: 'A real-time check of how ChatGPT, Claude, and Gemini answer customer questions for your trade and city. You get an AI Visibility Score, a Competitor Edge Map, SEO + schema health notes, and an Inquiry Path audit with specific fixes ranked by impact. Delivered to your inbox in about three minutes.',
   },
   {
     q: 'How long does it take?',
@@ -40,7 +40,7 @@ const AUDIT_FAQ = [
   },
   {
     q: 'Is the audit really free? What is the catch?',
-    a: 'It is free, and the catch is that we run it knowing most clinics will not buy. The audit is the cheapest, most honest way to find clinics worth working with.',
+    a: 'It is free, and the catch is that we run it knowing most businesses will not buy. The audit is the cheapest, most honest way to find businesses worth working with.',
   },
 ]
 
@@ -59,12 +59,12 @@ const pageLd = {
       '@id': `${PAGE_URL}#service`,
       name: 'Free AEO + Marketing Audit',
       description:
-        'A free AI visibility and marketing audit for longevity, concierge, and aesthetic medicine practices. Delivered in 48 hours with no sales call required.',
+        'A free AI visibility and marketing audit for home service businesses. Delivered in 48 hours with no sales call required.',
       provider: { '@id': 'https://www.vervemd.com#organization' },
       areaServed: { '@type': 'Country', name: 'United States' },
       audience: {
         '@type': 'BusinessAudience',
-        audienceType: 'Longevity, concierge, and aesthetic medicine practices',
+        audienceType: 'Home service businesses and trade contractors',
       },
       offers: {
         '@type': 'Offer',

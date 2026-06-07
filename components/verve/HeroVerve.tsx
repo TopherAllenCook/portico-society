@@ -10,10 +10,10 @@ import { HERO } from '@/lib/verve/content'
 // Angles pulled to the sides so chips sit clear of the trust pill (top center)
 // and the CTAs (bottom center).
 const CHIPS = [
-  { label: 'Longevity',  accent: 'cinnabar', angle: 290 }, // upper-left
-  { label: 'Concierge',  accent: 'ink',      angle: 70  }, // upper-right
-  { label: 'Aesthetic',  accent: 'cinnabar', angle: 245 }, // lower-left
-  { label: 'AI Search',  accent: 'ink',      angle: 115 }, // lower-right
+  { label: 'Plumbing',   accent: 'cinnabar', angle: 290 }, // upper-left
+  { label: 'HVAC',       accent: 'ink',      angle: 70  }, // upper-right
+  { label: 'Electrical', accent: 'cinnabar', angle: 245 }, // lower-left
+  { label: 'Roofing',    accent: 'ink',      angle: 115 }, // lower-right
 ] as const
 
 const RING_DIAMETER = 'min(720px, 82vmin)'

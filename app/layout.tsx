@@ -14,9 +14,9 @@ const fraunces = Fraunces({
 
 const SITE_URL = 'https://www.vervemd.com'
 const SITE_NAME = 'Verve MD'
-const SITE_TITLE = 'Verve MD: Marketing for Longevity & Aesthetics Clinics'
+const SITE_TITLE = 'Verve MD: Marketing for Home Service Businesses'
 const SITE_DESCRIPTION =
-  'Patient acquisition systems for longevity, concierge, and aesthetic medicine. AI search visibility, paid media, lead capture, reputation. Free audit, no sales call.'
+  'The marketing department for home service businesses. Get found in AI search, answer every call day or night, and turn more inquiries into booked jobs. Free audit, no sales call.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   authors: [{ name: 'Verve MD', url: SITE_URL }],
   keywords: [
-    'longevity clinic marketing',
-    'aesthetics marketing',
-    'med spa marketing',
+    'home services marketing',
+    'contractor marketing',
+    'plumber marketing',
+    'HVAC marketing',
     'AEO',
     'answer engine optimization',
     'AI search visibility',
-    'patient acquisition',
-    'concierge medicine marketing',
+    'local service ads management',
   ],
   alternates: {
     canonical: SITE_URL,

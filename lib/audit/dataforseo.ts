@@ -163,31 +163,39 @@ export function serpGoogleAiMode(keyword: string, locationName = 'United States'
  */
 
 export const PATIENT_QUERY_TEMPLATES = {
-  longevity: [
-    'best longevity clinic in {city}',
-    'hormone optimization {city}',
-    'peptide therapy near me {city}',
-    'metabolic health doctor {city}',
-    'biological age testing {city}',
-    'NAD therapy {city}',
-    'longevity medicine {city}',
-    'anti-aging clinic {city}',
+  plumbing: [
+    'best plumber in {city}',
+    'emergency plumber {city}',
+    'water heater repair {city}',
+    'drain cleaning {city}',
+    'leak detection {city}',
+    'plumbing company near me {city}',
+    'sewer line repair {city}',
+    'tankless water heater installation {city}',
   ],
-  concierge: [
-    'best concierge doctor {city}',
-    'direct primary care {city}',
-    'membership medicine {city}',
-    'executive physical {city}',
-    'concierge physician {city}',
-    'private doctor {city}',
+  hvac: [
+    'best hvac company {city}',
+    'ac repair {city}',
+    'furnace repair {city}',
+    'hvac installation {city}',
+    'air conditioning service {city}',
+    'heating and cooling near me {city}',
   ],
-  aesthetic: [
-    'best medspa {city}',
-    'injectables {city}',
-    'body sculpting {city}',
-    'aesthetic clinic {city}',
-    'skin rejuvenation {city}',
-    'botox near me {city}',
+  electrical: [
+    'best electrician in {city}',
+    'emergency electrician {city}',
+    'electrical panel upgrade {city}',
+    'ev charger installation {city}',
+    'electrical repair {city}',
+    'electrician near me {city}',
+  ],
+  roofing: [
+    'best roofing company {city}',
+    'roof repair {city}',
+    'roof replacement {city}',
+    'storm damage roof repair {city}',
+    'roofer near me {city}',
+    'metal roof installation {city}',
   ],
 } as const
 

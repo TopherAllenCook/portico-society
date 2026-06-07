@@ -26,7 +26,7 @@ export default function PricingHeroVerve() {
                 fill="var(--color-cinnabar)"
               />
             </svg>
-            Two clear tracks. Built around your practice.
+            Two clear tracks. Built around your business.
           </span>
         </div>
 
@@ -52,7 +52,7 @@ export default function PricingHeroVerve() {
           className="mx-auto mt-7 max-w-xl text-base leading-relaxed"
           style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
         >
-          Every package includes clinic-specific strategy. No generic marketing playbooks.
+          Every package includes business-specific strategy. No generic marketing playbooks.
         </p>
 
         {/* CTAs */}

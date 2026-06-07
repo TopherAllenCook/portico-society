@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'Verve MD: Marketing for Longevity & Aesthetics Clinics'
+export const alt = 'Verve MD: Marketing for Home Service Businesses'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -87,7 +87,7 @@ export default async function OpenGraphImage() {
               fontWeight: 500,
             }}
           >
-            For longevity &amp; aesthetics clinics
+            For home service businesses
           </p>
           <h1
             style={{
@@ -100,9 +100,9 @@ export default async function OpenGraphImage() {
               maxWidth: '960px',
             }}
           >
-            Every consult you miss is{' '}
+            Every call you miss is{' '}
             <span style={{ color: '#a14823', fontStyle: 'italic' }}>
-              $5,000 walking past your door.
+              a job walking down the street.
             </span>
           </h1>
         </div>
@@ -134,7 +134,7 @@ export default async function OpenGraphImage() {
               fontFamily: 'system-ui, sans-serif',
             }}
           >
-            Free AI visibility audit · 3 min
+            Free marketing audit · 48 hrs
           </span>
         </div>
       </div>

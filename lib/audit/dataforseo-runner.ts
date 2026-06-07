@@ -85,8 +85,8 @@ export async function runDataForSeo(args: RunDfsArgs): Promise<DataForSeoPayload
     }),
   )
 
-  // SERPs for ~12 patient queries (cost cap)
-  const specialty = args.specialty === 'mixed' ? 'longevity' : args.specialty
+  // SERPs for ~12 customer queries (cost cap)
+  const specialty = args.specialty === 'other' ? 'plumbing' : args.specialty
   const queries = buildPatientQueries(specialty, args.city).slice(0, 12)
   const serps: SerpQueryResult[] = []
   for (const q of queries) {

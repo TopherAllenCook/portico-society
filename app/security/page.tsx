@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import NavVerve from '@/components/verve/NavVerve'
 import FooterVerve from '@/components/verve/FooterVerve'
 
-const SECURITY_TITLE = 'Security & HIPAA'
+const SECURITY_TITLE = 'Security & Data'
 const SECURITY_DESC =
-  'How Verve MD handles patient data, HIPAA, BAAs, and vendor risk. Verve does not store PHI; marketing-only signals stay on our systems.'
+  'How Verve MD handles your business and customer data, vendor access, and encryption. Verve does not store your customer records; lead and marketing signals are kept secure.'
 const SECURITY_URL = 'https://www.vervemd.com/security'
 
 export const metadata: Metadata = {
@@ -50,7 +50,7 @@ export default function SecurityPage() {
               className="text-xs font-medium uppercase tracking-[0.22em]"
               style={eyebrowStyle}
             >
-              Security & HIPAA posture
+              Security & data posture
             </p>
             <h1
               className="mt-4 font-display font-semibold"
@@ -64,15 +64,16 @@ export default function SecurityPage() {
             >
               Verve does not store{' '}
               <span style={{ color: 'var(--color-cinnabar)', fontStyle: 'italic' }}>
-                patient data.
+                your customer data.
               </span>
             </h1>
             <p
               className="mt-6 text-base leading-relaxed"
               style={{ ...bodyStyle, maxWidth: '60ch' }}
             >
-              Marketing systems should not be a HIPAA risk surface. The way we are
-              architected, they aren&rsquo;t. Here is exactly what that means in practice.
+              Your marketing systems should never become a place your customer data leaks
+              from. The way we are architected, they won&rsquo;t. Here is exactly what that
+              means in practice.
             </p>
           </div>
         </section>
@@ -92,13 +93,13 @@ export default function SecurityPage() {
               </p>
               <div>
                 <h2 className="font-display font-semibold" style={{ fontSize: 'clamp(1.1rem, 1.6vw, 1.3rem)', color: 'var(--color-ink)', letterSpacing: '-0.015em' }}>
-                  Patient data stays in your stack.
+                  Your customer data stays in your stack.
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed" style={{ ...bodyStyle, maxWidth: '60ch' }}>
-                  Protected Health Information lives in your EHR, CRM, and scheduling
-                  systems, where it already belongs. Verve does not pull patient records, chart
-                  notes, treatment data, or any other PHI into our systems. We do not need it
-                  to do marketing well.
+                  Your customer list, invoices, and job history live in your CRM and scheduling
+                  tools, where they already belong. Verve does not pull customer records,
+                  payment data, or job details into our systems. We do not need them to do
+                  marketing well.
                 </p>
               </div>
             </article>
@@ -116,10 +117,10 @@ export default function SecurityPage() {
                   What Verve does handle.
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed" style={{ ...bodyStyle, maxWidth: '60ch' }}>
-                  Marketing-only signals: form submissions from prospects who have not yet
-                  become patients, ad spend and attribution data, search rankings, AI
-                  visibility scores, web analytics, and reputation signals. None of it is
-                  PHI under HIPAA&rsquo;s definition.
+                  Marketing-only signals: form submissions from prospects, ad spend and
+                  attribution data, search rankings, AI visibility scores, web analytics, and
+                  reputation signals. Lead contact details are handled only to pass them to you
+                  and the tools you already use.
                 </p>
               </div>
             </article>
@@ -134,13 +135,13 @@ export default function SecurityPage() {
               </p>
               <div>
                 <h2 className="font-display font-semibold" style={{ fontSize: 'clamp(1.1rem, 1.6vw, 1.3rem)', color: 'var(--color-ink)', letterSpacing: '-0.015em' }}>
-                  Vendors that could touch PHI: BAA in place.
+                  Vendors that touch lead data: vetted and scoped.
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed" style={{ ...bodyStyle, maxWidth: '60ch' }}>
-                  For the AI Patient Agent and similar systems that interact with patients
-                  directly on your behalf, the upstream vendors operate under a Business
-                  Associate Agreement. Verve coordinates the BAA chain so you are not
-                  collecting signatures across half a dozen platforms.
+                  For the AI Call Agent and similar systems that interact with your customers
+                  directly on your behalf, the upstream vendors are vetted and data access is
+                  scoped to what the task needs. Verve coordinates the vendor list so you are
+                  not chasing it across half a dozen platforms.
                 </p>
               </div>
             </article>
@@ -177,7 +178,7 @@ export default function SecurityPage() {
               className="font-display font-semibold"
               style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', color: 'var(--color-ink)', letterSpacing: '-0.025em' }}
             >
-              Need our vendor list or BAA on file?
+              Need our vendor list or data terms on file?
             </h2>
             <p
               className="mx-auto mt-4 text-base leading-relaxed"
@@ -185,14 +186,14 @@ export default function SecurityPage() {
             >
               Email{' '}
               <a
-                href="mailto:hello@vervemd.com?subject=Security%20and%20HIPAA%20questions"
+                href="mailto:hello@vervemd.com?subject=Security%20and%20data%20questions"
                 className="underline underline-offset-4"
                 style={{ color: 'var(--color-cinnabar)' }}
               >
                 hello@vervemd.com
               </a>
-              {' '}with your clinic name and we will send the current vendor list and BAA
-              template within one business day.
+              {' '}with your business name and we will send the current vendor list and data
+              terms within one business day.
             </p>
           </div>
         </section>

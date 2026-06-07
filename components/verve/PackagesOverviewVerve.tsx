@@ -28,7 +28,7 @@ export default function PackagesOverviewVerve() {
                 letterSpacing: '-0.025em',
               }}
             >
-              One agency. Everything your clinic needs to grow.
+              One agency. Everything your business needs to grow.
             </h2>
           </div>
           <Link

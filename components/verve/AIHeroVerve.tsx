@@ -26,7 +26,7 @@ export default function AIHeroVerve() {
                 fill="var(--color-cinnabar)"
               />
             </svg>
-            {AI_PAGE.eyebrow} · Five AI systems built for clinics
+            {AI_PAGE.eyebrow} · Five AI systems built for home service businesses
           </span>
         </div>
 
@@ -41,7 +41,7 @@ export default function AIHeroVerve() {
             color: 'var(--color-ink)',
           }}
         >
-          Your clinic should be{' '}
+          Your business should be{' '}
           <span style={{ fontStyle: 'italic', color: 'var(--color-cinnabar)' }}>
             running while you sleep.
           </span>

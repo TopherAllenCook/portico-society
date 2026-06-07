@@ -51,7 +51,7 @@ export default function AuditFormVerve() {
       contact_name: String(data.get('name') ?? '').trim(),
       contact_email: String(data.get('email') ?? '').trim(),
       contact_phone: String(data.get('phone') ?? '').trim() || null,
-      specialty: String(data.get('specialty') ?? 'longevity'),
+      specialty: String(data.get('specialty') ?? 'plumbing'),
       city: String(data.get('city') ?? '').trim(),
       state: String(data.get('state') ?? '').trim() || null,
       challenge: String(data.get('challenge') ?? '').trim() || null,
@@ -119,23 +119,23 @@ export default function AuditFormVerve() {
       </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="clinic_name" style={labelStyle}>Clinic Name</label>
-          <input id="clinic_name" name="clinic_name" type="text" style={inputStyle} placeholder="Apex Longevity" className={inputCls} aria-describedby={errors.clinic_name ? 'err-clinic_name' : undefined} />
+          <label htmlFor="clinic_name" style={labelStyle}>Business Name</label>
+          <input id="clinic_name" name="clinic_name" type="text" style={inputStyle} placeholder="Apex Plumbing" className={inputCls} aria-describedby={errors.clinic_name ? 'err-clinic_name' : undefined} />
           {errors.clinic_name && <p id="err-clinic_name" className="mt-1 text-xs" style={{ color: 'var(--color-cinnabar-on-dark)', fontFamily: 'var(--font-body)' }}>{errors.clinic_name}</p>}
         </div>
         <div>
           <label htmlFor="website" style={labelStyle}>Website URL</label>
-          <input id="website" name="website" type="url" style={inputStyle} placeholder="https://yourclinic.com" className={inputCls} aria-describedby={errors.website ? 'err-website' : undefined} />
+          <input id="website" name="website" type="url" style={inputStyle} placeholder="https://yourcompany.com" className={inputCls} aria-describedby={errors.website ? 'err-website' : undefined} />
           {errors.website && <p id="err-website" className="mt-1 text-xs" style={{ color: 'var(--color-cinnabar-on-dark)', fontFamily: 'var(--font-body)' }}>{errors.website}</p>}
         </div>
         <div>
           <label htmlFor="name" style={labelStyle}>Your Name</label>
-          <input id="name" name="name" type="text" style={inputStyle} placeholder="Dr. Sarah M." className={inputCls} aria-describedby={errors.name ? 'err-name' : undefined} />
+          <input id="name" name="name" type="text" style={inputStyle} placeholder="Sarah M." className={inputCls} aria-describedby={errors.name ? 'err-name' : undefined} />
           {errors.name && <p id="err-name" className="mt-1 text-xs" style={{ color: 'var(--color-cinnabar-on-dark)', fontFamily: 'var(--font-body)' }}>{errors.name}</p>}
         </div>
         <div>
           <label htmlFor="email" style={labelStyle}>Email Address</label>
-          <input id="email" name="email" type="email" style={inputStyle} placeholder="you@clinic.com" className={inputCls} aria-describedby={errors.email ? 'err-email' : undefined} />
+          <input id="email" name="email" type="email" style={inputStyle} placeholder="you@company.com" className={inputCls} aria-describedby={errors.email ? 'err-email' : undefined} />
           {errors.email && <p id="err-email" className="mt-1 text-xs" style={{ color: 'var(--color-cinnabar-on-dark)', fontFamily: 'var(--font-body)' }}>{errors.email}</p>}
         </div>
       </div>
@@ -158,7 +158,7 @@ export default function AuditFormVerve() {
           <input id="phone" name="phone" type="tel" style={inputStyle} placeholder="+1 (555) 000-0000" className={inputCls} />
         </div>
         <div>
-          <label htmlFor="specialty" style={labelStyle}>Primary Specialty</label>
+          <label htmlFor="specialty" style={labelStyle}>Trade</label>
           <select
             id="specialty"
             name="specialty"
@@ -168,10 +168,11 @@ export default function AuditFormVerve() {
             aria-describedby={errors.specialty ? 'err-specialty' : undefined}
           >
             <option value="" disabled>Choose one</option>
-            <option value="longevity">Longevity</option>
-            <option value="concierge">Concierge</option>
-            <option value="aesthetic">Aesthetic</option>
-            <option value="mixed">Mixed</option>
+            <option value="plumbing">Plumbing</option>
+            <option value="hvac">HVAC</option>
+            <option value="electrical">Electrical</option>
+            <option value="roofing">Roofing</option>
+            <option value="other">Other home service</option>
           </select>
           {errors.specialty && <p id="err-specialty" className="mt-1 text-xs" style={{ color: 'var(--color-cinnabar-on-dark)', fontFamily: 'var(--font-body)' }}>{errors.specialty}</p>}
         </div>
@@ -184,7 +185,7 @@ export default function AuditFormVerve() {
           name="challenge"
           rows={3}
           style={{ ...inputStyle, resize: 'vertical' }}
-          placeholder="e.g. Not showing up in Google, wasting money on ads, need more new patients..."
+          placeholder="e.g. Not showing up in Google, wasting money on shared leads, calls going to voicemail..."
           className={inputCls}
         />
       </div>

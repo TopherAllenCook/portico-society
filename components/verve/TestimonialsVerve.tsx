@@ -3,6 +3,9 @@ import { TESTIMONIALS } from '@/lib/verve/content'
 export default function TestimonialsVerve() {
   const [featured, ...rest] = TESTIMONIALS
 
+  // No real client testimonials yet. Render nothing rather than fabricate.
+  if (!featured) return null
+
   return (
     <section
       className="px-6 py-24 lg:px-16 lg:py-32"
@@ -19,7 +22,7 @@ export default function TestimonialsVerve() {
             letterSpacing: '-0.025em',
           }}
         >
-          What clinic owners say.
+          What owners say.
         </h2>
 
         {/* Featured testimonial: full width, ink surface */}

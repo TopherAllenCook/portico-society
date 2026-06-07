@@ -4,11 +4,11 @@ import FooterVerve from '@/components/verve/FooterVerve'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'Terms governing use of Verve Clinic Marketing services and this website.',
+  description: 'Terms governing use of Verve Marketing Department services and this website.',
   alternates: { canonical: 'https://www.vervemd.com/terms' },
   openGraph: {
     title: 'Terms of Service · Verve MD',
-    description: 'Terms governing use of Verve Clinic Marketing services and this website.',
+    description: 'Terms governing use of Verve Marketing Department services and this website.',
     url: 'https://www.vervemd.com/terms',
     type: 'website',
     images: ['/opengraph-image'],
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Terms of Service · Verve MD',
-    description: 'Terms governing use of Verve Clinic Marketing services and this website.',
+    description: 'Terms governing use of Verve Marketing Department services and this website.',
     images: ['/twitter-image'],
   },
 }
@@ -28,15 +28,15 @@ const sections = [
   },
   {
     heading: 'Services',
-    body: 'Verve Clinic Marketing provides AI visibility audits, marketing strategy, and related services to qualified medical practices. Engagement scope, deliverables, and terms are defined in individual service agreements. The free audit described on this site is provided as a demonstration of methodology and does not constitute a binding engagement.',
+    body: 'Verve Marketing Department provides AI visibility audits, marketing strategy, and related services to qualified home service businesses. Engagement scope, deliverables, and terms are defined in individual service agreements. The free audit described on this site is provided as a demonstration of methodology and does not constitute a binding engagement.',
   },
   {
     heading: 'Audit Requests',
-    body: 'Submitting an audit request does not guarantee delivery of an audit or the commencement of a paid engagement. Verve reserves the right to decline audit requests at its discretion, including where a practice does not meet our engagement criteria.',
+    body: 'Submitting an audit request does not guarantee delivery of an audit or the commencement of a paid engagement. Verve reserves the right to decline audit requests at its discretion, including where a business does not meet our engagement criteria.',
   },
   {
     heading: 'Intellectual Property',
-    body: 'All content on this site (including copy, methodology descriptions, and design) is the property of Verve Clinic Marketing LLC. Audit reports delivered to practices are for that practice\'s internal use and may not be shared with third parties without written consent.',
+    body: 'All content on this site (including copy, methodology descriptions, and design) is the property of Verve Marketing Department LLC. Audit reports delivered to businesses are for that business\'s internal use and may not be shared with third parties without written consent.',
   },
   {
     heading: 'Disclaimer of Warranties',
@@ -44,11 +44,11 @@ const sections = [
   },
   {
     heading: 'Limitation of Liability',
-    body: 'To the fullest extent permitted by law, Verve Clinic Marketing LLC shall not be liable for any indirect, incidental, or consequential damages arising from your use of this site or our services.',
+    body: 'To the fullest extent permitted by law, Verve Marketing Department LLC shall not be liable for any indirect, incidental, or consequential damages arising from your use of this site or our services.',
   },
   {
     heading: 'Governing Law',
-    body: 'These terms are governed by the laws of the state in which Verve Clinic Marketing LLC is registered, without regard to conflict of law principles.',
+    body: 'These terms are governed by the laws of the state in which Verve Marketing Department LLC is registered, without regard to conflict of law principles.',
   },
   {
     heading: 'Changes to Terms',

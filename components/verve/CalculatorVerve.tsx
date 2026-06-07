@@ -71,8 +71,8 @@ export default function CalculatorVerve() {
     if (b === 0 || c === 0 || r === 0 || v === 0) return null
 
     const leads = b / c
-    const patients = leads * (r / 100)
-    const monthlyRevenue = patients * v
+    const jobs = leads * (r / 100)
+    const monthlyRevenue = jobs * v
     const monthlyProfit = monthlyRevenue - b
     const roi = (monthlyProfit / b) * 100
     const breakEvenCPL = v * (r / 100)
@@ -80,7 +80,7 @@ export default function CalculatorVerve() {
     const headroom = breakEvenCPL - c
     const profitable = c <= breakEvenCPL
 
-    return { leads, patients, monthlyRevenue, monthlyProfit, roi, breakEvenCPL, annualProfit, headroom, profitable }
+    return { leads, jobs, monthlyRevenue, monthlyProfit, roi, breakEvenCPL, annualProfit, headroom, profitable }
   }, [budget, cpl, closeRate, avgValue])
 
   const outputRows = [
@@ -91,9 +91,9 @@ export default function CalculatorVerve() {
       sub: null,
     },
     {
-      id: 'patients',
-      display: result ? `+${Math.round(result.patients)}` : '·',
-      label: 'new patients per month',
+      id: 'jobs',
+      display: result ? `+${Math.round(result.jobs)}` : '·',
+      label: 'new jobs booked per month',
       sub: null,
     },
     {
@@ -209,7 +209,7 @@ export default function CalculatorVerve() {
                     aria-label="Target cost per lead in dollars"
                   />
                 </div>
-                <span style={HINT}>Med spa avg $45 to $80 · Longevity avg $65 to $150</span>
+                <span style={HINT}>Local Service Ads avg $45 to $95 by trade</span>
               </div>
 
               {/* Close rate */}
@@ -234,27 +234,27 @@ export default function CalculatorVerve() {
                     %
                   </span>
                 </div>
-                <span style={HINT}>Aesthetics avg 20% to 35%</span>
+                <span style={HINT}>Home services avg 25% to 45%</span>
               </div>
 
               {/* Avg patient value */}
               <div>
-                <label htmlFor="calc-value" style={LABEL}>Avg. Patient Value per Visit</label>
+                <label htmlFor="calc-value" style={LABEL}>Avg. Job Value</label>
                 <div className="relative">
                   <span className="pointer-events-none absolute left-0" style={DOLLAR}>$</span>
                   <input
                     id="calc-value"
                     type="text"
                     inputMode="numeric"
-                    placeholder="504"
+                    placeholder="450"
                     value={avgValue}
                     onChange={e => setAvgValue(e.target.value.replace(/[^0-9,]/g, ''))}
                     className="verve-calc-input"
                     style={{ ...INPUT, paddingLeft: '1.1rem' }}
-                    aria-label="Average patient value per visit in dollars"
+                    aria-label="Average job value in dollars"
                   />
                 </div>
-                <span style={HINT}>Longevity/aesthetics median $504</span>
+                <span style={HINT}>Varies by trade · service call to full install</span>
               </div>
 
             </div>
@@ -379,14 +379,14 @@ export default function CalculatorVerve() {
             className="text-xs leading-relaxed"
             style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)', maxWidth: '52ch' }}
           >
-            CPL benchmarks: med spa $45 to $80, longevity $65 to $150. Close rate: aesthetics avg 20% to 35%. Patient value: $504 median. Results vary by market and practice type.
+            CPL benchmarks: Local Service Ads $45 to $95 by trade. Close rate: home services avg 25% to 45%. Job value varies widely by trade. Results vary by market and trade.
           </p>
           <Link
             href="/audit"
             className="shrink-0 text-sm font-medium underline-offset-4 hover:underline whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-cinnabar)] rounded-sm"
             style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
           >
-            Validate for your clinic →
+            Validate for your business →
           </Link>
         </div>
 

@@ -28,7 +28,7 @@ export default function AIServicesListVerve() {
             className="text-sm mt-1"
             style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)', maxWidth: '52ch' }}
           >
-            Each system runs independently or stacked. Add what your clinic needs now, expand as you grow. PPC management is included in Growth and Full Service plans.
+            Each system runs independently or stacked. Add what your business needs now, expand as you grow. PPC management is included in Growth and Full Service plans.
           </p>
         </div>
 

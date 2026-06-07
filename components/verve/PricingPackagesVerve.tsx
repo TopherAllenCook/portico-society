@@ -27,7 +27,7 @@ export default function PricingPackagesVerve() {
             className="mt-1 text-sm"
             style={{ color: 'var(--color-body-text-on-dark)', fontFamily: 'var(--font-body)', maxWidth: '52ch' }}
           >
-            Every package is built around your practice. Start with the audit. The findings make the right tier obvious.
+            Every package is built around your business. Start with the audit. The findings make the right tier obvious.
           </p>
         </div>
 

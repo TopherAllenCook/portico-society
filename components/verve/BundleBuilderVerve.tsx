@@ -11,16 +11,16 @@ const PKG_ROI: Record<string, [number, number]> = {
 }
 
 const SYSTEM_ROI: Record<string, [number, number]> = {
-  'patient-agent': [2800, 7500],
+  'call-agent':    [2800, 7500],
   'lead-nurture':  [1400, 3800],
   reputation:      [1200, 3500],
-  'no-show':       [1100, 3200],
-  retention:       [2200, 5500],
+  'missed-call':   [1100, 3200],
+  reactivation:    [2200, 5500],
 }
 
 const PKG_INCLUDES: Record<string, string[]> = {
   Growth:         ['lead-nurture'],
-  'Full Service': ['patient-agent', 'no-show', 'retention'],
+  'Full Service': ['call-agent', 'missed-call', 'reactivation'],
 }
 
 function parsePrice(s: string): number {
@@ -377,7 +377,7 @@ export default function BundleBuilderVerve() {
                           className="text-xs leading-relaxed pt-1"
                           style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
                         >
-                          Estimates based on averages across longevity and aesthetics practices. Results vary.
+                          Estimates based on averages across home service businesses. Results vary.
                         </p>
                       </>
                     )}
@@ -394,7 +394,7 @@ export default function BundleBuilderVerve() {
                       className="mt-3 text-xs text-center leading-relaxed"
                       style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
                     >
-                      We review every clinic before onboarding. No payment until we&rsquo;re both confident it&rsquo;s the right fit.
+                      We review every business before onboarding. No payment until we&rsquo;re both confident it&rsquo;s the right fit.
                     </p>
                   </div>
                 </div>

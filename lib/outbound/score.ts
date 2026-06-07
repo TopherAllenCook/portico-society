@@ -4,10 +4,10 @@ import type { RawClinic, WebsiteEnrichment, IcpScore } from './types'
 /**
  * ICP scoring against PRODUCT.md's stated ideal customer:
  *
- *   - longevity / concierge medicine / aesthetic practices
- *   - revenue $1M+, 3+ years operating
- *   - already doing some marketing but not getting the right patients
- *   - sophisticated buyers — frustrated with generalist agencies
+ *   - plumbing / HVAC / electrical / roofing / adjacent home services
+ *   - revenue $1M+ (or $1k+/mo ad spend), 3+ years operating
+ *   - already doing some marketing but not getting enough booked jobs
+ *   - frustrated with shared-lead platforms and generalist agencies
  *
  * The signals we have to work with:
  *   - Google rating, review count, categories
@@ -43,23 +43,23 @@ export async function scoreLead(args: ScoreArgs): Promise<IcpScore> {
     model: MODEL,
     max_tokens: 400,
     temperature: 0.2,
-    system: `You are an ICP scorer for Verve MD, a brand strategy agency that serves longevity, concierge medicine, and aesthetic clinics.
+    system: `You are an ICP scorer for Verve MD, a marketing agency that serves home service businesses: plumbing, HVAC, electrical, roofing, and adjacent trades.
 
 Verve's ideal customer:
-- Specialty: longevity / concierge medicine / aesthetic medicine (not general primary care, not chiropractors, not dentists)
-- Revenue: $1M+ annual (proxy: 100+ Google reviews AND professional website AND named providers)
-- Maturity: 3+ years operating (proxy: established Google presence, complete About / Team pages)
-- Already doing some marketing: has analytics installed, has forms, has booking widget, has blog or content
-- Frustrated with generic agencies: this is harder to detect, but sites with marketing infrastructure that LOOKS template/generic score lower on the "stuck" axis
+- Trade: plumbing / HVAC / electrical / roofing / adjacent home services (not general contractors doing only new construction, not realtors, not retail)
+- Revenue: $1M+ annual, or already spending $1,000+/month on ads (proxy: 100+ Google reviews AND professional website AND multiple crews/trucks)
+- Maturity: 3+ years operating (proxy: established Google presence, complete About / Service-area pages)
+- Already doing some marketing: has analytics installed, has forms, has online booking or a tracked phone number, runs ads or has content
+- Frustrated with shared-lead platforms and generic agencies: sites with template/generic marketing infrastructure score higher on the "stuck and underserved" axis
 
 Score 0-100. Anchors:
-- 85-100: textbook ICP. Right specialty, strong rating, lots of reviews, professional site, marketing infrastructure visible.
-- 65-84: clear fit on specialty, but some signals weak (e.g. low review count OR weak marketing infra OR generic-looking site).
-- 40-64: adjacent specialty (med spa that does aesthetic but no other longevity/concierge signals) OR right specialty but underdeveloped.
-- 20-39: tangential (general wellness, IV bars, etc.) OR fits specialty but tiny/unestablished.
-- 0-19: clearly out of scope (dental, primary care, dermatology surgical-only, chiropractic, vet, etc.)
+- 85-100: textbook ICP. Right trade, strong rating, lots of reviews, professional site, marketing infrastructure visible.
+- 65-84: clear fit on trade, but some signals weak (e.g. low review count OR weak marketing infra OR generic-looking site).
+- 40-64: adjacent trade (handyman or single-service operator) OR right trade but underdeveloped.
+- 20-39: tangential (brand-new operator, hobbyist, no real web presence) OR fits trade but tiny/unestablished.
+- 0-19: clearly out of scope (new-construction-only GCs, realtors, retail, unrelated businesses).
 
-Be honest. A clinic with 8 reviews and no Team page is not an 80, even if it's the right specialty.
+Be honest. A company with 8 reviews and no Service-area pages is not an 80, even if it's the right trade.
 
 Output ONLY JSON in this exact shape:
 {
@@ -82,7 +82,7 @@ Output ONLY JSON in this exact shape:
 
 function buildSummary(place: RawClinic, enrich: WebsiteEnrichment | null): string {
   const lines = [
-    `Clinic: ${place.title}`,
+    `Business: ${place.title}`,
     `Categories: ${(place.categories ?? []).join(', ') || '(none)'}`,
     `Address: ${place.address ?? '(unknown)'}`,
     `Phone: ${place.phone ?? '(none)'}`,

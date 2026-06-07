@@ -45,7 +45,7 @@ export default function AuditHeroVerve() {
           <span style={{ fontStyle: 'italic', color: 'var(--color-cinnabar)' }}>
             AI recommends
           </span>{' '}
-          your clinic.
+          your business.
         </h1>
 
         {/* Sub */}
