@@ -92,7 +92,7 @@ export default function AuditPage() {
       <main>
         <AuditHeroVerve />
         <PhotoBandVerve
-          src="https://images.unsplash.com/photo-1657687380097-88a4a3570bba?auto=format&fit=crop&w=2400&q=80"
+          src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=2400&q=80"
           height="clamp(200px, 26vw, 340px)"
         />
         <section id="audit-form" className="px-6 py-16 lg:px-16" style={{ background: 'var(--color-ink)' }}>

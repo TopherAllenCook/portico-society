@@ -7,7 +7,7 @@ type Props = {
 }
 
 const DEFAULT_SRC =
-  'https://images.unsplash.com/photo-1633299264475-e8796606b870?auto=format&fit=crop&w=2400&q=80'
+  'https://images.unsplash.com/photo-1473308822086-710304d7d30c?auto=format&fit=crop&w=2400&q=80'
 
 export default function PhotoBandVerve({
   src = DEFAULT_SRC,

@@ -76,7 +76,7 @@ export default function AIPage() {
         <AIHeroVerve />
         <AIWorkflowVerve />
         <PhotoBandVerve
-          src="https://images.unsplash.com/photo-1660557989725-f511e9fa6267?auto=format&fit=crop&w=2400&q=80"
+          src="https://images.unsplash.com/photo-1473308822086-710304d7d30c?auto=format&fit=crop&w=2400&q=80"
           height="clamp(220px, 28vw, 360px)"
         />
         <AIServicesListVerve />

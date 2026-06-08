@@ -21,6 +21,7 @@ export default function HomePage() {
         <HeroVerve />
         <LogoStripVerve />
         <PainPointsVerve />
+        <PhotoBandVerve src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=2400&q=80" />
         <ResultsVerve />
         <PackagesOverviewVerve />
         <CalculatorVerve />

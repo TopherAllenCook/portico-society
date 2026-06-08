@@ -3,16 +3,16 @@ import { WHO_WE_WORK_WITH } from '@/lib/verve/content'
 
 const PERSONA_IMAGES = [
   {
-    src: 'https://images.unsplash.com/photo-1660557989725-f511e9fa6267?auto=format&fit=crop&w=720&q=80',
-    alt: 'A calm, well-designed reception lounge with a low couch and warm wood coffee table',
+    src: 'https://images.unsplash.com/photo-1633759593085-1eaeb724fc88?auto=format&fit=crop&w=720&q=80',
+    alt: 'A roofer replacing worn shingles on a residential roof',
   },
   {
-    src: 'https://images.unsplash.com/photo-1764445274425-f6bcdd84bbd4?auto=format&fit=crop&w=720&q=80',
-    alt: 'A quiet, light-filled room opening to a garden through warm wood screens',
+    src: 'https://images.unsplash.com/photo-1561480337-03eb1b6795a2?auto=format&fit=crop&w=720&q=80',
+    alt: 'A technician checking a home heating and cooling system',
   },
   {
-    src: 'https://images.unsplash.com/photo-1657687380097-88a4a3570bba?auto=format&fit=crop&w=720&q=80',
-    alt: 'A long corridor with wooden floors and an upholstered bench in a multi-room office',
+    src: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=720&q=80',
+    alt: 'A wall of well-used hand tools in a home service workshop',
   },
 ]
 
