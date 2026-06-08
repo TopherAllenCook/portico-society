@@ -262,7 +262,7 @@ export default function CalculatorVerve() {
 
           {/* Outputs */}
           <div className="py-10 lg:pl-16" style={{ borderBottom: RULE }}>
-            <p style={{ ...LABEL, color: 'var(--color-cinnabar)', marginBottom: '2rem' }}>
+            <p style={{ ...LABEL, color: 'var(--color-cinnabar-dark)', marginBottom: '2rem' }}>
               Projected performance
             </p>
 
@@ -384,7 +384,7 @@ export default function CalculatorVerve() {
           <Link
             href="/audit"
             className="shrink-0 text-sm font-medium underline-offset-4 hover:underline whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-cinnabar)] rounded-sm"
-            style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
+            style={{ color: 'var(--color-cinnabar-dark)', fontFamily: 'var(--font-body)' }}
           >
             Validate for your business →
           </Link>

@@ -25,7 +25,6 @@ export default function HomePage() {
         <ResultsVerve />
         <PackagesOverviewVerve />
         <CalculatorVerve />
-        <PhotoBandVerve />
         <AIToolsVerve />
         <AEOBlockVerve />
         <TestimonialsVerve />
