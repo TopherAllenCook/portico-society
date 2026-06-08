@@ -85,7 +85,7 @@ export default function InquiryFormVerve() {
   const errorStyle: CSSProperties = {
     marginTop: '0.4rem',
     fontSize: '0.75rem',
-    color: 'var(--color-cinnabar)',
+    color: 'var(--color-cinnabar-dark)',
     fontFamily: 'var(--font-body)',
   }
 
@@ -100,7 +100,7 @@ export default function InquiryFormVerve() {
       >
         <p
           className="text-xs font-medium uppercase tracking-[0.18em]"
-          style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
+          style={{ color: 'var(--color-cinnabar-dark)', fontFamily: 'var(--font-body)' }}
         >
           Message received
         </p>

@@ -55,7 +55,7 @@ export default function AuditProgressPoller({
         <div>
           <p
             className="text-xs font-medium uppercase tracking-[0.18em]"
-            style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
+            style={{ color: 'var(--color-cinnabar-dark)', fontFamily: 'var(--font-body)' }}
           >
             Audit running
           </p>
@@ -118,7 +118,7 @@ export default function AuditProgressPoller({
               {status === 'running' && (
                 <span
                   className="ml-auto text-[0.65rem] font-medium uppercase tracking-[0.16em]"
-                  style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
+                  style={{ color: 'var(--color-cinnabar-dark)', fontFamily: 'var(--font-body)' }}
                 >
                   Running
                 </span>

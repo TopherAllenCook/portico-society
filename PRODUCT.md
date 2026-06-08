@@ -1,74 +1,77 @@
-# PRODUCT.md — Verve Clinic Marketing
+# PRODUCT.md — Verve MD (Verve Marketing Department)
 
 ## Register
 brand
 
 ## Product Purpose
-Verve is a clinic marketing agency for longevity, concierge medicine, and aesthetic practices. We engineer AI search authority, patient inquiry systems, and recurring revenue growth so that high net worth patients find the right practice at the moment of intent.
+Verve MD is the marketing department for home service businesses. We engineer AI search visibility, lead capture, and call answering so that homeowners find and reach the right contractor at the moment of intent, and so that the business owns the pipeline instead of renting shared leads.
 
-The agency doesn't compete on volume. It competes on precision: three specialties, a defined practice profile, and a clear promise. Every engagement is specific to one practice. No templates, no retainer treadmills, no vanity metrics.
+The agency doesn't compete on volume. It competes on precision: a defined business profile, a clear promise, and a system the owner actually owns. Every engagement is specific to one business. No templates, no retainer treadmills, no vanity metrics.
 
 ## Users
-Practice owners and medical directors at established longevity, concierge medicine, and aesthetic medicine practices. Revenue $1M+, 3+ years operating, already doing some marketing but not getting the right patients from it.
+Owners and operators of established home service businesses (plumbing, HVAC, electrical, roofing, and adjacent trades). Roughly $1M+ in revenue or already spending $1,000+/month on ads, in business 3+ years, already doing some marketing but losing leads to shared-lead platforms and missed calls.
 
-They are sophisticated buyers. They have been pitched by generalist agencies and left disappointed. They know the difference between activity and outcome. They do not want to be impressed by slides; they want to see methodology and specificity.
+They are practical buyers. They have been burned by Angi/Thumbtack shared leads and by generalist agencies that delivered activity, not booked jobs. They know the difference between a lead and a job. They don't want to be impressed by slides; they want to see methodology and specificity.
 
-Secondary: clinic administrators and practice managers who research vendors before bringing them to the physician owner.
+Secondary: office managers and operations leads who research vendors before bringing them to the owner.
 
 ## Brand Voice
 - Restraint over abundance. One precise sentence beats three vague ones.
 - Confidence without hyperbole. No "revolutionary," "best-in-class," "unparalleled."
-- Few words, heavy implication. Let the reader fill in the prestige.
-- AI is the engine, not the headline. Don't lead with AI features; lead with patient outcomes and practice growth.
-- Outcomes in business terms: inquiry volume, inquiry quality, patient acquisition cost, lifetime value, revenue per patient.
+- Few words, heavy implication. Let the reader fill in the credibility.
+- AI is the engine, not the headline. Don't lead with AI features; lead with booked jobs and owned pipeline.
+- Outcomes in business terms: inquiry volume, inquiry quality, cost per booked job, customer lifetime value, revenue per job.
 - No em dashes. No exclamation points. No emojis.
 - No "we believe" language. State facts or ask questions.
-- Address the practice owner directly ("your practice," "your patients") not the general market.
+- Address the owner directly ("your business," "your customers") not the general market.
 
 ## Tone Reference
-Trade journal. Clinical precision. The Financial Times, not TechCrunch. The kind of copy a practice owner reads twice.
+Trade journal. Operator precision. The Financial Times, not TechCrunch. The kind of copy a busy owner reads twice.
 
 ## Anti-References
 - SaaS landing pages with gradient blobs and three-column feature grids
-- Loud medical marketing with stock photo doctors and "YOUR HEALTH IS OUR PRIORITY"
-- Generic digital agencies that claim to serve "healthcare + retail + e-commerce"
+- Loud contractor marketing with stock-photo handshakes and "QUALITY YOU CAN TRUST"
+- Generalist digital agencies that claim to serve "home services + retail + e-commerce"
 - Flashy AI aesthetics: dark mode, neon accents, animated particles, glowing gradients
-- Before/after photo grids
 - Testimonial carousels with star ratings
 - "Book a free call" as the primary CTA (Verve leads with an audit, not a call)
 
 ## Design Principles
 - Trade journal aesthetic: thin rules, generous whitespace, editorial typography
-- Ivory background as the default surface — warm, not cold clinical white
-- Dark ink section (CostOfInvisibility) used as contrast, not decoration
-- Cinnabar accent used sparingly for data points and primary CTAs only
+- Ivory background as the default surface, warm, not cold clinical white
+- Dark ink sections used as contrast, not decoration
+- Cinnabar accent used sparingly for data points and primary CTAs only; small cinnabar text on light surfaces uses cinnabar-dark for AA contrast
 - Fraunces for display: authoritative, slightly literary, confident
-- Inter for body: clean and legible at clinical reading length
-- JetBrains Mono for eyebrow tags and utility labels
-- No full-bleed hero photos on initial build — words carry the weight
-- No card grids. No identical repeated elements.
-- Section rhythm alternates ivory / ink or stone for contrast without noise
+- System sans for body: clean and legible at length; system mono for eyebrow tags and utility labels
+- Real home-services photography carries weight: a hero-adjacent roofing band and real trade imagery (roofing, HVAC, tools) in the "who we work with" section. Lead with one decisive photo, not five mediocre ones.
+- No IDENTICAL card grids. Image-led layouts use asymmetric composition (one featured image plus supporting media rows), not repeated equal cells.
+- Section rhythm alternates ivory / ink / stone for contrast without noise
+- One or two deliberate mono eyebrow kickers, not one above every section
 
 ## Engagement Model
-Two paths:
-1. **Standard Engagement**: structured 6-month engagement covering AI visibility, inquiry architecture, and growth foundation
-2. **Custom Engagement**: built around the specific practice situation; priced accordingly
+Three productized tiers plus à la carte:
+1. **Essential ($1,500/mo)**: foundation for visibility (website, SEO + AEO, Google Business Profile, reviews, dashboard)
+2. **Growth ($3,500/mo)**: active lead generation (PPC + Local Service Ads, landing pages, content engine, lead nurture)
+3. **Full Service ($6,500/mo)**: complete marketing department (AI Call Agent, missed-call recovery, reactivation, dedicated strategy lead)
 
-Primary CTA: Free AI Visibility Audit — no sales call required, audit delivered first, serves as proof of methodology
+Primary CTA: Free AI Visibility + Marketing Audit. No sales call required, audit delivered first, serves as proof of methodology.
 
 ## Categories Served
-1. Longevity Medicine — hormone optimization, cellular health, metabolic reset, biological age
-2. Concierge Medicine — direct primary care, membership medicine, executive health
-3. Aesthetic Medicine — body sculpting, skin rejuvenation, non-surgical facial, injectables
+1. Plumbing — emergency and scheduled service, repair, installation
+2. HVAC — repair, installation, seasonal maintenance
+3. Electrical — repair, panel upgrades, EV chargers
+4. Roofing — repair, replacement, storm damage
+(Plus adjacent home-service trades.)
 
 ## Strategic Principles
-- AI is reshaping how high net worth patients find and choose practices. Most practices are invisible to AI search.
-- The audit is not a lead magnet. It is a demonstration of methodology. If the audit is good, the practice wants more of it.
-- Verve does not work with practices below $1M revenue or in competitive consumer med-spa categories.
-- Phase 2: AI patient inquiry concierge (planned, not promoted yet)
+- AI is reshaping how homeowners find and choose contractors. Most home service businesses are invisible to AI search.
+- The capture gap is the strongest, best-evidenced pain: owners pay $45 to $95 per shared lead and then the phone goes to voicemail. Lead with capture, not just visibility.
+- The audit is not a lead magnet. It is a demonstration of methodology. If the audit is good, the business wants more of it.
+- Verve does not work with businesses below roughly $1M revenue (or proven $1K+/mo ad spend) or with brand-new operators in their first year.
+- The differentiator is the full stack as one outcome: get found by AI, capture every inquiry, answer after hours, own the pipeline.
 
 ## Competitive Context
-Three competitors typically appear in AI recommendations for any given specialty + city combination. If a practice is not one of them, they are losing patients they will never know about.
+Roughly three contractors typically appear in AI recommendations for any given trade + city combination. If a business is not one of them, it is losing jobs it will never know about. Lead-gen marketplaces (Angi, Thumbtack, HomeAdvisor) sell the same lead to four competitors; the agency competitors to beat on positioning are full-service home-services shops like Blue Corona, with Scorpion as the lock-in villain to contrast against.
 
 ## Accessibility
 WCAG 2.1 AA. Strong contrast ratios, full keyboard navigation, screen-reader support. Reduced-motion alternatives for all animated components.

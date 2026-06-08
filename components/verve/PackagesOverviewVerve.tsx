@@ -13,12 +13,6 @@ export default function PackagesOverviewVerve() {
       <div className="mx-auto max-w-5xl">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
-            <p
-              className="mb-3 text-xs font-medium uppercase tracking-[0.18em]"
-              style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}
-            >
-              Packages
-            </p>
             <h2
               id="packages-heading"
               className="font-display font-semibold"
@@ -34,7 +28,7 @@ export default function PackagesOverviewVerve() {
           <Link
             href="/pricing"
             className="shrink-0 text-sm font-medium underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-cinnabar)] rounded-sm"
-            style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
+            style={{ color: 'var(--color-cinnabar-dark)', fontFamily: 'var(--font-body)' }}
           >
             See full pricing →
           </Link>
@@ -71,7 +65,7 @@ export default function PackagesOverviewVerve() {
                   {pkg.popular && (
                     <span
                       className="text-[0.65rem] font-medium uppercase tracking-[0.14em]"
-                      style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
+                      style={{ color: 'var(--color-cinnabar-dark)', fontFamily: 'var(--font-body)' }}
                     >
                       Most chosen
                     </span>
@@ -102,7 +96,7 @@ export default function PackagesOverviewVerve() {
                 href="/pricing"
                 aria-label={`See what's included in ${pkg.name}`}
                 className="text-sm font-medium underline-offset-4 hover:underline whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-cinnabar)] rounded-sm"
-                style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
+                style={{ color: 'var(--color-cinnabar-dark)', fontFamily: 'var(--font-body)' }}
               >
                 What&rsquo;s included →
               </Link>
