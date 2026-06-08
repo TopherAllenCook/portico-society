@@ -41,7 +41,7 @@ Trade journal. Operator precision. The Financial Times, not TechCrunch. The kind
 - Ivory background as the default surface, warm, not cold clinical white
 - Dark ink sections used as contrast, not decoration
 - Cinnabar accent used sparingly for data points and primary CTAs only; small cinnabar text on light surfaces uses cinnabar-dark for AA contrast
-- Fraunces for display: authoritative, slightly literary, confident
+- Plus Jakarta Sans for display: bold, geometric, approachable
 - System sans for body: clean and legible at length; system mono for eyebrow tags and utility labels
 - Real home-services photography carries weight: a hero-adjacent roofing band and real trade imagery (roofing, HVAC, tools) in the "who we work with" section. Lead with one decisive photo, not five mediocre ones.
 - No IDENTICAL card grids. Image-led layouts use asymmetric composition (one featured image plus supporting media rows), not repeated equal cells.

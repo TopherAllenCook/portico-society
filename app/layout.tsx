@@ -1,14 +1,14 @@
 import type { Metadata, Viewport } from 'next'
-import { Fraunces } from 'next/font/google'
+import { Plus_Jakarta_Sans } from 'next/font/google'
 import JsonLd from '@/components/verve/JsonLd'
 import CalScript from '@/components/verve/CalScript'
 import GoogleAnalytics from '@/components/verve/GoogleAnalytics'
 import './globals.css'
 
-const fraunces = Fraunces({
+const display = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  axes: ['opsz'],
-  variable: '--font-fraunces',
+  weight: ['500', '600', '700', '800'],
+  variable: '--font-display-family',
   display: 'swap',
 })
 
@@ -78,7 +78,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={fraunces.variable}>
+    <html lang="en" className={display.variable}>
       <body>
         {children}
         <JsonLd />
