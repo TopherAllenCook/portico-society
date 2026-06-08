@@ -57,12 +57,26 @@ export function rateLimit(
 }
 
 /**
- * Best-effort client IP from proxy headers. Vercel/most proxies set
- * x-forwarded-for (client is the first entry). Falls back to a constant so a
- * missing header can't bypass the limiter entirely.
+ * Best-effort client IP from proxy headers.
+ *
+ * SECURITY: the LEFTMOST x-forwarded-for entry is supplied by the client and is
+ * therefore spoofable. Keying the limiter on it lets an attacker mint a fresh
+ * identity per request and never trip the cap. Trusted proxies (Vercel's edge)
+ * APPEND the real client IP to the RIGHT end of x-forwarded-for, so we read the
+ * entry TRUSTED_PROXY_HOPS positions from the right (default 1, correct for
+ * Vercel), never the left. Falls back to x-real-ip, then a constant so a missing
+ * header can't bypass the limiter entirely. If you sit behind extra trusted
+ * proxies, set TRUSTED_PROXY_HOPS to the number of hops your infra appends.
  */
 export function clientIp(req: NextRequest): string {
   const fwd = req.headers.get('x-forwarded-for')
-  if (fwd) return fwd.split(',')[0]!.trim()
+  if (fwd) {
+    const parts = fwd.split(',').map((s) => s.trim()).filter(Boolean)
+    if (parts.length) {
+      const hops = Math.max(1, Number(process.env.TRUSTED_PROXY_HOPS) || 1)
+      const ip = parts[Math.max(0, parts.length - hops)]
+      if (ip) return ip
+    }
+  }
   return req.headers.get('x-real-ip')?.trim() || 'unknown'
 }
