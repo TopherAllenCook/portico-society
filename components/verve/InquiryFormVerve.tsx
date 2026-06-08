@@ -154,7 +154,7 @@ export default function InquiryFormVerve() {
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-opacity duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 disabled:opacity-60"
+          className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium transition-opacity duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 disabled:opacity-60"
           style={{
             background: 'var(--color-ink)',
             color: 'var(--color-ivory)',

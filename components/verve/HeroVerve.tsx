@@ -127,7 +127,7 @@ export default function HeroVerve() {
         {/* Headline */}
         <h1
           id="hero-heading"
-          className="mt-10 font-display font-semibold"
+          className="mt-10 font-display font-bold"
           style={{
             fontSize: 'clamp(2.75rem, 7.5vw, 5.5rem)',
             lineHeight: 1.04,
@@ -189,7 +189,7 @@ export default function HeroVerve() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3" style={rise(540)}>
           <Link
             href={HERO.primaryCTA.href}
-            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+            className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-medium transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
             style={{
               background: 'var(--color-ink)',
               color: 'var(--color-ivory)',

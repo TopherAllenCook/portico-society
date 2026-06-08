@@ -25,7 +25,7 @@ export default function CalButton({
   children,
 }: CalButtonProps) {
   const base =
-    'inline-flex items-center gap-2 rounded-full text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 cursor-pointer'
+    'inline-flex items-center gap-2 rounded-xl text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 cursor-pointer'
 
   const variantClass =
     variant === 'primary'

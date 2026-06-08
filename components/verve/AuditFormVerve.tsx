@@ -199,7 +199,7 @@ export default function AuditFormVerve() {
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="mt-6 w-full rounded-full py-4 text-sm font-semibold transition-opacity disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-ivory-glow)]"
+        className="mt-6 w-full rounded-xl py-4 text-sm font-semibold transition-opacity disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-ivory-glow)]"
         style={{ background: 'var(--color-cinnabar)', color: 'var(--color-ivory)', fontFamily: 'var(--font-body)' }}
       >
         {status === 'submitting' ? 'Starting your audit…' : status === 'redirecting' ? 'Opening your audit…' : 'Run my audit now'}
