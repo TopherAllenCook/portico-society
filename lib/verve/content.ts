@@ -4,7 +4,7 @@ export const HERO = {
   // Two italic words flank the inline icon: HeroVerve splits this string into <emphLeft> <icon> <emphRight>
   emphasisLeft: 'Own',
   emphasisRight: 'your pipeline.',
-  sub: 'We get your home service business found in AI search, answer every call day or night, and turn more inquiries into booked jobs. Free audit in 48 hours.',
+  sub: 'Get found in AI search. Answer every call. Book more jobs. Free audit in 48 hours.',
   primaryCTA: { label: 'Book your free audit', href: '/audit' },
   secondaryCTA: { label: 'See how it works', href: '#services' },
 }
@@ -14,15 +14,15 @@ export const PAIN_POINTS = {
   items: [
     {
       headline: '"We pay for leads that go to four other guys."',
-      body: 'Angi, Thumbtack, and HomeAdvisor sell the same lead to everyone. You pay to bid against your competitors. We build a pipeline you actually own.',
+      body: 'Shared leads pit you against your competitors. We build a pipeline you own.',
     },
     {
       headline: '"Half our calls go to voicemail."',
-      body: 'You\'re on a job, the phone rings, and that customer calls the next company. We make sure every call gets answered, day or night.',
+      body: 'Every missed call is a job for the next company. We answer, day or night.',
     },
     {
       headline: '"We\'re invisible when customers ask AI."',
-      body: 'Homeowners ask ChatGPT and Google AI for a contractor near them. Your name doesn\'t come up. We fix that.',
+      body: 'Homeowners ask AI who to call. You don\'t come up. We fix that.',
     },
   ],
 }
@@ -101,19 +101,19 @@ export const ALACARTE = [
 
 export const AI_TOOLS_SECTION = {
   title: 'Marketing that runs while you\'re on the job.',
-  sub: 'AI systems that answer leads, follow up automatically, recover missed calls, and grow your reputation around the clock.',
+  sub: 'AI that answers, follows up, and grows your reputation. Around the clock.',
   tools: [
     {
       name: 'AI Call Agent',
-      description: 'Answers calls, web chat, and texts 24/7. Qualifies leads, books jobs, escalates to your team when needed.',
+      description: 'Answers calls, chat, and texts 24/7. Books jobs. Escalates when needed.',
     },
     {
       name: 'AI Lead Nurture',
-      description: 'Day 1, 3, 7, and 14 SMS and email sequences that move unbooked leads toward a booked job. Stops the moment they book.',
+      description: 'Follow-ups that turn unbooked leads into jobs. Stops when they book.',
     },
     {
       name: 'AI Reputation Manager',
-      description: 'Sends review requests after every job. Monitors Google, Yelp, and Angi. Drafts responses for your approval.',
+      description: 'Review requests after every job. Monitors Google, Yelp, and Angi.',
     },
   ],
 }
@@ -135,15 +135,15 @@ export const WHO_WE_WORK_WITH = {
   personas: [
     {
       type: 'Owner-operators',
-      description: 'You\'re in the field all day. You shouldn\'t be running your own marketing too. We handle it so you can run the jobs.',
+      description: 'In the field all day. We run the marketing so you run the jobs.',
     },
     {
       type: 'Growing trade businesses',
-      description: 'Plumbing, HVAC, electrical, roofing, and more. We know how homeowners search for your services and how to get you booked.',
+      description: 'Plumbing, HVAC, electrical, roofing. We get you booked.',
     },
     {
-      type: 'Multi-crew & multi-location shops',
-      description: 'Scaling past one truck. Consistent campaigns, local SEO per service area, centralized reporting.',
+      type: 'Multi-crew & multi-location',
+      description: 'Consistent campaigns and local SEO for every service area.',
     },
   ],
 }
