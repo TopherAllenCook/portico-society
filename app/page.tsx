@@ -5,7 +5,6 @@ import PainPointsVerve from '@/components/verve/PainPointsVerve'
 import ResultsVerve from '@/components/verve/ResultsVerve'
 import PackagesOverviewVerve from '@/components/verve/PackagesOverviewVerve'
 import PhotoBandVerve from '@/components/verve/PhotoBandVerve'
-import AIToolsVerve from '@/components/verve/AIToolsVerve'
 import AEOBlockVerve from '@/components/verve/AEOBlockVerve'
 import TestimonialsVerve from '@/components/verve/TestimonialsVerve'
 import WhoWeWorkWithVerve from '@/components/verve/WhoWeWorkWithVerve'
@@ -23,7 +22,6 @@ export default function HomePage() {
         <PhotoBandVerve src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=2400&q=80" />
         <ResultsVerve />
         <PackagesOverviewVerve />
-        <AIToolsVerve />
         <AEOBlockVerve />
         <TestimonialsVerve />
         <WhoWeWorkWithVerve />

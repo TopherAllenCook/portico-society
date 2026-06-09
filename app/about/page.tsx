@@ -91,24 +91,20 @@ export default function AboutPage() {
               className="text-lg leading-relaxed"
               style={{ color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}
             >
-              I&rsquo;ve been doing this work since 2012. Thirteen-plus years of brand
-              strategy, paid media, AI systems, and the operations work that turns a campaign
-              into a business. Verve is the version of that work built around one kind of
-              company: home service businesses. The plumbers, HVAC techs, electricians, and
-              roofers who are great at the work and invisible online.
+              I&rsquo;ve been doing this since 2012. Thirteen-plus years of brand strategy,
+              paid media, AI systems, and the operations work that turns a campaign into a
+              business. Verve is that work built for one kind of company: home service
+              businesses that are great at the work and invisible online.
             </p>
 
             <p
               className="text-base leading-relaxed"
               style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
             >
-              The reason Verve exists is simple. Homeowners have started asking ChatGPT,
-              Claude, and Gemini for the best contractor in their city. Most home service
-              businesses aren&rsquo;t in those answers. The ones that are win the job. The rest
-              don&rsquo;t get the call. SEO and paid still matter. They just don&rsquo;t matter
-              alone anymore. The thing that closes the gap is a system that names you, runs the
-              paid media that fills the rest, answers every call, and converts inquiries before
-              they cool.
+              Homeowners now ask ChatGPT, Claude, and Gemini for the best contractor in their
+              city. Most home service businesses aren&rsquo;t in the answer; the ones that are
+              win the job. Verve names you in AI search, runs the paid media that fills the
+              rest, answers every call, and converts inquiries before they cool.
             </p>
 
             <p
@@ -116,22 +112,19 @@ export default function AboutPage() {
               style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
             >
               I run Verve as a systems operator, not a traditional agency. Strategy and the
-              close happen with me directly. Outbound is run by a named specialist. AI handles
-              the workload in between (review collection, lead nurture, drafting, scheduling,
-              reporting) so the human time goes to the parts that compound: positioning,
-              creative, and the relationship.
+              close are mine directly; a named specialist runs outbound; AI handles the work in
+              between. Human time goes to what compounds: positioning, creative, and the
+              relationship.
             </p>
 
             <p
               className="text-base leading-relaxed"
               style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
             >
-              A few things I won&rsquo;t do. I won&rsquo;t promise specific job counts;
-              no one honest can. I won&rsquo;t spin up a generic playbook and call it
-              trade-specific. I won&rsquo;t bundle in services the business doesn&rsquo;t
-              need so the retainer looks bigger. The reason &ldquo;the founder reads every
-              one&rdquo; is in the copy is because it&rsquo;s true. If you write in, the first
-              reply is mine.
+              A few things I won&rsquo;t do: promise specific job counts, pass off a generic
+              playbook as trade-specific, or pad the retainer with services you don&rsquo;t
+              need. And the founder really does read every audit request. Write in, and the
+              first reply is mine.
             </p>
           </div>
         </section>
