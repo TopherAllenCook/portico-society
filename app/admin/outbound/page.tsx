@@ -3,6 +3,8 @@ import { revalidatePath } from 'next/cache'
 import { isAdmin } from '@/lib/admin/auth'
 import { adminSupabase } from '@/lib/audit/supabase'
 import type { LeadWorkflowStatus, ScrapeJobStatus, Specialty } from '@/lib/outbound/types'
+import { AuditIntakeSchema } from '@/lib/audit/types'
+import { insertAuditJob, kickAuditRunner, ackLead, notifyOps, syncToHubspot } from '@/lib/audit/intake'
 
 export const dynamic = 'force-dynamic'
 
@@ -104,6 +106,72 @@ async function kickoffScrape(formData: FormData) {
       body: JSON.stringify({ job_id: data.id }),
     }).catch((err) => console.error('[admin/outbound] kick failed', err))
   }
+  revalidatePath('/admin/outbound')
+}
+
+/** Map a scraped lead's free-text specialty onto the audit intake enum. */
+function auditSpecialtyFrom(raw: string | null): 'plumbing' | 'hvac' | 'electrical' | 'roofing' | 'other' {
+  const s = (raw ?? '').toLowerCase()
+  if (/plumb/.test(s)) return 'plumbing'
+  if (/hvac|heat|cool|air|furnace/.test(s)) return 'hvac'
+  if (/electric/.test(s)) return 'electrical'
+  if (/roof/.test(s)) return 'roofing'
+  return 'other'
+}
+
+async function promoteLeadToAudit(formData: FormData) {
+  'use server'
+  if (!(await isAdmin())) return
+  const id = formData.get('id') as string
+  if (!id) return
+
+  const sb = adminSupabase()
+  const { data: lead } = await sb
+    .from('outbound_leads')
+    .select('id, clinic_name, specialty, city, state, website, primary_email, phone, status, notes, owner_names')
+    .eq('id', id)
+    .single()
+  if (!lead) return
+  // Guard the seam: an audit fires real email at the prospect, so never
+  // double-promote and never promote without an address to send to.
+  if (!lead.primary_email || !lead.website) return
+  if (['queued', 'sent', 'replied', 'booked'].includes(lead.status)) return
+
+  const intake = AuditIntakeSchema.safeParse({
+    clinic_name: lead.clinic_name,
+    website_url: lead.website,
+    contact_name: lead.owner_names?.[0] ?? 'there',
+    contact_email: lead.primary_email,
+    contact_phone: lead.phone ?? null,
+    specialty: auditSpecialtyFrom(lead.specialty),
+    city: lead.city ?? 'Unknown',
+    state: lead.state ?? null,
+  })
+  if (!intake.success) {
+    console.error('[admin/outbound] promote validation failed', lead.id, intake.error.flatten())
+    return
+  }
+
+  const job = await insertAuditJob(intake.data)
+  if (!job) return
+
+  // Same downstream as /api/new-audit with run_now: ops notify, HubSpot
+  // mirror, prospect ack, runner kick.
+  const base = process.env.PUBLIC_BASE_URL ?? 'https://vervemd.com'
+  notifyOps(intake.data, job.id).catch((err) => console.error('[admin/outbound] notify failed', err))
+  syncToHubspot(intake.data, job.id).catch((err) => console.error('[admin/outbound] hubspot failed', err))
+  ackLead(intake.data, job.share_token).catch((err) => console.error('[admin/outbound] ack failed', err))
+  await kickAuditRunner(base, job.id)
+
+  const reportUrl = `${base}/audit-report/${job.share_token}`
+  await sb
+    .from('outbound_leads')
+    .update({
+      status: 'queued',
+      notes: [lead.notes, `audit: ${reportUrl}`].filter(Boolean).join(' | '),
+      last_touched_at: new Date().toISOString(),
+    })
+    .eq('id', id)
   revalidatePath('/admin/outbound')
 }
 
@@ -303,6 +371,19 @@ export default async function AdminOutboundPage({ searchParams }: { searchParams
                     <input name="notes" defaultValue={l.notes ?? ''} placeholder="notes" className="rounded border px-2 py-1 text-xs" style={{ borderColor: 'var(--color-ink-subtle)' }} />
                     <button type="submit" className="rounded px-2 py-1 text-xs" style={{ background: 'var(--color-ink)', color: 'var(--color-ivory)' }}>Save</button>
                   </form>
+                  {l.primary_email && l.website && !['queued', 'sent', 'replied', 'booked'].includes(l.status) && (
+                    <form action={promoteLeadToAudit} className="mt-1">
+                      <input type="hidden" name="id" value={l.id} />
+                      <button
+                        type="submit"
+                        className="w-full rounded px-2 py-1 text-xs"
+                        style={{ background: 'var(--color-cinnabar)', color: 'var(--color-ivory)' }}
+                        title="Creates the audit, emails the prospect an acknowledgement, and starts the nurture sequence when the report is ready."
+                      >
+                        Run audit
+                      </button>
+                    </form>
+                  )}
                 </Td>
               </tr>
             ))}
