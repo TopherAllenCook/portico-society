@@ -80,6 +80,26 @@ export default function FooterVerve() {
             >
               LinkedIn
             </a>
+            <span aria-hidden="true" className="opacity-40">·</span>
+            <a
+              href="https://www.facebook.com/vervemd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-70 hover:opacity-100 underline-offset-4 hover:underline focus-visible:opacity-100"
+              style={{ color: 'var(--color-ivory)' }}
+            >
+              Facebook
+            </a>
+            <span aria-hidden="true" className="opacity-40">·</span>
+            <a
+              href="https://www.instagram.com/verve.md/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-70 hover:opacity-100 underline-offset-4 hover:underline focus-visible:opacity-100"
+              style={{ color: 'var(--color-ivory)' }}
+            >
+              Instagram
+            </a>
           </p>
         </div>
       </div>

@@ -22,7 +22,11 @@ const organization = {
       availableLanguage: ['en'],
     },
   ],
-  sameAs: ['https://www.linkedin.com/company/118464101/'],
+  sameAs: [
+    'https://www.linkedin.com/company/118464101/',
+    'https://www.facebook.com/vervemd',
+    'https://www.instagram.com/verve.md/',
+  ],
 }
 
 const professionalService = {
