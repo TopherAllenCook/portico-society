@@ -38,10 +38,13 @@ async function deliverReadyEmail(jobId: string) {
   const sb = adminSupabase()
   const { data } = await sb
     .from('audit_jobs')
-    .select('clinic_name, contact_email, contact_name, share_token, status, city')
+    .select('clinic_name, contact_email, contact_name, share_token, status, city, internal')
     .eq('id', jobId)
     .single()
   if (!data || data.status === 'failed') return
+  // Internal pre-call audits (Sam's triage pipeline) are never delivered to the
+  // prospect: no ready email, no nurture. The report is consumed via Airtable.
+  if (data.internal) return
 
   const base = process.env.PUBLIC_BASE_URL ?? 'https://vervemd.com'
   const reportUrl = `${base}/audit-report/${data.share_token}`

@@ -28,6 +28,7 @@ export function firstNameFrom(full: string): string {
  */
 export async function insertAuditJob(
   intake: AuditIntake,
+  opts?: { internal?: boolean },
 ): Promise<{ id: string; share_token: string } | null> {
   const sb = adminSupabase()
   const { data, error } = await sb
@@ -42,6 +43,7 @@ export async function insertAuditJob(
       city: intake.city,
       state: intake.state ?? null,
       challenge: intake.challenge ?? null,
+      internal: opts?.internal ?? false,
     })
     .select('id, share_token')
     .single()

@@ -19,6 +19,9 @@ export const runtime = 'nodejs'
  */
 const CreateSchema = AuditIntakeSchema.extend({
   run_now: z.boolean().optional().default(true),
+  // Internal pre-call audit (Sam's triage pipeline): run the full engine but
+  // never touch the prospect — no ack, no ready email, no nurture, no HubSpot.
+  internal: z.boolean().optional().default(false),
 })
 
 export async function POST(req: NextRequest) {
@@ -39,9 +42,9 @@ export async function POST(req: NextRequest) {
   if (!parsed.success) {
     return NextResponse.json({ error: 'validation_failed', issues: parsed.error.flatten() }, { status: 400 })
   }
-  const { run_now, ...intake } = parsed.data
+  const { run_now, internal, ...intake } = parsed.data
 
-  const job = await insertAuditJob(intake)
+  const job = await insertAuditJob(intake, { internal })
   if (!job) {
     return NextResponse.json({ error: 'create_failed' }, { status: 500 })
   }
@@ -50,12 +53,18 @@ export async function POST(req: NextRequest) {
   // to actually running the audit: run_now on (default) mirrors the public flow
   // exactly (ack now, ready report + nurture from the runner); save-only skips
   // the "your audit is being prepared" email for an audit that isn't running.
-  after(() => notifyOps(intake, job.id).catch((err) => console.error('[new-audit] notify failed', err)))
-  after(() => syncToHubspot(intake, job.id).catch((err) => console.error('[new-audit] hubspot sync failed', err)))
+  // Internal audits run the engine only: no ops notify, no HubSpot, no emails
+  // (the runner also skips delivery via the audit_jobs.internal flag).
+  if (!internal) {
+    after(() => notifyOps(intake, job.id).catch((err) => console.error('[new-audit] notify failed', err)))
+    after(() => syncToHubspot(intake, job.id).catch((err) => console.error('[new-audit] hubspot sync failed', err)))
+  }
   if (run_now) {
-    after(() => ackLead(intake, job.share_token).catch((err) => console.error('[new-audit] ack failed', err)))
+    if (!internal) {
+      after(() => ackLead(intake, job.share_token).catch((err) => console.error('[new-audit] ack failed', err)))
+    }
     after(() => kickAuditRunner(req.nextUrl.origin, job.id))
   }
 
-  return NextResponse.json({ ok: true, audit_id: job.id, share_token: job.share_token, run_now })
+  return NextResponse.json({ ok: true, audit_id: job.id, share_token: job.share_token, run_now, internal })
 }
