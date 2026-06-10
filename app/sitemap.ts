@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/audit', priority: 0.95, changeFrequency: 'weekly' as const },
     { path: '/pricing', priority: 0.9, changeFrequency: 'monthly' as const },
     { path: '/ai', priority: 0.85, changeFrequency: 'monthly' as const },
-    { path: '/kit', priority: 0.8, changeFrequency: 'monthly' as const },
+    // /kit is gated until the lead-magnet page ships; re-add when it returns 200.
     { path: '/about', priority: 0.75, changeFrequency: 'monthly' as const },
     { path: '/faq', priority: 0.75, changeFrequency: 'monthly' as const },
     { path: '/contact', priority: 0.7, changeFrequency: 'yearly' as const },

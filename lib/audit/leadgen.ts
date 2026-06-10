@@ -27,9 +27,11 @@ export function auditLeadgenFromHtml(url: string, html: string): LeadgenPayload 
   const bookingWidget = detect(lower, {
     calendly: ['calendly.com', 'data-calendly'],
     acuity: ['acuityscheduling.com'],
-    nexhealth: ['nexhealth.com'],
-    jane: ['jane.app', 'janeapp.com'],
-    mindbody: ['mindbodyonline.com'],
+    servicetitan: ['servicetitan.com', 'scheduler.servicetitan'],
+    housecall_pro: ['housecallpro.com', 'book.housecallpro'],
+    jobber: ['getjobber.com', 'clienthub.getjobber'],
+    workiz: ['workiz.com'],
+    service_fusion: ['servicefusion.com'],
     squarespace_scheduling: ['squarespacescheduling.com'],
     setmore: ['setmore.com'],
   })
