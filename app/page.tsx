@@ -3,7 +3,7 @@ import HeroVerve from '@/components/verve/HeroVerve'
 import LogoStripVerve from '@/components/verve/LogoStripVerve'
 import PainPointsVerve from '@/components/verve/PainPointsVerve'
 import ResultsVerve from '@/components/verve/ResultsVerve'
-import PackagesOverviewVerve from '@/components/verve/PackagesOverviewVerve'
+import ServicesOverviewVerve from '@/components/verve/ServicesOverviewVerve'
 import CalculatorVerve from '@/components/verve/CalculatorVerve'
 import PhotoBandVerve from '@/components/verve/PhotoBandVerve'
 import AIToolsVerve from '@/components/verve/AIToolsVerve'
@@ -22,7 +22,7 @@ export default function HomePage() {
         <LogoStripVerve />
         <PainPointsVerve />
         <ResultsVerve />
-        <PackagesOverviewVerve />
+        <ServicesOverviewVerve />
         <CalculatorVerve />
         <PhotoBandVerve />
         <AIToolsVerve />
