@@ -10,10 +10,13 @@ export const runtime = 'nodejs'
  * Auth: admin session (gates via admin layout for the UI form) OR
  *       x-outbound-trigger-token header for headless trigger (cron/cli).
  *
- * Body: { city, state, specialty?, max_results? }
+ * Body: { city, state, specialty?, max_results?, source?, auto_audit?, auto_audit_threshold? }
  *
  * Validates input, enforces the 100-leads-per-day cap (globally, across all
  * jobs), creates an outbound_scrape_jobs row, fires-and-forgets the runner.
+ *
+ * When auto_audit is true, scored leads that meet the threshold are
+ * automatically submitted to the audit engine via /api/new-audit (internal).
  *
  * Returns: { ok, job_id }
  */
@@ -58,6 +61,8 @@ export async function POST(req: NextRequest) {
       specialty: req_.specialty ?? null,
       max_results: effectiveCap,
       source: req_.source,
+      auto_audit: req_.auto_audit ?? false,
+      auto_audit_threshold: req_.auto_audit_threshold ?? 60,
     })
     .select('id')
     .single()

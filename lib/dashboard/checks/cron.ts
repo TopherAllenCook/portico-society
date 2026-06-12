@@ -138,6 +138,57 @@ export const cronChecks: CheckDef[] = [
     },
   },
   {
+    key: 'cron.outbound_auto_audit_throughput',
+    category: 'cron',
+    label: 'Scraper → audit bridge throughput (24h)',
+    intervalMinutes: 30,
+    run: async (): Promise<CheckResult> => {
+      try {
+        const { adminSupabase } = await import('@/lib/audit/supabase')
+        const sb = adminSupabase()
+        const since = new Date(Date.now() - 24 * 3600 * 1000).toISOString()
+
+        // Count leads scraped in last 24h
+        const { count: scrapedCount, error: scrapeErr } = await sb
+          .from('outbound_leads')
+          .select('id', { count: 'exact', head: true })
+          .gte('scored_at', since)
+        if (scrapeErr) return warn('cron.outbound_auto_audit_throughput', 'cron', 'Scraper → audit bridge throughput (24h)', scrapeErr.message)
+
+        // Count auto-audits triggered (created)
+        const { count: autoCreated, error: createdErr } = await sb
+          .from('outbound_leads')
+          .select('id', { count: 'exact', head: true })
+          .gte('scored_at', since)
+          .eq('auto_audit_status', 'created')
+        if (createdErr) return warn('cron.outbound_auto_audit_throughput', 'cron', 'Scraper → audit bridge throughput (24h)', createdErr.message)
+
+        // Count auto-audit failures
+        const { count: autoFailed, error: failedErr } = await sb
+          .from('outbound_leads')
+          .select('id', { count: 'exact', head: true })
+          .gte('scored_at', since)
+          .eq('auto_audit_status', 'failed')
+        if (failedErr) return warn('cron.outbound_auto_audit_throughput', 'cron', 'Scraper → audit bridge throughput (24h)', failedErr.message)
+
+        const value = {
+          leads_scored_24h: scrapedCount ?? 0,
+          auto_audits_created_24h: autoCreated ?? 0,
+          auto_audits_failed_24h: autoFailed ?? 0,
+        }
+
+        if ((autoFailed ?? 0) > 0) {
+          return warn('cron.outbound_auto_audit_throughput', 'cron', 'Scraper → audit bridge throughput (24h)',
+            `${autoFailed} auto-audit failures`, value)
+        }
+
+        return ok('cron.outbound_auto_audit_throughput', 'cron', 'Scraper → audit bridge throughput (24h)', value)
+      } catch (e) {
+        return fail('cron.outbound_auto_audit_throughput', 'cron', 'Scraper → audit bridge throughput (24h)', e instanceof Error ? e.message : 'unknown')
+      }
+    },
+  },
+  {
     key: 'cron.checks_self',
     category: 'cron',
     label: 'Ops check sweep ran in last 30 min',

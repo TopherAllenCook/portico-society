@@ -14,6 +14,8 @@ export const ScrapeRequestSchema = z.object({
   specialty: SpecialtySchema.optional(),
   max_results: z.number().int().min(1).max(200).default(100),
   source: DiscoverySourceSchema.default('places'),
+  auto_audit: z.boolean().optional().default(false),
+  auto_audit_threshold: z.number().int().min(0).max(100).optional().default(60),
 })
 export type ScrapeRequest = z.infer<typeof ScrapeRequestSchema>
 
@@ -108,6 +110,8 @@ export interface OutboundScrapeJobRow {
   specialty: Specialty | null
   max_results: number
   source: DiscoverySource | null
+  auto_audit: boolean
+  auto_audit_threshold: number
   status: ScrapeJobStatus
   started_at: string | null
   completed_at: string | null
@@ -159,4 +163,6 @@ export interface OutboundLeadRow {
   last_touched_at: string | null
   enriched_at: string | null
   enrichment_error: string | null
+  audit_id: string | null
+  auto_audit_status: string | null
 }

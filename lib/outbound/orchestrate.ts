@@ -3,12 +3,14 @@ import { discover, type ProviderStat } from './discover'
 import { scrapeSite } from './scrape-site'
 import { guessEmails } from './email-guess'
 import { scoreLead } from './score'
+import { autoSubmitLeadToAudit } from './auto-audit'
 import type {
   DiscoverySource,
   OutboundScrapeJobRow,
   RawClinic,
   WebsiteEnrichment,
   IcpScore,
+  OutboundLeadRow,
 } from './types'
 
 /**
@@ -21,6 +23,8 @@ import type {
  *        b. email pattern guess + MX check
  *        c. Claude ICP scoring
  *        d. update lead row
+ *        e. auto-submit to audit engine (when job.auto_audit is true and
+ *           ICP score >= auto_audit_threshold)
  *   4. mark job complete (or partial if any leads errored)
  *
  * Enrichment runs sequentially per-lead to avoid hammering Firecrawl/Anthropic
@@ -126,6 +130,9 @@ export async function runScrape(jobId: string): Promise<void> {
 
   /* ─── Phase 3: Enrich + score each lead ─────────────────────────────── */
 
+  const autoAudit = job.auto_audit === true
+  const autoAuditThreshold = job.auto_audit_threshold ?? 60
+
   const { data: insertedLeads } = await sb
     .from('outbound_leads')
     .select('id, website, clinic_name, address, phone, city, state, postal_code, google_rating, google_review_count, categories, apify_place_id')
@@ -136,7 +143,7 @@ export async function runScrape(jobId: string): Promise<void> {
   const errors: string[] = []
   for (const lead of insertedLeads ?? []) {
     try {
-      await enrichAndScore(jobId, lead as EnrichLeadRow)
+      await enrichAndScore(jobId, lead as EnrichLeadRow, autoAudit, autoAuditThreshold)
       scoredCount++
     } catch (err) {
       const msg = (err as Error).message
@@ -179,7 +186,12 @@ interface EnrichLeadRow {
   apify_place_id: string | null
 }
 
-async function enrichAndScore(jobId: string, lead: EnrichLeadRow): Promise<void> {
+async function enrichAndScore(
+  jobId: string,
+  lead: EnrichLeadRow,
+  autoAudit: boolean,
+  autoAuditThreshold: number,
+): Promise<void> {
   const sb = adminSupabase()
 
   let enrichment: WebsiteEnrichment | null = null
@@ -239,6 +251,31 @@ async function enrichAndScore(jobId: string, lead: EnrichLeadRow): Promise<void>
       enrichment_error: null,
     })
     .eq('id', lead.id)
+
+  /* ─── Auto-audit bridge ─────────────────────────────────────────────── */
+  if (autoAudit) {
+    // Re-fetch the full lead row so autoSubmitLeadToAudit has all fields.
+    const { data: fullLead, error: fetchErr } = await sb
+      .from('outbound_leads')
+      .select('*')
+      .eq('id', lead.id)
+      .single()
+    if (!fetchErr && fullLead) {
+      const result = await autoSubmitLeadToAudit(fullLead as OutboundLeadRow, autoAuditThreshold)
+      await sb
+        .from('outbound_leads')
+        .update({
+          audit_id: result.audit_id,
+          auto_audit_status: result.status,
+        })
+        .eq('id', lead.id)
+    } else {
+      await sb
+        .from('outbound_leads')
+        .update({ auto_audit_status: 'failed' })
+        .eq('id', lead.id)
+    }
+  }
 }
 
 /* ─── Daily cap helper ──────────────────────────────────────────────────── */
