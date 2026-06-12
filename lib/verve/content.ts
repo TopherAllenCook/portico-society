@@ -125,7 +125,7 @@ export const AEO_BLOCK = {
 
 // Only real, client-approved testimonials. Adding fabricated testimonials is
 // a brand-trust liability. Add new entries only after written client approval.
-export const TESTIMONIALS: { quote: string; name: string; title: string; clinicType?: string; businessType?: string }[] = [
+export const TESTIMONIALS: { quote: string; name: string; title: string; businessType?: string }[] = [
   // Awaiting first client testimonial
 ]
 
