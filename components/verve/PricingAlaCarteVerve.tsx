@@ -51,7 +51,7 @@ export default function PricingAlaCarteVerve() {
             className="text-base font-medium"
             style={{ color: 'var(--color-ivory)', fontFamily: 'var(--font-body)' }}
           >
-            Not sure which plan fits? Get a free audit and we&rsquo;ll tell you exactly what your clinic needs.
+            Not sure which plan fits? Get a free audit and we&rsquo;ll tell you exactly what your business needs.
           </p>
           <div className="mt-5 flex justify-center">
             <CTAButton href="/audit" label="Get Free AEO + Marketing Audit" variant="primary" />

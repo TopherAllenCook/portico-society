@@ -26,7 +26,7 @@ export default function AIHeroVerve() {
                 fill="var(--color-cinnabar)"
               />
             </svg>
-            {AI_PAGE.eyebrow} · Five AI systems built for clinics
+            {AI_PAGE.eyebrow} · Five AI systems built for home service businesses
           </span>
         </div>
 
@@ -41,7 +41,7 @@ export default function AIHeroVerve() {
             color: 'var(--color-ink)',
           }}
         >
-          Your clinic should be{' '}
+          Your business should be{' '}
           <span style={{ fontStyle: 'italic', color: 'var(--color-cinnabar)' }}>
             running while you sleep.
           </span>
@@ -59,7 +59,7 @@ export default function AIHeroVerve() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/audit"
-            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+            className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-medium transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
             style={{
               background: 'var(--color-ink)',
               color: 'var(--color-ivory)',

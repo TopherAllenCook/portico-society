@@ -19,7 +19,7 @@ export default function FooterVerve() {
               className="mt-2 text-sm"
               style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
             >
-              Exclusively serving longevity, concierge, and aesthetics practices.
+              The marketing department for home service businesses.
             </p>
           </div>
 
@@ -79,6 +79,26 @@ export default function FooterVerve() {
               style={{ color: 'var(--color-ivory)' }}
             >
               LinkedIn
+            </a>
+            <span aria-hidden="true" className="opacity-40">·</span>
+            <a
+              href="https://www.facebook.com/vervemd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-70 hover:opacity-100 underline-offset-4 hover:underline focus-visible:opacity-100"
+              style={{ color: 'var(--color-ivory)' }}
+            >
+              Facebook
+            </a>
+            <span aria-hidden="true" className="opacity-40">·</span>
+            <a
+              href="https://www.instagram.com/verve.md/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-70 hover:opacity-100 underline-offset-4 hover:underline focus-visible:opacity-100"
+              style={{ color: 'var(--color-ivory)' }}
+            >
+              Instagram
             </a>
           </p>
         </div>

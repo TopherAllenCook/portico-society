@@ -20,29 +20,35 @@ const APIFY_BASE = 'https://api.apify.com/v2'
 /* ─── Search-string mapping ─────────────────────────────────────────────── */
 
 const SPECIALTY_QUERIES: Record<Specialty, string[]> = {
-  longevity: [
-    'longevity clinic',
-    'longevity medicine',
-    'anti-aging clinic',
-    'preventive medicine clinic',
+  plumbing: [
+    'plumber',
+    'plumbing company',
+    'emergency plumber',
+    'drain cleaning service',
   ],
-  concierge: [
-    'concierge medicine',
-    'concierge doctor',
-    'private medical practice',
-    'membership medicine',
+  hvac: [
+    'hvac company',
+    'air conditioning repair',
+    'heating and cooling',
+    'furnace repair',
   ],
-  aesthetic: [
-    'aesthetic medicine',
-    'medical spa',
-    'med spa',
-    'cosmetic medicine clinic',
+  electrical: [
+    'electrician',
+    'electrical contractor',
+    'residential electrician',
+    'emergency electrician',
+  ],
+  roofing: [
+    'roofing company',
+    'roofer',
+    'roof repair',
+    'roofing contractor',
   ],
   mixed: [
-    'longevity clinic',
-    'concierge medicine',
-    'med spa',
-    'aesthetic clinic',
+    'plumber',
+    'hvac company',
+    'electrician',
+    'roofing company',
   ],
 }
 

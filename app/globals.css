@@ -51,7 +51,7 @@
   --shadow-card-lg:         0 30px 80px oklch(14% 0.012 50 / 0.15);
 
   /* Typography: Fraunces display + SF Pro system body */
-  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-display: var(--font-display-family), 'Helvetica Neue', Arial, sans-serif;
   --font-body:    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   --font-mono:    ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
 

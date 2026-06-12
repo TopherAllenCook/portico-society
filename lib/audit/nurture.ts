@@ -31,15 +31,16 @@ export interface NurtureContext {
 }
 
 function shell(ctx: NurtureContext, inner: string): string {
-  return `<div style="font-family:Georgia,serif;color:#1B1B1B;line-height:1.6;max-width:580px">${inner}<p style="margin-top:32px;font-size:13px;color:#666;font-family:-apple-system,sans-serif">Verve MD<br/>AI search authority and inquiry systems for established clinics.</p><p style="margin-top:14px;font-size:11px;color:#999;font-family:-apple-system,sans-serif">Sent to a contact at ${ctx.clinic_name}. <a href="${ctx.unsubscribe_url}" style="color:#999;text-decoration:underline">Unsubscribe</a> to stop these follow-ups.</p></div>`
+  return `<div style="font-family:Georgia,serif;color:#1B1B1B;line-height:1.6;max-width:580px">${inner}<p style="margin-top:32px;font-size:13px;color:#666;font-family:-apple-system,sans-serif">Verve MD<br/>AI search authority and inquiry systems for home service businesses.</p><p style="margin-top:14px;font-size:11px;color:#999;font-family:-apple-system,sans-serif">Sent to a contact at ${ctx.clinic_name}. <a href="${ctx.unsubscribe_url}" style="color:#999;text-decoration:underline">Unsubscribe</a> to stop these follow-ups.</p></div>`
 }
 
 function specialtyTerm(s: Specialty): string {
   switch (s) {
-    case 'longevity': return 'longevity'
-    case 'aesthetic': return 'aesthetic'
-    case 'concierge': return 'concierge medicine'
-    case 'mixed': return 'longevity and aesthetic'
+    case 'plumbing': return 'plumbing'
+    case 'hvac': return 'HVAC'
+    case 'electrical': return 'electrical'
+    case 'roofing': return 'roofing'
+    case 'other': return 'home service'
   }
 }
 
@@ -52,7 +53,7 @@ export const NURTURE_STEPS: NurtureStep[] = [
     html: (c) => shell(c, `
       <p>${c.contact_first_name},</p>
       <p>Quick follow up on the audit we delivered for ${c.clinic_name}.</p>
-      <p>Of the five prioritized moves in your report, one carries the most weight: closing the citation gap to the three ${specialtyTerm(c.specialty)} practices AI currently recommends in ${c.city}.</p>
+      <p>Of the five prioritized moves in your report, one carries the most weight: closing the citation gap to the three ${specialtyTerm(c.specialty)} companies AI currently recommends in ${c.city}.</p>
       <p>Everything else (technical SEO, schema, lead-gen polish) sits on top of that foundation. If you only do one thing this quarter, it's that.</p>
       <p>The full report is still here: <a href="${c.report_url}">${c.report_url}</a></p>
       <p>Reply with the move that surprised you most. I read every response.</p>
@@ -63,14 +64,14 @@ export const NURTURE_STEPS: NurtureStep[] = [
     key: 'day_5_proof',
     index: 2,
     dayOffset: 5,
-    subject: () => `How clinics close the AI gap`,
+    subject: () => `How home service businesses close the AI gap`,
     html: (c) => shell(c, `
       <p>${c.contact_first_name},</p>
       <p>What it actually takes to get named by ChatGPT, Perplexity, and Google's AI overview for a ${specialtyTerm(c.specialty)} query in a city like ${c.city}:</p>
       <ol>
-        <li>A handful of citations from the right authoritative sources (industry press, specialty directories, journalist roundups). Five to ten well-chosen mentions usually move the needle more than fifty mass-produced backlinks.</li>
-        <li>Structured content on your own site that maps to how patients phrase the question. Most clinic sites describe what they do; almost none answer the question a patient is actually asking.</li>
-        <li>Schema markup the AI engines actually read. <code>Physician</code>, <code>MedicalClinic</code>, <code>Service</code>, <code>FAQPage</code>. Not generic <code>LocalBusiness</code>.</li>
+        <li>A handful of citations from the right authoritative sources (local press, trade directories, journalist roundups). Five to ten well-chosen mentions usually move the needle more than fifty mass-produced backlinks.</li>
+        <li>Structured content on your own site that maps to how homeowners phrase the question. Most home service sites describe what they do; almost none answer the question a homeowner is actually asking.</li>
+        <li>Schema markup the AI engines actually read. <code>Plumber</code>, <code>HVACBusiness</code>, <code>Electrician</code>, <code>RoofingContractor</code>, <code>Service</code>, <code>FAQPage</code>. Not a bare <code>LocalBusiness</code> tag.</li>
       </ol>
       <p>That's the work. It's specific and it's measurable. Audit link: <a href="${c.report_url}">${c.report_url}</a></p>
       <p>Verve MD</p>
@@ -87,7 +88,7 @@ export const NURTURE_STEPS: NurtureStep[] = [
       <p>No pitch. If we're a fit at the end, we'll talk about it. If not, you keep the audit.</p>
       <p><a href="${c.call_url}" style="display:inline-block;background:#C44536;color:#FFF8EA;padding:12px 22px;border-radius:9999px;text-decoration:none;font-family:-apple-system,sans-serif;font-weight:600">Pick a time</a></p>
       <p>Or just reply with a few windows.</p>
-      <p style="margin-top:24px;padding-top:18px;border-top:1px solid #E5DCC9;font-size:14px;color:#56473e">Prefer to run the moves yourself first? The Clinic Brand Self-Audit Kit ($149) is the same framework as a self-serve operating doc. <a href="https://vervemd.com/kit" style="color:#C44536">See what's inside</a>. The $149 credits toward a paid audit if you decide to bring us in later.</p>
+      <p style="margin-top:24px;padding-top:18px;border-top:1px solid #E5DCC9;font-size:14px;color:#56473e">Prefer to run the moves yourself first? The Home Service Brand Self-Audit Kit ($149) is the same framework as a self-serve operating doc. <a href="https://vervemd.com/kit" style="color:#C44536">See what's inside</a>. The $149 credits toward a paid audit if you decide to bring us in later.</p>
       <p>Verve MD</p>
     `),
   },
@@ -100,7 +101,7 @@ export const NURTURE_STEPS: NurtureStep[] = [
       <p>${c.contact_first_name},</p>
       <p>Closing the loop on the ${c.clinic_name} audit. Two questions:</p>
       <ol>
-        <li>Is patient acquisition still a priority this quarter?</li>
+        <li>Is getting more booked jobs still a priority this quarter?</li>
         <li>If yes, what's blocking the team from acting on the audit?</li>
       </ol>
       <p>A one-line reply is enough. If now isn't the right moment I'll set this aside and check back in six weeks.</p>
@@ -114,7 +115,7 @@ export const NURTURE_STEPS: NurtureStep[] = [
     subject: () => `Your AI visibility, six weeks later`,
     html: (c) => shell(c, `
       <p>${c.contact_first_name},</p>
-      <p>The AI search landscape moves fast. Six weeks on, the ${specialtyTerm(c.specialty)} clinics ChatGPT named for ${c.city} may have changed. The clinics on top now will be hard to dislodge in six months.</p>
+      <p>The AI search landscape moves fast. Six weeks on, the ${specialtyTerm(c.specialty)} companies ChatGPT named for ${c.city} may have changed. The companies on top now will be hard to dislodge in six months.</p>
       <p>If you'd like a refreshed AI visibility snapshot (no charge), reply with the word "refresh" and I'll re-run it.</p>
       <p>Original audit: <a href="${c.report_url}">${c.report_url}</a></p>
       <p>Verve MD</p>

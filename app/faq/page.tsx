@@ -5,7 +5,7 @@ import CalButton from '@/components/verve/CalButton'
 
 const FAQ_TITLE = 'FAQ'
 const FAQ_DESC =
-  'Answers to the most common questions about Verve MD: AI visibility audits, retainers, HIPAA, contracts, how the AI patient agent works, and what we will not do.'
+  'Answers to the most common questions about Verve MD: AI visibility audits, retainers, lead ownership, contracts, how the AI call agent works, and what we will not do.'
 const FAQ_URL = 'https://www.vervemd.com/faq'
 
 export const metadata: Metadata = {
@@ -35,51 +35,51 @@ interface QA {
 const FAQS: QA[] = [
   {
     q: 'What is the free audit, and what do I actually get?',
-    a: 'A real-time check of how ChatGPT, Claude, and Gemini answer patient questions for your specialty and city. You get an AI Visibility Score, a Competitor Edge Map, SEO + schema health notes, and an Inquiry Path audit with specific fixes ranked by impact. Delivered to your inbox in about three minutes. No sales call. Free.',
+    a: 'A real-time check of how ChatGPT, Claude, and Gemini answer customer questions for your trade and city, plus your SEO, schema, and inquiry-path gaps ranked by impact. In your inbox in about three minutes. No call, free.',
   },
   {
     q: 'Who do you work with?',
-    a: 'Established longevity, concierge, and aesthetic medicine practices doing roughly $1M+ in revenue. Solo founders, single-location med spas, and multi-location longevity centers. We do not work with general practices, dental, or aesthetic clinics earlier than first-year-of-revenue.',
+    a: 'Established home service businesses, roughly $1M+ in revenue or already $1,000+/month on ads. Plumbing, HVAC, electrical, roofing, and adjacent trades. Not brand-new businesses in year one.',
   },
   {
     q: 'Do you require a long-term contract?',
-    a: 'No. Every retainer is month to month with notice in writing. No annual minimums, no setup fees inside the monthly retainers, no surprise add-ons. The number you see is the number you pay until the scope changes, and any scope change is approved by you first.',
+    a: 'No. Month to month, notice in writing. No annual minimums, no setup fees, no surprise add-ons.',
   },
   {
-    q: 'How do you handle HIPAA and patient data?',
-    a: 'Verve does not store Protected Health Information on our systems. Marketing-only signals (form submissions, attribution, ad spend, rankings) stay in Verve infrastructure. Anything that touches PHI lives in your existing EHR, CRM, or scheduling stack, and any third-party vendor with potential PHI access operates under a Business Associate Agreement. We can share the vendor list on request.',
+    q: 'Do the leads belong to me?',
+    a: 'Yes. Your website, Google Business Profile, ad accounts, reviews, and call records all stay yours. We never resell your leads or sell the same one to four competitors the way Angi and Thumbtack do.',
   },
   {
     q: 'How fast will I see results?',
-    a: 'Paid media usually moves first: trackable consults within the first 30 to 45 days once campaigns are validated. SEO and AEO compound more slowly: the first AI citations land in 30 to 90 days, with stronger placement around month four. Web design, lead nurture, and review systems pay back in weeks because they improve every existing lead, not just new traffic.',
+    a: 'Paid media first: trackable booked jobs in 30 to 45 days. SEO and AEO compound over 30 to 90 days. Capture systems (call answering, nurture, reviews) pay back in weeks.',
   },
   {
-    q: 'What is the AI Patient Agent, and is it really 24/7?',
-    a: 'A voice and chat agent trained on your service menu, vocabulary, and qualification rules. It answers calls and web chat around the clock, qualifies inquiries by service interest, books consults directly to your calendar, and hands off to your staff when a question genuinely needs a human. It is part of the Full Service tier, or available as a $600/month add-on to any plan.',
+    q: 'What is the AI Call Agent, and is it really 24/7?',
+    a: 'A voice, chat, and text agent trained on your services and service area. It answers around the clock, qualifies by job type, books to your calendar, and hands off when a human is needed. Part of Full Service, or $600/month standalone.',
   },
   {
     q: 'How is this different from a general marketing agency?',
-    a: 'We only work in longevity, concierge, and aesthetic medicine. We do not need a glossary for peptide protocols, GLP-1 programs, body contouring, or membership-model billing. The strategy is built around how your patients actually search and decide, not a generic playbook adapted to medicine.',
+    a: 'We only work with home service businesses, so the strategy is built around how homeowners actually search and decide, not a generic playbook adapted to the trades.',
   },
   {
     q: 'Do you guarantee specific results?',
-    a: 'No agency that knows what it is doing will guarantee specific patient counts or rankings. We do commit to clear cost-per-consult tracking, transparent dashboards, and a written 30-day plan you can hold us to. If the work is not paying back inside the first 90 days, we say so directly and adjust.',
+    a: 'No honest agency guarantees specific job counts or rankings. We commit to clear cost-per-booked-job tracking, transparent dashboards, and a written 30-day plan. If it is not paying back in 90 days, we say so and adjust.',
   },
   {
     q: 'Who is actually doing the work?',
-    a: 'Strategy and closing are done by the founder personally. Outbound is run by a dedicated specialist. AI systems handle the workload between (review collection, lead nurture, drafting, scheduling, reporting) so the human time goes to the work that actually compounds: strategy, creative, and your relationships.',
+    a: 'Strategy and closing are the founder\'s. Outbound is a dedicated specialist. AI handles the work in between, so human time goes to strategy, creative, and your relationships.',
   },
   {
     q: 'Can I just buy one thing, like SEO or PPC alone?',
-    a: 'Yes. The à la carte menu on the pricing page covers single engagements: a $1,500 SEO + AEO audit and strategy, $1,200/month PPC management on its own, single landing pages from $800, and AI system setup from $1,500. Most clinics eventually consolidate onto a retainer because the systems compound when they work together, but it is not required.',
+    a: 'Yes. À la carte covers single engagements: audit, PPC + Local Service Ads management, landing pages, AI setup. Most businesses consolidate onto a retainer because the systems compound, but it is not required.',
   },
   {
     q: 'What happens after I submit the audit?',
-    a: 'The audit runs in real time, scoring AI visibility, mapping competitors, and ranking the highest-impact moves for your specialty and market. You get a link to your report in about three minutes and a copy in your inbox. No phone call required. If you want to talk through the findings, the report includes a direct link to book a 25-minute call with the founder.',
+    a: 'It runs in real time and lands in your inbox in about three minutes, no call required. If you want to talk it through, the report has a link to book 25 minutes with the founder.',
   },
   {
     q: 'Is the audit really free? What is the catch?',
-    a: 'It is free, and the catch is that we run it knowing most clinics will not buy. The audit is the cheapest, most honest way to find clinics worth working with. If yours is one, the report shows it. If it is not the right fit, the report still tells you exactly what to fix.',
+    a: 'It is free, and we run it knowing most businesses will not buy. It is the most honest way to find the ones worth working with. Either way, the report tells you exactly what to fix.',
   },
 ]
 

@@ -249,13 +249,13 @@ function KitUpsell() {
         className="mt-3 font-display font-semibold leading-tight"
         style={{ fontSize: 'clamp(1.4rem, 2.6vw, 2rem)', color: 'var(--color-ivory)', letterSpacing: '-0.02em', maxWidth: '28ch' }}
       >
-        The Clinic Brand Self-Audit Kit walks you through the same framework. $149.
+        The Home Service Brand Self-Audit Kit walks you through the same framework. $149.
       </h2>
       <p
         className="mt-4 max-w-2xl text-sm leading-relaxed"
         style={{ color: 'var(--color-body-text-on-dark)', fontFamily: 'var(--font-body)' }}
       >
-        Four documents: the scored audit, a Notion working doc, ten patient-touchpoint email templates, and our two-touch review system.
+        Four documents: the scored audit, a Notion working doc, ten customer-touchpoint email templates, and our two-touch review system.
         Self-serve, 90 minutes, no call required. If you decide you want us to install the repairs for you later, your $149 credits toward a paid audit.
       </p>
       <div className="mt-6 flex flex-wrap items-center gap-3">

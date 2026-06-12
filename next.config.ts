@@ -36,6 +36,13 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Canonical host is www; robots Host, canonicals, and og:url all say www.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'vervemd.com' }],
+        destination: 'https://www.vervemd.com/:path*',
+        permanent: true,
+      },
       // Orphan service pages (old design experiments). Canonical surface is /pricing.
       { source: '/services', destination: '/pricing', permanent: true },
       { source: '/services-2', destination: '/pricing', permanent: true },

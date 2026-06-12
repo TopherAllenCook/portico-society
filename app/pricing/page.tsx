@@ -9,9 +9,9 @@ import FooterVerve from '@/components/verve/FooterVerve'
 import type { Metadata } from 'next'
 
 const PAGE_URL = 'https://www.vervemd.com/pricing'
-const PAGE_TITLE = 'Pricing for Longevity & Aesthetics Clinic Marketing'
+const PAGE_TITLE = 'Pricing for Home Service Marketing'
 const PAGE_DESC =
-  'Straightforward monthly retainers for longevity and aesthetics clinic marketing. Essential ($1,500), Growth ($3,500), and Full Service ($6,500). Month to month. No setup fees.'
+  'Straightforward monthly retainers for home service marketing. Essential ($1,500), Growth ($3,500), and Full Service ($6,500). Month to month. No setup fees.'
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

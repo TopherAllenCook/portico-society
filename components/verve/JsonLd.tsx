@@ -4,12 +4,12 @@ const organization = {
   '@type': 'Organization',
   '@id': `${BASE_URL}#organization`,
   name: 'Verve MD',
-  legalName: 'Verve Clinic Marketing LLC',
+  legalName: 'Verve Marketing Department LLC',
   url: BASE_URL,
   logo: `${BASE_URL}/brand/wordmark-light.png`,
   image: `${BASE_URL}/opengraph-image`,
   description:
-    'Marketing systems for longevity, concierge, and aesthetic medicine practices. SEO, AEO, paid media, AI patient agents.',
+    'Marketing systems for home service businesses. SEO, AEO, paid media, AI call agents, lead capture, and reputation.',
   email: 'hello@vervemd.com',
   telephone: '+1-385-275-6931',
   contactPoint: [
@@ -22,7 +22,11 @@ const organization = {
       availableLanguage: ['en'],
     },
   ],
-  sameAs: ['https://www.linkedin.com/company/118464101/'],
+  sameAs: [
+    'https://www.linkedin.com/company/118464101/',
+    'https://www.facebook.com/vervemd',
+    'https://www.instagram.com/verve.md/',
+  ],
 }
 
 const professionalService = {
@@ -33,19 +37,20 @@ const professionalService = {
   image: `${BASE_URL}/opengraph-image`,
   priceRange: '$1,500 to $6,500 per month',
   description:
-    'Patient acquisition systems built exclusively for longevity, concierge, and aesthetic medicine. AI search visibility, paid media, lead capture, and reputation.',
+    'Lead generation systems built for home service businesses. AI search visibility, paid media, lead capture, call answering, and reputation.',
   areaServed: { '@type': 'Country', name: 'United States' },
   serviceType: [
     'Search Engine Optimization',
     'Answer Engine Optimization',
     'Paid Search Management',
+    'Local Service Ads Management',
     'Website Design',
-    'AI Patient Agents',
+    'AI Call Agents',
     'Reputation Management',
   ],
   audience: {
     '@type': 'BusinessAudience',
-    audienceType: 'Longevity, concierge, and aesthetic medicine practices',
+    audienceType: 'Home service businesses and trade contractors',
   },
   parentOrganization: { '@id': `${BASE_URL}#organization` },
 }
@@ -87,7 +92,7 @@ const offers = [
     '@type': 'Offer',
     '@id': `${BASE_URL}#offer-growth`,
     name: 'Growth',
-    description: 'Active patient acquisition. Everything in Essential plus PPC, landing pages, content engine, lead nurture.',
+    description: 'Active lead generation. Everything in Essential plus PPC, Local Service Ads, landing pages, content engine, lead nurture.',
     price: '3500',
     priceCurrency: 'USD',
     priceSpecification: {
@@ -102,7 +107,7 @@ const offers = [
     '@type': 'Offer',
     '@id': `${BASE_URL}#offer-full`,
     name: 'Full Service',
-    description: 'Complete marketing department. Everything in Growth plus AI Patient Agent, no-show recovery, retention engine, dedicated strategy lead.',
+    description: 'Complete marketing department. Everything in Growth plus AI Call Agent, missed-call recovery, reactivation engine, dedicated strategy lead.',
     price: '6500',
     priceCurrency: 'USD',
     priceSpecification: {

@@ -5,8 +5,8 @@ import { buildPatientQueries } from './dataforseo'
 /**
  * GEO module — Generative Engine Optimization visibility check.
  *
- * Asks each of the major answer engines a set of "patient finding a clinic" questions
- * and parses whether the clinic + competitors are named.
+ * Asks each of the major answer engines a set of "homeowner finding a contractor" questions
+ * and parses whether the business + competitors are named.
  *
  * Providers:
  *   - Anthropic (Claude Sonnet 4.6) — required, default
@@ -14,11 +14,11 @@ import { buildPatientQueries } from './dataforseo'
  *   - Perplexity                     — optional, env PERPLEXITY_API_KEY
  *   - Gemini                         — optional, env GOOGLE_API_KEY
  *
- * Each provider gets the same prompt: "give me the top clinics for X in {city}."
- * We then extract domain mentions, citation URLs, and the rank of our clinic if present.
+ * Each provider gets the same prompt: "give me the top companies for X in {city}."
+ * We then extract domain mentions, citation URLs, and the rank of our business if present.
  */
 
-const SYSTEM_PROMPT = `You are a research assistant helping a patient choose a healthcare provider. List up to 8 specific named clinics or practices with their websites, ranked by reputation and fit. Output as a JSON array: [{"name": "...", "website": "https://...", "city": "...", "why": "..."}, ...]. Only return the JSON array, no preamble.`
+const SYSTEM_PROMPT = `You are a research assistant helping a homeowner choose a local home service company. List up to 8 specific named companies with their websites, ranked by reputation and fit. Output as a JSON array: [{"name": "...", "website": "https://...", "city": "...", "why": "..."}, ...]. Only return the JSON array, no preamble.`
 
 interface ProviderConfig {
   name: LlmAnswer['provider']
@@ -187,7 +187,7 @@ export async function runGeo(args: {
   specialty: Specialty
   city: string
 }): Promise<GeoPayload> {
-  const specialty = args.specialty === 'mixed' ? 'longevity' : args.specialty
+  const specialty = args.specialty === 'other' ? 'plumbing' : args.specialty
   const queries = buildPatientQueries(specialty, args.city)
   const enabled = providers.filter((p) => p.enabled())
   if (enabled.length === 0) throw new Error('No GEO providers enabled — set ANTHROPIC_API_KEY at minimum')
@@ -255,13 +255,14 @@ export async function runGeo(args: {
 export function topCompetitorsFromGeo(geo: GeoPayload, limit = 3): { domain: string; mentions: number }[] {
   return Object.entries(geo.competitor_mention_counts)
     .sort((a, b) => b[1] - a[1])
-    .filter(([d]) => !COMMON_NON_CLINIC_DOMAINS.has(d))
+    .filter(([d]) => !COMMON_NON_BUSINESS_DOMAINS.has(d))
     .slice(0, limit)
     .map(([domain, mentions]) => ({ domain, mentions }))
 }
 
-const COMMON_NON_CLINIC_DOMAINS = new Set([
-  'google.com', 'yelp.com', 'healthgrades.com', 'zocdoc.com', 'wikipedia.org',
-  'facebook.com', 'instagram.com', 'youtube.com', 'reddit.com', 'realself.com',
-  'webmd.com', 'mayoclinic.org', 'nih.gov', 'forbes.com', 'goop.com',
+const COMMON_NON_BUSINESS_DOMAINS = new Set([
+  'google.com', 'yelp.com', 'wikipedia.org',
+  'facebook.com', 'instagram.com', 'youtube.com', 'reddit.com', 'forbes.com',
+  'angi.com', 'angieslist.com', 'homeadvisor.com', 'thumbtack.com', 'bbb.org',
+  'houzz.com', 'nextdoor.com', 'yellowpages.com', 'porch.com', 'networx.com',
 ])

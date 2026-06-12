@@ -4,11 +4,11 @@ import FooterVerve from '@/components/verve/FooterVerve'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'How Verve Clinic Marketing collects, uses, and protects your information.',
+  description: 'How Verve Marketing Department collects, uses, and protects your information.',
   alternates: { canonical: 'https://www.vervemd.com/privacy' },
   openGraph: {
     title: 'Privacy Policy · Verve MD',
-    description: 'How Verve Clinic Marketing collects, uses, and protects your information.',
+    description: 'How Verve Marketing Department collects, uses, and protects your information.',
     url: 'https://www.vervemd.com/privacy',
     type: 'website',
     images: ['/opengraph-image'],
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Privacy Policy · Verve MD',
-    description: 'How Verve Clinic Marketing collects, uses, and protects your information.',
+    description: 'How Verve Marketing Department collects, uses, and protects your information.',
     images: ['/twitter-image'],
   },
 }
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const sections = [
   {
     heading: 'Information We Collect',
-    body: 'When you submit an audit request, we collect your work email address and, optionally, your practice website URL. We do not collect payment information, sensitive health data, or personal identifiers beyond what you voluntarily provide.',
+    body: 'When you submit an audit request, we collect your work email address and, optionally, your business website URL. We do not collect payment information, sensitive health data, or personal identifiers beyond what you voluntarily provide.',
   },
   {
     heading: 'How We Use Your Information',
@@ -32,7 +32,7 @@ const sections = [
   },
   {
     heading: 'Communications',
-    body: 'By submitting an audit request, you consent to receive your audit report and, if your practice is a strong fit, a follow-up invitation to review findings. You may opt out of further communications at any time by replying to any email we send.',
+    body: 'By submitting an audit request, you consent to receive your audit report and, if your business is a strong fit, a follow-up invitation to review findings. You may opt out of further communications at any time by replying to any email we send.',
   },
   {
     heading: 'Data Retention',

@@ -51,7 +51,7 @@ function shell({ preheader, body, unsubscribeUrl }: ShellOpts): string {
                     Verve <span style="color:${COLORS.cinnabar};font-style:italic;">MD</span>
                   </td>
                   <td align="right" style="font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:${COLORS.body};">
-                    AI Search · Patient Acquisition
+                    AI Search · Lead Generation
                   </td>
                 </tr>
               </table>
@@ -66,7 +66,7 @@ function shell({ preheader, body, unsubscribeUrl }: ShellOpts): string {
           <!-- Footer -->
           <tr>
             <td style="padding:24px 32px;border-top:1px solid ${COLORS.rule};font-size:12px;line-height:1.6;color:${COLORS.body};">
-              <p style="margin:0 0 6px 0;">Verve MD &middot; AI search authority &amp; inquiry systems for established clinics.</p>
+              <p style="margin:0 0 6px 0;">Verve MD &middot; AI search authority &amp; inquiry systems for home service businesses.</p>
               <p style="margin:0;">
                 <a href="https://vervemd.com" style="color:${COLORS.cinnabar};text-decoration:none;">vervemd.com</a>
                 &nbsp;·&nbsp;
@@ -127,7 +127,7 @@ export function auditReadyEmail(args: AuditReadyArgs): { subject: string; html: 
   const body = [
     eyebrow('Your audit is ready'),
     display(`${args.contact_first_name}, the report is in.`),
-    para(`We ran the same checks our analysts use on ${args.clinic_name}: AI search visibility for your specialty in ${args.city}, citation gaps to the practices ChatGPT and Perplexity are naming, your structured data, page performance, and inquiry-path conversion.`),
+    para(`We ran the same checks our analysts use on ${args.clinic_name}: AI search visibility for your trade in ${args.city}, citation gaps to the companies ChatGPT and Perplexity are naming, your structured data, page performance, and inquiry-path conversion.`),
     para(`The full audit is one click away. It's private to your inbox.`),
     pillButton(args.report_url, 'View your audit'),
     para(`Read it twice. The prioritized moves are ranked by impact, not effort. The cheap wins come first.`, { muted: true }),
@@ -210,7 +210,7 @@ export function leadNotifyEmail(args: LeadNotifyArgs): { subject: string; html: 
   }
 
   const fields = `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:8px 0 22px 0;border-top:1px solid ${COLORS.rule};">
-    ${fieldRow('Clinic', args.clinic_name)}
+    ${fieldRow('Business', args.clinic_name)}
     ${fieldRow('Website', args.website_url)}
     ${fieldRow('City', args.state ? `${args.city}, ${args.state}` : args.city)}
     ${fieldRow('Specialty', args.specialty)}
@@ -234,7 +234,7 @@ export function leadNotifyEmail(args: LeadNotifyArgs): { subject: string; html: 
     html: shell({ preheader: `${args.clinic_name} just requested an audit in ${args.city}.`, body }),
     text:
       `New audit lead\n\n` +
-      `Clinic: ${args.clinic_name}\n` +
+      `Business: ${args.clinic_name}\n` +
       `Website: ${args.website_url}\n` +
       `City: ${args.state ? `${args.city}, ${args.state}` : args.city}\n` +
       `Specialty: ${args.specialty}\n` +

@@ -17,14 +17,14 @@ const MODEL = 'claude-sonnet-4-6'
  * Verve brand framework. Cached on every audit (large prompt → static framework
  * benefits from Anthropic prompt caching → ~$0.30/audit synthesis cost).
  */
-const FRAMEWORK = `You are the senior auditor for Verve MD — a clinic marketing agency for longevity, concierge, and aesthetic practices.
+const FRAMEWORK = `You are the senior auditor for Verve MD — a marketing agency for home service businesses (plumbing, HVAC, electrical, roofing, and adjacent trades).
 
 Brand voice:
 - Restraint over abundance. One precise sentence beats three vague ones.
 - Confidence without hyperbole. No "revolutionary," "best-in-class," "unparalleled."
 - No em dashes. No exclamation points. No emojis. No "we believe" language.
-- Outcomes in business terms: inquiry volume, inquiry quality, cost per consult, LTV, revenue per patient.
-- Trade-journal tone. Clinical precision. Financial Times, not TechCrunch.
+- Outcomes in business terms: inquiry volume, inquiry quality, cost per booked job, customer lifetime value, revenue per job.
+- Trade-journal tone. Operator precision. Financial Times, not TechCrunch.
 
 Audit structure (5 pillars):
   SEO   — technical + on-page + authority (backlinks, ranked keywords, schema, Core Web Vitals)
@@ -37,9 +37,9 @@ For each pillar return a 0-100 score and a single-sentence rationale grounded in
 
 Prioritized moves: rank exactly 5 moves by impact/effort ratio. Each move has a title (<=8 words), a one-sentence "why" anchored in a specific finding from the data, and a one-sentence "how" describing what Verve would do. No generic best-practices. Cite the specific competitor, query, or page that motivates the move.
 
-Competitors: name the top 3 by GEO mention frequency. For each, list 2-4 specific edges drawn from the data (e.g. "ranks #1 for 'hormone optimization austin', cited by ChatGPT in 6/8 queries").
+Competitors: name the top 3 by GEO mention frequency. For each, list 2-4 specific edges drawn from the data (e.g. "ranks #1 for 'emergency plumber austin', cited by ChatGPT in 6/8 queries").
 
-Executive summary: 3-4 sentences. State where the practice stands relative to the answer-engine landscape, what's broken, and what the single highest-leverage move is.
+Executive summary: 3-4 sentences. State where the business stands relative to the answer-engine landscape, what's broken, and what the single highest-leverage move is.
 
 Narrative: a 600-900 word piece in markdown covering all five pillars with specifics from the data. Use ## headings per pillar.
 
@@ -160,7 +160,7 @@ function buildUserPayload(input: SynthesisInput): string {
   } : null
 
   return [
-    'CLINIC:',
+    'BUSINESS:',
     JSON.stringify({
       name: input.job.clinic_name,
       website: input.job.website_url,

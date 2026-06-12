@@ -45,7 +45,7 @@ export default function AuditHeroVerve() {
           <span style={{ fontStyle: 'italic', color: 'var(--color-cinnabar)' }}>
             AI recommends
           </span>{' '}
-          your clinic.
+          your business.
         </h1>
 
         {/* Sub */}
@@ -60,7 +60,7 @@ export default function AuditHeroVerve() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="#audit-form"
-            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+            className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-medium transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
             style={{
               background: 'var(--color-ink)',
               color: 'var(--color-ivory)',

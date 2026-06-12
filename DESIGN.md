@@ -1,6 +1,6 @@
 ---
 name: Verve MD Design System
-description: Editorial terracotta design system for a longevity and aesthetics clinic marketing agency.
+description: Editorial terracotta design system for a home services marketing agency.
 ---
 
 # Design System: Verve MD
@@ -9,15 +9,15 @@ description: Editorial terracotta design system for a longevity and aesthetics c
 
 **Creative North Star: "The Trade Journal"**
 
-Verve MD occupies the register of a specialized medical trade publication — warm, authoritative, and specific. The aesthetic is editorial restraint: thin rules, generous whitespace, warm ivory surfaces, and a single committed terracotta accent. Typography does the heavy lifting. Motion is choreographed and purposeful, never decorative.
+Verve MD occupies the register of a specialized trade publication for home services: warm, authoritative, and specific. The aesthetic is editorial restraint: thin rules, generous whitespace, warm ivory surfaces, and a single committed terracotta accent. Typography and real trade photography do the heavy lifting. Motion is choreographed and purposeful, never decorative.
 
-The brand is warm without being soft. Terracotta (`oklch(51% 0.145 38)`) reads as authority and confidence rather than healthcare pastels or startup cream. Fraunces — a high-contrast optical serif — carries the display voice. System-ui handles body copy and UI labels. System mono handles eyebrow tags and metadata.
+The brand is warm without being soft. Terracotta (`oklch(51% 0.145 38)`) reads as authority and confidence rather than contractor red-and-yellow or startup cream. Plus Jakarta Sans, a bold geometric sans, carries the display voice. System-ui handles body copy and UI labels. System mono handles eyebrow tags and metadata.
 
 **Key Characteristics:**
-- Sand and ivory warm surfaces — never cold clinical white
+- Sand and ivory warm surfaces, never cold clinical white
 - Terracotta cinnabar as the single committed accent — data, CTAs, structural emphasis
 - Warm charcoal ink for dark sections
-- Fraunces display serif + system-ui body + system mono
+- Plus Jakarta Sans display + system-ui body + system mono
 - Scroll-driven reveals with exponential ease-out curves
 - Thin horizontal rules as structural dividers — never side-stripe borders
 
@@ -98,12 +98,12 @@ No two identical consecutive surfaces.
 ### Fonts
 
 ```css
---font-display: var(--font-fraunces), Georgia, serif;
+--font-display: var(--font-display-family), 'Helvetica Neue', Arial, sans-serif;
 --font-body:    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
 --font-mono:    ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
 ```
 
-One Google Font request: Fraunces (optical size axis, latin subset). Body and mono use the system stack.
+One Google Font request: Plus Jakarta Sans (weights 500 to 800, latin subset). Body and mono use the system stack.
 
 ### Scale Tokens
 
@@ -197,7 +197,7 @@ No animation — values update synchronously via `useMemo`. `aria-live="polite"`
 
 ### CalculatorVerve
 
-Live revenue calculator. Three inputs: monthly revenue, new patients/mo, avg visit value. `useMemo` computes additional patients (+40%), monthly uplift, annual uplift, and optional `↑ X%` sub-line. Background `--color-sand`. Inputs use bottom-rule-only style with Fraunces font.
+Live ad-spend ROI calculator. Four inputs: monthly ad budget, target cost per lead, lead close rate, average job value. `useMemo` computes projected leads, new jobs per month, monthly revenue, and return on ad spend, plus a break-even CPL strip. Background `--color-sand`. Inputs use bottom-rule-only style with the display font.
 
 ## 8. Absolute Bans
 

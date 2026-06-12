@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, type CSSProperties } from 'react'
+import { HONEYPOT_FIELD } from '@/lib/security/honeypot'
 
 const ENDPOINT = '/api/inquiry/submit'
 
@@ -39,6 +40,7 @@ export default function InquiryFormVerve() {
       email: String(data.get('email') ?? '').trim(),
       practice: String(data.get('practice') ?? '').trim() || null,
       message: String(data.get('message') ?? '').trim(),
+      [HONEYPOT_FIELD]: String(data.get(HONEYPOT_FIELD) ?? ''),
     }
 
     try {
@@ -83,7 +85,7 @@ export default function InquiryFormVerve() {
   const errorStyle: CSSProperties = {
     marginTop: '0.4rem',
     fontSize: '0.75rem',
-    color: 'var(--color-cinnabar)',
+    color: 'var(--color-cinnabar-dark)',
     fontFamily: 'var(--font-body)',
   }
 
@@ -98,7 +100,7 @@ export default function InquiryFormVerve() {
       >
         <p
           className="text-xs font-medium uppercase tracking-[0.18em]"
-          style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
+          style={{ color: 'var(--color-cinnabar-dark)', fontFamily: 'var(--font-body)' }}
         >
           Message received
         </p>
@@ -120,6 +122,11 @@ export default function InquiryFormVerve() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6" noValidate>
+      {/* Honeypot — hidden from real users; bots that fill it are silently dropped. */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
+        <label htmlFor={HONEYPOT_FIELD}>Company size</label>
+        <input id={HONEYPOT_FIELD} name={HONEYPOT_FIELD} type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       <div>
         <label htmlFor="contact-name" style={labelStyle}>Your name</label>
         <input id="contact-name" name="name" type="text" autoComplete="name" required style={inputStyle} aria-invalid={!!errors.name} />
@@ -133,7 +140,7 @@ export default function InquiryFormVerve() {
       </div>
 
       <div>
-        <label htmlFor="contact-practice" style={labelStyle}>Practice or clinic (optional)</label>
+        <label htmlFor="contact-practice" style={labelStyle}>Business name (optional)</label>
         <input id="contact-practice" name="practice" type="text" autoComplete="organization" style={inputStyle} />
       </div>
 
@@ -147,7 +154,7 @@ export default function InquiryFormVerve() {
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-opacity duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 disabled:opacity-60"
+          className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium transition-opacity duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 disabled:opacity-60"
           style={{
             background: 'var(--color-ink)',
             color: 'var(--color-ivory)',

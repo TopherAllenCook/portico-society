@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 /* ─── Input ──────────────────────────────────────────────────────────────── */
 
-export const SpecialtySchema = z.enum(['longevity', 'concierge', 'aesthetic', 'mixed'])
+export const SpecialtySchema = z.enum(['plumbing', 'hvac', 'electrical', 'roofing', 'mixed'])
 export type Specialty = z.infer<typeof SpecialtySchema>
 
 export const DiscoverySourceSchema = z.enum(['places', 'apify', 'both'])
