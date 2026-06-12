@@ -28,3 +28,16 @@ next-env.d.ts
 
 # Playwright MCP browser cache
 .playwright-mcp/
+
+# Business hub: generated snapshots may contain lead PII
+business/snapshots/*.md
+!business/snapshots/README.md
+
+# Workspace screenshots and vault JSON dumps (not part of the codebase)
+/*.png
+/*.json
+!/package.json
+!/package-lock.json
+!/tsconfig.json
+!/vercel.json
+!/next.config.json

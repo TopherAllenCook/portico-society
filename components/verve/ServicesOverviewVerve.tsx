@@ -1,17 +1,24 @@
 import Link from 'next/link'
+import CTAButton from './CTAButton'
 
-const services = [
+const SERVICES = [
   {
-    number: '01',
-    name: 'AI Search Visibility',
+    label: 'Found',
+    sub: 'AI + search visibility',
     description:
-      'When a patient asks ChatGPT or Perplexity for the best longevity clinic in their city, three practices show up. We make sure one of them is yours. AEO, SEO, schema, citations, and content structured for AI extraction.',
+      'When a homeowner with a burst pipe asks ChatGPT or Perplexity who the best plumber near them is, the AI names two or three companies. If you are not one of them, you were never in the running. We build the authority signals, reviews, schema, and content that get your business named.',
   },
   {
-    number: '02',
-    name: 'Patient Inquiry Capture',
+    label: 'Captured',
+    sub: 'Site + lead conversion',
     description:
-      'An AI agent on voice, web chat, and messaging that answers, qualifies, and books after hours. Every inquiry that comes in actually converts. No additional staff required.',
+      'Your website should work like your best salesperson, not your brochure. A brochure describes you. A salesperson asks for the job. We build sites that load fast, answer the obvious questions, and make booking an estimate take ten seconds. Every page is designed to convert, not just look good.',
+  },
+  {
+    label: 'Answered',
+    sub: '24/7 lead response',
+    description:
+      'A missed call is not a missed call. It is a job that called your competitor next. We set up AI call agents, SMS follow-up, and automated booking so every lead gets a response in under a minute, around the clock. Your crews stay focused on the work. Nothing slips.',
   },
 ]
 
@@ -24,37 +31,35 @@ export default function ServicesOverviewVerve() {
       aria-labelledby="services-heading"
     >
       <div className="mx-auto max-w-5xl">
-        <div className="mb-4">
+        <div className="mb-16 max-w-2xl">
           <p
-            className="text-xs font-medium uppercase tracking-[0.18em]"
+            className="mb-3 text-xs font-medium uppercase tracking-[0.18em]"
             style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}
           >
             What we do
           </p>
+          <h2
+            id="services-heading"
+            className="font-display font-semibold"
+            style={{
+              fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
+              color: 'var(--color-ink)',
+              letterSpacing: '-0.025em',
+            }}
+          >
+            Three things decide whether your business grows online. We install all three.
+          </h2>
         </div>
 
-        <h2
-          id="services-heading"
-          className="font-display font-normal leading-snug mb-16"
-          style={{
-            fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
-            color: 'var(--color-ink)',
-            letterSpacing: '-0.025em',
-            maxWidth: '28ch',
-          }}
-        >
-          Two things that belong together as a system.
-        </h2>
-
         <div style={{ borderTop: '1px solid var(--color-ink-rule)' }}>
-          {services.map((service) => (
-            <div
-              key={service.name}
-              className="grid grid-cols-1 lg:grid-cols-[64px_1fr] lg:gap-16 py-12"
+          {SERVICES.map((svc, i) => (
+            <article
+              key={svc.label}
+              className="grid gap-6 py-12 lg:grid-cols-[64px_1fr] lg:gap-10"
               style={{ borderBottom: '1px solid var(--color-ink-rule)' }}
             >
               <p
-                className="hidden font-display font-bold leading-none lg:block mb-0"
+                className="hidden font-display font-bold leading-none lg:block"
                 style={{
                   fontSize: '3.5rem',
                   color: 'var(--color-ink-faint)',
@@ -63,48 +68,43 @@ export default function ServicesOverviewVerve() {
                 }}
                 aria-hidden="true"
               >
-                {service.number}
+                {String(i + 1).padStart(2, '0')}
               </p>
+
               <div>
-                <h3
-                  className="font-display font-normal mb-4"
-                  style={{
-                    fontSize: 'clamp(1.125rem, 1.8vw, 1.5rem)',
-                    color: 'var(--color-ink)',
-                    letterSpacing: '-0.02em',
-                  }}
-                >
-                  {service.name}
-                </h3>
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <h3
+                    className="font-display font-semibold"
+                    style={{ fontSize: '1.3rem', color: 'var(--color-ink)', letterSpacing: '-0.015em' }}
+                  >
+                    {svc.label}
+                  </h3>
+                  <span
+                    className="text-[0.65rem] font-medium uppercase tracking-[0.14em]"
+                    style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
+                  >
+                    {svc.sub}
+                  </span>
+                </div>
                 <p
-                  className="font-body font-light leading-relaxed"
-                  style={{
-                    fontSize: '0.9375rem',
-                    color: 'var(--color-body-text)',
-                    maxWidth: '56ch',
-                  }}
+                  className="mt-3 text-sm leading-relaxed"
+                  style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)', maxWidth: '52ch' }}
                 >
-                  {service.description}
+                  {svc.description}
                 </p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
-        <div className="mt-12">
+        <div className="mt-14 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <CTAButton href="/audit" label="Get your free audit" variant="primary" />
           <Link
-            href="/audit"
-            className="font-body inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-            style={{
-              backgroundColor: 'var(--color-cinnabar)',
-              color: 'var(--color-ivory)',
-              outlineColor: 'var(--color-cinnabar)',
-            }}
+            href="/pricing"
+            className="text-sm font-medium underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-cinnabar)] rounded-sm"
+            style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
           >
-            Find out where your practice stands
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M2 7h10M7.5 3l4.5 4-4.5 4" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            See pricing →
           </Link>
         </div>
       </div>

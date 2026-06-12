@@ -1,8 +1,16 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { after, NextRequest, NextResponse } from 'next/server'
 import { adminSupabase } from '@/lib/audit/supabase'
 import { AuditIntakeSchema, type AuditIntake } from '@/lib/audit/types'
-import { leadNotifyEmail } from '@/lib/email/templates'
+import { auditAckEmail, leadNotifyEmail } from '@/lib/email/templates'
 import { sendEmail } from '@/lib/email/send'
+import { upsertContact, createDeal } from '@/lib/hubspot/client'
+
+function firstNameFrom(full: string): string {
+  const trimmed = full.trim()
+  if (!trimmed) return 'there'
+  const noTitle = trimmed.replace(/^(dr|mr|mrs|ms|mx)\.?\s+/i, '')
+  return noTitle.split(/\s+/)[0]
+}
 
 export const runtime = 'nodejs'
 
@@ -44,25 +52,113 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'submit_failed' }, { status: 500 })
   }
 
-  // Fire-and-forget the runner. In production this should be queued
-  // (Trigger.dev / Inngest / QStash). For now we hit the run endpoint
-  // with an internal token so the function survives the request returning.
+  // Background work after the response is sent. `after()` keeps the
+  // serverless function alive long enough for these to complete instead
+  // of getting nuked when the request returns (the old fire-and-forget
+  // pattern was racing the function shutdown — caused ~30% of audits to
+  // never start until the recovery cron picked them up). See:
+  //   https://nextjs.org/docs/app/api-reference/functions/after
   const runUrl = new URL('/api/audit/run', req.nextUrl.origin)
   const token = process.env.AUDIT_RUN_TOKEN
-  if (token) {
-    fetch(runUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-audit-run-token': token },
-      body: JSON.stringify({ audit_id: data.id }),
-    }).catch((err) => console.error('[audit/submit] runner kick failed', err))
-  } else {
-    console.warn('[audit/submit] AUDIT_RUN_TOKEN not set — job created but runner not kicked')
-  }
 
-  // Notify ops
-  notifyOps(intake, data.id).catch((err) => console.error('[audit/submit] notify failed', err))
+  after(async () => {
+    if (!token) {
+      console.warn('[audit/submit] AUDIT_RUN_TOKEN not set — job created but runner not kicked')
+      return
+    }
+    try {
+      await fetch(runUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-audit-run-token': token },
+        body: JSON.stringify({ audit_id: data.id }),
+      })
+    } catch (err) {
+      console.error('[audit/submit] runner kick failed', err)
+    }
+  })
+
+  after(async () => {
+    try {
+      await notifyOps(intake, data.id)
+    } catch (err) {
+      console.error('[audit/submit] notify failed', err)
+    }
+  })
+
+  after(async () => {
+    try {
+      await ackLead(intake, data.share_token)
+    } catch (err) {
+      console.error('[audit/submit] ack failed', err)
+    }
+  })
+
+  after(async () => {
+    try {
+      await syncToHubspot(intake, data.id)
+    } catch (err) {
+      console.error('[audit/submit] hubspot sync failed', err)
+    }
+  })
+
+  // Lead-facing acknowledgement. Best-effort: never block the response.
+  ackLead(intake, data.share_token).catch((err) => console.error('[audit/submit] ack failed', err))
 
   return NextResponse.json({ ok: true, audit_id: data.id, share_token: data.share_token })
+}
+
+async function ackLead(intake: AuditIntake, shareToken: string) {
+  const base = process.env.PUBLIC_BASE_URL ?? 'https://vervemd.com'
+  const unsubscribeUrl = `${base}/api/unsubscribe?token=${encodeURIComponent(shareToken)}`
+  const { subject, html, text } = auditAckEmail({
+    contact_first_name: firstNameFrom(intake.contact_name),
+    clinic_name: intake.clinic_name,
+    status_url: `${base}/audit-report/${shareToken}`,
+    unsubscribe_url: unsubscribeUrl,
+  })
+  await sendEmail({
+    to: intake.contact_email,
+    subject,
+    html,
+    text,
+    replyTo: 'hello@vervemd.com',
+    listUnsubscribeUrl: unsubscribeUrl,
+  })
+}
+
+async function syncToHubspot(intake: AuditIntake, auditId: string): Promise<void> {
+  const [firstname, ...rest] = intake.contact_name.trim().split(/\s+/)
+  const lastname = rest.join(' ') || undefined
+
+  const contactId = await upsertContact({
+    email: intake.contact_email,
+    firstname,
+    lastname,
+    phone: intake.contact_phone ?? undefined,
+    company: intake.clinic_name,
+    website: intake.website_url,
+    city: intake.city,
+    state: intake.state ?? undefined,
+    lifecyclestage: 'lead',
+    hs_lead_status: 'NEW',
+  })
+
+  if (!contactId) return // upsert failed (logged inside) — abort silently
+
+  await createDeal(
+    {
+      dealname: `Audit: ${intake.clinic_name} (${intake.city})`,
+      // Pipeline + stage default to env-var overrides; HubSpot uses defaults
+      // if they're absent. Note: leaving empty string out so HubSpot's own
+      // default kicks in.
+    },
+    contactId,
+  )
+
+  // audit_id is in the deal name; the full payload (challenge, specialty,
+  // status URL) is already in the ops notify email and the admin panel.
+  // If we want richer associations later, push as a note on the contact.
+  void auditId
 }
 
 async function notifyOps(intake: AuditIntake, auditId: string) {

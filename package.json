@@ -6,7 +6,13 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "brain:outbound": "tsx --env-file=.env.local business/agents/outbound-queue/snapshot.ts",
+    "brain:audit": "tsx --env-file=.env.local business/agents/audit-pipeline/snapshot.ts",
+    "brain:finance": "tsx --env-file=.env.local business/agents/finance-kpis/snapshot.ts",
+    "brain:content": "tsx business/agents/content-engine/snapshot.ts",
+    "brain:daily": "tsx business/agents/daily-brief/snapshot.ts",
+    "brand:export": "tsx scripts/export-brand.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",
@@ -24,6 +30,7 @@
     "@types/react-dom": "^19",
     "playwright": "^1.60.0",
     "tailwindcss": "^4",
+    "tsx": "^4.22.3",
     "typescript": "^5"
   }
 }

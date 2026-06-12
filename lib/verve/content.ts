@@ -1,40 +1,92 @@
 export const HERO = {
-  pill: 'Marketing for established longevity & aesthetic practices',
-  headlineLead: 'Your patients ask',
-  // Two italic words flank the inline icon: HeroVerve splits this string into <emphLeft> <icon> <emphRight>
-  emphasisLeft: 'AI',
-  emphasisRight: 'before you do.',
-  sub: 'AI search, paid media, and patient inquiry systems. Free audit in 48 hours.',
+  pill: 'The marketing department for home service businesses',
+  headlineLead: 'Stop renting leads.',
+  emphasisLeft: 'Own your',
+  emphasisRight: 'pipeline.',
+  sub: 'AI search, paid media, and lead capture systems. Free audit in 48 hours.',
   primaryCTA: { label: 'Book your free audit', href: '/audit' },
-  secondaryCTA: { label: 'See our results', href: '#services' },
+  secondaryCTA: { label: 'See how it works', href: '#services' },
 }
 
 export const PAIN_POINTS = {
-  title: 'Your clinic has a marketing problem. We know which one.',
+  title: 'Your business has a marketing problem. We know which one.',
   items: [
     {
-      headline: '"We\'re invisible in AI search."',
-      body: 'Patients ask ChatGPT for the best longevity clinic in their city. Your name doesn\'t come up. We fix that.',
+      headline: '"We\'re invisible when people ask AI."',
+      body: 'Homeowners ask ChatGPT or Perplexity for the best plumber, electrician, or HVAC company in their area. Your name does not come up. We fix that.',
     },
     {
-      headline: '"We\'re running ads with no idea if they work."',
-      body: 'Spending on Google and Meta with no clear cost-per-consult or attribution. We make every dollar traceable.',
+      headline: '"We spend on ads and do not know what comes back."',
+      body: 'Running Google and Meta ads with no clear cost-per-job or attribution. We make every dollar traceable.',
     },
     {
-      headline: '"We have a great clinic and an empty calendar."',
-      body: 'The practice is excellent. The marketing infrastructure doesn\'t match. That\'s a solvable problem.',
+      headline: '"Inquiries come in. Nobody follows up fast enough."',
+      body: 'Calls go to voicemail after hours. Web forms sit unread. The company that answers first wins the job. We close that gap.',
     },
   ],
 }
 
 export const RESULTS = {
-  title: 'What we\'ve done for clinics like yours.',
+  title: 'The numbers that decide whether the phone rings.',
   items: [
-    { metric: '+312%', detail: 'new patient consults', context: 'Dallas longevity clinic, 6 months' },
-    { metric: '$22', detail: 'avg. cost-per-lead', context: 'Manhattan med spa, Google + Meta' },
-    { metric: '91%', detail: 'membership retention rate', context: 'Multi-location aesthetics practice' },
+    { metric: '60%', detail: 'of home service searches', context: 'start with an AI tool, not a search engine — BrightLocal 2025' },
+    { metric: '3', detail: 'companies get named', context: 'in AI search answers per city and trade. Be one of them.' },
+    { metric: '80%', detail: 'of after-hours calls', context: 'go to the company that answers first, not the one they meant to call' },
   ],
 }
+
+export type CorePackage = {
+  name: string
+  price: string
+  tagline: string
+  features: string[]
+  popular?: boolean
+  valueNote?: string
+}
+
+export const CORE_PACKAGES: CorePackage[] = [
+  {
+    name: 'Essential',
+    price: '$1,500',
+    tagline: 'Foundation for visibility',
+    features: [
+      'Business website design (initial build + ongoing updates)',
+      'SEO & AEO: optimized for Google and AI search',
+      'Google Business Profile & local citations',
+      'Automated review requests after every completed job',
+      'Live performance dashboard: rankings and AI search visibility',
+    ],
+  },
+  {
+    name: 'Growth',
+    price: '$3,500',
+    tagline: 'Active lead generation',
+    popular: true,
+    features: [
+      'Everything in Essential',
+      'Google & Meta PPC, managed by home service specialists',
+      'AI ad creative & A/B testing',
+      'Landing pages & CRO',
+      'AI Content Engine: blog posts, monthly email & social copy',
+      'AI Lead Nurture included: SMS + email follow-up sequences',
+    ],
+    valueNote: 'Includes AI Lead Nurture automation ($450/mo value)',
+  },
+  {
+    name: 'Full Service',
+    price: '$6,500',
+    tagline: 'Complete marketing department',
+    features: [
+      'Everything in Growth',
+      'AI Call Agent: phone, chat & text, 24/7',
+      'AI Missed-Call Recovery',
+      'AI Reactivation campaigns for past customers',
+      'Dedicated strategy lead',
+    ],
+    valueNote: 'Includes $1,450/mo in AI automation systems',
+  },
+]
+
 
 export const ALACARTE = [
   { name: 'Website Design', price: 'from $3,500', type: 'one-time' },
@@ -43,69 +95,58 @@ export const ALACARTE = [
   { name: 'AI Systems Setup & Onboarding', price: 'from $1,500', type: 'one-time' },
   { name: 'Landing Page (single)', price: 'from $800', type: 'one-time' },
   { name: 'Email Sequence Setup', price: 'from $600', type: 'one-time' },
-  { name: 'Google Business Setup & Optimization', price: '$400', type: 'one-time' },
+  { name: 'Google Business Profile Setup & Optimization', price: '$400', type: 'one-time' },
 ]
 
 export const AI_TOOLS_SECTION = {
-  title: 'Marketing that runs while you treat patients.',
-  sub: 'Five AI systems that respond to leads, follow up automatically, recover no-shows, and grow your reputation around the clock.',
+  title: 'Marketing that runs while you run your crews.',
+  sub: 'Three AI systems that respond to leads, follow up automatically, recover missed calls, and grow your reputation around the clock.',
   tools: [
     {
-      name: 'AI Patient Agent',
-      description: 'Answers calls, web chat, WhatsApp, and Instagram DMs 24/7. Qualifies leads, books consults, escalates to staff when needed.',
+      name: 'AI Call Agent',
+      description: 'Answers calls, web chat, SMS, and social DMs 24/7. Qualifies leads, books estimates, escalates to your team when needed.',
     },
     {
       name: 'AI Lead Nurture',
-      description: 'Day 1, 3, 7, and 14 SMS and email sequences that move unbooked leads toward their first consult. Stops the moment they book.',
+      description: 'Multi-day SMS and email sequences that move unbooked leads toward an estimate. Stops the moment they book.',
     },
     {
       name: 'AI Reputation Manager',
-      description: 'Sends review requests 6 hours after every visit. Monitors Google, Yelp, and Healthgrades. Drafts responses for staff approval.',
+      description: 'Sends review requests after every completed job. Monitors Google and industry directories. Drafts responses for your approval.',
     },
   ],
 }
 
 export const AEO_BLOCK = {
-  title: 'Is your clinic showing up when patients ask AI?',
-  sub: "When someone asks ChatGPT or Perplexity for the best longevity clinic in their city, do you appear? Most clinics don't. Find out where you stand. Free.",
+  title: 'Is your business showing up when customers ask AI?',
+  sub: "When someone asks ChatGPT or Perplexity for the best plumber, electrician, or HVAC company in their city, do you appear? Most businesses do not. Find out where you stand. Free.",
   cta: { label: 'Get Your Free AEO + Marketing Audit', href: '/audit' },
 }
 
-export const TESTIMONIALS = [
-  {
-    quote: "Within 90 days we had more inbound consults than we'd seen all of last year. The team actually understands what we offer. They don't need a glossary for peptide protocols.",
-    name: 'Dr. Sarah M.',
-    title: 'Founder',
-    clinicType: 'Longevity & Functional Medicine Practice, Texas',
-  },
-  {
-    quote: "We were throwing money at Google Ads with no idea what was working. Verve MD rebuilt our campaigns and cut our cost-per-consult by 60% in the first month.",
-    name: 'James K.',
-    title: 'Owner',
-    clinicType: 'Medical Aesthetics & Wellness, New York',
-  },
-  {
-    quote: "The AI patient agent alone paid for the entire package. It qualifies leads overnight and books consults while we sleep.",
-    name: 'Dr. Rachel T.',
-    title: 'Medical Director',
-    clinicType: 'Multi-Location Aesthetics Practice, California',
-  },
+// Only real, client-approved testimonials. Adding fabricated testimonials is
+// a brand-trust liability. Add new entries only after written client approval.
+export const TESTIMONIALS: { quote: string; name: string; title: string; clinicType?: string; businessType?: string }[] = [
+  // Awaiting first client testimonial
 ]
 
 export const WHO_WE_WORK_WITH = {
-  title: 'Built for practices like yours.',
+  title: 'Built for businesses like yours.',
   personas: [
     {
-      type: 'Solo practitioners & clinic founders',
-      description: 'You built the practice. You shouldn\'t be managing your own marketing. We handle it so you can focus on patients.',
+      type: 'Plumbing companies',
+      description: 'Residential and commercial. Emergency calls, service work, new construction. We know how homeowners search for you.',
     },
     {
-      type: 'Med spa & aesthetics owners',
-      description: 'Injectables, body contouring, regenerative aesthetics. We know your service menu and how patients search for it.',
+      type: 'HVAC contractors',
+      description: 'Furnace replacements, AC installs, seasonal maintenance. After-hours calls are where revenue leaks. We plug it.',
     },
     {
-      type: 'Multi-location longevity centers',
-      description: 'Scaling from 1 to 3+ locations. Consistent campaigns, local SEO per location, centralized reporting.',
+      type: 'Electrical contractors',
+      description: 'Residential service, panel upgrades, new builds. Speed wins in your trade. We make sure you answer first.',
+    },
+    {
+      type: 'Roofing companies',
+      description: 'Storm response, inspections, replacements. When every roofer in the county is chasing the same homeowners, capture beats hustle.',
     },
   ],
 }
@@ -122,15 +163,15 @@ export type AIService = {
 
 export const AI_SERVICES: AIService[] = [
   {
-    id: 'patient-agent',
-    name: 'AI Patient Agent',
-    tagline: 'Never miss a lead again',
-    description: '24/7 voice and chat agent that qualifies inbound leads, answers clinic questions, and books consults before a human ever steps in.',
+    id: 'call-agent',
+    name: 'AI Call Agent',
+    tagline: 'Never miss a call again',
+    description: '24/7 voice and chat agent that qualifies inbound leads, answers common questions, and books estimates before a human ever steps in.',
     features: [
       'Answers calls and web chat around the clock',
-      'Qualifies leads by service interest',
-      'Books consults directly to your calendar',
-      'Trained on longevity & aesthetics vocabulary',
+      'Qualifies leads by trade and job type',
+      'Books estimates directly to your calendar',
+      'Trained on plumbing, HVAC, electrical, and roofing vocabulary',
       'Hands off to your team when a question needs a human touch',
     ],
     price: '$600/mo',
@@ -139,11 +180,11 @@ export const AI_SERVICES: AIService[] = [
     id: 'lead-nurture',
     name: 'AI Lead Nurture Engine',
     tagline: 'Turn cold leads warm, automatically',
-    description: 'Automated Day 1, 3, 7, and 14 SMS and email sequences that move unbooked leads toward their first consult, personalized by service interest.',
+    description: 'Automated multi-day SMS and email sequences that move unbooked leads toward an estimate, personalized by trade and job type.',
     features: [
       'Personalized SMS + email sequences',
-      'Separate sequences for each service you offer',
-      'Includes patient testimonials, common questions, and gentle booking prompts',
+      'Separate sequences for each trade you serve',
+      'Includes past job photos, common questions, and gentle booking prompts',
       'Stops automatically when the lead books',
       'Works with any booking system you already use',
     ],
@@ -153,10 +194,10 @@ export const AI_SERVICES: AIService[] = [
     id: 'reputation',
     name: 'AI Reputation Manager',
     tagline: 'Steady five-star reviews without asking',
-    description: 'Monitors your review profiles, sends review requests 6 hours after each appointment, and drafts responses to new reviews for staff approval.',
+    description: 'Monitors your review profiles, sends review requests after each completed job, and drafts responses to new reviews for your approval.',
     features: [
-      'Automated review requests after every visit',
-      'Google, Yelp, and Healthgrades integrations',
+      'Automated review requests after every completed job',
+      'Google, Yelp, and trade-directory integrations',
       'AI-drafted response suggestions for every review',
       'Sentiment alerts for negative reviews before they spread',
       'Monthly reputation report included',
@@ -164,30 +205,30 @@ export const AI_SERVICES: AIService[] = [
     price: '$450/mo',
   },
   {
-    id: 'no-show',
-    name: 'AI No-Show Recovery',
-    tagline: 'Recapture 30%+ of missed appointments',
-    description: 'Sends a personalized "we missed you" text within hours of a no-show and follows up automatically over the next 7 days until they rebook.',
+    id: 'missed-call',
+    name: 'AI Missed-Call Recovery',
+    tagline: 'Recapture the jobs you would have lost',
+    description: 'Sends a personalized follow-up within minutes of a missed call and follows up automatically until they book.',
     features: [
-      'Same-day no-show SMS with rebooking link',
-      'Follow-ups on day 3 and day 7',
-      'Direct calendar link in every message',
-      'Optional small incentive for rebooking',
+      'Same-minute SMS to missed callers with callback link',
+      'Follow-ups over the next 24 hours',
+      'Direct booking link in every message',
+      'Works for after-hours, weekends, and holidays',
       'Monthly recovery rate reporting',
     ],
     price: '$350/mo',
   },
   {
-    id: 'retention',
-    name: 'AI Retention Engine',
-    tagline: 'Bring back patients before they drift',
-    description: 'Flags at-risk patients based on visit frequency and triggers personalized reactivation campaigns timed to their specific service cycle.',
+    id: 'reactivation',
+    name: 'AI Reactivation Engine',
+    tagline: 'Bring back past customers before they forget you',
+    description: 'Flags past customers based on service cycles and triggers personalized reactivation campaigns timed to what they need next.',
     features: [
-      'Identifies patients who haven\'t been in a while before they go elsewhere',
-      'Timed to each patient\'s treatment cycle: IV drip, Botox, memberships',
+      'Identifies past customers due for service before they call someone else',
+      'Timed to each service cycle: tune-ups, drain cleaning, inspections',
       'Seasonal re-engagement campaigns',
-      'Personalized offers for patients who\'ve gone quiet',
-      'Reactivates 15-25% of dormant patients',
+      'Personalized offers for customers who have gone quiet',
+      'Reactivates 15-25% of dormant customers',
     ],
     price: '$500/mo',
   },
@@ -195,16 +236,16 @@ export const AI_SERVICES: AIService[] = [
 
 export const AI_PAGE = {
   eyebrow: 'AI Infrastructure',
-  headline: 'Your clinic should be running while you sleep.',
-  sub: 'Five AI systems that respond to leads across every channel, nurture patients, recover no-shows, and grow your reputation. Automatically, around the clock.',
+  headline: 'Your business should be running while you sleep.',
+  sub: 'Five AI systems that respond to leads across every channel, nurture prospects, recover missed calls, and grow your reputation. Automatically, around the clock.',
   stats: [
-    { value: '< 60s', label: 'avg. lead response time with AI Patient Agent' },
-    { value: '32%', label: 'of no-shows rebook with automated follow-up' },
+    { value: '< 60s', label: 'avg. lead response time with AI Call Agent' },
+    { value: '32%', label: 'of missed calls rebook with automated follow-up' },
     { value: '4.8★', label: 'avg. review rating maintained with reputation automation' },
   ],
   workflow: {
     eyebrow: 'How it works',
-    title: 'One missed call. Six automated actions.',
+    title: 'One missed call. Five automated actions.',
     sub: 'Every inbound lead triggers a chain of AI-powered steps. Nothing falls through the cracks.',
     steps: [
       {
@@ -213,36 +254,36 @@ export const AI_PAGE = {
       },
       {
         label: 'AI responds in 60s',
-        description: 'Clinic-branded message sent instantly. No hold time. No missed calls.',
+        description: 'Business-branded message sent instantly. No hold time. No missed calls.',
       },
       {
         label: 'Lead captured',
-        description: 'Contact logged with service interest noted. Nothing slips through.',
+        description: 'Contact logged with trade and job type noted. Nothing slips through.',
       },
       {
         label: 'Follow-ups begin',
-        description: 'Day 1, 3, 7, 14: personalized SMS and email follow-ups start automatically.',
+        description: 'Multi-day personalized SMS and email follow-ups start automatically.',
       },
       {
         label: 'Review requested',
-        description: '6 hours after each visit, a review request goes out while the experience is fresh.',
+        description: 'After each completed job, a review request goes out while the experience is fresh.',
       },
       {
         label: 'Win-back campaign starts',
-        description: 'At 90 days of silence, a personalized campaign goes out to bring them back.',
+        description: 'At the right service interval, a personalized campaign goes out to bring past customers back.',
       },
     ],
   },
 }
 
 export const AUDIT_PAGE = {
-  headline: 'Find out if AI recommends your clinic.',
-  sub: "We'll audit your clinic's visibility in ChatGPT, Perplexity, and Google AI Overviews, plus your SEO, Google Ads, and website conversion rate. Free. No pitch.",
+  headline: 'Find out if AI recommends your business.',
+  sub: "We'll audit your visibility in ChatGPT, Perplexity, and Google AI Overviews, plus your SEO, Google Ads, and website conversion rate. Free. No pitch.",
   deliverables: [
-    { title: 'AEO Visibility Score', description: 'Are you showing up in AI search when patients ask about longevity or aesthetics care?' },
+    { title: 'AEO Visibility Score', description: 'Are you showing up in AI search when homeowners look for plumbing, HVAC, electrical, or roofing?' },
     { title: 'SEO Health Check', description: 'Technical issues, keyword gaps, and quick wins.' },
-    { title: 'Paid Ads Assessment', description: 'If you\'re running ads, we\'ll tell you what\'s working and what\'s wasted spend.' },
-    { title: 'Website Conversion Audit', description: 'Are visitors booking? We\'ll identify the friction points.' },
+    { title: 'Paid Ads Assessment', description: "If you're running ads, we'll tell you what's working and what's wasted spend." },
+    { title: 'Website Conversion Audit', description: 'Are visitors booking estimates? We will identify the friction points.' },
   ],
   deliveryNote: 'Delivered within 48 hours via email. No call required.',
 }

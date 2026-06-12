@@ -3,8 +3,22 @@ import NavVerve from '@/components/verve/NavVerve'
 import FooterVerve from '@/components/verve/FooterVerve'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service: Verve MD',
+  title: 'Terms of Service',
   description: 'Terms governing use of Verve Clinic Marketing services and this website.',
+  alternates: { canonical: 'https://www.vervemd.com/terms' },
+  openGraph: {
+    title: 'Terms of Service · Verve MD',
+    description: 'Terms governing use of Verve Clinic Marketing services and this website.',
+    url: 'https://www.vervemd.com/terms',
+    type: 'website',
+    images: ['/opengraph-image'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms of Service · Verve MD',
+    description: 'Terms governing use of Verve Clinic Marketing services and this website.',
+    images: ['/twitter-image'],
+  },
 }
 
 const sections = [

@@ -43,18 +43,45 @@ async function deliverReadyEmail(jobId: string) {
     .single()
   if (!data || data.status === 'failed') return
 
-  const reportUrl = `${process.env.PUBLIC_BASE_URL ?? 'https://vervemd.com'}/audit-report/${data.share_token}`
+  const base = process.env.PUBLIC_BASE_URL ?? 'https://vervemd.com'
+  const reportUrl = `${base}/audit-report/${data.share_token}`
+  const unsubscribeUrl = `${base}/api/unsubscribe?token=${encodeURIComponent(data.share_token)}`
   const firstName = firstNameFrom(data.contact_name)
   const { subject, html, text } = auditReadyEmail({
     contact_first_name: firstName,
     clinic_name: data.clinic_name,
     report_url: reportUrl,
     city: data.city ?? '',
+    unsubscribe_url: unsubscribeUrl,
   })
-  await sendEmail({ to: data.contact_email, subject, html, text })
+
+  let sent: { id: string } | null = null
+  try {
+    sent = await sendEmail({
+      to: data.contact_email,
+      subject,
+      html,
+      text,
+      listUnsubscribeUrl: unsubscribeUrl,
+    })
+  } catch (err) {
+    console.error('[audit/run] ready email send threw', err)
+  }
+
+  if (!sent) {
+    // Don't mark delivered or seed the nurture sequence — the lead never
+    // got the report. Recovery cron / admin UI will pick it up.
+    await sb.from('audit_jobs')
+      .update({ email_delivery_failed_at: new Date().toISOString() })
+      .eq('id', jobId)
+    console.error('[audit/run] ready email not delivered', { jobId })
+    return
+  }
 
   const deliveredAt = new Date()
-  await sb.from('audit_jobs').update({ delivered_at: deliveredAt.toISOString() }).eq('id', jobId)
+  await sb.from('audit_jobs')
+    .update({ delivered_at: deliveredAt.toISOString(), email_delivery_failed_at: null })
+    .eq('id', jobId)
   try {
     await seedNurtureQueue(jobId, deliveredAt)
   } catch (err) {
