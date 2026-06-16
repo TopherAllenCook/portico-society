@@ -120,6 +120,7 @@ export interface AuditReadyArgs {
   clinic_name: string
   report_url: string
   city: string
+  booking_url: string
   unsubscribe_url: string
 }
 
@@ -127,9 +128,11 @@ export function auditReadyEmail(args: AuditReadyArgs): { subject: string; html: 
   const body = [
     eyebrow('Your audit is ready'),
     display(`${args.contact_first_name}, the report is in.`),
-    para(`We ran the same checks our analysts use on ${args.clinic_name}: AI search visibility for your trade in ${args.city}, citation gaps to the companies ChatGPT and Perplexity are naming, your structured data, page performance, and inquiry-path conversion.`),
+    para(`We ran the same checks our analysts use on ${args.clinic_name}: AI search visibility for your trade in ${args.city}, citation gaps to the companies ChatGPT and Claude are naming, your structured data, page performance, and inquiry-path conversion.`),
     para(`The full audit is one click away. It's private to your inbox.`),
     pillButton(args.report_url, 'View your audit'),
+    para(`Want the 15-minute version? Book a walkthrough and we'll show you the AI-overview captures behind your scores and the two moves to run first. No pitch unless you ask for one.`),
+    pillButton(args.booking_url, 'Book a 15-minute walkthrough'),
     para(`Read it twice. The prioritized moves are ranked by impact, not effort. The cheap wins come first.`, { muted: true }),
     para(`Reply to this email with questions. The principal reads every response.`, { muted: true }),
   ].join('\n')
@@ -145,6 +148,7 @@ export function auditReadyEmail(args: AuditReadyArgs): { subject: string; html: 
       `${args.contact_first_name},\n\n` +
       `Your Verve MD audit for ${args.clinic_name} is ready.\n\n` +
       `View your audit: ${args.report_url}\n\n` +
+      `Want the 15-minute version? Book a walkthrough: ${args.booking_url}\n\n` +
       `Reply to this email with questions. The principal reads every response.\n\n` +
       `— Verve MD\nhttps://vervemd.com\n` +
       `Unsubscribe: ${args.unsubscribe_url}`,

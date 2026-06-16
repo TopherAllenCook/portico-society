@@ -67,7 +67,7 @@ export const NURTURE_STEPS: NurtureStep[] = [
     subject: () => `How home service businesses close the AI gap`,
     html: (c) => shell(c, `
       <p>${c.contact_first_name},</p>
-      <p>What it actually takes to get named by ChatGPT, Perplexity, and Google's AI overview for a ${specialtyTerm(c.specialty)} query in a city like ${c.city}:</p>
+      <p>What it actually takes to get named by ChatGPT, Claude, and Google's AI overview for a ${specialtyTerm(c.specialty)} query in a city like ${c.city}:</p>
       <ol>
         <li>A handful of citations from the right authoritative sources (local press, trade directories, journalist roundups). Five to ten well-chosen mentions usually move the needle more than fifty mass-produced backlinks.</li>
         <li>Structured content on your own site that maps to how homeowners phrase the question. Most home service sites describe what they do; almost none answer the question a homeowner is actually asking.</li>
@@ -88,7 +88,7 @@ export const NURTURE_STEPS: NurtureStep[] = [
       <p>No pitch. If we're a fit at the end, we'll talk about it. If not, you keep the audit.</p>
       <p><a href="${c.call_url}" style="display:inline-block;background:#C44536;color:#FFF8EA;padding:12px 22px;border-radius:9999px;text-decoration:none;font-family:-apple-system,sans-serif;font-weight:600">Pick a time</a></p>
       <p>Or just reply with a few windows.</p>
-      <p style="margin-top:24px;padding-top:18px;border-top:1px solid #E5DCC9;font-size:14px;color:#56473e">Prefer to run the moves yourself first? The Home Service Brand Self-Audit Kit ($149) is the same framework as a self-serve operating doc. <a href="https://vervemd.com/kit" style="color:#C44536">See what's inside</a>. The $149 credits toward a paid audit if you decide to bring us in later.</p>
+      <p style="margin-top:24px;padding-top:18px;border-top:1px solid #E5DCC9;font-size:14px;color:#56473e">If we're a fit, the next step is us running these moves for you: AI-search authority, the schema and content fixes, and the inquiry-path work, billed monthly. We'll map exactly what that looks like and what it costs on the call. No obligation to decide there.</p>
       <p>Verve MD</p>
     `),
   },
@@ -186,7 +186,7 @@ export async function processDueNurture(): Promise<{ sent: number; failed: numbe
       specialty: job.specialty as Specialty,
       report_url: `${base}/audit-report/${job.share_token}`,
       reply_to: process.env.NURTURE_REPLY_TO ?? 'topher.a.cook@gmail.com',
-      call_url: process.env.NURTURE_CALL_URL ?? 'https://cal.com/vervemd/audit-review',
+      call_url: process.env.NURTURE_CALL_URL ?? 'https://cal.com/christopher-cook-jfcxhu/verve-discovery',
       unsubscribe_url: `${base}/api/unsubscribe?token=${encodeURIComponent(job.share_token)}`,
     }
 

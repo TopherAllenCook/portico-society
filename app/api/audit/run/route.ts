@@ -55,6 +55,7 @@ async function deliverReadyEmail(jobId: string) {
     clinic_name: data.clinic_name,
     report_url: reportUrl,
     city: data.city ?? '',
+    booking_url: process.env.NURTURE_CALL_URL ?? 'https://cal.com/christopher-cook-jfcxhu/verve-discovery',
     unsubscribe_url: unsubscribeUrl,
   })
 
