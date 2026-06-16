@@ -197,6 +197,17 @@ export const PATIENT_QUERY_TEMPLATES = {
     'roofer near me {city}',
     'metal roof installation {city}',
   ],
+  // Catch-all for any trade not broken out above (and the batch-import default).
+  // Generic high-intent local-service queries so GEO/SERP still have something
+  // to rank against instead of throwing on an undefined template.
+  other: [
+    'best home services company {city}',
+    'home repair near me {city}',
+    'local contractor {city}',
+    'emergency home services {city}',
+    'licensed contractor {city}',
+    'home services company {city}',
+  ],
 } as const
 
 export type Specialty = keyof typeof PATIENT_QUERY_TEMPLATES

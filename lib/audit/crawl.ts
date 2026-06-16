@@ -1,4 +1,4 @@
-import type { CrawlPagePayload, CrawlPayload, SchemaPayload } from './types'
+import type { CrawlPagePayload, CrawlPayload, SchemaPayload, Specialty } from './types'
 
 /**
  * Firecrawl /v1/scrape and /v1/map. We use map() to discover pages, then scrape()
@@ -156,30 +156,40 @@ async function safeFetchText(url: string): Promise<string | null> {
   } catch { return null }
 }
 
-/* ─── Schema audit (clinic-specific) ─────────────────────────────────────── */
+/* ─── Schema audit (home-services-specific) ──────────────────────────────── */
 
-const RECOMMENDED_MEDICAL_TYPES = [
-  'Physician',
-  'MedicalClinic',
-  'MedicalBusiness',
+// schema.org has a precise LocalBusiness subtype per trade. Recommending the
+// exact type (Plumber, Electrician, …) is the highest-value AEO fix, so we lead
+// with it and fall back to HomeAndConstructionBusiness for "other".
+const TRADE_SCHEMA_TYPE: Record<Specialty, string> = {
+  plumbing: 'Plumber',
+  hvac: 'HVACBusiness',
+  electrical: 'Electrician',
+  roofing: 'RoofingContractor',
+  other: 'HomeAndConstructionBusiness',
+}
+
+// Base types every local home-services site should ship regardless of trade.
+const BASE_RECOMMENDED_TYPES = [
   'LocalBusiness',
   'Service',
-  'MedicalProcedure',
+  'AggregateRating',
   'FAQPage',
   'Organization',
   'WebSite',
   'BreadcrumbList',
 ]
 
-export function evaluateSchema(pages: CrawlPagePayload[]): SchemaPayload {
+export function evaluateSchema(pages: CrawlPagePayload[], specialty: Specialty = 'other'): SchemaPayload {
+  const recommended = [TRADE_SCHEMA_TYPE[specialty] ?? TRADE_SCHEMA_TYPE.other, ...BASE_RECOMMENDED_TYPES]
   const allTypes = new Set<string>()
   for (const p of pages) for (const t of p.jsonld_types) allTypes.add(t)
   const found = [...allTypes]
-  const missing = RECOMMENDED_MEDICAL_TYPES.filter((t) => !allTypes.has(t))
+  const missing = recommended.filter((t) => !allTypes.has(t))
   return {
     url: pages[0]?.url ?? '',
     found_types: found,
-    recommended_types: RECOMMENDED_MEDICAL_TYPES,
+    recommended_types: recommended,
     missing,
     parse_errors: [],
   }

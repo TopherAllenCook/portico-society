@@ -41,7 +41,7 @@ export async function runAudit(jobId: string) {
   const competitors = geo ? topCompetitorsFromGeo(geo, 3) : []
   await sb.from('audit_jobs').update({ competitors }).eq('id', jobId)
 
-  const schema = crawl ? await runModule(sb, jobId, 'schema', ourDomain, async () => evaluateSchema(crawl.pages)) : null
+  const schema = crawl ? await runModule(sb, jobId, 'schema', ourDomain, async () => evaluateSchema(crawl.pages, job.specialty)) : null
 
   // Leadgen needs raw HTML — re-scrape homepage once for that signal.
   const leadgen = await runModule(sb, jobId, 'leadgen', ourDomain, async () => {
