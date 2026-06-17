@@ -76,11 +76,11 @@ export default function PricingHeroVerve() {
             style={{ padding: '0.875rem 1.75rem', background: 'var(--color-paper)', borderColor: 'var(--color-ink-rule)' }}
           />
           <Link
-            href="#pricing-packages-heading"
+            href="#ai-automation-heading"
             className="text-sm underline-offset-4 hover:underline"
             style={{ color: 'var(--color-body-text)', fontFamily: 'var(--font-body)' }}
           >
-            Compare packages
+            See what's included
           </Link>
         </div>
       </div>

@@ -1,18 +1,29 @@
 import Image from 'next/image'
 import { WHO_WE_WORK_WITH } from '@/lib/verve/content'
 
+// One image per persona in WHO_WE_WORK_WITH.personas, matched by index
+// (Plumbing, HVAC, Electrical, Roofing). Keep this list in sync with that
+// array; the mapping below also falls back gracefully if it ever drifts.
 const PERSONA_IMAGES = [
   {
-    src: 'https://images.unsplash.com/photo-1633759593085-1eaeb724fc88?auto=format&fit=crop&w=900&q=80',
-    alt: 'A roofer replacing worn shingles on a residential roof',
+    // Plumbing (featured / largest slot)
+    src: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=900&q=80',
+    alt: 'A wall of well-used hand tools in a home service workshop',
   },
   {
+    // HVAC
     src: 'https://images.unsplash.com/photo-1561480337-03eb1b6795a2?auto=format&fit=crop&w=480&q=80',
     alt: 'A technician checking a home heating and cooling system',
   },
   {
-    src: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=480&q=80',
-    alt: 'A wall of well-used hand tools in a home service workshop',
+    // Electrical
+    src: 'https://images.unsplash.com/photo-1595831708961-1b13c0dd2422?auto=format&fit=crop&w=480&q=80',
+    alt: 'An electrician in safety gear servicing electrical equipment',
+  },
+  {
+    // Roofing
+    src: 'https://images.unsplash.com/photo-1633759593085-1eaeb724fc88?auto=format&fit=crop&w=480&q=80',
+    alt: 'A roofer replacing worn shingles on a residential roof',
   },
 ]
 
@@ -29,7 +40,10 @@ const DESC: React.CSSProperties = {
 }
 
 export default function WhoWeWorkWithVerve() {
-  const cards = WHO_WE_WORK_WITH.personas.map((persona, i) => ({ ...persona, img: PERSONA_IMAGES[i] }))
+  const cards = WHO_WE_WORK_WITH.personas.map((persona, i) => ({
+    ...persona,
+    img: PERSONA_IMAGES[i] ?? PERSONA_IMAGES[PERSONA_IMAGES.length - 1],
+  }))
   const [featured, ...rest] = cards
 
   return (
