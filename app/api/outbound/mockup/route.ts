@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createHash } from 'node:crypto'
 import { z } from 'zod'
 import { adminSupabase } from '@/lib/audit/supabase'
+import { specialtyFor } from '@/lib/outbound/trade'
 
 export const runtime = 'nodejs'
 
@@ -85,7 +86,9 @@ export async function POST(req: NextRequest) {
       phone: d.phone ?? null,
       rating: d.rating ?? null,
       reviews: d.reviews ?? null,
-      specialty: (d.specialty ?? 'hvac').toLowerCase(),
+      // The upstream ICP Gate hardcodes specialty:'hvac'; derive the real trade
+      // from the company name so the stored value matches what /preview renders.
+      specialty: specialtyFor(d.company_name),
       website: d.website ?? null,
       airtable_record_id: d.airtable_record_id ?? null,
       updated_at: new Date().toISOString(),

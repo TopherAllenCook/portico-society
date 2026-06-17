@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { adminSupabase } from '@/lib/audit/supabase'
+import { classifyTrade, type TradeFamily } from '@/lib/outbound/trade'
 
 export const dynamic = 'force-dynamic'
 
@@ -8,10 +9,16 @@ export const dynamic = 'force-dynamic'
  * /preview/[slug]: auto-designed homepage mockup for an outbound prospect.
  *
  * Rendered from a mockup_previews row written by POST /api/outbound/mockup.
- * The section order follows the local-service consensus blueprint (phone CTA
- * in hero, trust badges second, services, review proof, financing, service
- * area, repeat phone CTA) and the type scale follows the 1.67 golden ratio.
- * Always noindex: these pages exist for one prospect each.
+ * Section order follows the local-service consensus blueprint (phone CTA in
+ * hero, trust badges, services, review proof, financing, repeat phone CTA) and
+ * the type scale follows the 1.67 golden ratio. Always noindex.
+ *
+ * Trade (HVAC / plumbing / electrical / multi) is derived from the company NAME
+ * at render time via classifyTrade — the upstream pipeline can't tell us the
+ * real trade, so a plumber must never be shown an HVAC homepage. Trust badges
+ * are derived only from data we actually have (Google rating/review count,
+ * service area); we do not assert "Licensed & Insured", "24/7", or specific
+ * financing terms we can't verify for a stranger's business.
  */
 
 interface PreviewRow {
@@ -27,15 +34,28 @@ interface PreviewRow {
   accent: string
 }
 
-const TRADES: Record<
-  string,
-  { label: string; noun: string; hero: string; servicesImg: string; services: Array<{ name: string; blurb: string }> }
+interface ServiceCard {
+  name: string
+  blurb: string
+}
+
+const HERO: Record<TradeFamily, string> = {
+  hvac: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=2400&q=80',
+  plumbing: 'https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&w=2400&q=80',
+  electrical: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=2400&q=80',
+  // No roofing photo in the verified set; reuse the (overlaid) HVAC hero so the
+  // background always loads. Roofing is rare-to-absent in the current ICP.
+  roofing: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=2400&q=80',
+}
+
+const SINGLE: Record<
+  TradeFamily,
+  { label: string; noun: string; headline: string; services: ServiceCard[] }
 > = {
   hvac: {
     label: 'Heating & Air',
     noun: 'HVAC',
-    hero: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=2400&q=80',
-    servicesImg: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1200&q=80',
+    headline: 'Comfort you can count on.',
     services: [
       { name: 'AC Repair', blurb: 'Same-day diagnosis and repair when the cooling quits.' },
       { name: 'Heating', blurb: 'Furnace and heat pump service, repair, and replacement.' },
@@ -46,8 +66,7 @@ const TRADES: Record<
   plumbing: {
     label: 'Plumbing',
     noun: 'plumbing',
-    hero: 'https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&w=2400&q=80',
-    servicesImg: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1200&q=80',
+    headline: 'Plumbing done right the first time.',
     services: [
       { name: 'Emergency Repairs', blurb: 'Burst pipes and leaks handled fast, day or night.' },
       { name: 'Drain Cleaning', blurb: 'Clogs cleared right the first time.' },
@@ -58,8 +77,7 @@ const TRADES: Record<
   electrical: {
     label: 'Electric',
     noun: 'electrical',
-    hero: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=2400&q=80',
-    servicesImg: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80',
+    headline: 'Safe, reliable electrical work.',
     services: [
       { name: 'Panel Upgrades', blurb: 'Modern capacity for modern homes.' },
       { name: 'Troubleshooting', blurb: 'Flickers, trips, and dead outlets solved fast.' },
@@ -67,7 +85,32 @@ const TRADES: Record<
       { name: 'Lighting', blurb: 'Indoor, outdoor, and landscape lighting done right.' },
     ],
   },
+  roofing: {
+    label: 'Roofing',
+    noun: 'roofing',
+    headline: 'A roof that holds up.',
+    services: [
+      { name: 'Roof Repairs', blurb: 'Leaks and missing shingles fixed before they spread.' },
+      { name: 'Replacements', blurb: 'Full tear-offs with clean, warrantied work.' },
+      { name: 'Storm Damage', blurb: 'Fast response and insurance-claim help.' },
+      { name: 'Inspections', blurb: 'Know where your roof stands before you buy or sell.' },
+    ],
+  },
 }
+
+// One signature card per family, used to assemble a multi-trade services grid.
+const SIGNATURE: Record<TradeFamily, ServiceCard> = {
+  hvac: { name: 'Heating & Cooling', blurb: 'AC and furnace repair, installs, and seasonal tune-ups.' },
+  plumbing: { name: 'Plumbing', blurb: 'Leaks, drains, water heaters, and repipes.' },
+  electrical: { name: 'Electrical', blurb: 'Panels, troubleshooting, and safe installs.' },
+  roofing: { name: 'Roofing', blurb: 'Repairs, replacements, and storm-damage work.' },
+}
+
+// Value-prop padding cards (no service claim we can't stand behind).
+const PADDING: ServiceCard[] = [
+  { name: 'Upfront Pricing', blurb: 'Straight quotes before any work starts.' },
+  { name: 'Local Crew', blurb: 'Technicians who know your neighborhood.' },
+]
 
 async function getRow(slug: string): Promise<PreviewRow | null> {
   const sb = adminSupabase()
@@ -106,12 +149,32 @@ export default async function PreviewPage({ params }: { params: Promise<{ slug: 
   const row = await getRow(slug)
   if (!row) notFound()
 
-  const trade = TRADES[row.specialty] ?? TRADES.hvac
   const phone = formatPhone(row.phone)
   const telHref = row.phone ? `tel:${row.phone.replace(/[^\d+]/g, '')}` : null
   const place = [row.city, row.state].filter(Boolean).join(', ')
   const accent = row.accent || '#0D6E7A'
   const hasProof = typeof row.rating === 'number' && (row.reviews ?? 0) > 0
+
+  // Trade derives from the company NAME, not the (always-'hvac') stored value.
+  const trade = classifyTrade(row.company_name)
+  const view = trade.isMulti
+    ? {
+        label: 'Home Services',
+        noun: 'home service',
+        headline: 'One call for your whole home.',
+        hero: HERO[trade.primary],
+        services: [...trade.families.map((f) => SIGNATURE[f]), ...PADDING].slice(0, 4),
+      }
+    : { ...SINGLE[trade.primary], hero: HERO[trade.primary] }
+
+  // Trust badges: only what the prospect's own Google data supports.
+  const badges: string[] = []
+  if (hasProof) badges.push(`${(row.rating as number).toFixed(1)} ★ on Google`)
+  if (hasProof && (row.reviews ?? 0) > 0) badges.push(`${row.reviews} Google reviews`)
+  if (place) badges.push(`Serving ${place}`)
+  badges.push('Free estimates')
+  if (badges.length < 4) badges.push('Locally owned & operated')
+  const trustBadges = badges.slice(0, 4)
 
   // Type scale: 1.67 golden ratio steps from a 16px base (16 / 27 / 45 / 75).
   return (
@@ -120,7 +183,7 @@ export default async function PreviewPage({ params }: { params: Promise<{ slug: 
       <section className="relative overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${trade.hero})` }}
+          style={{ backgroundImage: `url(${view.hero})` }}
           aria-hidden
         />
         <div className="absolute inset-0 bg-zinc-950/65" aria-hidden />
@@ -139,10 +202,10 @@ export default async function PreviewPage({ params }: { params: Promise<{ slug: 
           </header>
           <div className="py-24 sm:py-32">
             <p className="mb-4 text-[16px] font-semibold uppercase tracking-[0.2em] text-white/70">
-              {place ? `${place} ${trade.label}` : trade.label}
+              {place ? `${place} ${view.label}` : view.label}
             </p>
             <h1 className="max-w-3xl text-[45px] font-bold leading-[1.05] text-white sm:text-[75px]">
-              Comfort you can count on.
+              {view.headline}
             </h1>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               {telHref && (
@@ -173,15 +236,10 @@ export default async function PreviewPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* Trust badges: position 2 in the local-service consensus blueprint */}
+      {/* Trust badges: derived only from the prospect's real Google data */}
       <section className="border-b border-zinc-100 bg-zinc-50">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 text-center sm:grid-cols-4">
-          {[
-            'Licensed & Insured',
-            hasProof ? `${row.reviews} Google Reviews` : 'Background-Checked Techs',
-            place ? `Serving ${place}` : 'Locally Owned',
-            '24/7 Emergency Service',
-          ].map((t) => (
+          {trustBadges.map((t) => (
             <div key={t} className="text-[16px] font-semibold text-zinc-700">
               {t}
             </div>
@@ -193,7 +251,7 @@ export default async function PreviewPage({ params }: { params: Promise<{ slug: 
       <section className="mx-auto max-w-6xl px-6 py-24">
         <h2 className="text-[45px] font-bold leading-tight">What we do</h2>
         <div className="mt-12 grid gap-8 sm:grid-cols-2">
-          {trade.services.map((s) => (
+          {view.services.map((s) => (
             <div key={s.name} className="rounded-2xl border border-zinc-100 p-8 shadow-sm">
               <h3 className="text-[27px] font-semibold" style={{ color: accent }}>
                 {s.name}
@@ -225,15 +283,15 @@ export default async function PreviewPage({ params }: { params: Promise<{ slug: 
         </section>
       )}
 
-      {/* Financing band */}
+      {/* Value band: upfront pricing, no unverifiable financing claim */}
       <section className="mx-auto max-w-6xl px-6 py-24">
         <div
           className="rounded-3xl px-10 py-16 text-white"
           style={{ background: `linear-gradient(120deg, ${accent}, #1c1c22)` }}
         >
-          <h2 className="text-[45px] font-bold leading-tight">Flexible financing available</h2>
+          <h2 className="text-[45px] font-bold leading-tight">Upfront pricing, no surprises.</h2>
           <p className="mt-4 max-w-xl text-[16px] text-white/80">
-            New system without the sticker shock. Ask about $0-down options on replacements.
+            Straight quotes before the work starts. Ask about financing options on new system installs.
           </p>
         </div>
       </section>
@@ -242,7 +300,7 @@ export default async function PreviewPage({ params }: { params: Promise<{ slug: 
       <section id="estimate" className="border-t border-zinc-100 bg-zinc-50">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center">
           <h2 className="text-[45px] font-bold leading-tight">
-            {row.city ? `Need ${trade.noun} help in ${row.city}?` : `Need ${trade.noun} help today?`}
+            {row.city ? `Need ${view.noun} help in ${row.city}?` : `Need ${view.noun} help today?`}
           </h2>
           {telHref ? (
             <a
