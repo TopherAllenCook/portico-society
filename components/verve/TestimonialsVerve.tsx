@@ -57,7 +57,7 @@ export default function TestimonialsVerve() {
               className="text-xs"
               style={{ color: 'var(--color-label-text-on-dark)', fontFamily: 'var(--font-body)' }}
             >
-              {featured.title ? `${featured.title}, ${featured.clinicType}` : featured.clinicType}
+              {[featured.title, featured.businessType].filter(Boolean).join(', ')}
             </p>
           </footer>
         </blockquote>
@@ -109,7 +109,7 @@ export default function TestimonialsVerve() {
                   className="text-xs"
                   style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}
                 >
-                  {t.title}, {t.clinicType}
+                  {[t.title, t.businessType].filter(Boolean).join(', ')}
                 </p>
               </footer>
             </blockquote>

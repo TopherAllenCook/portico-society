@@ -1,8 +1,6 @@
 import NavVerve from '@/components/verve/NavVerve'
 import PricingHeroVerve from '@/components/verve/PricingHeroVerve'
-import PricingPackagesVerve from '@/components/verve/PricingPackagesVerve'
 import PricingAIPackagesVerve from '@/components/verve/PricingAIPackagesVerve'
-import BundleBuilderVerve from '@/components/verve/BundleBuilderVerve'
 import PricingAlaCarteVerve from '@/components/verve/PricingAlaCarteVerve'
 import TestimonialsVerve from '@/components/verve/TestimonialsVerve'
 import FooterVerve from '@/components/verve/FooterVerve'
@@ -11,7 +9,7 @@ import type { Metadata } from 'next'
 const PAGE_URL = 'https://www.vervemd.com/pricing'
 const PAGE_TITLE = 'Pricing for Home Service Marketing'
 const PAGE_DESC =
-  'Straightforward monthly retainers for home service marketing. Essential ($1,500), Growth ($3,500), and Full Service ($6,500). Month to month. No setup fees.'
+  'Straightforward marketing pricing for home service businesses: AI automation systems, à la carte services, and custom monthly plans built around your business. Month to month. No setup fees. Start with a free audit.'
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -42,10 +40,8 @@ export default function PricingPage() {
       <NavVerve light />
       <main>
         <PricingHeroVerve />
-        <PricingPackagesVerve />
         <TestimonialsVerve />
         <PricingAIPackagesVerve />
-        <BundleBuilderVerve />
         <PricingAlaCarteVerve />
       </main>
       <FooterVerve />
