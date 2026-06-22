@@ -10,7 +10,7 @@ type Status = 'idle' | 'submitting' | 'redirecting' | 'error'
 
 type ErrorKey = 'clinic_name' | 'website' | 'name' | 'email' | 'specialty' | 'city'
 
-export default function AuditFormVerve() {
+export default function AuditFormVerve({ initialTrade, initialCity }: { initialTrade?: string; initialCity?: string } = {}) {
   const router = useRouter()
   const [status, setStatus] = useState<Status>('idle')
   const [errors, setErrors] = useState<Partial<Record<ErrorKey, string>>>({})
@@ -143,7 +143,7 @@ export default function AuditFormVerve() {
       <div className="mt-5 grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="city" style={labelStyle}>Primary City</label>
-          <input id="city" name="city" type="text" style={inputStyle} placeholder="Austin" className={inputCls} aria-describedby={errors.city ? 'err-city' : undefined} />
+          <input id="city" name="city" type="text" defaultValue={initialCity ?? ''} style={inputStyle} placeholder="Austin" className={inputCls} aria-describedby={errors.city ? 'err-city' : undefined} />
           {errors.city && <p id="err-city" className="mt-1 text-xs" style={{ color: 'var(--color-cinnabar-on-dark)', fontFamily: 'var(--font-body)' }}>{errors.city}</p>}
         </div>
         <div>
@@ -162,7 +162,7 @@ export default function AuditFormVerve() {
           <select
             id="specialty"
             name="specialty"
-            defaultValue=""
+            defaultValue={initialTrade ?? ''}
             style={{ ...inputStyle, appearance: 'none', paddingRight: '2.5rem' }}
             className={inputCls}
             aria-describedby={errors.specialty ? 'err-specialty' : undefined}

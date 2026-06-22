@@ -85,7 +85,21 @@ const pageLd = {
   ],
 }
 
-export default function AuditPage() {
+// Trades the audit form accepts; anything else from a query param is ignored.
+const TRADES = ['plumbing', 'hvac', 'electrical', 'roofing', 'other']
+
+export default async function AuditPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ trade?: string; city?: string }>
+}) {
+  // Prefill from the Name Check handoff (/audit?trade=&city=). Validated so a
+  // junk param can never set an invalid trade or inject unexpected values.
+  const sp = await searchParams
+  const tradeRaw = typeof sp.trade === 'string' ? sp.trade.trim().toLowerCase() : ''
+  const initialTrade = TRADES.includes(tradeRaw) ? tradeRaw : undefined
+  const initialCity = typeof sp.city === 'string' && sp.city.trim() ? sp.city.trim().slice(0, 80) : undefined
+
   return (
     <>
       <NavVerve light />
@@ -96,7 +110,7 @@ export default function AuditPage() {
           height="clamp(200px, 26vw, 340px)"
         />
         <section id="audit-form" className="px-6 py-16 lg:px-16" style={{ background: 'var(--color-ink)' }}>
-          <AuditFormVerve />
+          <AuditFormVerve initialTrade={initialTrade} initialCity={initialCity} />
         </section>
         <AuditWhatYouGetVerve />
       </main>
