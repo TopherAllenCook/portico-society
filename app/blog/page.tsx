@@ -131,7 +131,7 @@ export default function BlogIndexPage() {
                         className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium uppercase tracking-[0.18em]"
                         style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}
                       >
-                        <span style={{ color: 'var(--color-cinnabar)' }}>{p.category}</span>
+                        <span style={{ color: 'var(--color-cinnabar-dark)' }}>{p.category}</span>
                         <span aria-hidden="true">·</span>
                         <time dateTime={p.date}>{formatDate(p.date)}</time>
                         <span aria-hidden="true">·</span>
@@ -157,7 +157,7 @@ export default function BlogIndexPage() {
                       </p>
                       <span
                         className="mt-4 inline-flex items-center gap-1 text-sm font-medium"
-                        style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
+                        style={{ color: 'var(--color-cinnabar-dark)', fontFamily: 'var(--font-body)' }}
                       >
                         Read post
                         <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
