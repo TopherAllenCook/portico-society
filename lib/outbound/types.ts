@@ -95,7 +95,8 @@ export interface EmailPatterns {
 
 export interface IcpScore {
   score: number                    // 0–100
-  reasoning: string                // 1–2 sentences
+  reasoning: string                // 1–2 sentences, internal (drives icp_reasoning)
+  audit_finding: string            // one prospect-safe sentence for cold email ({{audit_finding}})
 }
 
 /* ─── DB rows ────────────────────────────────────────────────────────────── */
@@ -155,6 +156,7 @@ export interface OutboundLeadRow {
   mx_verified: boolean | null
   icp_score: number | null
   icp_reasoning: string | null
+  audit_finding: string | null
   scored_at: string | null
   status: LeadWorkflowStatus
   reviewed_by: string | null
