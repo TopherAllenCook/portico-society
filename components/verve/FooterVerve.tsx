@@ -28,6 +28,7 @@ export default function FooterVerve() {
               { label: 'Services', href: '/#services' },
               { label: 'AI Systems', href: '/ai' },
               { label: 'Pricing', href: '/pricing' },
+              { label: 'Blog', href: '/blog' },
               { label: 'Free Audit', href: '/audit' },
               { label: 'About', href: '/about' },
               { label: 'FAQ', href: '/faq' },

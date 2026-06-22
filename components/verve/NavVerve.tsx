@@ -54,6 +54,9 @@ export default function NavVerve({ light = false }: NavVerveProps) {
         <Link href="/pricing" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor, fontFamily: 'var(--font-body)' }}>
           Pricing
         </Link>
+        <Link href="/blog" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor, fontFamily: 'var(--font-body)' }}>
+          Blog
+        </Link>
         <Link href="/contact" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor, fontFamily: 'var(--font-body)' }}>
           Contact
         </Link>
@@ -99,6 +102,7 @@ export default function NavVerve({ light = false }: NavVerveProps) {
         <Link href="/#services" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor }} onClick={() => setOpen(false)}>Services</Link>
         <Link href="/ai" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor }} onClick={() => setOpen(false)}>AI</Link>
         <Link href="/pricing" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor }} onClick={() => setOpen(false)}>Pricing</Link>
+        <Link href="/blog" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor }} onClick={() => setOpen(false)}>Blog</Link>
         <Link href="/contact" className={`${NAV_LINK} ${focusClass}`} style={{ color: textColor }} onClick={() => setOpen(false)}>Contact</Link>
         <button
           type="button"
