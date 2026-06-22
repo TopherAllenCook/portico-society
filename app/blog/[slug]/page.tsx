@@ -42,13 +42,13 @@ export async function generateMetadata({
       description: post.description,
       url,
       type: 'article',
-      images: post.hero.src ? [post.hero.src] : ['/opengraph-image'],
+      // og:image is provided by the per-post opengraph-image.tsx route.
     },
     twitter: {
       card: 'summary_large_image',
       title: `${post.title} · Verve MD`,
       description: post.description,
-      images: post.hero.src ? [post.hero.src] : ['/twitter-image'],
+      // twitter:image falls back to the generated og:image.
     },
   }
 }
@@ -136,7 +136,7 @@ export default async function BlogPostPage({
 
             <p
               className="mt-8 text-xs font-medium uppercase tracking-[0.22em]"
-              style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
+              style={{ color: 'var(--color-cinnabar-dark)', fontFamily: 'var(--font-body)' }}
             >
               {post.category} · {post.readingMinutes} min read
             </p>
@@ -254,7 +254,7 @@ export default async function BlogPostPage({
                     >
                       <span
                         className="text-xs font-medium uppercase tracking-[0.18em]"
-                        style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-body)' }}
+                        style={{ color: 'var(--color-cinnabar-dark)', fontFamily: 'var(--font-body)' }}
                       >
                         {p.category}
                       </span>
