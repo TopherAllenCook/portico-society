@@ -232,7 +232,7 @@ async function enrichAndScore(
   try {
     score = await scoreLead({ place, enrichment })
   } catch (err) {
-    score = { score: 0, reasoning: `scorer error: ${(err as Error).message}`.slice(0, 400), audit_finding: '' }
+    score = { score: 0, reasoning: `scorer error: ${(err as Error).message}`.slice(0, 400) }
   }
 
   await sb
@@ -246,7 +246,6 @@ async function enrichAndScore(
       mx_verified: emails.mx_verified,
       icp_score: score.score,
       icp_reasoning: score.reasoning,
-      audit_finding: score.audit_finding || null,
       scored_at: new Date().toISOString(),
       enriched_at: new Date().toISOString(),
       enrichment_error: null,
