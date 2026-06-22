@@ -36,7 +36,6 @@ interface LeadRow {
   mx_verified: boolean | null
   icp_score: number | null
   icp_reasoning: string | null
-  audit_finding: string | null
   status: LeadWorkflowStatus
   created_at: string
   notes: string | null
@@ -187,7 +186,7 @@ export default async function AdminOutboundPage({ searchParams }: { searchParams
   // Leads list
   let leadsQuery = sb
     .from('outbound_leads')
-    .select('id, clinic_name, specialty, city, state, website, primary_email, phone, google_rating, google_review_count, mx_verified, icp_score, icp_reasoning, audit_finding, status, created_at, notes')
+    .select('id, clinic_name, specialty, city, state, website, primary_email, phone, google_rating, google_review_count, mx_verified, icp_score, icp_reasoning, status, created_at, notes')
     .order('icp_score', { ascending: false, nullsFirst: false })
     .limit(300)
 
@@ -351,12 +350,6 @@ export default async function AdminOutboundPage({ searchParams }: { searchParams
                     </a>
                   )}
                   {l.icp_reasoning && <div className="mt-1 max-w-[28rem] text-xs leading-relaxed" style={{ color: 'var(--color-ink-muted)' }}>{l.icp_reasoning}</div>}
-                  {l.audit_finding && (
-                    <div className="mt-1 max-w-[28rem] text-xs leading-relaxed" style={{ color: 'var(--color-ink)' }}>
-                      <span className="uppercase tracking-[0.08em]" style={{ color: 'var(--color-cinnabar)', fontFamily: 'var(--font-mono)', fontSize: '10px' }}>{'{{audit_finding}}'}</span>{' '}
-                      {l.audit_finding}
-                    </div>
-                  )}
                 </Td>
                 <Td>{l.city}{l.state ? `, ${l.state}` : ''}</Td>
                 <Td>
