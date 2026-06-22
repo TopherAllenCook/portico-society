@@ -129,9 +129,9 @@ export default async function BlogPostPage({
               style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}
               aria-label="Breadcrumb"
             >
-              <Link href="/" className="hover:underline underline-offset-4">Home</Link>
+              <Link href="/" className="rounded-sm hover:underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-cinnabar)]">Home</Link>
               <span aria-hidden="true">/</span>
-              <Link href="/blog" className="hover:underline underline-offset-4">Blog</Link>
+              <Link href="/blog" className="rounded-sm hover:underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-cinnabar)]">Blog</Link>
             </nav>
 
             <p
@@ -249,7 +249,7 @@ export default async function BlogPostPage({
                   <li key={p.slug}>
                     <Link
                       href={`/blog/${p.slug}`}
-                      className="block h-full rounded-2xl p-6 transition-colors"
+                      className="block h-full rounded-2xl p-6 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-cinnabar)]"
                       style={{ background: 'var(--color-ivory)', border: '1px solid var(--color-ink-rule)' }}
                     >
                       <span
@@ -271,7 +271,7 @@ export default async function BlogPostPage({
               <div className="mt-8">
                 <Link
                   href="/blog"
-                  className="text-sm font-medium underline-offset-4 hover:underline"
+                  className="rounded-sm text-sm font-medium underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-cinnabar)]"
                   style={{ color: 'var(--color-ink)', fontFamily: 'var(--font-body)' }}
                 >
                   ← All posts
