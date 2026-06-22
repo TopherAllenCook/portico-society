@@ -27,7 +27,7 @@ interface ProviderConfig {
   call: (query: string) => Promise<{ text: string; citations: string[]; latencyMs: number }>
 }
 
-const providers: ProviderConfig[] = [
+export const providers: ProviderConfig[] = [
   {
     name: 'anthropic',
     model: 'claude-sonnet-4-6',
@@ -159,7 +159,7 @@ function extractDomains(text: string, extra: string[] = []): string[] {
   return [...out]
 }
 
-function extractClinicNames(text: string): string[] {
+export function extractClinicNames(text: string): string[] {
   // Pull names from a JSON array if present; otherwise grab title-cased phrases.
   try {
     const match = text.match(/\[[\s\S]*\]/)
