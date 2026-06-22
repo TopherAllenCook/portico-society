@@ -64,8 +64,15 @@ Be honest. A company with 8 reviews and no Service-area pages is not an 80, even
 Output ONLY JSON in this exact shape:
 {
   "score": <integer 0-100>,
-  "reasoning": "<one or two sentences explaining the score>"
-}`,
+  "reasoning": "<one or two sentences, internal, explaining the score>",
+  "audit_finding": "<one prospect-safe sentence, written TO the owner, naming the single most compelling gap you can see>"
+}
+
+The "audit_finding" is dropped verbatim into a cold email, so it must follow Verve's voice exactly:
+- One sentence, plain English, addressed to the owner ("your shop", "your site", "your business").
+- Name a specific, observable gap from the data: not showing up when homeowners ask AI for their trade, no recent review replies, no online booking or fast lead capture, a generic template site, missing service-area pages, or similar. Use what the signals actually show.
+- No em dashes, no exclamation points, no emojis, no made-up numbers or statistics, no hyperbole. Never invent specifics you cannot see in the data.
+- If the signals are too thin to say anything specific, use exactly: "When homeowners ask AI for the best in your trade and city, the businesses that get named are the ones built to be read, and most shops have never checked where they land."`,
     messages: [{ role: 'user', content: summary }],
   })
 
@@ -115,13 +122,14 @@ function parseScore(text: string): IcpScore {
   // Strip code fences if Claude wrapped the JSON.
   const cleaned = text.replace(/^```(?:json)?\s*/i, '').replace(/```$/i, '').trim()
   const m = cleaned.match(/\{[\s\S]*\}/)
-  if (!m) return { score: 0, reasoning: 'parser failed to find JSON in scorer output' }
+  if (!m) return { score: 0, reasoning: 'parser failed to find JSON in scorer output', audit_finding: '' }
   try {
-    const j = JSON.parse(m[0]) as { score?: unknown; reasoning?: unknown }
+    const j = JSON.parse(m[0]) as { score?: unknown; reasoning?: unknown; audit_finding?: unknown }
     const score = typeof j.score === 'number' ? Math.max(0, Math.min(100, Math.round(j.score))) : 0
     const reasoning = typeof j.reasoning === 'string' ? j.reasoning.slice(0, 600) : ''
-    return { score, reasoning }
+    const audit_finding = typeof j.audit_finding === 'string' ? j.audit_finding.slice(0, 300) : ''
+    return { score, reasoning, audit_finding }
   } catch {
-    return { score: 0, reasoning: 'parser failed: invalid JSON in scorer output' }
+    return { score: 0, reasoning: 'parser failed: invalid JSON in scorer output', audit_finding: '' }
   }
 }
