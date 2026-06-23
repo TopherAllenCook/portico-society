@@ -32,7 +32,7 @@ export default async function BlogOgImage({
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          background: '#f1ead9',
+          background: '#f2ebd8',
           padding: '72px',
           fontFamily: 'Georgia, "Times New Roman", serif',
         }}
@@ -44,7 +44,7 @@ export default async function BlogOgImage({
               width: '72px',
               height: '72px',
               borderRadius: '14px',
-              background: '#211c18',
+              background: '#1c211e',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -55,7 +55,7 @@ export default async function BlogOgImage({
               style={{
                 fontSize: '52px',
                 fontWeight: 600,
-                color: '#f1ead9',
+                color: '#f2ebd8',
                 letterSpacing: '-2px',
                 lineHeight: 1,
                 marginTop: '-4px',
@@ -71,12 +71,12 @@ export default async function BlogOgImage({
                 width: '10px',
                 height: '10px',
                 borderRadius: '5px',
-                background: '#d68d63',
+                background: '#e4682a',
               }}
             />
           </div>
-          <span style={{ fontSize: '30px', color: '#211c18', fontWeight: 600, letterSpacing: '-1px' }}>
-            Verve <span style={{ color: '#a14823', fontStyle: 'italic' }}>MD</span>
+          <span style={{ fontSize: '30px', color: '#1c211e', fontWeight: 600, letterSpacing: '-1px' }}>
+            Verve <span style={{ color: '#005c52', fontStyle: 'italic' }}>MD</span>
           </span>
         </div>
 
@@ -85,7 +85,7 @@ export default async function BlogOgImage({
           <p
             style={{
               fontSize: '26px',
-              color: '#a14823',
+              color: '#005c52',
               textTransform: 'uppercase',
               letterSpacing: '4px',
               margin: 0,
@@ -98,7 +98,7 @@ export default async function BlogOgImage({
           <h1
             style={{
               fontSize: `${titleSize}px`,
-              color: '#211c18',
+              color: '#1c211e',
               lineHeight: 1.05,
               letterSpacing: '-2px',
               margin: 0,
@@ -117,13 +117,13 @@ export default async function BlogOgImage({
             justifyContent: 'space-between',
             alignItems: 'center',
             paddingTop: '24px',
-            borderTop: '1px solid #21281c33',
+            borderTop: '1px solid #1c211e33',
           }}
         >
-          <span style={{ fontSize: '22px', color: '#211c18', opacity: 0.7, fontFamily: 'system-ui, sans-serif' }}>
+          <span style={{ fontSize: '22px', color: '#1c211e', opacity: 0.7, fontFamily: 'system-ui, sans-serif' }}>
             vervemd.com/blog
           </span>
-          <span style={{ fontSize: '22px', color: '#211c18', opacity: 0.7, fontFamily: 'system-ui, sans-serif' }}>
+          <span style={{ fontSize: '22px', color: '#1c211e', opacity: 0.7, fontFamily: 'system-ui, sans-serif' }}>
             {minutes ? `${minutes} min read` : 'Free audit'}
           </span>
         </div>
