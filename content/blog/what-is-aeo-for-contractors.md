@@ -7,8 +7,8 @@ category: "Fundamentals"
 date: "2026-06-22"
 updated: "2026-06-22"
 hero:
-  src: ""
-  alt: "A home service contractor reviewing the day's jobs on a tablet"
+  src: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1600&q=80"
+  alt: "A wall of well-used hand tools in a home service workshop"
   credit: ""
 audioProjectId: ""
 ---
