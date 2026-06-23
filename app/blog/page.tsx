@@ -126,7 +126,10 @@ export default function BlogIndexPage() {
               <ul style={{ borderTop: '1px solid var(--color-ink-rule)' }}>
                 {posts.map((p) => (
                   <li key={p.slug} style={{ borderBottom: '1px solid var(--color-ink-rule)' }}>
-                    <Link href={`/blog/${p.slug}`} className="group block py-8">
+                    <Link
+                      href={`/blog/${p.slug}`}
+                      className="group block py-8 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-cinnabar)]"
+                    >
                       <div
                         className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium uppercase tracking-[0.18em]"
                         style={{ color: 'var(--color-label-text)', fontFamily: 'var(--font-body)' }}

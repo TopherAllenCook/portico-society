@@ -391,11 +391,25 @@ body {
   background: var(--color-stone);
 }
 
+/* Editorial pull-quote — display type carries it, no side-stripe accent */
 .prose-verve blockquote {
-  border-left: 3px solid var(--color-cinnabar);
-  padding-left: 1rem;
-  color: var(--color-ink-muted);
-  font-style: italic;
+  margin: 2.25rem 0;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+  max-width: 60ch;
+}
+
+.prose-verve blockquote p {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  max-width: inherit;
+  margin: 0;
 }
 
 .prose-verve hr {
