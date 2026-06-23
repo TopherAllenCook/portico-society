@@ -158,23 +158,23 @@
   justify-content: flex-end; overflow: hidden;
   padding: 0 var(--vk-pad) clamp(4rem, 12vh, 9rem);
 }
-.vk-hero-bg { position: absolute; inset: 0; z-index: 0; }
-/* cinematic dark scene built from gradients + bloom + grid */
+.vk-hero-bg { position: absolute; inset: 0; z-index: 0; background-color: var(--vk-bg); }
+/* legibility + brand overlay sitting on top of the hero photo */
 .vk-hero-bg::before {
-  content: ""; position: absolute; inset: 0;
+  content: ""; position: absolute; inset: 0; z-index: 1;
   background:
-    radial-gradient(120% 80% at 50% -10%, #35423e 0%, #232b28 38%, #19201e 72%),
-    linear-gradient(180deg, rgba(0,0,0,0) 40%, var(--vk-bg) 99%);
+    linear-gradient(180deg, rgba(16,21,20,0.55) 0%, rgba(16,21,20,0.16) 24%, rgba(18,24,22,0.82) 78%, var(--vk-bg) 100%),
+    radial-gradient(120% 70% at 50% 6%, rgba(31,158,147,0.16), transparent 55%);
 }
 .vk-hero-bg::after {
-  content: ""; position: absolute; inset: 0;
+  content: ""; position: absolute; inset: 0; z-index: 2;
   background:
-    radial-gradient(58% 45% at 20% 38%, rgba(40,183,168,0.22), transparent 60%),
+    radial-gradient(58% 45% at 20% 40%, rgba(40,183,168,0.20), transparent 60%),
     radial-gradient(34% 28% at 82% 26%, rgba(239,106,44,0.12), transparent 62%);
   mix-blend-mode: screen;
 }
 .vk-grid {
-  position: absolute; inset: 0; z-index: 0; opacity: 0.5;
+  position: absolute; inset: 0; z-index: 2; opacity: 0.18;
   background-image:
     linear-gradient(var(--vk-line-soft) 1px, transparent 1px),
     linear-gradient(90deg, var(--vk-line-soft) 1px, transparent 1px);
@@ -256,7 +256,7 @@
     linear-gradient(150deg, #2a332f, #1a201e 80%);
   border: 1px solid var(--vk-line);
 }
-.vk-media .vk-crop { position: absolute; inset: 0; opacity: 0.55;
+.vk-media .vk-crop { position: absolute; inset: 0; opacity: 0.22; z-index: 2;
   background-image: linear-gradient(var(--vk-line-soft) 1px, transparent 1px), linear-gradient(90deg, var(--vk-line-soft) 1px, transparent 1px);
   background-size: 26px 26px; }
 .vk-media .vk-tag {
@@ -330,7 +330,7 @@
 .vk-pin-img.v1 { background: linear-gradient(160deg, #b9bdb6, #6f736d); }
 .vk-pin-img.v2 { background: linear-gradient(160deg, #a7aaa3, #585b54); }
 .vk-pin-img.v3 { background: linear-gradient(160deg, #cfd2cb, #7d8079); }
-.vk-pin-img .vk-crop { position:absolute; inset:0; opacity:.4;
+.vk-pin-img .vk-crop { position:absolute; inset:0; opacity:.22; z-index: 2;
   background-image: linear-gradient(rgba(0,0,0,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.08) 1px, transparent 1px);
   background-size: 30px 30px; }
 .vk-pin-steps { position: relative; min-height: 240px; }
@@ -387,7 +387,7 @@
 .vk-uc-panel.is-active { opacity: 1; pointer-events: auto; position: relative; }
 .vk-uc-img { position: relative; min-height: clamp(280px, 34vw, 440px); overflow: hidden;
   background: linear-gradient(160deg, #2d3733, #181e1c); }
-.vk-uc-img .vk-crop { position:absolute; inset:0; opacity:.5;
+.vk-uc-img .vk-crop { position:absolute; inset:0; opacity:.24; z-index: 2;
   background-image: linear-gradient(var(--vk-line-soft) 1px, transparent 1px), linear-gradient(90deg, var(--vk-line-soft) 1px, transparent 1px);
   background-size: 30px 30px; }
 .vk-uc-img .vk-bloom2 { position:absolute; width:60%; height:60%; border-radius:50%; left:-10%; bottom:-10%;
