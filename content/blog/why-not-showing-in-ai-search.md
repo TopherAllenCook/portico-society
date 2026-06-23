@@ -4,8 +4,8 @@ description: "Your business isn't showing up in AI search because assistants can
 slug: "why-not-showing-in-ai-search"
 keyword: "showing up in AI search"
 category: "AI Search"
-date: "2026-06-22"
-updated: "2026-06-22"
+date: "2026-06-23"
+updated: "2026-06-23"
 hero:
   src: "https://images.unsplash.com/photo-1505798577917-a65157d3320a?auto=format&fit=crop&w=1600&q=80"
   alt: "Two tradesmen cutting trim with a miter saw during a home renovation"
