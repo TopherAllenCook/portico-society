@@ -226,6 +226,23 @@ const RAIL = [
   { id: 'verticals', label: 'Verticals' },
 ]
 
+/* ---------- self-hosted photos (public/verve) ---------- */
+const PROCESS_PHOTOS = ['/verve/process-audit.jpg', '/verve/process-build.jpg', '/verve/process-launch.jpg']
+const VERTICAL_PHOTOS = [
+  '/verve/vertical-plumbing.jpg',
+  '/verve/vertical-hvac.jpg',
+  '/verve/vertical-electrical.jpg',
+  '/verve/vertical-roofing.jpg',
+  '/verve/vertical-multitrade.jpg',
+]
+// teal/charcoal duotone overlay over a photo so it sits in the palette
+const duoDark = (img: string) => ({
+  background: `linear-gradient(155deg, rgba(31,158,147,0.20), rgba(15,19,18,0.66)), url(${img}) center/cover no-repeat`,
+})
+const duoLight = (img: string) => ({
+  background: `linear-gradient(160deg, rgba(31,158,147,0.10), rgba(15,19,18,0.20)), url(${img}) center/cover no-repeat`,
+})
+
 export default function VerveVaulkMock() {
   const rootRef = useRef<HTMLDivElement>(null)
   const [railActive, setRailActive] = useState<string>('overview')
@@ -322,7 +339,7 @@ export default function VerveVaulkMock() {
 
       {/* ===================== HERO ===================== */}
       <header className="vk-hero" id="top">
-        <div className="vk-hero-bg" />
+        <div className="vk-hero-bg" style={{ backgroundImage: 'url(/verve/hero.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }} />
         <div className="vk-grid" />
         <div className="vk-noise" />
         <div className="vk-hero-content">
@@ -393,7 +410,7 @@ export default function VerveVaulkMock() {
         <div className="vk-container">
           <div className="vk-tagbar"><span className="vk-mono">Approach · how homeowners search now</span></div>
           <div className="vk-split" style={{ marginTop: '3.5rem' }}>
-            <div className="vk-media vk-media-corners vk-fade">
+            <div className="vk-media vk-media-corners vk-fade" style={duoDark('/verve/approach.jpg')}>
               <div className="vk-crop" />
               <i />
               <div className="vk-tag"><b /><span className="vk-mono" style={{ color: '#fff' }}>SIGNAL · AI SEARCH</span></div>
@@ -468,7 +485,7 @@ export default function VerveVaulkMock() {
               <div className="vk-pin-media vk-media-corners">
                 <i />
                 {PROCESS.map((_, i) => (
-                  <div key={i} className={`vk-pin-img v${i + 1}` + (step === i ? ' is-active' : '')}>
+                  <div key={i} className={`vk-pin-img v${i + 1}` + (step === i ? ' is-active' : '')} style={duoLight(PROCESS_PHOTOS[i])}>
                     <div className="vk-crop" />
                   </div>
                 ))}
@@ -549,7 +566,7 @@ export default function VerveVaulkMock() {
             </div>
             {VERTICALS.map((v, i) => (
               <div key={i} className={'vk-uc-panel' + (uc === i ? ' is-active' : '')}>
-                <div className="vk-uc-img">
+                <div className="vk-uc-img" style={duoDark(VERTICAL_PHOTOS[i])}>
                   <div className="vk-crop" />
                   <div className="vk-bloom2" />
                 </div>
