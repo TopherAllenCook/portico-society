@@ -1,13 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Verve MD mark">
   <title>Verve MD mark</title>
-  <rect width="120" height="120" rx="20" fill="#211c18"/>
+  <rect width="120" height="120" rx="20" fill="#1f2624"/>
   <text
-    x="60" y="86"
+    x="56" y="84"
     text-anchor="middle"
-    font-family="Fraunces, 'Fraunces 144pt', Georgia, 'Times New Roman', serif"
-    font-weight="600"
-    font-size="96"
-    letter-spacing="-3"
-    fill="#f1ead9">V</text>
-  <circle cx="92" cy="92" r="6" fill="#d68d63"/>
+    font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif"
+    font-weight="700"
+    font-size="78"
+    fill="#f3ecda">V</text>
+  <rect x="84" y="74" width="11" height="11" fill="#ef6a2c"/>
 </svg>

@@ -1,17 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 140" role="img" aria-label="Verve MD">
   <title>Verve MD</title>
   <text
-    x="0" y="108"
-    font-family="Fraunces, 'Fraunces 144pt', Georgia, 'Times New Roman', serif"
+    x="235" y="92" text-anchor="middle"
+    font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif"
     font-weight="600"
-    font-size="120"
-    letter-spacing="-3"
-    fill="#211c18">Verve</text>
-  <text
-    x="305" y="108"
-    font-family="Fraunces, 'Fraunces 144pt', Georgia, 'Times New Roman', serif"
-    font-weight="600"
-    font-size="76"
-    letter-spacing="2"
-    fill="#a14823">MD</text>
+    font-size="78"
+    letter-spacing="6"
+    fill="#1f2624">VERVE<tspan fill="#ef6a2c">·</tspan>MD</text>
 </svg>

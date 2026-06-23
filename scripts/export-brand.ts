@@ -3,8 +3,8 @@
  *
  *   npm run brand:export
  *
- * Renders each SVG inside a headless Chromium page that loads Fraunces
- * from Google Fonts, waits for fonts to settle, then screenshots at 2x.
+ * Renders each SVG inside a headless Chromium page that loads Space Grotesk
+ * + Chivo Mono from Google Fonts, waits for fonts to settle, then screenshots.
  */
 import { chromium } from 'playwright'
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
@@ -23,14 +23,14 @@ const ASSETS: Array<{
   bg: string
   scale?: number
 }> = [
-  { svg: 'wordmark-light.svg', png: 'wordmark-light.png', width: 470, height: 140, bg: '#f1ead9', scale: 4 },
-  { svg: 'wordmark-dark.svg',  png: 'wordmark-dark.png',  width: 470, height: 140, bg: '#211c18', scale: 4 },
-  { svg: 'wordmark-mono.svg',  png: 'wordmark-mono.png',  width: 470, height: 140, bg: '#f1ead9', scale: 4 },
-  { svg: 'mark.svg',           png: 'mark.png',           width: 120, height: 120, bg: '#f1ead9', scale: 8 },
-  { svg: 'mark.svg',           png: 'favicon-512.png',    width: 120, height: 120, bg: '#f1ead9', scale: 512 / 120 },
-  { svg: 'linkedin-banner.svg', png: 'linkedin-banner.png', width: 1584, height: 396, bg: '#f1ead9', scale: 2 },
+  { svg: 'wordmark-light.svg', png: 'wordmark-light.png', width: 470, height: 140, bg: '#f3ecda', scale: 4 },
+  { svg: 'wordmark-dark.svg',  png: 'wordmark-dark.png',  width: 470, height: 140, bg: '#1f2624', scale: 4 },
+  { svg: 'wordmark-mono.svg',  png: 'wordmark-mono.png',  width: 470, height: 140, bg: '#f3ecda', scale: 4 },
+  { svg: 'mark.svg',           png: 'mark.png',           width: 120, height: 120, bg: '#f3ecda', scale: 8 },
+  { svg: 'mark.svg',           png: 'favicon-512.png',    width: 120, height: 120, bg: '#f3ecda', scale: 512 / 120 },
+  { svg: 'linkedin-banner.svg', png: 'linkedin-banner.png', width: 1584, height: 396, bg: '#1f2624', scale: 2 },
   // LinkedIn company-page cover crops the right pillar column — render at 1128x191 for that use.
-  { svg: 'linkedin-banner.svg', png: 'linkedin-banner-company.png', width: 1128, height: 191, bg: '#f1ead9', scale: 2 },
+  { svg: 'linkedin-banner.svg', png: 'linkedin-banner-company.png', width: 1128, height: 191, bg: '#1f2624', scale: 2 },
 ]
 
 function pageHtml(svgInline: string, width: number, height: number, bg: string) {
@@ -39,7 +39,7 @@ function pageHtml(svgInline: string, width: number, height: number, bg: string) 
 <head>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   html, body { margin: 0; padding: 0; background: ${bg}; }
   #frame { width: ${width}px; height: ${height}px; }
