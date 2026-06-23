@@ -1,59 +1,64 @@
 @import "tailwindcss";
 
 @theme {
-  /* Verve MD brand palette — editorial terracotta */
-  --color-ivory:            oklch(95% 0.016 82);    /* warm paper white */
-  --color-ink:              oklch(14% 0.012 50);    /* warm charcoal, not cool black */
-  --color-cinnabar:         oklch(51% 0.145 38);    /* terracotta — burnt orange, not crimson */
-  --color-cinnabar-dark:    oklch(41% 0.12 38);     /* deep terracotta */
-  --color-cinnabar-pale:    oklch(93% 0.020 62);    /* warm blush tint */
-  --color-cinnabar-on-dark: oklch(72% 0.13 38);     /* terracotta readable on dark */
-  --color-cta-surface:      oklch(20% 0.014 50);    /* warm dark card surface */
-  --color-stone:            oklch(90% 0.014 78);    /* warm light gray — section bg */
-  --color-stone-mid:        oklch(72% 0.010 65);    /* warm mid tone */
-  --color-sand:             oklch(87% 0.026 82);    /* kraft/sand — editorial accent bg */
+  /* Verve MD brand palette — cream / charcoal / teal, with a little orange.
+     Token names kept stable so every component recolours via these values. */
+  --color-ivory:            oklch(94% 0.026 90);    /* cream — page surface (was ivory) */
+  --color-ink:              oklch(24% 0.008 168);   /* charcoal — text + dark sections */
+  --color-cinnabar:         oklch(50% 0.090 184);   /* TEAL — primary accent */
+  --color-cinnabar-dark:    oklch(42% 0.085 184);   /* deep teal */
+  --color-cinnabar-pale:    oklch(93% 0.026 184);   /* pale teal tint */
+  --color-cinnabar-on-dark: oklch(70% 0.110 184);   /* bright teal, readable on charcoal */
+  --color-cta-surface:      oklch(28% 0.008 168);   /* charcoal card/dark surface */
+  --color-stone:            oklch(90% 0.022 90);    /* warm stone — section bg */
+  --color-stone-mid:        oklch(72% 0.014 90);    /* warm mid tone */
+  --color-sand:             oklch(86% 0.030 88);    /* deeper cream/kraft accent bg */
+
+  /* the little bit of orange — secondary accent */
+  --color-orange:           oklch(66% 0.170 44);
+  --color-orange-on-dark:   oklch(70% 0.160 46);
 
   /* Decorative non-text on light surfaces — rules, dividers, icons */
-  --color-ink-rule:         oklch(14% 0.012 50 / 0.1);
-  --color-ink-faint:        oklch(14% 0.012 50 / 0.08);
-  --color-ink-ghost:        oklch(14% 0.012 50 / 0.06);
-  --color-ink-icon:         oklch(14% 0.012 50 / 0.35);
-  --color-ivory-mid:        oklch(95% 0.016 82 / 0.5);
+  --color-ink-rule:         oklch(24% 0.008 168 / 0.12);
+  --color-ink-faint:        oklch(24% 0.008 168 / 0.08);
+  --color-ink-ghost:        oklch(24% 0.008 168 / 0.06);
+  --color-ink-icon:         oklch(24% 0.008 168 / 0.40);
+  --color-ivory-mid:        oklch(94% 0.026 90 / 0.5);
 
   /* Decorative non-text on dark (ink / cta-surface) surfaces */
-  --color-ivory-ghost:      oklch(95% 0.016 82 / 0.04);  /* faintest overlay on dark */
-  --color-ivory-subtle:     oklch(95% 0.016 82 / 0.07);
-  --color-ivory-dim:        oklch(95% 0.016 82 / 0.12);
-  --color-ivory-muted:      oklch(95% 0.016 82 / 0.25);  /* border on dark */
-  --color-ivory-glow:       oklch(95% 0.016 82 / 0.6);   /* focus ring on dark */
-  --color-ivory-hover:      oklch(95% 0.016 82 / 0.72);  /* muted text on terracotta hover */
+  --color-ivory-ghost:      oklch(94% 0.026 90 / 0.04);  /* faintest overlay on dark */
+  --color-ivory-subtle:     oklch(94% 0.026 90 / 0.07);
+  --color-ivory-dim:        oklch(94% 0.026 90 / 0.12);
+  --color-ivory-muted:      oklch(94% 0.026 90 / 0.25);  /* border on dark */
+  --color-ivory-glow:       oklch(94% 0.026 90 / 0.6);   /* focus ring on dark */
+  --color-ivory-hover:      oklch(94% 0.026 90 / 0.72);  /* muted text on accent hover */
 
   /* Accessible text on dark (ink / cta-surface) backgrounds — solid, no opacity */
-  --color-body-text-on-dark:  oklch(79% 0.008 70);   /* warm light on dark */
-  --color-label-text-on-dark: oklch(65% 0.006 65);   /* warm muted on dark */
+  --color-body-text-on-dark:  oklch(80% 0.014 90);   /* cream-light on charcoal */
+  --color-label-text-on-dark: oklch(66% 0.012 90);   /* muted cream on charcoal */
 
   /* Accessible text on light (ivory / stone / sand) backgrounds — solid, no opacity */
-  --color-body-text:        oklch(38% 0.008 50);   /* warm dark body copy */
-  --color-label-text:       oklch(42% 0.008 55);   /* warm label/meta text */
-  --color-ink-muted:        oklch(55% 0.006 55);   /* muted display text */
+  --color-body-text:        oklch(38% 0.008 168);  /* charcoal body copy */
+  --color-label-text:       oklch(42% 0.008 168);  /* charcoal label/meta text */
+  --color-ink-muted:        oklch(52% 0.006 168);  /* muted display text */
 
-  /* Elevated surfaces — warmer than #fff, brighter than ivory page */
-  --color-paper:            oklch(98% 0.01 82);    /* trust pills, floating chips, secondary CTAs */
+  /* Elevated surfaces — brighter than the cream page */
+  --color-paper:            oklch(97% 0.018 90);    /* trust pills, floating chips, secondary CTAs */
 
   /* Decorative dashed ring on light surfaces */
-  --color-ink-ring:         oklch(14% 0.012 50 / 0.18);
+  --color-ink-ring:         oklch(24% 0.008 168 / 0.18);
 
   /* Box shadows — use these instead of raw oklch in component style props */
-  --shadow-pill:            0 4px 16px oklch(14% 0.012 50 / 0.04);
-  --shadow-chip:            0 4px 16px oklch(14% 0.012 50 / 0.06);
-  --shadow-card-soft:       0 20px 60px oklch(14% 0.012 50 / 0.10);
-  --shadow-card:            0 20px 60px oklch(14% 0.012 50 / 0.12);
-  --shadow-card-lg:         0 30px 80px oklch(14% 0.012 50 / 0.15);
+  --shadow-pill:            0 4px 16px oklch(24% 0.008 168 / 0.05);
+  --shadow-chip:            0 4px 16px oklch(24% 0.008 168 / 0.07);
+  --shadow-card-soft:       0 20px 60px oklch(24% 0.008 168 / 0.10);
+  --shadow-card:            0 20px 60px oklch(24% 0.008 168 / 0.12);
+  --shadow-card-lg:         0 30px 80px oklch(24% 0.008 168 / 0.16);
 
-  /* Typography: Fraunces display + SF Pro system body */
+  /* Typography: Space Grotesk display/body + Chivo Mono labels */
   --font-display: var(--font-display-family), 'Helvetica Neue', Arial, sans-serif;
-  --font-body:    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-  --font-mono:    ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
+  --font-body:    var(--font-display-family), -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:    var(--font-mono-family), ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
 
   /* Fluid type scale */
   --text-display:  clamp(3rem, 8vw, 6.5rem);
@@ -224,8 +229,8 @@
 
 /* Text on cinnabar/accent surfaces — solid values, no inline opacity needed */
 @theme {
-  --color-ivory-label-on-accent: oklch(95% 0.016 82 / 0.68);  /* label/eyebrow on cinnabar */
-  --color-ivory-body-on-accent:  oklch(95% 0.016 82 / 0.85);  /* body copy on cinnabar */
+  --color-ivory-label-on-accent: oklch(98% 0.012 90 / 0.78);  /* label/eyebrow on teal */
+  --color-ivory-body-on-accent:  oklch(98% 0.012 90 / 0.92);  /* body copy on teal */
 }
 
 /* Calculator inputs: custom bottom-border focus indicator */
@@ -391,11 +396,25 @@ body {
   background: var(--color-stone);
 }
 
+/* Editorial pull-quote — display type carries it, no side-stripe accent */
 .prose-verve blockquote {
-  border-left: 3px solid var(--color-cinnabar);
-  padding-left: 1rem;
-  color: var(--color-ink-muted);
-  font-style: italic;
+  margin: 2.25rem 0;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+  max-width: 60ch;
+}
+
+.prose-verve blockquote p {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  max-width: inherit;
+  margin: 0;
 }
 
 .prose-verve hr {

@@ -1,14 +1,23 @@
 import type { Metadata, Viewport } from 'next'
-import { Plus_Jakarta_Sans } from 'next/font/google'
+import { Space_Grotesk, Chivo_Mono } from 'next/font/google'
 import JsonLd from '@/components/verve/JsonLd'
 import CalScript from '@/components/verve/CalScript'
 import GoogleAnalytics from '@/components/verve/GoogleAnalytics'
 import './globals.css'
 
-const display = Plus_Jakarta_Sans({
+// Space Grotesk — geometric grotesque display/body (Telegraf stand-in)
+const display = Space_Grotesk({
   subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-display-family',
+  display: 'swap',
+})
+
+// Chivo Mono — caption/label mono
+const mono = Chivo_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-mono-family',
   display: 'swap',
 })
 
@@ -71,14 +80,14 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f1ead9' },
-    { media: '(prefers-color-scheme: dark)', color: '#211c18' },
+    { media: '(prefers-color-scheme: light)', color: '#f3ecda' },
+    { media: '(prefers-color-scheme: dark)', color: '#1f2624' },
   ],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={display.variable}>
+    <html lang="en" className={`${display.variable} ${mono.variable}`}>
       <body>
         {children}
         <JsonLd />
