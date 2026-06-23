@@ -4,8 +4,8 @@ description: "AEO vs SEO for contractors: SEO ranks your site in a list, AEO get
 slug: "aeo-vs-seo-for-contractors"
 keyword: "AEO vs SEO"
 category: "Fundamentals"
-date: "2026-06-22"
-updated: "2026-06-22"
+date: "2026-06-23"
+updated: "2026-06-23"
 hero:
   src: "https://images.unsplash.com/photo-1587582423116-ec07293f0395?auto=format&fit=crop&w=1600&q=80"
   alt: "A construction worker framing a house against a blue sky"
