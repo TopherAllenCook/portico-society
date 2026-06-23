@@ -84,7 +84,9 @@ export default async function BlogPostPage({
         keywords: post.keyword,
         author: { '@type': 'Organization', name: 'Verve MD', url: BASE_URL },
         publisher: { '@id': `${BASE_URL}#organization` },
-        ...(post.hero.src ? { image: `${BASE_URL}${post.hero.src}` } : {}),
+        ...(post.hero.src
+          ? { image: post.hero.src.startsWith('http') ? post.hero.src : `${BASE_URL}${post.hero.src}` }
+          : {}),
       },
       {
         '@type': 'BreadcrumbList',

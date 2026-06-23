@@ -7,8 +7,8 @@ category: "Benchmarks"
 date: "2026-06-22"
 updated: "2026-06-22"
 hero:
-  src: ""
-  alt: "A home service business owner reviewing marketing costs and lead numbers at a desk"
+  src: "https://images.unsplash.com/photo-1595831708961-1b13c0dd2422?auto=format&fit=crop&w=1600&q=80"
+  alt: "An electrician in safety gear servicing electrical equipment"
   credit: ""
 audioProjectId: ""
 ---

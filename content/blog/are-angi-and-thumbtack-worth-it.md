@@ -7,8 +7,8 @@ category: "Lead Generation"
 date: "2026-06-22"
 updated: "2026-06-22"
 hero:
-  src: ""
-  alt: "A home service contractor reviewing leads and quotes on a laptop"
+  src: "https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=1600&q=80"
+  alt: "A roofer working on a residential roof against a warm sky"
   credit: ""
 audioProjectId: ""
 ---

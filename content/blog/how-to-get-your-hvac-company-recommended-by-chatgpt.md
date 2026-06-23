@@ -7,8 +7,8 @@ category: "AI Search"
 date: "2026-06-22"
 updated: "2026-06-22"
 hero:
-  src: ""
-  alt: "An HVAC technician servicing a home heating and cooling system"
+  src: "https://images.unsplash.com/photo-1561480337-03eb1b6795a2?auto=format&fit=crop&w=1600&q=80"
+  alt: "A technician servicing a home heating and cooling system"
   credit: ""
 audioProjectId: ""
 ---
