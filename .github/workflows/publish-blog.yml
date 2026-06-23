@@ -1,0 +1,62 @@
+name: Publish blog post (2x/week)
+
+# Drips the next queued post into content/blog/ on a schedule. The push to
+# master triggers the normal Vercel production deploy. Also runs on demand.
+on:
+  schedule:
+    - cron: '0 15 * * 2,5' # Tuesday & Friday, 15:00 UTC (~8-9am Mountain)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-blog
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Publish next queued post
+        id: pub
+        run: node scripts/publish-next.mjs
+
+      - name: Commit and push
+        if: steps.pub.outputs.published != ''
+        run: |
+          git config user.name "verve-blog-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/blog content/queue
+          git commit -m "content(blog): auto-publish ${{ steps.pub.outputs.published }}"
+          git pull --rebase origin master
+          git push origin master
+
+      - name: Submit to IndexNow
+        if: steps.pub.outputs.published != ''
+        env:
+          KEY: c42e7053cc16c2ce604a0979d6f996fa
+          SLUG: ${{ steps.pub.outputs.published }}
+        run: |
+          URL="https://www.vervemd.com/blog/${SLUG}"
+          curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json" \
+            -d "{\"host\":\"www.vervemd.com\",\"key\":\"${KEY}\",\"keyLocation\":\"https://www.vervemd.com/${KEY}.txt\",\"urlList\":[\"${URL}\",\"https://www.vervemd.com/blog\"]}"
+          echo "Submitted ${URL} to IndexNow."
+
+      - name: Summary
+        run: |
+          if [ -n "${{ steps.pub.outputs.published }}" ]; then
+            echo "Published: ${{ steps.pub.outputs.published }} (${{ steps.pub.outputs.remaining }} left in queue)" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Queue empty: nothing published this run." >> "$GITHUB_STEP_SUMMARY"
+          fi
