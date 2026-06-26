@@ -4,8 +4,8 @@ description: "The Google Business Profile checklist for contractors: every field
 slug: "google-business-profile-checklist-contractors"
 keyword: "Google Business Profile checklist"
 category: "Local SEO"
-date: "2026-06-22"
-updated: "2026-06-22"
+date: "2026-06-26"
+updated: "2026-06-26"
 hero:
   src: "https://images.unsplash.com/photo-1749532125405-70950966b0e5?auto=format&fit=crop&w=1600&q=80"
   alt: "A plumber servicing pipes in a home bathroom"
