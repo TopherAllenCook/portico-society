@@ -4,8 +4,8 @@ description: "Your Google Ads aren't booking jobs because of what happens after 
 slug: "why-google-ads-arent-booking-jobs"
 keyword: "Google Ads aren't booking jobs"
 category: "Paid Media"
-date: "2026-06-22"
-updated: "2026-06-22"
+date: "2026-06-30"
+updated: "2026-06-30"
 hero:
   src: "https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?auto=format&fit=crop&w=1600&q=80"
   alt: "A contractor's hands using a power drill on the job"
